@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- partial('_partial/head') %>
+</head>
+<body>
+    <div id="mask"></div>
+    <div id="body-wrap">
+        <%- partial('_partial/nav') %>
+        <%- partial('_partial/header') %>
+        <main class="content">
+            <%- body %>
+        </main>
+    </div>
+    <%- partial('_partial/footer') %>   
+    <%- partial('_partial/script') %>   
+</body>
+</html>

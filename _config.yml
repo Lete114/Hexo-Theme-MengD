@@ -1,0 +1,28 @@
+menu:
+  首页: /
+  标签: /tags
+  关于我: /about
+  
+title: Lete乐特's Blog
+author: Lete乐特
+mail: lete@lete114.top
+avatar: https://www.lete114.top/img/avatar.png
+description: 人生只有一次，大胆的生活！！
+
+social:
+  fab fa-github: https://github.com/lete114
+  fa fa-envelope: mailto:lete@lete114.top
+
+copytight: true  
+
+footer:
+  custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！  
+  since: 2020
+
+# 自动截取
+post_content:
+  line: 3 # 显示多少行后出现省略号(...)
+  length: 500 # 截取多少字 
+
+## 代码块样式
+highlight_theme: mac # default / darker / pale night / light / ocean / mac / mac light

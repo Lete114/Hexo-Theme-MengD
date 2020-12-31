@@ -1,0 +1,122 @@
+<% if(index){ %>
+        <div class="post-item">
+            <div class="post-title">
+                <h2><a href="<%- url_for(post.path) %>"><%= post.title %></a></h2>
+            </div>
+            <div class="post-description">
+                <p style="-webkit-line-clamp: <%- theme.post_content.line %>">
+                    <%- strip_html(post.content.substring(0, theme.post_content.length)) %>
+                </p>
+            </div>
+            <div class="post-footer">
+                <div class="post-meta">
+                    <span class="post-date">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>发表于</span>
+                        <span><%- date(post.date, "YYYY-MM-DD") %></span>
+                    </span>
+                </div>
+                
+                <div class="post-tag">
+                    <span>
+                        <i class="fa fa-tag"></i>
+                        <% post.tags.forEach(function(tag, i){ %> 
+                        <a href="<%= tag.path %>"><span><%-tag.name%></span></a>
+                            <%if(post.tags.length-1 > i){%>
+                                <i class="fas fa-angle-right"></i>
+                            <%} %>
+                        <% }) %>
+                    </span>
+                </div>
+            </div>
+        </div>
+<% }else{ %>
+    <%if(page.type==null || page.layout==null){%>
+        <article class="post">
+            <div class="post-title">
+              <h2 class="title"><%= page.title %></h2>
+            </div>
+             <%if(page.type==null){%>
+             <div class="post-meta">
+                <div class="meta-firstline">
+                    <span class="post-meta-date">
+                        <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
+                        <span class="post-meta-label">发表于 <%- date(page.date, "YYYY-MM-DD") %> | </span>
+                        
+                        <i class="fas fa-history fa-fw post-meta-icon"></i>
+                        <span class="post-meta-label">更新于 <%- date(page.update, "YYYY-MM-DD") %></span>
+                    </span>
+                </div>
+                <div class="meta-secondline"> 
+                    <span class="post-meta-wordcount">
+                        <i class="far fa-file-word fa-fw post-meta-icon"></i>
+                        <span class="post-meta-label">字数总计:</span>
+                        <span class="word-count"><%= wordcount(page.content) %> | </span>
+                        <i class="far fa-clock fa-fw post-meta-icon"></i>
+                        <span class="post-meta-label">阅读时长:</span>
+                        <span><%= min2read(page.content) %>分钟 | </span>
+                        <i class="far fa-eye fa-fw post-meta-icon"></i>
+                        <span class="post-meta-label">阅读量:</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </div>
+            </div>
+             <%}%>
+            <div class="post-content">
+                <%- page.content %>
+            </div>
+            
+            <%- partial('copyright') %>
+
+            <div class="post-tag">
+                <span>
+                    <i class="fa fa-tag"></i>
+                    <% post.tags.forEach(function(tag, i){ %> 
+                    <a href="<%= tag.path %>"><span><%-tag.name%></span></a>
+                        <%if(post.tags.length-1 > i){%>
+                            <i class="fas fa-angle-right"></i>
+                        <%} %>
+                    <% }) %>
+                </span>
+            </div>
+
+            <%- partial('share') %>
+
+            <%- partial('reward') %>
+            
+        </article>
+        <div class="pagination">
+            <% if (post.prev){ %>
+            <a href="<%- url_for(post.prev.path) %>" class="page-pre">
+                <i class="fas fa-arrow-alt-circle-left"></i>
+                <%= post.prev.title %>
+            </a>
+            
+            <% } %>
+            <% if (post.next){ %>
+            <a href="<%- url_for(post.next.path) %>" class="page-next">
+                <%= post.next.title %>
+                <i class="fas fa-arrow-alt-circle-right"></i>
+            </a>
+            <% } %>
+        </div>
+    <%}else if(page.type=="tags" || page.layout=="tags"){%>
+        <div id="page-title" class="page-title">
+            <h2><%= page.title %> - <%= site.tags.length %></h2>
+        </div>
+        <%- partial('tag') %>
+
+    <%}else if(page.type=="archives" || page.layout=="archives"){%>
+        <%- partial('archive') %>
+
+    <%}else if(page.type!=null || page.layout!=null){%>
+        <div id="page-title" class="page-title">
+            <h2><%= page.title %></h2>
+            <span class="page-description"><%= page.description %></span>
+        </div>
+        <div class="post-content">
+            <%- page.content %>
+        </div>
+    <%}%>
+<% } %>
+

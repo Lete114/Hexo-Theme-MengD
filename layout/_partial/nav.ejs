@@ -1,0 +1,22 @@
+<nav class="site_nav" id="site_nav">
+    <i id="openNav" class="fas fa-bars fa-fw"></i>
+    <div id="mobileNav">
+        <div class="author-info">
+            <div>
+                <img src="<%=  theme.avatar %>" alt="<%= theme.author || config.author %>" class="avatar">
+                <div class="author"><%= theme.author || config.author %></div>
+            </div>
+            <hr>
+        </div>
+        <ul>
+        <% for (name in theme.menu) { %>
+            <li><a href="<%- url_for(theme.menu[name]) %>"><%= name %></a></li>
+        <% } %>
+        </ul>
+    </div>
+    <ul>
+    <% for (name in theme.menu) { %>
+        <li><a href="<%- url_for(theme.menu[name]) %>"><%= name %></a></li>
+    <% } %>
+    </ul>
+</nav>

@@ -1,0 +1,16 @@
+<footer class="footer" id="footer">
+    <div class="copyright">
+        <% var now = new Date().getFullYear(); %>
+      &copy; <%- theme.footer.since === now ? theme.footer.since : (theme.footer.since + " - " + now) %>
+        <i class="fas fa-fan"></i>
+        <%= theme.author || config.author %>
+    </div>
+    <div class="framework-info">
+        <span>框架 </span>
+        <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="footer-separator">|</span>
+        <span>主题 </span>
+        <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+    </div>
+    <div class="custom-text"><%= theme.footer.custom_text || config.subtitle %></div>
+</footer>

@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+}
+html{
+    overflow-x:hidden
+}
+
+body{
+    background-color: #eaeaea;
+    color: #333333;
+    font-size: 16px;
+    font-family: 'source-han-sans-simplified-c', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+}
+body a{
+    text-decoration: none;
+    color: #00c4b6;
+}
+
+body .mask
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 102;
+    background: rgba(0, 0, 0, 0.4);
+
+#body-wrap{
+    background-color: #fff;
+    width: 800px;
+    margin: 60px auto 0;
+    border-radius: 10px;
+}
+
+
+@import 'post';
+@import '_partial/else';
+@import "_partial/nav";
+@import "_partial/header";
+@import "_partial/main";
+@import "_partial/reward";
+@import "_partial/footer";
+@import "_partial/animation";
+@import '_highlight/codeFrame';
+@import '_highlight/theme';
+@import '_highlight/diff';
+@import 'media';
+
+/* 滚动条 */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #e58a8a !important;
+    background-image: -webkit-linear-gradient( 45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent)!important;
+    border-radius: 2em;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+::-moz-selection {
+    color: #fff;
+    background-color: #e58a8a;
+}
