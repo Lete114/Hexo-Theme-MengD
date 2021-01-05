@@ -1,0 +1,17 @@
+<% var option = theme.twikoo.option ? JSON.stringify(theme.twikoo.option) : false %>
+<div id="tcomment"></div>
+<script src="<%-theme.CDN.twikoo%>"></script>
+<script>
+initData = {
+  el: '#tcomment',
+  envId: '<%-theme.twikoo.envId%>',
+  region: '<%-theme.twikoo.region%>',
+  path: '<%-theme.twikoo.path%>',
+}
+var option = <%-option%>;
+    if(option){
+        initData = Object.assign(initData, option)
+    }
+    console.log(initData);
+twikoo.init(initData)
+</script>

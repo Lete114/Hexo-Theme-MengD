@@ -1,8 +1,6 @@
 /**
- * Butterfly
- * @example
- *  page_description()
- *  cloudTags(source, minfontsize, maxfontsize, limit)
+ * cloudTags.js
+ * transplant from hexo-theme-butterfly
  */
 
 'use strict'
@@ -31,7 +29,7 @@ hexo.extend.helper.register('cloudTags', function (options = {}) {
   source.forEach(tag => {
     const ratio = length ? sizes.indexOf(tag.length) / length : 0
     const size = minfontsize + ((maxfontsize - minfontsize) * ratio)
-    let style = `font-size: ${parseFloat(size.toFixed(2))}${unit};`
+    let style = `font-size: ${parseFloat(size.toFixed(1))}${unit};`
     const color = 'rgb(' + Math.floor(Math.random() * 201) + ', ' + Math.floor(Math.random() * 201) + ', ' + Math.floor(Math.random() * 201) + ')' // 0,0,0 -> 200,200,200
     style += ` color: ${color}`
     result += `<a href="${env.url_for(tag.path)}" style="${style}">${tag.name}</a>`

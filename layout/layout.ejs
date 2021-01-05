@@ -2,17 +2,24 @@
 <html>
 <head>
     <%- partial('_partial/head') %>
+    <%- partial('_partial/styles') %>   
 </head>
-<body>
+<body id="body">
     <div id="mask"></div>
-    <div id="body-wrap">
-        <%- partial('_partial/nav') %>
-        <%- partial('_partial/header') %>
-        <main class="content">
-            <%- body %>
-        </main>
+    <%- partial('_partial/search') %>
+    <%- partial('_partial/analytics') %>  
+    <div style="display: flex;">
+        <div id="body-wrap">
+            <%- partial('_partial/nav') %>
+            <%- partial('_partial/header') %>
+            <main class="content">
+                <%- body %>
+            </main>
+        </div>
     </div>
+    <img id="up" src="https://cdn.jsdelivr.net/gh/lete114/CDN/Use/up.gif" alt="回到顶部">
+    
     <%- partial('_partial/footer') %>   
-    <%- partial('_partial/script') %>   
+    <%- partial('_partial/scripts') %>   
 </body>
 </html>

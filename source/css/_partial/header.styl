@@ -1,38 +1,62 @@
 /* 头信息 */
-header{
-    padding-bottom: 150px;
-    margin: 0 30px;
-    background-size: cover;
-}
+header
+    padding-bottom 150px
+    margin 0 30px
+    background-size cover
 
-.author-info .avatar{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-.author-info .author{
-    font-weight: 700;
-    font-size: 1.3rem;
-    color: #ff7242;
-    padding-top: 10px;
-}
-.author-info div{
-    float: left;
-    text-align: center;
-    width: 100px;
-}
-.card-content .description .social-icon a i{
-    color: black;
-    font-size: 16px;
-    margin-right: 10px;
-    margin-top: 10px;
-}
-.card-content .description .social-icon{
-    float: right;
-}
-.description{
-    margin: 5% 0;
-    font-size: 0.9rem;
-    color: #565654;
-    float: right;
-}
+.avatar:hover 
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -ms-transition: all .5s;
+    transition: all .5s;
+
+.author-info 
+    .avatar
+        width 100px
+        height 100px
+        border-radius 50%
+    
+    .author
+        font-weight 700
+        font-size 1.3rem
+        color $author-name
+        padding-top 10px
+
+    div
+        float left
+        text-align center
+        width 100px
+
+.card-content 
+    .description 
+        margin 5% 0
+        font-size .9rem
+        color #565654
+        float right
+        .social-icon 
+            float right
+            a 
+                i
+                    color black
+                    font-size 16px
+                    margin-right 10px
+                    margin-top 10px
+                :hover
+                    -webkit-transform: rotate(360deg);
+                    -moz-transform: rotate(360deg);
+                    -o-transform: rotate(360deg);
+                    -ms-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    -webkit-transition: all .5s;
+                    -moz-transition: all .5s;
+                    -o-transition: all .5s;
+                    -ms-transition: all .5s;
+                    transition: all .5s;
+    
+

@@ -1,7 +1,30 @@
+<%
+var title = theme.title || config.title
+if(page.title!=null){
+    title = page.title + ' | '+title
+}
+%>
+<meta charset="utf-8">
+<meta http-equiv="content-language" content="<%-theme.language || config.language%>">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-<title><%= theme.title || config.title %></title>
+<title><%- title %></title>
+<link rel="icon" href="<%-theme.favicon%>">
+<meta name="keywords" content="<%- page.keywords || theme.keywords || config.keywords %>">
+<meta name="description" content="<%-theme.description || config.description%>" />
+<meta property="site_name" content="<%- theme.title || config.title %>" />
+<meta property="og:type" content="website">
+<meta property="og:url" content="<%-config.url%>">
+<meta property="og:title" content="<%- theme.title || config.title %>" />
+<meta property="og:site_name" content="<%- theme.title || config.title %>" />
+<meta property="og:description" content="<%-theme.description || config.description%>" />
+<meta property="og:locale" content="<%-theme.language || config.language%>">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="<%- theme.title || config.title %>">
+<meta name="twitter:description" content="<%-theme.description || config.description%>">
+<link rel="dns-prefetch" href="<%-config.url%>">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
-<%- css('css/index') %>
+<link rel="stylesheet" href="<%-theme.CDN.index_css%>">
+

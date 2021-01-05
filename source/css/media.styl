@@ -3,69 +3,93 @@
 
 @media screen and (max-width 800px)
     body
-        background: #eaeaea
+        background #eaeaea
+        #up
+            bottom: 20px !important
+            right 0 !important
     #body-wrap
-        width: 95%;
-        margin-top: 20px;
+        width 95% !important
+        margin-top 20px
     main.content
-        display: inline;  
+        display inline 
+    .post-copyright
+        margin 0 20px     
+    article.post .post-tag    
+        margin 10px 0 0 20px
+    .social-share
+        margin 10px 20px 0 0    
+    main.content .pagination
+        padding-bottom 60px
+    #local-search .search-result-list
+        padding-bottom: 2rem;
+        max-height: 75vh!important;    
+    .search-dialog
+        top: 0;
+        left: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;    
+        
 
 @media screen and (max-width 600px)
-    #mobileNav  
-        background: #f6f8fa
-        display: none;
-        position: fixed;
-        right: 0px;
-        top: 0px;
-        z-index: 103;
-        overflow: hidden auto;
-        width: 250px;
-        height: 100%;
-    #mobileNav li
-        display: block
-        float: none !important
-        text-align: center;
-    #openNav
-        display block  
-    .site_nav #openNav
-        display: inline-block
-    .site_nav ul li
-        display: none      
-    .author-info div
-        padding: 1.3rem 1.5rem 0;
-        float: none;
-        width auto
-    .author-info hr
-        border: 2px dashed #e58a8a;
-        margin: 2rem auto;   
-    .site_nav #mobileNav li
-        line-height: 2
+    body
+        font-size 14px
+    
+    .site_nav 
+        #mobileNav  
+            background #f6f8fa
+            display none
+            position fixed
+            right 0px
+            top 0px
+            z-index 103
+            overflow hidden auto
+            width 250px
+            height 100%
+            li
+                display block
+                float none !important
+                text-align center
+                line-height 2
+            ul 
+                float none
+                padding-inline-start unset   
+        #openNav
+            display inline-block
+            padding 10px 10px 0 0
+        ul li
+            display none      
+    .author-info 
+        div
+            padding 1.3rem 1.5rem 0
+            float none
+            width auto
+            margin 0 auto
+            float none
+        hr
+            border 2px dashed $scrollbar
+            margin 2rem auto   
+        
     .card-content .description,.card-content .description .social-icon
-        float: none;
-        text-align: center;
+        float none
+        text-align center
     header
         padding-bottom 0
-    .card-content .author-info div
-        margin: 0 auto
-        float: none;
-    #site_nav ul 
-        float: none;
-        padding-inline-start: unset;
-    main.content .pagination .page-pre
-        text-align: center;
-        width: 100%;
-        line-height: 40px;
-    main.content .pagination .page-next   
-        text-align: center;
-        width: 100%;
+        
+    main.content 
+        .pagination 
+            .page-pre
+                text-align center
+                width 100%
+                line-height 40px
+            .page-next   
+                text-align center
+                width 100%
 
     article.post .post-tag
-        display: none
-    .social-share 
-        text-align: center
-        float: none
+        display none
     .post-reward
-        margin-top: 60px;
+        margin-top 60px
 
 
 

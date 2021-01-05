@@ -1,31 +1,23 @@
 /* 导航栏 */
-nav{
-    height: 3rem;
-    margin: 0 30px;
-    padding: 20px 0;
-}
-#site_nav ul{
-    float: right;
-}
-#site_nav ul li{
-    position: relative;
-    list-style: none;
-    float: left;
-}
-#site_nav ul li a{
-    display: block;
-    white-space: nowrap;
-    padding: 10px;
-    font-size: 0.9rem;
-}
+nav
+    height 3rem
+    margin 0 30px
+    padding 20px 0
+    .search-btn
+        cursor: pointer;
+        padding-top: 10px;
 
-.site_nav #openNav
-    padding-top: 10px
-    display: none
-
-#mobileNav
-    display: none;
-
-// .site_nav ul
-//     width 350px  
-//     height 0  
+#site_nav 
+    ul
+        float right
+        li
+            position relative
+            list-style none
+            float left
+            a
+                display block
+                white-space nowrap
+                padding 10px
+                font-size .9rem
+    #mobileNav
+        display none

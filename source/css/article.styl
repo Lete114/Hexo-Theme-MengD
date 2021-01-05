@@ -1,0 +1,232 @@
+@require 'var'
+#body-wrap
+    margin 60px 0
+    margin-left 300px
+#toc 
+    height 100%
+    position sticky
+    border-radius 10px
+    top 60px
+    z-index 10
+    width 300px
+    padding 1rem
+    margin 60px 30px
+    background #fff 
+    ol 
+        li 
+            list-style none
+            line-height 30px
+    .toc-child
+        padding-left 1rem    
+    .toc
+        overflow-y scroll
+        max-height 500px
+        // padding-bottom 5rem
+   if hexo-config("toc.scrollbar")
+    .toc::-webkit-scrollbar
+        width 0px
+
+.rightside-toc
+    cursor pointer 
+    display none !important
+
+#rightside
+    position fixed 
+    right 0px 
+    bottom 80px 
+    z-index 100 
+    width 30px
+    #rightside-item
+        text-align center
+        a
+            display inline-block 
+            width 30px 
+            height 30px 
+            background-color $main 
+            color #fff 
+            margin-bottom 3px 
+            border-radius 6px 
+            i 
+                margin-top 7px
+
+.social-share
+    float right
+    .social-share-icon
+        font-size 16px !important
+        width 26px !important
+        height 26px !important
+        line-height 26px !important
+
+
+/*版权框两边颜色*/
+.post-copyright  
+    margin-bottom 10px
+    position relative
+    padding .5rem .8rem
+    -webkit-transition box-shadow .3s ease-in-out
+    -moz-transition box-shadow .3s ease-in-out
+    -o-transition box-shadow .3s ease-in-out
+    -ms-transition box-shadow .3s ease-in-out
+    transition box-shadow .3s ease-in-out
+    box-shadow 0 0px 2px 0px rgba(0, 0, 0, .4)
+    border-radius 10px
+    border-left 3px solid $main
+    border-right 3px solid $main
+    div
+        line-height 28px
+        word-break:break-all
+ 
+    .post-copyright-icon
+        :before
+            position absolute
+            top .5rem
+            right .5rem
+            width .8rem
+            height .8rem
+            border-radius 50%
+            background $main
+            content ''
+        :after
+            position absolute
+            top .7rem
+            right .7rem
+            width .4rem
+            height .4rem
+            border-radius 50%
+            content ''
+            background #fff
+    .post-copyright-meta
+        color $main
+        font-weight 700
+
+#progress 
+    width 60% 
+    height 10px 
+    background #ededed 
+    border-radius 10px 
+
+progress::-webkit-progress-bar 
+    background #ededed 
+    border-radius 8px 
+
+progress::-webkit-progress-value 
+    background convert(hexo-config('theme_color.progress'))
+    border-radius 8px 
+
+/* twikoo */
+#twikoo .tk-comments-container
+    .tk-comment
+        box-shadow 2px 2px 5px #bbb
+        background rgba(255,255,255,.3)
+        border-radius 8px
+        padding 30px
+        margin 30px 0 0 0
+    .tk-main .tk-comment
+        box-shadow 0 0 black
+    .tk-extras .tk-extra
+        padding: .2em .5em;
+        border-radius: .2em;    
+        background: #ededed;
+
+
+/* 评论 valine / waline */   
+#Direct-Comments
+    text-align center
+    padding-top 30px 
+    a
+        display inline-block 
+        width 30px 
+        height 30px 
+        background-color $main 
+        color #fff 
+        border-radius 6px 
+        i 
+            margin-top 7px
+
+#toc-title
+    text-align center
+    padding-bottom 30px 
+
+.comment-head
+    .comment-headline
+        margin-bottom 1.6rem 
+        display inline-block 
+        vertical-align middle 
+        font-weight 700 
+        font-size 20px 
+
+#vcomments,#wcomments
+    .vbtn
+        border none 
+        background $main 
+        color #fff
+    code 
+        color #c7254e 
+        background-color #f2ecee 
+    .vcard 
+        box-shadow 2px 2px 5px #bbb 
+        background rgba(255, 255, 255, 0.3) 
+        border-radius 8px 
+        padding 30px 
+        margin 30px 0px 0px 0px 
+    .vquote .vcard 
+        box-shadow 2px 2px 5px transparent 
+        background rgba(255, 255, 255, 0.0) 
+        padding 0px 
+    .vcontent p
+        color #777
+    .vmeta .vat
+        padding 0 0.8rem
+        border 1px solid $main   
+        border-radius 5px
+        color $main   
+        font-size 0.7125rem
+
+@media screen and (max-width 1400px)    
+    #body-wrap
+        margin 60px 0
+        margin-left 150px
+
+@media screen and (max-width 1300px)    
+    #body-wrap
+        margin 60px 0
+        margin-left 60px
+
+@media screen and (max-width 1200px)
+    #toc
+        margin 60px 10px 0
+    #body-wrap
+        margin 60px 0 0 2%
+
+@media screen and (max-width 1100px)   
+    .comment-head
+        padding 0 20px 0 20px    
+
+@media screen and (max-width 1000px)
+    #toc
+        display none
+        height 250px 
+        position fixed 
+        right 35px
+        bottom 30px 
+        top 48%
+        z-index 1000 
+        width 280px 
+        background rgba(255,255,255,.9) 
+        margin 0
+        .toc
+            max-height 180px 
+    #body-wrap
+        margin 60px auto 
+    .rightside-toc
+        display inline-block !important
+
+@media screen and (max-width 800px)
+    .comment-head
+        padding 0 20px 30px 20px 
+
+@media screen and (max-width 600px)
+    .social-share 
+        text-align center
+        float none
+        margin 0

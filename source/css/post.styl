@@ -1,195 +1,110 @@
-article.post .post-meta
-    text-align: center
-    margin-bottom: .5rem;
-    font-size: 90%;
+article
+    .post 
+    .post-tag
+        color #858585
+        float left
+        font-size 16px
+        max-width 300px
+        height 25px
+        padding-top 5px
+        .post-meta
+            text-align center
+            margin-bottom .5rem
+            font-size 90%
+    .post-title,.post-meta
+            text-align center
+        .post-title .title:before
+            content none
+        .post-title h2:before 
+                content none
 
-article.post .post-title,.post-meta
-    text-align: center
-    margin-bottom: .5rem;
-article.post .post-title .title:before
-    content: none
-.content .post-title h2:before 
-    content: none
+    .post-content
+        padding-top 50px
 
-article.post .post-content
-    padding-top: 50px;
-
-article.post .post-content h1:before,
-article.post .post-content h2:before,
-article.post .post-content h3:before,
-article.post .post-content h4:before,
-article.post .post-content h5:before,
-article.post .post-content h6:before
-    color: #00c4b6;
-    margin-right: 10px
-    display: inline-block;
-    content: '\f863';
-    -webkit-animation: turn 1s linear infinite;
-    -moz-animation: turn 1s linear infinite;
-    -o-animation: turn 1s linear infinite;
-    -ms-animation: turn 1s linear infinite;
-    animation: turn 1s linear infinite;
-    font-family: 'Font Awesome 5 Free';
+    .post-content 
+        p
+            line-height 1.7em
+            letter-spacing .2px
+            font-weight 530
+            margin 0 0 .8rem
+        h1,h2,h3,h4,h5,h6
+            margin-block-start .83em
+            margin-block-end .83em
+        h1:before,
+        h2:before,
+        h3:before,
+        h4:before,
+        h5:before,
+        h6:before
+            color $fan
+            margin-right 10px
+            display inline-block
+            content '\f863'
+            -webkit-animation turn 1s linear infinite
+            -moz-animation turn 1s linear infinite
+            -o-animation turn 1s linear infinite
+            -ms-animation turn 1s linear infinite
+            animation turn 1s linear infinite
+            font-family 'Font Awesome 5 Free'
+        h1
+            font-size 1.5em
+        h2
+            font-size 1.3em
+        h3
+            font-size 1.1em
+        h4
+            font-size .9em
+        h5
+            font-size .7em
+        h6
+            font-size .5em
+        figure.highlight 
+            td 
+                padding 0
+                border none
+                vertical-align unset
+                padding-right .5rem
+                padding-left .5rem
+            .highlight-tools 
+                position relative
+                overflow hidden
+                width 100%
+                height 1.5rem
+                background #1c1c1c
+                color rgba(238,255,255,.8)
+                font-size 14px
+            .code pre 
+                padding-right .5rem
+                padding-left .5rem
+                width 100%
+                margin 0
+                padding 8px 0
+                border none
+        code
+            padding .1rem .2rem
+            background rgba(27,31,35,.05)
+            color #f47466
+            border-radius 5px
+            margin 0 6px
+            word-wrap break-word
+            word-break break-word
+            overflow-wrap break-word
+        img 
+            margin 0 auto .8rem
+            display block
+            max-width 100%
+        .table-wrap 
+            overflow-x scroll
+            margin 0 0 1rem
+        table 
+            display table
+            border-spacing 0
+            border-collapse collapse
+            empty-cells show
+            thead 
+                background rgba(153,169,191,.1)
+            th,td 
+                padding .3rem .6rem
+                border 1px solid #eee
+                vertical-align middle
     
-
-article.post .post-content h1,h2,h3,h4,h5,h6
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-
-article.post .post-content h1
-    font-size: 1.5em;
-
-article.post .post-content h2
-    font-size: 1.3em;
-
-article.post .post-content h3
-    font-size: 1.1em;
-
-article.post .post-content h4
-    font-size: .9em;
-
-article.post .post-content h5
-    font-size: .7em;
-
-article.post .post-content h6
-    font-size: .5em;
- 
-
-
-article.post .post-content figure.highlight td {
-    padding: 0;
-    border: none;
-    vertical-align: unset;
-}
-
-article.post .post-content figure.highlight .highlight-tools {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 1.5rem;
-    background: #1c1c1c;
-    color: rgba(238,255,255,.8);
-    font-size: 14px;
-}
-
-
-
-article.post .post-content figure.highlight .code pre {
-    padding-right: .5rem;
-    padding-left: .5rem;
-    width: 100%;
-    margin: 0;
-    padding: 8px 0;
-    border: none;
-}
-
-article.post .post-content figure.highlight .code .line {
-    line-height: 26px;
-}
-
-article.post .post-content p
-    line-height: 1.7em;
-    letter-spacing: 0.2px;
-    font-weight: 530;
-    margin: 0 0 .8rem;
-
-
-
-article.post .post-content code{
-    padding: .1rem .2rem;
-    background: rgba(27,31,35,.05);
-    color: #f47466;
-    border-radius: 5px;
-    margin: 0 6px;
-    word-wrap: break-word;
-    word-break: break-word;
-    overflow-wrap: break-word;
-}
-
-article.post .post-content img 
-    margin: 0 auto .8rem;
-    display: block;
-    max-width: 100%;
-
-article.post .post-content .table-wrap {
-  overflow-x: scroll;
-  margin: 0 0 1rem;
-}
-article.post .post-content table {
-  display: table;
-  width: 100%;
-  border-spacing: 0;
-  border-collapse: collapse;
-  empty-cells: show;
-}
-article.post .post-content table thead {
-  background: rgba(153,169,191,0.1);
-}
-article.post .post-content table th,
-table td {
-  padding: 0.3rem 0.6rem;
-  border: 1px solid #eee;
-  vertical-align: middle;
-}    
-
-article.post .post-tag
-    color: #858585;
-    float: left;
-    font-size: 16px;
-    max-width: 300px;
-    height: 25px;
-    margin-top: 6px
-    margin-right: 20px;
-
-.social-share
-    float: right     
-
-.social-share .social-share-icon
-    font-size: 16px !important
-    width: 26px !important;
-    height: 26px !important;
-    line-height: 26px !important;
-
-
-/*版权框两边颜色*/
-.post-copyright  
-    margin-bottom: 30px;
-    position relative;
-    padding 0.5rem 0.8rem;
-    -webkit-transition box-shadow 0.3s ease-in-out;
-    -moz-transition box-shadow 0.3s ease-in-out;
-    -o-transition box-shadow 0.3s ease-in-out;
-    -ms-transition box-shadow 0.3s ease-in-out;
-    transition box-shadow 0.3s ease-in-out;
-    box-shadow 0 0px 2px 0px rgba(0, 0, 0, 0.4);
-    border-radius 10px;
-    border-left 3px solid #e58a8a
-    border-right 3px solid #e58a8a
-    div
-        line-height: 28px
-        word-break:break-all
- 
-/*版权右上角小圆圈*/
-.post-copyright .post-copyright-icon
-  :before
-    position absolute;
-    top 0.5rem;
-    right 0.5rem;
-    width 0.8rem;
-    height 0.8rem;
-    border-radius 50%;
-    background #e58a8a
-    content '';
-  :after
-    position absolute;
-    top 0.7rem;
-    right 0.7rem;
-    width 0.4rem;
-    height 0.4rem;
-    border-radius 50%;
-    content '';
-    background #fff
-
-.post-copyright .post-copyright-meta
-    color: #e58a8a;
-    font-weight: 700;

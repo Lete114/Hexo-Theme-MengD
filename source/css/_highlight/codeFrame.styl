@@ -3,37 +3,37 @@
 /*代码框*/
 
   .highlight-wrap .highlight
-    margin-top: 36px;
+    margin-top 36px
   .highlight-wrap[data-rel]:hover
-    transition box-shadow 0.3s ease-in-out
-    box-shadow 0 0px 30px 0px rgba(0, 0, 0, 0.4)
+    transition box-shadow .3s ease-in-out
+    box-shadow 0 0px 30px 0px rgba(0, 0, 0, .4)
 
   figure.highlight .gutter pre  
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-    background-color: $highlight-background
-    color: $highlight-foreground
-    text-align: right;
-    font-family: consolas, Menlo, 'PingFang SC', 'Microsoft YaHei', sans-serif !important;
+    padding-right .5rem
+    padding-left .5rem
+    background-color $highlight-background
+    color $highlight-foreground
+    text-align right
+    font-family consolas, Menlo, 'PingFang SC', 'Microsoft YaHei', sans-serif !important
 
   figure.highlight
-    overflow: auto;
-    padding: 0;
-    background: $highlight-background
-    color: #eff;
-    line-height: 1.6;
-    position: relative;
-    -webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,.4);
-    box-shadow: 0 5px 10px 0 rgba(0,0,0,.4);
-    -webkit-transform: translateZ(0);
+    overflow auto
+    padding 0
+    background $highlight-background
+    color #eff
+    line-height 1.6
+    position relative
+    -webkit-box-shadow 0 5px 10px 0 rgba(0,0,0,.4)
+    box-shadow 0 5px 10px 0 rgba(0,0,0,.4)
+    -webkit-transform translateZ(0)
 
   .highlight-wrap[data-rel]
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem;
+    margin-top 1.2rem
+    margin-bottom 1.2rem
     position relative
     overflow hidden
     border-radius 10px
-    box-shadow 0 0px 10px 0px rgba(0, 0, 0, 0.4)
+    box-shadow 0 0px 10px 0px rgba(0, 0, 0, .4)
     &::before
       content attr(data-rel)
       height 38px
@@ -45,15 +45,12 @@
       top 0
       left 0
       width 100%
-      //font-family 'Source Sans Pro', sans-serif
       font-weight bold
-      //if hexo-config('highlight_theme') != 'darker' && hexo-config('highlight_theme')  != 'pale night'&& hexo-config('highlight_theme')  != 'light'&& hexo-config('highlight_theme')  != 'ocean' && hexo-config('highlight_theme') != 'default' && hexo-config('highlight_theme') != false
       if hexo-config('highlight_theme') == mac || hexo-config('highlight_theme') == 'mac light'
         padding 0px 80px
       text-indent 15px
       float left
 
-    //if hexo-config('highlight_theme') != 'darker'&& hexo-config('highlight_theme') != 'pale night' && hexo-config('highlight_theme')  != 'light'&& hexo-config('highlight_theme')  != 'ocean' && hexo-config('highlight_theme') != 'default' && hexo-config('highlight_theme') != false
     if hexo-config('highlight_theme') == mac || hexo-config('highlight_theme') == 'mac light'
       &::after
          content ' '
