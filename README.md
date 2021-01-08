@@ -8,7 +8,7 @@
 
 把注意力集中到内容上
 
-口号：禁止花里胡哨
+Docs: [MengD(萌典)](https://mengd.lete114.top/)
 
 部分样式模仿自[hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly)非常感谢
 
@@ -18,12 +18,12 @@
 
 稳定[推荐]
 ``` powershell
-git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
+git clone -b master https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 ```
 
 开发
 ``` powershell
-git clone -b master https://github.com/lete114/hexo-theme-MengD.git themes/MengD
+git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 ```
 
 打开根目录下的`_config.yml`修改`theme: MengD`
@@ -32,12 +32,14 @@ git clone -b master https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 
 ``` yml
 
+
 # 导航栏菜单
 menu:
   首页: /
   标签: /tags
   分类: /categories
   归档: /archives
+  友情链接: /link
   关于我: /about
   
 # 基本设置(会覆盖hexo的配置)
@@ -49,7 +51,7 @@ avatar: https://www.lete114.top/img/avatar.png
 language: zh-CN
 keywords: 
 description: 人生只有一次，大胆的生活！！
-upjiang: true # 文章页面是否显示up酱(回到顶部)
+upjiang: false # 文章页面是否显示up酱(回到顶部)
 cover: true # 是否开启主页文章cover(首图) 
 # 是否开启版权(文章内可以设置copytight: false 属性单独关闭某个文章的版权)
 copytight: true  
@@ -97,10 +99,10 @@ comment: waline # twikoo / waline / valine
 # valine
 ## https://valine.js.org/
 valine:
-  appid: qvkfTxFxxxxxxxxxxxxxxxxxxxXbMMI # 你的 leancloud app id 
-  appkey: WOUxxxxxxxxxxxxxxxxrog # 你的 leancloud app key 
-  master: 2axxxxxxxxxxxxxxxxxx2e2 # (原版valine不支持)你的邮箱md5加密(百度搜索md5在线加密)
-  friends: ed5xxxxxxxxxxxxxxxxxxxxxxxx893b,d24xxxxxxxxxxxxxxxxx457 # (原版valine不支持)你的小伙伴的md5邮箱加密
+  appid: qvkfxxxxxxxxxxxxxxxxxxxxxbMMI # 你的 leancloud app id 
+  appkey: WOURxxxxxxxxxxxxxxxxxWJrog # 你的 leancloud app key 
+  master: 2a776xxxxxxxxxxxxxxxxxd7f4442e2 # (原版valine不支持)你的邮箱md5加密(百度搜索md5在线加密)
+  friends: ed5bb69dfxxxxxxxxxxxxxxe6893b,d24719e3bxxxxxxxxxxxxxxbac991457 # (原版valine不支持)你的小伙伴的md5邮箱加密
   placeholder: 快来评论吧!! #评论框占位符
   avatar: '' # gravatar style https://valine.js.org/#/avatar
   meta: ['nick','mail','link'] # 评论者相关属性
@@ -114,7 +116,7 @@ valine:
 # waline
 ## https://waline.js.org
 waline:
-  serverURL: https://waline.vercel.app/ # 服务端地址
+  serverURL: https://waline.lete114.top/ # 服务端地址
   placeholder: 快来评论吧!! #评论框占位符
   avatar: '' # gravatar style https://valine.js.org/#/avatar
   meta: ['nick','mail','link'] # 评论者相关属性
@@ -128,7 +130,7 @@ waline:
 # twikoo
 ## https://twikoo.js.org/
 twikoo:
-  envId: env-jxxxxxxxg # 你的环境id
+  envId: exxxxxxxxxxxxg # 你的环境id
   region: ap-shanghai # 环境地域，ap-shanghai / ap-guangzhou
   path: window.location.pathname  # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
   option: 
@@ -151,9 +153,9 @@ analytics:
 
 # 自定义引入外部css、js
 import:
-  style: 
+  head: 
     - 
-  script:
+  botton:
     - 
   # 例如： 
   # - <link rel="stylesheet" href="/css/index.css">
@@ -168,14 +170,22 @@ CDN:
   index_js: /js/main.js
   article_css: /css/article.css
   search: /js/search.js
+  # 图片展示
+  fancybox_css: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
+  fancybox_js: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
+  # 分享
   share_css: https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css
   share_js: https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js
+  # 评论
   valine: https://cdn.jsdelivr.net/gh/lete114/CDN2/js/Valine-Lete3.2.js ## 原版: //unpkg.com/valine/dist/Valine.min.js
   waline: //cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js
   twikoo: https://cdn.jsdelivr.net/npm/twikoo@0.5.1/dist/twikoo.all.min.js
 
 
-
-
 ```
+
+
+## 更新日志
+
+[更新日志](https://mengd.lete114.top/article/ChangeLog.html)
 

@@ -65,6 +65,8 @@
     <%if(page.type==null || page.layout==null){%>
         <article class="post">
             <link rel="stylesheet" href="<%-theme.CDN.article_css%>">
+            <link rel="stylesheet" href="<%-theme.CDN.fancybox_css%>" />
+            <script src="<%-theme.CDN.fancybox_js%>"></script>
             <div class="post-title">
               <h2 class="title"><%= page.title %></h2>
             </div>
@@ -132,11 +134,33 @@
             </div>
             `;
 
-            <%if(theme.upjiang==false){%>
+            <%if(theme.upjiang){%>
             setInterval(function(){
                 $('img#up').remove();
             },0)
             <%}%>
+            setInterval(function(){
+                if(document.body.clientWidth < 800){
+                    $('img#up').remove();
+                }
+            },0)
+
+            $(".post-content img").each(function () {
+            // $(this).attr("data-fancybox", "gallery"); //直接给img添加data-fancybox会导致点击图片后图片消失
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "images");
+                $(element).attr("href", $(this).attr("src"));
+                $(this).wrap(element);
+            });
+
+            $().fancybox({
+                selector: '[data-fancybox="images"]',
+                loop: true,
+                transitionEffect: 'slide',
+                protect: true,
+                buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
+                hash: false
+            });
 
             $("#body-wrap").after('<div id="toc">'+tocTitle+'<%- toc(page.content,{list_number: false}) %></div>');
         </script>
@@ -207,6 +231,39 @@
             <h2><%= page.title %></h2>
         </div>
         <%- partial('archive') %>
+
+    <%}else if(page.type=="links" || page.layout=="links"){%>
+
+        <div id="page-title" class="page-title">
+            <h2><%= page.title %></h2>
+        </div>
+        <%- partial('link') %>
+        <%- page.content %>
+        <%if(theme.comment!=null){%>
+        <%if(post.comment==null || post.comment){%>
+        <hr>
+        <section id="rightside">
+            <div id="rightside-item">
+                <a href="#直达评论" title="直达评论">
+                    <i class="fas fa-comments"></i>
+                </a>
+            </div>
+        </section>
+        <div class="comment-head" id="直达评论">
+            <div class="comment-headline">
+                <i class="fas fa-comments fa-fw"></i>
+                <span> 评论</span>
+            </div>
+            <%if(theme.comment=="valine"){%>
+                <%- partial('comment/valine') %>
+            <%}else if(theme.comment=="waline"){%>
+                <%- partial('comment/waline') %>
+            <%}else if(theme.comment=="twikoo"){%>
+                <%- partial('comment/twikoo') %>
+            <%}%>
+        </div>
+        <%}%>
+        <%}%>
 
     <%}else if(page.type!=null || page.layout!=null){%>
         <div id="page-title" class="page-title">

@@ -1,0 +1,21 @@
+<%
+var link = site.data.link
+%>
+<div class="link" id="link">
+<% for(var i in link){ %>
+
+    <h2><%-link[i].class_name%></h2>
+    <div class="link-list">
+    <%for(var link_list in link[i].link_list){%>
+        <div class="link-list-item">
+            <a href="<%-link[i].link_list[link_list].link%>">
+                <img src="<%-link[i].link_list[link_list].avatar%>" alt="<%-link[i].link_list[link_list].name%>">
+                <span class="link-item-name"><%-link[i].link_list[link_list].name%></span>
+                <span class="link-item-desc"><%-link[i].link_list[link_list].descr%></span>
+            </a>
+        </div>
+    <%}%>
+    </div>
+<%}%>
+</div>
+

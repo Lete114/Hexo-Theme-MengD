@@ -1,44 +1,64 @@
 $('#openNav').click(function () {
-    if ($("#mobileNav").css("display") == "none") {
+    if ($("#mobileNav").css("opacity") == "0") {
+        $("#mobileNav").addClass("open");
         $("#mask").addClass("mask")
         $("html").css("overflow", "hidden")
-        $("#mobileNav").css("display", "block")
+        $("#mobileNav").css("opacity", "1")
         $("#toc").css("display", "none")
+        
+
     } else {
-        $("#mobileNav").css("display", "none")
+        $("#mobileNav").css("opacity", "0")
+        $("#mobileNav").removeClass("open")
     }
 })
+
+
+$('#mask').click(function () {
+    $("#mobileNav").removeClass("open")
+    $("#mobileNav").css("opacity", "0")
+    $("#local-search").css("display", "none")
+    $("html").css("overflow", "auto")
+    $("#mask").removeClass("mask")
+})
+
 $('.search-btn').click(function () {
     if ($("#local-search").css("display") == "none") {
         $("#mask").addClass("mask")
         $("html").css("overflow", "hidden")
+        $("#local-search").removeClass('search-animation-min')
+        $("#local-search").addClass('search-animation-max');
         $("#local-search").css("display", "block")
         $("#toc").css("display", "none")
         $('#local-search-input').focus();
     } else {
+        $("#local-search").removeClass('search-animation-max')
         $("#local-search").css("display", "none")
+        
     }
 })
+
+
+
 $('.search-close-button').click(function () {
-    $("#local-search").css("display", "none")
     $("html").css("overflow", "auto")
     $("#mask").removeClass("mask")
+
+    $("#local-search").css("display", "none")
 })
 
-$('#mask').click(function () {
-    $("#mobileNav").css("display", "none")
-    $("#local-search").css("display", "none")
-    $("html").css("overflow", "auto")
-    $("#mask").removeClass("mask")
-})
+
 
 $('.rightside-toc').click(function () {
     if ($("#toc").css("display") == "none") {
         $("#toc").css("display", "block")
+        $("#toc").addClass('search-animation-max');
         $("#up").css("display", "none")
     } else {
         $("#toc").css("display", "none")
+        $("#toc").removeClass('search-animation-max');
         $("#up").css("display", "block")
+        
     }
 })
 $(window).resize( function  () {           //当浏览器大小变化时
@@ -48,14 +68,18 @@ $(window).resize( function  () {           //当浏览器大小变化时
         $("#toc").css("display", "none")
     }
 
+    if(document.body.clientWidth > 800){
+        $("#local-search").css("display", "none")
+    }
+
     if(document.body.clientWidth > 600){
         $("#mask").removeClass("mask")
         $("html").css("overflow", "auto")
-        $("#mobileNav").css("display", "none")
+        $("#mobileNav").css("opacity", "0")
+        $("#mobileNav").removeClass("open")
     }
-
-    
 });
+
 
 $(function() {
     var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
