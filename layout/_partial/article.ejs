@@ -5,7 +5,11 @@
             </div>
             <div class="post-description">
                 <p style="-webkit-line-clamp: <%- theme.post_content.line %>">
-                    <%- strip_html(post.content.substring(0, theme.post_content.length)) %>
+                    <%
+                        var content = strip_html(post.content)
+                        content = strip_html(content.substring(0, theme.post_content.length))
+                    %>
+                    <%- content %>
                 </p>
             </div>
             <% if (theme.cover){ %>
