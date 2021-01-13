@@ -20,11 +20,10 @@
         float: left;
         overflow: hidden;
         margin: 15px 7px;
-        width: calc(100% / 3 - 15px);
+        width: calc(50% - 15px)
         height: 90px;
         border-radius: 8px;
-        line-height: 17px;
-        -webkit-transform: translateZ(0);   
+        line-height: 17px; 
         a 
             color: #222
             img 
@@ -42,10 +41,26 @@
         display: block;
         padding: 16px 10px 0 0;
         height: 40px;
+        line-height: 1.5rem;
         font-weight: bold;
         font-size: 1.2em;  
     .link-item-desc
         display: block;
         padding: 16px 10px 16px 0;
         height: 50px;
-        font-size: 0.93em;      
+        font-size: 0.93em; 
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis     
+
+@media screen and (max-width 1000px)
+    .link-list
+        .link-list-item
+            width: calc(50% - 15px)
+
+@media screen and (max-width 600px)
+    #link
+        padding: 50px 20px 50px 20px
+    .link-list
+        .link-list-item
+            width: calc(100% - 15px)

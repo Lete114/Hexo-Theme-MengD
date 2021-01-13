@@ -150,7 +150,6 @@
             },0)
 
             $(".post-content img").each(function () {
-            // $(this).attr("data-fancybox", "gallery"); //直接给img添加data-fancybox会导致点击图片后图片消失
                 var element = document.createElement("a");
                 $(element).attr("data-fancybox", "images");
                 $(element).attr("href", $(this).attr("src"));
@@ -250,6 +249,9 @@
             <div id="rightside-item">
                 <a href="#直达评论" title="直达评论">
                     <i class="fas fa-comments"></i>
+                </a>
+                <a href="#body" title="回到顶部">
+                    <i class="fas fa-arrow-up"></i>
                 </a>
             </div>
         </section>

@@ -18,4 +18,11 @@ var link = site.data.link
     </div>
 <%}%>
 </div>
+<script>
+    setInterval(function(){
+        if(document.body.clientWidth < 800){
+            $('img#up').remove();
+        }
+    },0)
+</script>
 
