@@ -86,6 +86,7 @@ $(function() {
         var num = parseInt((wintop/(docheight-winheight))*100)+1;
         
         if(num==1)num=0
+        if(num>100)num=100
         $("#progress").val(num);
         $("#num").text(num+"%");
     $(window).scroll(function() {
@@ -93,6 +94,7 @@ $(function() {
         var num = parseInt((wintop/(docheight-winheight))*100)+1;
         
         if(num==1)num=0
+        if(num>100)num=100
         $("#progress").val(num);
         $("#num").text(num+"%");
 
