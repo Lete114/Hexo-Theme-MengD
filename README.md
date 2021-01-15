@@ -91,6 +91,15 @@ theme_color:
   body-a: '#00c4b6' # 全局a标签颜色
   author-name: '#ff7242' # 博主昵称
 
+# 通过issues申请友情链接(目前只支持gitee)
+link:
+  issues:
+    enable: true # 是否开启
+    owner: lete114 # 仓库拥有者
+    repo: link # 仓库昵称
+    direction: desc # 友链显示顺序 升序(asc) / 降序(desc)
+    show_position: before # 显示的位置  前(before) / 后(later)
+
 # 评论
 ## 注意大小写
 comment: waline # twikoo / waline / valine

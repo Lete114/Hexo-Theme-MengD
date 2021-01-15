@@ -1,10 +1,12 @@
 <%
 var link = site.data.link
+var issues = theme.link.issues
 %>
 <div class="link" id="link">
 <% for(var i in link){ %>
 
-    <h2><%-link[i].class_name%></h2>
+    <h2 class="link-title"><%-link[i].class_name%></h2>
+    <div class="link-subtitle"><%-link[i].class_desc%></div>
     <div class="link-list">
     <%for(var link_list in link[i].link_list){%>
         <div class="link-list-item">
@@ -18,11 +20,89 @@ var link = site.data.link
     </div>
 <%}%>
 </div>
+
 <script>
     setInterval(function(){
         if(document.body.clientWidth < 800){
             $('img#up').remove();
         }
     },0)
+
+
+    // 声明变量
+    var arr = [];
+    var result;
+
+    /*请求源数据*/
+    $.get({
+        url: "https://gitee.com/api/v5/repos/<%-issues.owner%>/<%-issues.repo%>/issues?state=open&sort=created&direction=<%-issues.direction%>&page=1&per_page=100",
+        dataType: "json",
+        async:false,
+        success: function(data){
+            for (let i in data) {
+                var json = new Object();
+                json.name = filter("name",data[i]["body"])
+                json.link = filter("link",data[i]["body"])
+                json.avatar = filter("avatar",data[i]["body"])
+                json.descr = filter("descr",data[i]["body"])
+                var tag = JSON.parse(JSON.stringify(data[i]["labels"]))
+                for (let j in tag) {
+                    json.tags = tag[j].name
+                }
+                arr.push(json);
+            }
+            links(JSON.stringify(arr));
+        }
+    })
+
+    
+
+    /*过滤数据*/
+    function filter(key,body) {
+        var reg = new RegExp(String.raw`${key}:[^\n]*\n`);
+        var repReg = new RegExp(String.raw`(${key}:[\s]*|[\r\n]*)`, "g");
+        body = body.match(reg);
+        if (body && body.length > 0) {
+            data = body[0].replace(repReg, "");
+        }
+        return data;
+    }
+
+    /*插入数据*/
+    function links(data){
+
+        <% if(issues.show_position=="before"){%>
+        // 添加在开头
+        $("#link").prepend('<div class="link-list link-list-gitee"></div>')
+        $("#link").prepend('<div class="link-subtitle"><%-issues.subtitle%></div>')
+        $("#link").prepend('<h2><%-issues.title%></h2>')
+        <%}else{%>
+        // 添加在结尾
+        $("#link").append('<h2><%-issues.title%></h2>')
+        $("#link").append('<div class="link-subtitle"><%-issues.subtitle%></div>')
+        $("#link").append('<div class="link-list"></div>')
+        <%}%>
+        data = JSON.parse(data)
+        for (let i in data) {
+            // 只有仓库拥有者添加了标签的才显示友链
+            if(data[i].tags!=null){
+            <% if(issues.show_position=="before"){%>
+                $(".link-list:first").prepend(
+            <%}else{%>
+                $(".link-list:last").prepend(
+            <%}%>
+                `<div class="link-list-item">
+                    <a target="_blank" rel="noopener" href="${data[i].link}">
+                        <img src="${data[i].avatar}" alt="${data[i].name}">
+                        <span class="link-item-name">${data[i].name}</span>
+                        <span class="link-item-desc">${data[i].descr}</span>
+                    </a>
+                </div>`)
+            }
+        }
+    }
+
+    
+    
 </script>
 
