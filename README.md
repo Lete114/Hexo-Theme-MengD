@@ -94,11 +94,17 @@ theme_color:
 # 通过issues申请友情链接(目前只支持gitee)
 link:
   issues:
-    enable: true # 是否开启
+    enable: false # 是否开启
+    title: Gitee友链 # 主标题
+    subtitle: Gitee友链 # 副标题
     owner: lete114 # 仓库拥有者
     repo: link # 仓库昵称
-    direction: desc # 友链显示顺序 升序(asc) / 降序(desc)
-    show_position: before # 显示的位置  前(before) / 后(later)
+    show_position: later # 显示的位置  前(before) / 后(later)
+  repo_pr:  
+    enable: true # 是否开启
+    yml_url: https://cdn.jsdelivr.net/gh/lete114/CDN@latest/link.yml # 友链yml文件
+    show_position: later # 显示的位置  前(before) / 后(later)
+
 
 # 评论
 ## 注意大小写
@@ -189,7 +195,8 @@ CDN:
   valine: https://cdn.jsdelivr.net/gh/lete114/CDN2/js/Valine-Lete3.2.js ## 原版: //unpkg.com/valine/dist/Valine.min.js
   waline: //cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js
   twikoo: https://cdn.jsdelivr.net/npm/twikoo@0.5.1/dist/twikoo.all.min.js
-
+  # yml转json
+  js_yaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
 
 ```
 

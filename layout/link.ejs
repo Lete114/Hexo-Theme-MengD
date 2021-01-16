@@ -1,7 +1,9 @@
 <%
 var link = site.data.link
 var issues = theme.link.issues
+var repo = theme.link.repo_pr
 %>
+
 <div class="link" id="link">
 <% for(var i in link){ %>
 
@@ -20,7 +22,7 @@ var issues = theme.link.issues
     </div>
 <%}%>
 </div>
-
+<%if(repo.enable){%><script src="<%-theme.CDN.js_yaml%>"></script><%}%>
 <script>
     setInterval(function(){
         if(document.body.clientWidth < 800){
@@ -28,14 +30,13 @@ var issues = theme.link.issues
         }
     },0)
 
-
+    <%if(issues.enable){%>
     // 声明变量
     var arr = [];
-    var result;
 
     /*请求源数据*/
     $.get({
-        url: "https://gitee.com/api/v5/repos/<%-issues.owner%>/<%-issues.repo%>/issues?state=open&sort=created&direction=<%-issues.direction%>&page=1&per_page=100",
+        url: "https://gitee.com/api/v5/repos/<%-issues.owner%>/<%-issues.repo%>/issues?state=open&sort=created&direction=desc&page=1&per_page=100",
         dataType: "json",
         async:false,
         success: function(data){
@@ -55,8 +56,6 @@ var issues = theme.link.issues
         }
     })
 
-    
-
     /*过滤数据*/
     function filter(key,body) {
         var reg = new RegExp(String.raw`${key}:[^\n]*\n`);
@@ -70,10 +69,9 @@ var issues = theme.link.issues
 
     /*插入数据*/
     function links(data){
-
         <% if(issues.show_position=="before"){%>
         // 添加在开头
-        $("#link").prepend('<div class="link-list link-list-gitee"></div>')
+        $("#link").prepend('<div class="link-list"></div>')
         $("#link").prepend('<div class="link-subtitle"><%-issues.subtitle%></div>')
         $("#link").prepend('<h2><%-issues.title%></h2>')
         <%}else{%>
@@ -101,8 +99,56 @@ var issues = theme.link.issues
             }
         }
     }
+    <%}%>
 
-    
-    
+    <%if(repo.enable){%>
+    /*通过仓库pr修改link.yml方式*/
+    $.get({
+        url: "<%-repo.yml_url%>",
+        async:false,
+        success: function(data){
+            data = JSON.stringify(jsyaml.load(data))
+            data = JSON.parse([data]);
+            <%if(repo.show_position=="before"){%>
+            $("#link").prepend('<span id="gitee-link-before"></span>')
+            <%}%>
+            for (let i in data) {
+                var desc = data[i].class_desc == null?'':data[i].class_desc;
+                var title = data[i].class_name;
+                <%if(repo.show_position=="before"){%>
+                    // 添加在开头
+                    $("#gitee-link-before").append('<h2>'+title+'</h2>')
+                    $("#gitee-link-before").append('<div class="link-subtitle">'+desc+'</div>')
+                    $("#gitee-link-before").append('<div class="link-list link-list-gitee"></div>')
+                <%}else{%>
+                    // 添加在结尾
+                    $("#link").append('<h2>'+title+'</h2>')
+                    $("#link").append('<div class="link-subtitle">'+desc+'</div>')
+                    $("#link").append('<div class="link-list"></div>')
+                <%}%>
+                for (let j in data[i].link_list) {
+                    var name = data[i].link_list[j].name;
+                    var link = data[i].link_list[j].link;
+                    var avatar = data[i].link_list[j].avatar;
+                    var descr = data[i].link_list[j].descr;
+
+                    <% if(repo.show_position=="before"){%>
+                        $("#gitee-link-before .link-list:last").append(
+                    <%}else{%>
+                        $(".link-list:last").append(
+                    <%}%>
+                    `<div class="link-list-item">
+                        <a target="_blank" rel="noopener" href="${link}">
+                            <img src="${avatar}" alt="${name}">
+                            <span class="link-item-name">${name}</span>
+                            <span class="link-item-desc">${descr}</span>
+                        </a>
+                    </div>`)
+                }
+            }
+            
+        }
+    })
+    <%}%>
 </script>
 
