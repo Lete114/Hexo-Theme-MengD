@@ -63,6 +63,13 @@ search:
   path: /search.xml
   field: post
 
+# 资源压缩，默认只内置css压缩
+# 需安装插件: npm install hexo-minify --save
+minify:
+  js: true
+  css: true 
+  html: true  
+
 error_404:
   enable: true # 是否开启404页面
   text: 404！页面君找不到这个网页！！ # 自定义内容

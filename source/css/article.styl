@@ -1,7 +1,5 @@
 @require 'var'
-#body-wrap
-    margin 60px 0
-    margin-left 300px
+    
 #toc 
     height 100%
     position sticky
@@ -21,7 +19,6 @@
     .toc
         overflow-y scroll
         max-height 500px
-        // padding-bottom 5rem
    if hexo-config("toc.scrollbar")
     .toc::-webkit-scrollbar
         width 0px
@@ -99,54 +96,3 @@ progress::-webkit-progress-value
 #toc-title
     text-align center
     padding-bottom 30px 
-
-
-
-@media screen and (max-width 1400px)    
-    #body-wrap
-        margin 60px 0
-        margin-left 150px
-
-@media screen and (max-width 1300px)    
-    #body-wrap
-        margin 60px 0
-        margin-left 60px
-
-@media screen and (max-width 1200px)
-    #toc
-        margin 60px 10px 0
-    #body-wrap
-        margin 60px 0 0 2%
-
-@media screen and (max-width 1100px)   
-    .comment-head
-        padding 0 20px 0 20px    
-
-@media screen and (max-width 1000px)
-    #toc
-        display none
-        height 250px 
-        position fixed 
-        right 35px
-        bottom 30px 
-        top 48%
-        z-index 1000 
-        width 280px 
-        background rgba(255,255,255,.9) 
-        margin 0
-        .toc
-            max-height 180px 
-    #body-wrap
-        margin 60px auto 
-    .rightside-toc
-        display inline-block !important
-
-@media screen and (max-width 800px)
-    .comment-head
-        padding 0 20px 30px 20px 
-
-@media screen and (max-width 600px)
-    .social-share 
-        text-align center
-        float none
-        margin 0

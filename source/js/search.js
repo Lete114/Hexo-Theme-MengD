@@ -60,7 +60,6 @@ var searchFunc = function(path, search_id, content_id) {
                         }
                         // show search results
                         if (isMatch) {
-                            // str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
                             var content = data.content.trim().replace(/<[^>]+>/g, "");
                             if (first_occur >= 0) {
                                 // cut out 100 characters

@@ -29,17 +29,17 @@ var url = config.url+"/"+page.path;
 <title><%- title %></title>
 <link rel="icon" href="<%-theme.favicon%>">
 <meta name="keywords" content="<%- keywords || theme.keywords || config.keywords %>">
-<meta name="description" content="<%- description || theme.description || config.description%>" />
+<meta name="description" content="<%= description || theme.description || config.description%>" />
 <meta property="site_name" content="<%- theme.title || config.title %>" />
 <meta property="og:type" content="website">
 <meta property="og:url" content="<%- url || config.url%>">
 <meta property="og:title" content="<%- title || theme.title || config.title %>" />
 <meta property="og:site_name" content="<%- theme.title || config.title %>" />
-<meta property="og:description" content="<%- description || theme.description || config.description%>" />
+<meta property="og:description" content="<%= description || theme.description || config.description%>" />
 <meta property="og:locale" content="<%-theme.language || config.language%>">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="<%- title || theme.title || config.title %>">
-<meta name="twitter:description" content="<%-description || theme.description || config.description%>">
+<meta name="twitter:description" content="<%=description || theme.description || config.description%>">
 <link rel="dns-prefetch" href="<%- url || config.url%>">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">

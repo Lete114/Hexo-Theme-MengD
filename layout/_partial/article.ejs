@@ -128,16 +128,88 @@
             <%- partial('reward') %>
             
         </article>
-        <script>
-            var tocTitle =`
-            <div id="toc-title">
-                <h4>目录
-                    <span id="num">0%</span>
-                </h4>
-                <progress id="progress" value="0" max="100"></progress>
-            </div>
-            `;
+        <%
+            
 
+        %>
+        <%
+            theme.tocContent = toc(page.content,{list_number: false})==""?false:true;
+            if(theme.tocContent){
+        %>
+        <style>
+            #body-wrap{
+                margin: 60px 0; 
+                margin-left: 300px;
+            }
+            
+            @media screen and (max-width: 1400px){
+                #body-wrap{
+                    margin: 60px 0;
+                    margin-left: 150px
+                }
+            }
+
+            @media screen and (max-width: 1300px){ 
+                #body-wrap{
+                    margin: 60px 0;
+                    margin-left: 60px
+                }
+            }
+            @media screen and (max-width: 1200px){
+                #toc{
+                    margin: 60px 10px 0
+                }
+                #body-wrap{
+                    margin: 60px 0 0 2%
+                }
+            }
+            @media screen and (max-width: 1100px){
+                .comment-head{
+                    padding: 0 20px 0 20px    
+                }
+            }
+            @media screen and (max-width: 1000px){
+                #toc{
+                    display: none;
+                    height: 250px ;
+                    position: fixed ;
+                    right: 35px;
+                    bottom: 30px ;
+                    top: 48%;
+                    z-index: 1000 ;
+                    width: 280px ;
+                    background: rgba(255,255,255,.9) ;
+                    margin: 0
+                }
+                .toc{
+                    max-height: 180px 
+                }
+                #body-wrap{
+                    margin: 60px auto 
+                }
+                .rightside-toc{
+                    display: inline-block !important
+                }
+            }
+
+            
+            @media screen and (max-width: 800px){
+                .comment-head{
+                    padding: 0 20px 30px 20px 
+                }
+            }
+
+            @media screen and (max-width: 600px){
+                .social-share {
+                    text-align: center;
+                    float: none;
+                    margin: 0
+                }
+            }
+                
+        </style>
+        <%}%>
+        <script>
             <%if(theme.upjiang){%>
             setInterval(function(){
                 $('img#up').remove();
@@ -164,8 +236,19 @@
                 buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
                 hash: false
             });
+            <%if(toc(page.content,{list_number: false})!=""){%>
+
+            var tocTitle =`
+            <div id="toc-title">
+                <h4>目录
+                    <span id="num">0%</span>
+                </h4>
+                <progress id="progress" value="0" max="100"></progress>
+            </div>
+            `;
 
             $("#body-wrap").after('<div id="toc">'+tocTitle+'<%- toc(page.content,{list_number: false}) %></div>');
+            <%}%>
         </script>
 
         <section id="rightside">

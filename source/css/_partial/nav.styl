@@ -10,7 +10,6 @@ nav
 #site_nav 
     ul
         float right
-        position: relative;
         top: -30px;
         li
             position relative
@@ -21,6 +20,10 @@ nav
                 white-space nowrap
                 padding 10px
                 font-size .9rem
+    if hexo-config('search.enable')
+        ul
+            position: relative;
+
     #mobileNav
         opacity 0
         display: table-column;
