@@ -86,7 +86,7 @@ var searchFunc = function(path, search_id, content_id) {
                                     match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
                                     data_title = data_title.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
                                 });
-                                str += "<li><a href='/" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
                                 str += "<p class=\"search-result\">" + match_content + "...</p>"
                             }
                             str += "</li>";

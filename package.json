@@ -1,0 +1,28 @@
+{
+  "name": "hexo-theme-mengd",
+  "version": "1.5.0",
+  "description": "A respect for simplicity and elegance, as well as extreme performance , Focus on the content",
+  "main": "package.json",
+  "scripts": {},
+  "keywords": [
+    "hexo",
+    "theme",
+    "mengd",
+    "lete114",
+    "hexo-theme-mengd",
+    "hexo-minify"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lete114/hexo-theme-MengD"
+  },
+  "author": {
+    "name": "Lete114",
+    "url": "https://www.lete114.top"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "hexo-generator-search": "^2.4.1",
+    "hexo-minify": "^1.0.1"
+  }
+}
