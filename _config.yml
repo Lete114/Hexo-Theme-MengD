@@ -138,8 +138,20 @@ toc:
 
 # 页脚
 footer:
-  custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！  
   since: 2020
+  custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！  
+  icp:
+    enable: true
+    text: 黔 ICP 备 20006055 号
+    icon: /img/icp.png
+    url: http://www.beian.miit.gov.cn/
+  cdn:
+    enable: true
+    text: 提供加速服务
+    icon: https://cdn.jsdelivr.net/gh/lete114/CDN/upyun/05.png
+    url: https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral
+    
+
 
 # 百度统计
 analytics:
