@@ -8,7 +8,7 @@
 hexo.on('generateBefore', function () {
   var config = hexo.config;
   var theme = hexo.theme.config;
-  
+
   /* 默认自动css压缩 */
   config.stylus={compress:theme.minify.css};
 

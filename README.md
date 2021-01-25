@@ -31,6 +31,12 @@ git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 ## 配置
 
 ``` yml
+#--------------------------------------------------------
+# Hexo-MengD(萌典)
+# 项目地址：https://github.com/lete114/hexo-theme-MengD
+# 主题文档：https://mengd.lete114.top/
+# 一个崇尚简约优雅，以及极致的性能，把注意力集中到内容上
+#--------------------------------------------------------
 
 
 # 导航栏菜单
@@ -51,13 +57,13 @@ avatar: https://www.lete114.top/img/avatar.png
 language: zh-CN
 keywords: 
 description: 人生只有一次，大胆的生活！！
-upjiang: false # 文章页面是否显示up酱(回到顶部)
+upjiang: false # 是否显示up酱(回到顶部)
 cover: true # 是否开启主页文章cover(首图) 
-# 是否开启版权(文章内可以设置copytight: false 属性单独关闭某个文章的版权)
-copytight: true  
+# 是否开启版权(文章内可以设置copyright: false 属性单独关闭某个文章的版权)
+copyright: true  
 page_count: 5 # 首页显示的文章数
 
-# 需要安装插件: npm install hexo-generator-search --save
+# 需安装插件: npm install hexo-generator-search --save
 search: 
   enable: true
   path: /search.xml
@@ -68,7 +74,7 @@ search:
 minify:
   js: true
   css: true 
-  html: true  
+  html: true
 
 error_404:
   enable: true # 是否开启404页面
@@ -112,6 +118,18 @@ link:
     yml_url: https://cdn.jsdelivr.net/gh/lete114/CDN@latest/link.yml # 友链yml文件
     show_position: later # 显示的位置  前(before) / 后(later)
 
+share:
+  sites:
+    - facebook
+    - qq
+    - weibo
+    - wechat
+    - twitter
+
+reward:
+  enable: true
+  alipay: https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/zfb.png
+  wechat: https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/wzf.png
 
 # 评论
 ## 注意大小写
@@ -165,12 +183,24 @@ toc:
 
 # 页脚
 footer:
-  custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！  
   since: 2020
+  custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！  
+  icp:
+    enable: true
+    text: 黔 ICP 备 20006055 号
+    icon: /img/icp.png
+    url: http://www.beian.miit.gov.cn/
+  cdn:
+    enable: true
+    text: 提供加速服务
+    icon: https://cdn.jsdelivr.net/gh/lete114/CDN/upyun/05.png
+    url: https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral
+    
+
 
 # 百度统计
 analytics:
-  baidu: 
+  baidu: 8e216044fbe6b71b6fefc197c2508ed1
   google: 
 
 # 自定义引入外部css、js
@@ -201,10 +231,9 @@ CDN:
   # 评论
   valine: https://cdn.jsdelivr.net/gh/lete114/CDN2/js/Valine-Lete3.2.js ## 原版: //unpkg.com/valine/dist/Valine.min.js
   waline: //cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js
-  twikoo: https://cdn.jsdelivr.net/npm/twikoo@0.5.1/dist/twikoo.all.min.js
+  twikoo: https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js
   # yml转json
   js_yaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
-
 ```
 
 

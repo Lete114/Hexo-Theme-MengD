@@ -1,0 +1,44 @@
+
+index:
+  cover: 封面
+  created: 发表于
+
+search:
+  title: 本地搜索
+  input: 搜索文章
+
+share:
+  wechatQrcodeTitle: 微信扫一扫：分享
+  wechatQrcodeHelper: 立即下载发送专属二维码,邀请朋友加入
+
+article: 
+  created: 发表于
+  updated: 更新于
+  wordcount: 总字数
+  min2read: 阅读时长
+  min2read_unit: 分钟
+  visitors: 阅读量
+  toc: 目录
+  comments: 评论
+
+rightside:
+  direct_comments: 直达评论
+  back_to_top: 回到顶部
+
+copyright:
+  author: 文章作者
+  article_url: 文章链接
+  notice: 版权声明
+  info_1: 本博客所有文章除特别声明外，均采用
+  info_2: 许可协议。转载请注明来自
+
+reward:
+  button: 赏
+  alipay: 支付宝
+  wechat: 微信
+
+footer:
+  framework: 框架
+  theme: 主题
+archive:
+  article-count: 文章总览

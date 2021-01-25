@@ -1,6 +1,7 @@
 <% var option = theme.waline.option ? JSON.stringify(theme.waline.option) : false %>
 <div id="wcomments"></div>
-<script src="<%- theme.CDN.waline %>"></script>
+<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.js"></script>
+<script data-pjax src="<%- theme.CDN.waline %>"></script>
 
 <script>
     let initData = {

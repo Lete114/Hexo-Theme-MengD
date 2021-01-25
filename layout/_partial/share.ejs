@@ -3,11 +3,9 @@
 <div class="social-share"></div>
 <script>
 var $config = {
-    sites   : ['facebook', 'qq', 'weibo','wechat', 'twitter'], // 启用的站点
-    // disabled: ['google', 'facebook', 'twitter', 'linyin'], // 禁用的站点
-    wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
-    wechatQrcodeHelper: '立即下载发送专属二维码,邀请朋友加入',
+    sites   : "<%=theme.share.sites%>".split(","),
+    wechatQrcodeTitle: "<%-_p('share.wechatQrcodeTitle')%>",
+    wechatQrcodeHelper: "<%-_p('share.wechatQrcodeHelper')%>",
 };
-
 socialShare('.social-share', $config);
 </script>

@@ -24,10 +24,10 @@ avatar: https://www.lete114.top/img/avatar.png
 language: zh-CN
 keywords: 
 description: 人生只有一次，大胆的生活！！
-upjiang: false # 文章页面是否显示up酱(回到顶部)
+upjiang: false # 是否显示up酱(回到顶部)
 cover: true # 是否开启主页文章cover(首图) 
-# 是否开启版权(文章内可以设置copytight: false 属性单独关闭某个文章的版权)
-copytight: true  
+# 是否开启版权(文章内可以设置copyright: false 属性单独关闭某个文章的版权)
+copyright: true  
 page_count: 5 # 首页显示的文章数
 
 # 需安装插件: npm install hexo-generator-search --save
@@ -85,6 +85,18 @@ link:
     yml_url: https://cdn.jsdelivr.net/gh/lete114/CDN@latest/link.yml # 友链yml文件
     show_position: later # 显示的位置  前(before) / 后(later)
 
+share:
+  sites:
+    - facebook
+    - qq
+    - weibo
+    - wechat
+    - twitter
+
+reward:
+  enable: true
+  alipay: https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/zfb.png
+  wechat: https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/wzf.png
 
 # 评论
 ## 注意大小写
@@ -155,7 +167,7 @@ footer:
 
 # 百度统计
 analytics:
-  baidu: 
+  baidu: 8e216044fbe6b71b6fefc197c2508ed1
   google: 
 
 # 自定义引入外部css、js

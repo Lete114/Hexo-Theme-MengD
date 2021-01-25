@@ -1,8 +1,8 @@
 <%if(theme.search.enable){%>
 <script type="text/javascript">$.getScript('<%-theme.CDN.search%>',function(){searchFunc('<%-theme.search.path%>', 'local-search-input', 'local-search-result') })</script>
 <div class="search-dialog" id="local-search">
-    <div id="local-search-title">本地搜索</div>
-    <input id="local-search-input" placeholder="搜索文章" type="text" >
+    <div id="local-search-title"><%-_p("search.title")%></div>
+    <input id="local-search-input" placeholder="<%-_p('search.input')%>" type="text" >
     <hr>
     <div id="local-search-result">
         <div id="local-hits"></div>

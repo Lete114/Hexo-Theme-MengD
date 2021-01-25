@@ -13,7 +13,7 @@ var repo = theme.link.repo_pr
     <%for(var link_list in link[i].link_list){%>
         <div class="link-list-item">
             <a href="<%-link[i].link_list[link_list].link%>">
-                <img src="<%-link[i].link_list[link_list].avatar%>" alt="<%-link[i].link_list[link_list].name%>">
+                <img src="<%-link[i].link_list[link_list].avatar%>" alt="<%-link[i].link_list[link_list].descr%>">
                 <span class="link-item-name"><%-link[i].link_list[link_list].name%></span>
                 <span class="link-item-desc"><%-link[i].link_list[link_list].descr%></span>
             </a>
@@ -91,7 +91,7 @@ var repo = theme.link.repo_pr
             <%}%>
                 `<div class="link-list-item">
                     <a target="_blank" rel="noopener" href="${data[i].link}">
-                        <img src="${data[i].avatar}" alt="${data[i].name}">
+                        <img src="${data[i].avatar}" alt="${data[i].descr}">
                         <span class="link-item-name">${data[i].name}</span>
                         <span class="link-item-desc">${data[i].descr}</span>
                     </a>
@@ -139,7 +139,7 @@ var repo = theme.link.repo_pr
                     <%}%>
                     `<div class="link-list-item">
                         <a target="_blank" rel="noopener" href="${link}">
-                            <img src="${avatar}" alt="${name}">
+                            <img src="${avatar}" alt="${descr}">
                             <span class="link-item-name">${name}</span>
                             <span class="link-item-desc">${descr}</span>
                         </a>

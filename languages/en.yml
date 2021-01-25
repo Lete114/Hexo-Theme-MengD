@@ -1,0 +1,44 @@
+
+index:
+  cover: Cover
+  created: Created
+
+search:
+  title: Local Search
+  input: Search the article
+
+share:
+  wechatQrcodeTitle: "WeChat scan: Share"
+  wechatQrcodeHelper: Download and send exclusive QR code now, and invite friends to join
+
+article: 
+  created: Created
+  updated: Updated
+  wordcount: Word Count
+  min2read: Reading time
+  min2read_unit: min
+  visitors: Visitors
+  toc: Table Of Contents
+  comments: Comments
+
+rightside:
+  direct_comments: Direct comments
+  back_to_top: Back To Top
+
+copyright:
+  author: Authorship
+  article_url: Article Links
+  notice: Copyright
+  info_1: All articles in this blog are used unless otherwise stated
+  info_2: License Agreement. Reprint please indicate from
+
+reward:
+  button: Reward
+  alipay: Alipay
+  wechat: WeChat
+
+footer:
+  framework: Framework
+  theme: Theme
+archive:
+  article-count: Article Overview

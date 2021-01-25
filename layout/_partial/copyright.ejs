@@ -1,25 +1,25 @@
 <!--版权-->
-<% if (theme.copytight && !index){ %>
-    <% if (post.copytight==null||post.copytight){ %>
+<% if (theme.copyright && !index){ %>
+    <% if (post.copyright==null||post.copyright){ %>
     <div class="post-copyright">
       <div class="post-copyright-icon"><a></a></div>
         <div class="post-copyright__author">
-            <span class="post-copyright-meta">文章作者: </span>
+            <span class="post-copyright-meta"><%-_p('copyright.author')%>: </span>
               <span class="post-copyright-info">
                 <a href="mailto:<%- theme.mail %>" one-link-mark="yes"><%- theme.author%></a>
               </span>
         </div>
         <div class="post-copyright__type">
-            <span class="post-copyright-meta">文章链接: </span>
+            <span class="post-copyright-meta"><%-_p('copyright.article_url')%>: </span>
               <span class="post-copyright-info">
                 <a href="<%= config.url %>/<%= post.path %>" one-link-mark="yes"><%= config.url %>/<%= post.path %></a>
               </span>
         </div><div class="post-copyright__notice">
-            <span class="post-copyright-meta">版权声明: </span>
-              <span class="post-copyright-info">本博客所有文章除特别声明外，均采用
+            <span class="post-copyright-meta"><%-_p('copyright.notice')%>: </span>
+              <span class="post-copyright-info"><%-_p('copyright.info_1')%>
                 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" one-link-mark="yes">
-                    CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自
-                <a href="https://blog.lete114.top" target="_blank" one-link-mark="yes"><%- theme.title || config.title%></a>
+                    CC BY-NC-SA 4.0</a> <%-_p('copyright.info_2')%>
+                <a href="<%= config.url %>" target="_blank" one-link-mark="yes"><%- theme.title || config.title%></a>
                 ！</span>
         </div>
     </div>
