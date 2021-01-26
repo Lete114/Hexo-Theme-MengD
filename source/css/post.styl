@@ -1,3 +1,47 @@
+main.content
+    code
+        padding .1rem .2rem
+        background rgba(27,31,35,.05)
+        color #f47466
+        border-radius 5px
+        margin 0 6px
+        word-wrap break-word
+        word-break break-word
+        overflow-wrap break-word
+    ol
+        margin-top: .4rem;
+        padding: 0 0 0 .8rem;
+        list-style: none;
+        counter-reset: li;
+        li
+            position: relative; 
+            margin: .3rem 0;
+    ol>li:not(.tab) 
+        padding: .2em .2em .2em 1.8em;
+    ol>li:before 
+        margin-top: .65em;
+        width: 1.45em;
+        height: 1.45em;
+        border-radius: .725em;
+        content: counter(li);
+        counter-increment: li;
+        text-align: center;
+        font-size: .85em;
+        line-height: 1.45em;
+    ol li:before
+        position: absolute;
+        top: 0;
+        left: 0;
+        background:$main;
+        color: #fff;
+        cursor: pointer; 
+    blockquote 
+        margin: 0 0 1rem;
+        padding: .1rem .8rem;
+        border-left: .2rem solid $main;
+        background-color: rgba(73,177,245,0.1);
+        color: #6a737d;   
+
 article
     .post 
     .post-tag
@@ -26,7 +70,7 @@ article
             line-height 1.7em
             letter-spacing .2px
             font-weight 530
-            margin 0 0 .8rem
+            margin .8rem 0 
         h1,h2,h3,h4,h5,h6
             margin-block-start .83em
             margin-block-end .83em
@@ -128,7 +172,12 @@ article
                 margin-top 7px        
 
 /* twikoo */
-#twikoo .tk-comments-container
+#twikoo 
+    .tk-submit
+        box-shadow: 2px 2px 5px #bbb;
+        border-radius: 8px;
+        padding: 10px 10px 0;
+        margin-bottom: 20px;
     .tk-comment
         box-shadow 2px 2px 5px #bbb
         background rgba(255,255,255,.3)
@@ -168,6 +217,9 @@ article
         font-size 20px 
 
 #vcomments,#wcomments
+    .vpanel
+        box-shadow: 2px 2px 5px #bbb;
+        border-radius: 8px;
     .vbtn
         border none 
         background $main 

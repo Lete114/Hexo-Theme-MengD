@@ -74,8 +74,9 @@ search:
 minify:
   js: true
   css: true 
-  html: true
+  html: false
 
+## 404页面
 error_404:
   enable: true # 是否开启404页面
   text: 404！页面君找不到这个网页！！ # 自定义内容
@@ -118,6 +119,8 @@ link:
     yml_url: https://cdn.jsdelivr.net/gh/lete114/CDN@latest/link.yml # 友链yml文件
     show_position: later # 显示的位置  前(before) / 后(later)
 
+## share分享
+## https://github.com/overtrue/share.js/
 share:
   sites:
     - facebook
@@ -126,10 +129,15 @@ share:
     - wechat
     - twitter
 
+## 打赏
 reward:
   enable: true
   alipay: https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/zfb.png
   wechat: https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/wzf.png
+
+## pjax
+## https://github.com/MoOx/pjax
+pjax: true
 
 # 评论
 ## 注意大小写
@@ -156,7 +164,7 @@ valine:
 # waline
 ## https://waline.js.org
 waline:
-  serverURL: https://waline.lete114.top/ # 服务端地址
+  serverURL: https://waline.vercel.app/ #https://waline.lete114.top/ # 服务端地址
   placeholder: 快来评论吧!! #评论框占位符
   avatar: '' # gravatar style https://valine.js.org/#/avatar
   meta: ['nick','mail','link'] # 评论者相关属性
@@ -170,7 +178,7 @@ waline:
 # twikoo
 ## https://twikoo.js.org/
 twikoo:
-  envId: exxxxxxxxxxxxg # 你的环境id
+  envId: env-jxscvzag # 你的环境id
   region: ap-shanghai # 环境地域，ap-shanghai / ap-guangzhou
   path: window.location.pathname  # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
   option: 
@@ -222,6 +230,8 @@ CDN:
   index_js: /js/main.js
   article_css: /css/article.css
   search: /js/search.js
+  pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.js
+  upj: https://cdn.jsdelivr.net/gh/lete114/CDN/Use/up.gif
   # 图片展示
   fancybox_css: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
   fancybox_js: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
@@ -234,6 +244,11 @@ CDN:
   twikoo: https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js
   # yml转json
   js_yaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
+
+
+
+
+
 ```
 
 

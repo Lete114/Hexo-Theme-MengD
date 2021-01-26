@@ -1,7 +1,7 @@
 <% var option = theme.valine.option ? JSON.stringify(theme.valine.option) : false %>
 <div id="vcomments"></div>
+<%if(!theme.pjax){%>
 <script src="<%- theme.CDN.valine %>"></script>
-
 <script>
     let initData = {
         el: '#vcomments',
@@ -26,3 +26,4 @@
     }
     new Valine(initData)
 </script>
+<%}%>

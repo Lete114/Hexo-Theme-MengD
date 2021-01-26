@@ -1,5 +1,6 @@
 <% var option = theme.twikoo.option ? JSON.stringify(theme.twikoo.option) : false %>
 <div id="tcomment"></div>
+<%if(!theme.pjax){%>
 <script data src="<%-theme.CDN.twikoo%>"></script>
 <script>
 initData = {
@@ -15,3 +16,4 @@ var option = <%-option%>;
     console.log(initData);
 twikoo.init(initData)
 </script>
+<%}%>

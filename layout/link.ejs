@@ -22,7 +22,6 @@ var repo = theme.link.repo_pr
     </div>
 <%}%>
 </div>
-<%if(repo.enable){%><script src="<%-theme.CDN.js_yaml%>"></script><%}%>
 <script>
     setInterval(function(){
         if(document.body.clientWidth < 800){
@@ -107,46 +106,47 @@ var repo = theme.link.repo_pr
         url: "<%-repo.yml_url%>",
         async:false,
         success: function(data){
-            data = JSON.stringify(jsyaml.load(data))
-            data = JSON.parse([data]);
-            <%if(repo.show_position=="before"){%>
-            $("#link").prepend('<span id="gitee-link-before"></span>')
-            <%}%>
-            for (let i in data) {
-                var desc = data[i].class_desc == null?'':data[i].class_desc;
-                var title = data[i].class_name;
+            $.getScript("<%-theme.CDN.js_yaml%>",function(){
+                data = JSON.stringify(jsyaml.load(data))
+                data = JSON.parse([data]);
                 <%if(repo.show_position=="before"){%>
-                    // 添加在开头
-                    $("#gitee-link-before").append('<h2>'+title+'</h2>')
-                    $("#gitee-link-before").append('<div class="link-subtitle">'+desc+'</div>')
-                    $("#gitee-link-before").append('<div class="link-list link-list-gitee"></div>')
-                <%}else{%>
-                    // 添加在结尾
-                    $("#link").append('<h2>'+title+'</h2>')
-                    $("#link").append('<div class="link-subtitle">'+desc+'</div>')
-                    $("#link").append('<div class="link-list"></div>')
+                $("#link").prepend('<span id="gitee-link-before"></span>')
                 <%}%>
-                for (let j in data[i].link_list) {
-                    var name = data[i].link_list[j].name;
-                    var link = data[i].link_list[j].link;
-                    var avatar = data[i].link_list[j].avatar;
-                    var descr = data[i].link_list[j].descr;
-
-                    <% if(repo.show_position=="before"){%>
-                        $("#gitee-link-before .link-list:last").append(
+                for (let i in data) {
+                    var desc = data[i].class_desc == null?'':data[i].class_desc;
+                    var title = data[i].class_name;
+                    <%if(repo.show_position=="before"){%>
+                        // 添加在开头
+                        $("#gitee-link-before").append('<h2>'+title+'</h2>')
+                        $("#gitee-link-before").append('<div class="link-subtitle">'+desc+'</div>')
+                        $("#gitee-link-before").append('<div class="link-list link-list-gitee"></div>')
                     <%}else{%>
-                        $(".link-list:last").append(
+                        // 添加在结尾
+                        $("#link").append('<h2>'+title+'</h2>')
+                        $("#link").append('<div class="link-subtitle">'+desc+'</div>')
+                        $("#link").append('<div class="link-list"></div>')
                     <%}%>
-                    `<div class="link-list-item">
-                        <a target="_blank" rel="noopener" href="${link}">
-                            <img src="${avatar}" alt="${descr}">
-                            <span class="link-item-name">${name}</span>
-                            <span class="link-item-desc">${descr}</span>
-                        </a>
-                    </div>`)
+                    for (let j in data[i].link_list) {
+                        var name = data[i].link_list[j].name;
+                        var link = data[i].link_list[j].link;
+                        var avatar = data[i].link_list[j].avatar;
+                        var descr = data[i].link_list[j].descr;
+
+                        <% if(repo.show_position=="before"){%>
+                            $("#gitee-link-before .link-list:last").append(
+                        <%}else{%>
+                            $(".link-list:last").append(
+                        <%}%>
+                        `<div class="link-list-item">
+                            <a target="_blank" rel="noopener" href="${link}">
+                                <img src="${avatar}" alt="${descr}">
+                                <span class="link-item-name">${name}</span>
+                                <span class="link-item-desc">${descr}</span>
+                            </a>
+                        </div>`)
+                    }
                 }
-            }
-            
+            }) 
         }
     })
     <%}%>

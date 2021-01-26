@@ -65,13 +65,16 @@
                 <% } %>
             </div>
         </div>
-        
 <% }else{ %>
     <%if(page.type==null || page.layout==null){%>
         <article class="post">
             <link rel="stylesheet" href="<%-theme.CDN.article_css%>">
-            <link rel="stylesheet" href="<%-theme.CDN.fancybox_css%>" />
+            <link rel="stylesheet" href="<%-theme.CDN.share_css%>">
+            <link rel="stylesheet" href="<%-theme.CDN.fancybox_css%>"/>
+            <%if(!theme.pjax){%>
+            <script src="<%-theme.CDN.share_js%>"></script>
             <script src="<%-theme.CDN.fancybox_js%>"></script>
+            <%}%>
             <div class="post-title">
               <h2 class="title"><%= page.title %></h2>
             </div>
@@ -124,7 +127,8 @@
 
             <% } %>
 
-            <%- partial('share') %>
+            
+            <div class="social-share"></div>
 
             <%- partial('reward') %>
             
@@ -133,7 +137,7 @@
             theme.tocContent = toc(page.content,{list_number: false})==""?false:true;
             if(theme.tocContent){
         %>
-        <style>
+        <style data-pjax>
             #body-wrap{
                 margin: 60px 0; 
                 margin-left: 300px;
@@ -217,6 +221,13 @@
                     $('img#up').remove();
                 }
             },0)
+            <%if(!theme.pjax){%>
+            var $config = {
+                sites   : "<%=theme.share.sites%>".split(","),
+                wechatQrcodeTitle: "<%-_p('share.wechatQrcodeTitle')%>",
+                wechatQrcodeHelper: "<%-_p('share.wechatQrcodeHelper')%>",
+            };
+            socialShare('.social-share', $config);
 
             $(".post-content img").each(function () {
                 var element = document.createElement("a");
@@ -224,7 +235,6 @@
                 $(element).attr("href", $(this).attr("src"));
                 $(this).wrap(element);
             });
-
             $().fancybox({
                 selector: '[data-fancybox="images"]',
                 loop: true,
@@ -233,21 +243,9 @@
                 buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
                 hash: false
             });
-            <%if(toc(page.content,{list_number: false})!=""){%>
-
-            var tocTitle =`
-            <div id="toc-title">
-                <h4><%-_p("article.toc")%>
-                    <span id="num">0%</span>
-                </h4>
-                <progress id="progress" value="0" max="100"></progress>
-            </div>
-            `;
-
-            $("#body-wrap").after('<div id="toc">'+tocTitle+'<%- toc(page.content,{list_number: false}) %></div>');
             <%}%>
         </script>
-
+        
         <section id="rightside">
             <div id="rightside-item">
                 <a class="rightside-toc" title="<%-_p('article.toc')%>">

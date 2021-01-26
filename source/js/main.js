@@ -48,8 +48,7 @@ $('.search-close-button').click(function () {
 })
 
 
-
-$('.rightside-toc').click(function () {
+$(document).on('click', '.rightside-toc', function () {
     if ($("#toc").css("display") == "none") {
         $("#toc").css("display", "block")
         $("#toc").addClass('search-animation-max');
@@ -62,11 +61,6 @@ $('.rightside-toc').click(function () {
     }
 })
 $(window).resize( function  () {           //当浏览器大小变化时
-    if(document.body.clientWidth > 1000){
-        $("#toc").css("display", "block")
-    }else{
-        $("#toc").css("display", "none")
-    }
 
     if(document.body.clientWidth > 800){
         $("#local-search").css("display", "none")

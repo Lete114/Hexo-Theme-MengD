@@ -16,10 +16,189 @@
                 <%- body %>
             </main>
         </div>
+        <%if(page.layout=="post"){%>
+            <%if(toc(page.content,{list_number: false})!=""){%>
+            <div id="toc">
+                <div id="toc-title">
+                    <h4><%-_p("article.toc")%>
+                        <span id="num">0%</span>
+                    </h4>
+                    <progress id="progress" value="0" max="100"></progress>
+                </div>
+                <%- toc(page.content,{list_number: false}) %>
+            </div>
+            <%}else{%>
+                <div id="toc" style="display: none;"></div>
+            <%}%>
+        <%}else{%>
+            <div id="toc" style="display: none;"></div>
+        <%}%>
+        
     </div>
-    <img id="up" src="https://cdn.jsdelivr.net/gh/lete114/CDN/Use/up.gif" alt="回到顶部">
-    
+    <img id="up" src="<%-theme.CDN.upj%>" alt="<%-_p('rightside.回到顶部')%>">
     <%- partial('_partial/footer') %>   
     <%- partial('_partial/import_botton') %>
+    <%if(theme.pjax){%>
+    <script src="<%-theme.CDN.pjax%>"></script>
+    <script src="<%-theme.CDN.share_js%>"></script>
+    <script src="<%-theme.CDN.fancybox_js%>"></script>
+    <script>
+        var pjax = new Pjax({
+            selectors: ["head title", "main.content","#toc"],
+            cache: true,
+  			cacheBust: false
+        });
+        <%if(theme.comment!=null){%>
+            <%if(theme.comment=="valine"){%>
+                function LoadValine(){
+                    <% var option = theme.valine.option ? JSON.stringify(theme.valine.option) : false %>
+                    $.getScript("<%-theme.CDN.valine%>",function(){ 
+                        let initData = {
+                            el: '#vcomments',
+                            appId: '<%- theme.valine.appid %>',
+                            appKey: '<%- theme.valine.appkey %>',
+                            master: '<%- theme.valine.master %>',
+                            friends: '<%- theme.valine.friends %>',
+                            placeholder: '<%- theme.valine.placeholder %>',
+                            avatar: '<%- theme.valine.avatar %>',
+                            meta: '<%- theme.valine.meta %>'.split(","),
+                            pageSize: <%- theme.valine.pageSize %>,
+                            lang: '<%- theme.valine.lang %>',
+                            emojiCDN: '<%- theme.valine.emojiCDN %>',
+                            emojiMaps: <%- JSON.stringify(theme.valine.emojiMaps) %>,
+                            enableQQ: <%- theme.valine.enableQQ %>,
+                            path: window.location.pathname,
+                            visitor: true
+                        }
+                        var option = <%-option%>;
+                        if(option){
+                            initData = Object.assign(initData, option)
+                        }
+                        new Valine(initData)
+                    });
+                }
+            <%}else if(theme.comment=="waline"){%>
+                function LoadWaline(){
+                    <% var option = theme.waline.option ? JSON.stringify(theme.waline.option) : false %>
+                    $.getScript("<%-theme.CDN.waline%>",function(){ 
+                        let initData = {
+                        el: '#wcomments',
+                        path: location.pathname,
+                        serverURL: '<%- theme.waline.serverURL %>',
+                        placeholder: '<%- theme.waline.placeholder %>',
+                        avatar: '<%- theme.waline.avatar %>',
+                        meta: '<%- theme.waline.meta %>'.split(","),
+                        requiredFields: '<%- theme.waline.requiredFields %>'.split(","),
+                        pageSize: <%- theme.waline.pageSize %>,
+                        lang: '<%- theme.waline.lang %>',
+                        emojiCDN: '<%- theme.waline.emojiCDN %>',
+                        emojiMaps: <%- JSON.stringify(theme.waline.emojiMaps) %>,
+                        visitor: true
+                    }
+                    var option = <%-option%>;
+                    if(option){
+                        initData = Object.assign(initData, option)
+                    }
+                    new Waline(initData)
+                    })
+                }
+            <%}else if(theme.comment=="twikoo"){%>
+                function LoadTwikoo(){
+                    <% var option = theme.twikoo.option ? JSON.stringify(theme.twikoo.option) : false %>
+                    $.getScript("<%-theme.CDN.twikoo%>",function(){ 
+                    initData = {
+                        el: '#tcomment',
+                        envId: '<%-theme.twikoo.envId%>',
+                        region: '<%-theme.twikoo.region%>',
+                        path: '<%-theme.twikoo.path%>',
+                    }
+                    var option = <%-option%>;
+                    if(option){
+                        initData = Object.assign(initData, option)
+                    }
+                    console.log(initData);
+                    twikoo.init(initData);
+                    })
+                }
+            <%}%>
+        <%}%>
+
+        function LoadShare(){
+                var $config = {
+                sites   : "<%=theme.share.sites%>".split(","),
+                wechatQrcodeTitle: "<%-_p('share.wechatQrcodeTitle')%>",
+                wechatQrcodeHelper: "<%-_p('share.wechatQrcodeHelper')%>",
+            };
+            socialShare('.social-share', $config);
+        }
+
+        function LoadFancybox(){
+            $(".post-content img").each(function () {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "images");
+                $(element).attr("href", $(this).attr("src"));
+                $(this).wrap(element);
+            });
+
+            $().fancybox({
+                selector: '[data-fancybox="images"]',
+                loop: true,
+                transitionEffect: 'slide',
+                protect: true,
+                buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
+                hash: false
+            });
+        }
+
+        <%if(theme.comment!=null){%>
+            <%if(theme.comment=="valine"){%>
+                LoadValine();
+            <%}else if(theme.comment=="waline"){%>
+                LoadWaline();
+            <%}else if(theme.comment=="twikoo"){%>
+                LoadTwikoo();
+            <%}%>
+        <%}%>
+        // 开始 PJAX 执行的函数
+		document.addEventListener('pjax:send', function () {
+            <%if(theme.comment!=null){%>
+                <%if(theme.comment=="valine"){%>
+                    LoadValine();
+                <%}else if(theme.comment=="waline"){%>
+                    LoadWaline();
+                <%}else if(theme.comment=="twikoo"){%>
+                    LoadTwikoo();
+                <%}%>
+            <%}%>
+        });
+
+        LoadShare();
+        LoadFancybox();
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+		document.addEventListener('pjax:complete', function () {
+            <%if(theme.comment!=null){%>
+                <%if(theme.comment=="valine"){%>
+                    LoadValine();
+                <%}else if(theme.comment=="waline"){%>
+                    LoadWaline();
+                <%}else if(theme.comment=="twikoo"){%>
+                    LoadTwikoo();
+                <%}%>
+            <%}%>
+
+            LoadShare();
+            LoadFancybox();
+
+            document.querySelectorAll('script[data-pjax]').forEach(item => {
+                const newScript = document.createElement('script')
+                const content = item.text || item.textContent || item.innerHTML || ""
+                Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+                newScript.appendChild(document.createTextNode(content))
+                item.parentNode.replaceChild(newScript, item)
+            })
+        });
+    </script>
+    <%}%>
 </body>
 </html>
