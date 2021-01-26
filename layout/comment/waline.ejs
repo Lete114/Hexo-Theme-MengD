@@ -7,7 +7,7 @@
     let initData = {
         el: '#wcomments',
         path: location.pathname,
-        serverURL: 'https://waline.lete114.top',
+        serverURL: '<%- theme.waline.serverURL %>',
         placeholder: '<%- theme.waline.placeholder %>',
         avatar: '<%- theme.waline.avatar %>',
         meta: '<%- theme.waline.meta %>'.split(","),
