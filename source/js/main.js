@@ -60,6 +60,29 @@ $(document).on('click', '.rightside-toc', function () {
         
     }
 })
+
+// 代码块复制
+var clipboard = new ClipboardJS('.clipboard', {
+    text: function(trigger) {
+        return trigger.getAttribute('.code');
+    }
+});
+//  复制成功
+clipboard.on('success', function(event) {
+    event.trigger.innerHTML = "<i class='fa fa-check' style='color:green'></i>";
+    setTimeout(function () {
+        event.trigger.innerHTML = "<i class='fa fa-clipboard'></i>"
+    }, 2000)
+    event.clearSelection();
+});
+// 复制失败
+clipboard.on('error', function(event) {
+    event.trigger.innerHTML = "<i class='fa fa-times' style='color:red'></i>";
+    setTimeout(function () {
+        event.trigger.innerHTML = "<i class='fa fa-clipboard'></i>"
+    }, 2000)
+});
+
 $(window).resize( function  () {           //当浏览器大小变化时
 
     if(document.body.clientWidth > 800){

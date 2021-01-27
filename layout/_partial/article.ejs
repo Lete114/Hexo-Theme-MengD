@@ -133,6 +133,7 @@
             <%- partial('reward') %>
             
         </article>
+        <%if(theme.toc.enable){%>
         <%
             theme.tocContent = toc(page.content,{list_number: false})==""?false:true;
             if(theme.tocContent){
@@ -183,7 +184,7 @@
                     margin: 0
                 }
                 .toc{
-                    max-height: 180px 
+                    max-height: 180px !important
                 }
                 #body-wrap{
                     margin: 60px auto 
@@ -207,9 +208,10 @@
                     margin: 0
                 }
             }
-                
         </style>
         <%}%>
+        <%}%>
+        
         <script>
             <%if(!theme.upjiang){%>
             setInterval(function(){

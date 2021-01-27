@@ -33,7 +33,7 @@ var searchFunc = function(path, search_id, content_id) {
                         }
                         var data_title = data.title.trim().toLowerCase();
                         var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                        var data_url = data.url;
+                        var data_url = data.url.startsWith('/')?data.url:"/"+data.url;
                         var index_title = -1;
                         var index_content = -1;
                         var first_occur = -1;
@@ -94,6 +94,7 @@ var searchFunc = function(path, search_id, content_id) {
                     });
                     str += "</ul>";
                     $resultContent.innerHTML = str;
+                    window.pjax && window.pjax.refresh($resultContent)
                 });
             }
         }

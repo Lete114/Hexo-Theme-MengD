@@ -154,6 +154,7 @@ twikoo:
 
 # toc目录
 toc:
+  enable: true
   scrollbar: true ## 是否隐藏toc滚动条
 
 # 页脚
@@ -197,8 +198,10 @@ CDN:
   index_js: /js/main.js
   article_css: /css/article.css
   search: /js/search.js
-  pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.js
   upj: https://cdn.jsdelivr.net/gh/lete114/CDN/Use/up.gif
+
+  # pjax
+  pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.js
   # 图片展示
   fancybox_css: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
   fancybox_js: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
@@ -211,6 +214,8 @@ CDN:
   twikoo: https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js
   # yml转json
   js_yaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
+  # clipboard
+  clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js
 
 
 

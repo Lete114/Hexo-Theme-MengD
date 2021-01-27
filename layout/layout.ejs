@@ -16,6 +16,7 @@
                 <%- body %>
             </main>
         </div>
+        <%if(theme.toc.enable){%>
         <%if(page.layout=="post"){%>
             <%if(toc(page.content,{list_number: false})!=""){%>
             <div id="toc">
@@ -33,6 +34,7 @@
         <%}else{%>
             <div id="toc" style="display: none;"></div>
         <%}%>
+        <%}%>
         
     </div>
     <img id="up" src="<%-theme.CDN.upj%>" alt="<%-_p('rightside.回到顶部')%>">
@@ -44,7 +46,11 @@
     <script src="<%-theme.CDN.fancybox_js%>"></script>
     <script>
         var pjax = new Pjax({
-            selectors: ["head title", "main.content","#toc"],
+            selectors: [
+                "head title",
+                "main.content",
+                <%-theme.toc.enable==true?'"#toc"':""%>
+            ],
             cache: true,
   			cacheBust: false
         });
