@@ -23,14 +23,21 @@
 
 html
     overflow-x hidden
-    scroll-behavior smooth
-
-
+    scroll-behavior smooth       
 body
     background-color #eaeaea
     color #333333
     font-size 16px
     font-family 'source-han-sans-simplified-c', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif
+    .progress
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 10%;
+        height: 2px;
+        z-index: 103;
+        background-color: $main;
+        transition: width 0.4s ease 0s;
     #up
         display none
         cursor pointer
@@ -79,6 +86,4 @@ body
     color #fff
     background-color $scrollbar
 
-::-webkit-scrollbar-track 
-    background-color #fff
 

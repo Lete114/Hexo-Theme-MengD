@@ -4,13 +4,18 @@
 
 
 ## hexo-theme-MengD
-一个崇尚简约优雅，以及极致的性能
+
+一个简约优雅，及美丽漂亮的主题
 
 把注意力集中到内容上
 
 Docs: [MengD(萌典)](https://mengd.lete114.top/)
 
-部分样式模仿自[hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly)非常感谢
+布局参考自[菩提树下](https://blog.caicai.me/)非常感谢
+
+部分样式模仿自[hexo-theme-Butterfly](https://github.com/jerryc127/hexo-theme-butterfly)非常感谢
+
+交流群：[812028613](https://jq.qq.com/?_wv=1027&k=s3PT4WT2)
 
 ## 快速开始
 
@@ -35,7 +40,7 @@ git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 # Hexo-MengD(萌典)
 # 项目地址：https://github.com/lete114/hexo-theme-MengD
 # 主题文档：https://mengd.lete114.top/
-# 一个崇尚简约优雅，以及极致的性能，把注意力集中到内容上
+# 一个简约优雅，及美丽漂亮的主题
 #--------------------------------------------------------
 
 
@@ -56,7 +61,7 @@ favicon: /img/favicon.ico
 avatar: https://www.lete114.top/img/avatar.png
 language: zh-CN
 keywords: 
-description: 人生只有一次，大胆的生活！！
+description: 一个简约优雅，及美丽漂亮的主题!!
 upjiang: false # 是否显示up酱(回到顶部)
 cover: true # 是否开启主页文章cover(首图) 
 # 是否开启版权(文章内可以设置copyright: false 属性单独关闭某个文章的版权)
@@ -69,12 +74,12 @@ search:
   path: /search.xml
   field: post
 
-# 资源压缩，默认只内置css压缩
-# 需安装插件: npm install hexo-minify --save
+# 资源压缩，主题默认内置的压缩只是简单的压缩
+# 需要更全面的压缩请安装插件: npm install hexo-minify --save
 minify:
   js: true
   css: true 
-  html: false
+  html: true
 
 ## 404页面
 error_404:
@@ -164,7 +169,7 @@ valine:
 # waline
 ## https://waline.js.org
 waline:
-  serverURL: https://waline.vercel.app/ #https://waline.lete114.top/ # 服务端地址
+  serverURL: https://waline.vercel.app/ # 服务端地址
   placeholder: 快来评论吧!! #评论框占位符
   avatar: '' # gravatar style https://valine.js.org/#/avatar
   meta: ['nick','mail','link'] # 评论者相关属性
@@ -249,7 +254,6 @@ CDN:
   js_yaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
   # clipboard
   clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js
-
 ```
 
 

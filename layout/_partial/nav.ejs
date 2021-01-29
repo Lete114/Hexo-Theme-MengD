@@ -6,8 +6,10 @@
     <div id="mobileNav">
         <div class="author-info">
             <div>
-                <img src="<%=  theme.avatar %>" alt="<%= theme.author || config.author %>" class="avatar">
-                <div class="author"><%= theme.author || config.author %></div>
+                <a href="<%= config.root %>">
+                    <img src="<%=  theme.avatar %>" alt="<%= theme.author || config.author %>" class="avatar">
+                    <div class="author"><%= theme.author || config.author %></div>
+                </a>
             </div>
             <hr>
         </div>

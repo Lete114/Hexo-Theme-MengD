@@ -52,7 +52,7 @@
                 <%-theme.toc.enable==true?'"#toc"':""%>
             ],
             cache: true,
-  			cacheBust: false
+            cacheBust: false
         });
         <%if(theme.comment!=null){%>
             <%if(theme.comment=="valine"){%>
@@ -167,6 +167,30 @@
         <%}%>
         // 开始 PJAX 执行的函数
 		document.addEventListener('pjax:send', function () {
+
+            // 设置初始进度
+            var progress = 10;
+            // 创建进度条 及 css样式
+            $("body").append("<div class='progress'></div>")
+
+            // 定义随机数最大值最小值
+            var max=10,mini=3;
+            var result=max-mini;
+            
+            // 清除
+            clearInterval(timer);
+            // 0.5秒内累加进度
+            timer = setInterval(function(){
+                // 随机数
+                var num = parseInt(Math.random()*result);
+                var randomResult = num+mini;
+                // 累加
+                progress+=randomResult
+                $("body .progress").css("width",progress+"%")
+                // 当进度达到95%时停止
+                if(progress>95)progress=95
+            },500)
+
             <%if(theme.comment!=null){%>
                 <%if(theme.comment=="valine"){%>
                     LoadValine();
@@ -181,8 +205,19 @@
         LoadShare();
         LoadFancybox();
         
+        // 清除时间
+        var timer = null;
+
         // PJAX 完成之后执行的函数，可以和上面的重载放在一起
 		document.addEventListener('pjax:complete', function () {
+
+            clearInterval(timer);
+            // 页面加载完毕后进度100% 并在0.7秒后删除
+            $("body .progress").css("width","100%")
+            timer = setTimeout(function () {
+                $("body .progress").remove();
+            }, 700);
+
             <%if(theme.comment!=null){%>
                 <%if(theme.comment=="valine"){%>
                     LoadValine();

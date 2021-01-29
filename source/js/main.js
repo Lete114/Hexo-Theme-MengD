@@ -67,6 +67,7 @@ var clipboard = new ClipboardJS('.clipboard', {
         return trigger.getAttribute('.code');
     }
 });
+
 //  复制成功
 clipboard.on('success', function(event) {
     event.trigger.innerHTML = "<i class='fa fa-check' style='color:green'></i>";
@@ -132,6 +133,7 @@ $(function() {
 // 修复代码块显示bug
 $(".post-content ol li figure.highlight").css({"margin-bottom":"1.2rem","margin-top":"1.2rem"})
 $(".post-content ol li div.highlight-wrap figure.highlight").css({"margin-bottom":"0","margin-top":"36px"})
+
 
 
 
