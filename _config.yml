@@ -108,7 +108,7 @@ pjax: true
 
 # 评论
 ## 注意大小写
-comment: waline # twikoo / waline / valine
+comment: twikoo # twikoo / waline / valine
 
 
 # valine

@@ -218,16 +218,6 @@
                 $("body .progress").remove();
             }, 700);
 
-            <%if(theme.comment!=null){%>
-                <%if(theme.comment=="valine"){%>
-                    LoadValine();
-                <%}else if(theme.comment=="waline"){%>
-                    LoadWaline();
-                <%}else if(theme.comment=="twikoo"){%>
-                    LoadTwikoo();
-                <%}%>
-            <%}%>
-
             LoadShare();
             LoadFancybox();
 
