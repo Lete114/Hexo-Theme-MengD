@@ -217,6 +217,11 @@
                 $("body .progress").remove();
             }, 700);
 
+            // 手机端导航栏跳转关闭
+            $("#mobileNav").css("opacity", "0")
+            $("#mobileNav").removeClass("open")
+            $("#mask").removeClass("mask")
+
             LoadShare();
             LoadFancybox();
 

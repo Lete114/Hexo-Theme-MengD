@@ -45,13 +45,13 @@ git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 
 
 # 导航栏菜单
-menu:
-  首页: /
-  标签: /tags
-  分类: /categories
-  归档: /archives
-  友情链接: /link
-  关于我: /about
+# menu:
+#   首页: /
+#   标签: /tags
+#   分类: /categories
+#   归档: /archives
+#   友情链接: /link
+#   关于我: /about
   
 # 基本设置(会覆盖hexo的配置)
 title: Hexo-Theme-MengD(萌典) #Lete乐特's Blog
@@ -146,7 +146,7 @@ pjax: true
 
 # 评论
 ## 注意大小写
-comment: waline # twikoo / waline / valine
+comment: twikoo # twikoo / waline / valine
 
 
 # valine
