@@ -17,10 +17,10 @@
   
 # 基本设置(会覆盖hexo的配置)
 title: Hexo-Theme-MengD(萌典) #Lete乐特's Blog
-author: Lete乐特
+author: MengD(萌典)
 mail: lete@lete114.top
-favicon: /img/favicon.ico
-avatar: https://www.lete114.top/img/avatar.png
+favicon: /img/favicon.png
+avatar: /img/logo.gif
 language: zh-CN
 keywords: 
 description: 一个简约优雅，及美丽漂亮的主题!!
@@ -108,7 +108,7 @@ pjax: true
 
 # 评论
 ## 注意大小写
-comment: twikoo # twikoo / waline / valine
+comment: waline # twikoo / waline / valine
 
 
 # valine
