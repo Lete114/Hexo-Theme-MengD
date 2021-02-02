@@ -189,16 +189,6 @@
                 // 当进度达到95%时停止
                 if(progress>95)progress=95
             },500)
-
-            <%if(theme.comment!=null){%>
-                <%if(theme.comment=="valine"){%>
-                    LoadValine();
-                <%}else if(theme.comment=="waline"){%>
-                    LoadWaline();
-                <%}else if(theme.comment=="twikoo"){%>
-                    LoadTwikoo();
-                <%}%>
-            <%}%>
         });
 
         LoadShare();
@@ -209,7 +199,15 @@
 
         // PJAX 完成之后执行的函数，可以和上面的重载放在一起
 		document.addEventListener('pjax:complete', function () {
-
+            <%if(theme.comment!=null){%>
+                <%if(theme.comment=="valine"){%>
+                    LoadValine();
+                <%}else if(theme.comment=="waline"){%>
+                    LoadWaline();
+                <%}else if(theme.comment=="twikoo"){%>
+                    LoadTwikoo();
+                <%}%>
+            <%}%>
             clearInterval(timer);
             // 页面加载完毕后进度100% 并在0.7秒后删除
             $("body .progress").css("width","100%")

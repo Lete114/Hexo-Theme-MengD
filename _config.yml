@@ -108,7 +108,7 @@ pjax: true
 
 # 评论
 ## 注意大小写
-comment: waline # twikoo / waline / valine
+comment: twikoo # twikoo / waline / valine
 
 
 # valine
@@ -206,8 +206,8 @@ CDN:
   fancybox_css: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
   fancybox_js: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
   # 分享
-  share_css: https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css
-  share_js: https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js
+  share_css: https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css
+  share_js: https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js
   # 评论
   valine: https://cdn.jsdelivr.net/gh/lete114/CDN2/js/Valine-Lete3.2.js ## 原版: //unpkg.com/valine/dist/Valine.min.js
   waline: //cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js
