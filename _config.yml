@@ -106,6 +106,10 @@ reward:
 ## https://github.com/MoOx/pjax
 pjax: true
 
+## MathJax
+## https://github.com/mathjax/MathJax
+MathJax: true
+
 # 评论
 ## 注意大小写
 comment: twikoo # twikoo / waline / valine
@@ -145,7 +149,7 @@ waline:
 # twikoo
 ## https://twikoo.js.org/
 twikoo:
-  envId: env-jxscvzag # 你的环境id
+  envId: xxxxxxxx # 你的环境id
   region: ap-shanghai # 环境地域，ap-shanghai / ap-guangzhou
   path: window.location.pathname  # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
   option: 
@@ -176,7 +180,7 @@ footer:
 
 # 百度统计
 analytics:
-  baidu: 8e216044fbe6b71b6fefc197c2508ed1
+  baidu: 
   google: 
 
 # 自定义引入外部css、js
@@ -216,6 +220,8 @@ CDN:
   js_yaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
   # clipboard
   clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js
+  # math
+  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 
 

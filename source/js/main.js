@@ -38,8 +38,6 @@ $('.search-btn').click(function () {
     }
 })
 
-
-
 $('.search-close-button').click(function () {
     $("html").css("overflow", "auto")
     $("#mask").removeClass("mask")
@@ -61,10 +59,21 @@ $(document).on('click', '.rightside-toc', function () {
     }
 })
 
+// 当鼠标移动到代码块上时执行
+$(".highlight-wrap").hover(
+    function() {
+        // 移除其他代码块的 CopyContent 属性
+        $("[CopyContent]").removeAttr("CopyContent");
+        // 在当前鼠标所在的元素下的 .code 元素上添加 CopyContent属性
+        $(this).find(".code").attr("CopyContent", "");
+    }
+);
+
 // 代码块复制
 var clipboard = new ClipboardJS('.clipboard', {
-    text: function(trigger) {
-        return trigger.getAttribute('.code');
+    target: function() {
+        // 返回 CopyContent 属性下的内容
+        return document.querySelector("[CopyContent]");
     }
 });
 
@@ -83,6 +92,8 @@ clipboard.on('error', function(event) {
         event.trigger.innerHTML = "<i class='fa fa-clipboard'></i>"
     }, 2000)
 });
+
+
 
 $(window).resize( function  () {           //当浏览器大小变化时
 

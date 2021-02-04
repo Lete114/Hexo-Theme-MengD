@@ -1,0 +1,21 @@
+<%if(theme.MathJax){%>
+<script data-pjax id="MathJax-script" async src="<%-theme.CDN.mathjax%>"></script>
+    <%if(!theme.pjax){%>
+        <script>
+            // MathJax
+            function MathJax(){
+                MathJax = {
+                    loader: {
+                        source: {
+                            '[tex]/amsCd': '[tex]/amscd'
+                        }
+                    },
+                    tex: {
+                        inlineMath: [['$', '$'], ['\\(', '\\)']]
+                    }
+                };
+            }
+            MathJax()
+        </script>
+    <%}%>
+<%}%>

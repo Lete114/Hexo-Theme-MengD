@@ -137,7 +137,7 @@
             theme.tocContent = toc(page.content,{list_number: false})==""?false:true;
             if(theme.tocContent){
         %>
-        <style data-pjax>
+        <style>
             #body-wrap{
                 margin: 60px 0; 
                 margin-left: 300px;
@@ -306,7 +306,6 @@
             </div>
             <%}%>
         <%}%>
-
     <%}else if(page.type=="tags" || page.layout=="tags"){%>
         <div id="page-title" class="page-title">
             <h2><%= page.title %> - <%= site.tags.length %></h2>
@@ -328,7 +327,7 @@
         <%- partial('archive') %>
 
     <%}else if(page.type=="links" || page.layout=="links"){%>
-
+        <div class="main">
         <div id="page-title" class="page-title">
             <h2><%= page.title %></h2>
         </div>
@@ -362,8 +361,10 @@
         </div>
         <%}%>
         <%}%>
+        </div>
 
     <%}else if(page.type!=null || page.layout!=null){%>
+        <div class="main">
         <div id="page-title" class="page-title">
             <h2><%= page.title %></h2>
             <span class="page-description"><%= page.description %></span>
@@ -399,6 +400,7 @@
             </div>
             <%}%>
         <%}%>
+        </div>
     <%}%>
 <% } %>
 

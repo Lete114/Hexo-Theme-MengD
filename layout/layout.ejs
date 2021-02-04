@@ -127,7 +127,21 @@
                 }
             <%}%>
         <%}%>
-
+        <%if(theme.MathJax){%>
+        // MathJax
+        function MathJaxFn(){
+            MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']]
+                }
+            };
+        }
+        <%}%>
         function LoadShare(){
                 var $config = {
                 sites   : "<%=theme.share.sites%>".split(","),
@@ -155,6 +169,12 @@
             });
         }
 
+        <%if(theme.MathJax){%>
+        MathJaxFn();
+        <%}%>
+        LoadShare();
+        LoadFancybox();
+
         <%if(theme.comment!=null){%>
             <%if(theme.comment=="valine"){%>
                 LoadValine();
@@ -164,6 +184,9 @@
                 LoadTwikoo();
             <%}%>
         <%}%>
+
+        
+
         // 开始 PJAX 执行的函数
 		document.addEventListener('pjax:send', function () {
 
@@ -190,9 +213,7 @@
                 if(progress>95)progress=95
             },500)
         });
-
-        LoadShare();
-        LoadFancybox();
+        
         
         // 清除时间
         var timer = null;
@@ -225,10 +246,13 @@
 
             // 接触滚动
             $("html").css("overflow", "auto")
-
+            <%if(theme.MathJax){%>
+            MathJaxFn();
+            <%}%>
             LoadShare();
             LoadFancybox();
-
+            
+            
             document.querySelectorAll('script[data-pjax]').forEach(item => {
                 const newScript = document.createElement('script')
                 const content = item.text || item.textContent || item.innerHTML || ""
@@ -239,5 +263,6 @@
         });
     </script>
     <%}%>
+    
 </body>
 </html>

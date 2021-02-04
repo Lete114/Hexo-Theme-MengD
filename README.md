@@ -55,10 +55,10 @@ git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
   
 # 基本设置(会覆盖hexo的配置)
 title: Hexo-Theme-MengD(萌典) #Lete乐特's Blog
-author: Lete乐特
+author: MengD(萌典)
 mail: lete@lete114.top
-favicon: /img/favicon.ico
-avatar: https://www.lete114.top/img/avatar.png
+favicon: /img/favicon.png
+avatar: /img/logo.gif
 language: zh-CN
 keywords: 
 description: 一个简约优雅，及美丽漂亮的主题!!
@@ -144,6 +144,10 @@ reward:
 ## https://github.com/MoOx/pjax
 pjax: true
 
+## MathJax
+## https://github.com/mathjax/MathJax
+MathJax: true
+
 # 评论
 ## 注意大小写
 comment: twikoo # twikoo / waline / valine
@@ -183,7 +187,7 @@ waline:
 # twikoo
 ## https://twikoo.js.org/
 twikoo:
-  envId: env-jxscvzag # 你的环境id
+  envId: xxxxxxxx # 你的环境id
   region: ap-shanghai # 环境地域，ap-shanghai / ap-guangzhou
   path: window.location.pathname  # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
   option: 
@@ -214,7 +218,7 @@ footer:
 
 # 百度统计
 analytics:
-  baidu: 8e216044fbe6b71b6fefc197c2508ed1
+  baidu: 
   google: 
 
 # 自定义引入外部css、js
@@ -254,6 +258,8 @@ CDN:
   js_yaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
   # clipboard
   clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js
+  # math
+  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 ```
 
 

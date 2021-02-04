@@ -21,4 +21,3 @@ hexo.on('generateBefore', function () {
   /* 资源压缩 */
   config.minify=theme.minify;
 })
-

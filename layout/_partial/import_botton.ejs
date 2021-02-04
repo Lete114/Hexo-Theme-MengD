@@ -1,5 +1,6 @@
-<script src="<%-theme.CDN.clipboard%>"></script>
+<%- partial('_partial/MathJax') %>
+<script data-pjax src="<%-theme.CDN.clipboard%>"></script>
 <script src="<%-theme.CDN.index_js%>"></script>
-<% theme.import.botton.forEach(function(script, i){ %> 
+<% theme.import.botton.forEach(function(script, i){ %>
     <%-script%>
 <% }) %>
