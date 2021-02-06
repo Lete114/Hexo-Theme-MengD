@@ -24,6 +24,7 @@ avatar: /img/logo.gif
 language: zh-CN
 keywords: 
 description: 一个简约优雅，及美丽漂亮的主题!!
+body_width: 800px # 页面主体大小
 upjiang: false # 是否显示up酱(回到顶部)
 cover: true # 是否开启主页文章cover(首图) 
 # 是否开启版权(文章内可以设置copyright: false 属性单独关闭某个文章的版权)

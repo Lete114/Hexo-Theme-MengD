@@ -37,7 +37,7 @@
         <%}%>
         
     </div>
-    <img id="up" src="<%-theme.CDN.upj%>" alt="<%-_p('rightside.回到顶部')%>">
+    <img id="up" src="<%-theme.CDN.upj%>" alt="<%-_p('rightside.back_to_top')%>">
     <%- partial('_partial/footer') %>   
     <%- partial('_partial/import_botton') %>
     <%if(theme.pjax){%>
@@ -246,6 +246,18 @@
 
             // 接触滚动
             $("html").css("overflow", "auto")
+
+            // 当鼠标移动到代码块上时执行
+            $(".highlight-wrap").hover(
+                function() {
+                    // 移除其他代码块的 CopyContent 属性
+                    $("[CopyContent]").removeAttr("CopyContent");
+                    // 在当前鼠标所在的元素下的 .code 元素上添加 CopyContent属性
+                    $(this).find(".code").attr("CopyContent", "");
+                }
+            );
+
+            
             <%if(theme.MathJax){%>
             MathJaxFn();
             <%}%>

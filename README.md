@@ -5,7 +5,7 @@
 
 ## hexo-theme-MengD
 
-一个简约优雅，及美丽漂亮的主题
+一个简约优雅，及美观漂亮的主题
 
 把注意力集中到内容上
 
@@ -40,7 +40,7 @@ git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 # Hexo-MengD(萌典)
 # 项目地址：https://github.com/lete114/hexo-theme-MengD
 # 主题文档：https://mengd.lete114.top/
-# 一个简约优雅，及美丽漂亮的主题
+# 一个简约优雅，及美观漂亮的主题
 #--------------------------------------------------------
 
 
@@ -62,6 +62,7 @@ avatar: /img/logo.gif
 language: zh-CN
 keywords: 
 description: 一个简约优雅，及美丽漂亮的主题!!
+body_width: 800px # 页面大小
 upjiang: false # 是否显示up酱(回到顶部)
 cover: true # 是否开启主页文章cover(首图) 
 # 是否开启版权(文章内可以设置copyright: false 属性单独关闭某个文章的版权)
@@ -204,12 +205,12 @@ footer:
   since: 2020
   custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！  
   icp:
-    enable: false
+    enable: true
     text: 黔 ICP 备 20006055 号
     icon: /img/icp.png
     url: http://www.beian.miit.gov.cn/
   cdn:
-    enable: false
+    enable: true
     text: 提供加速服务
     icon: https://cdn.jsdelivr.net/gh/lete114/CDN/upyun/05.png
     url: https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral
