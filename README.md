@@ -61,8 +61,8 @@ favicon: /img/favicon.png
 avatar: /img/logo.gif
 language: zh-CN
 keywords: 
-description: 一个简约优雅，及美丽漂亮的主题!!
-body_width: 800px # 页面大小
+description: 一个简约优雅，及美观漂亮的主题!!
+body_width: 800px # 页面主体大小
 upjiang: false # 是否显示up酱(回到顶部)
 cover: true # 是否开启主页文章cover(首图) 
 # 是否开启版权(文章内可以设置copyright: false 属性单独关闭某个文章的版权)
@@ -147,12 +147,11 @@ pjax: true
 
 ## MathJax
 ## https://github.com/mathjax/MathJax
-MathJax: true
+MathJax: false
 
 # 评论
 ## 注意大小写
 comment: twikoo # twikoo / waline / valine
-
 
 # valine
 ## https://valine.js.org/
@@ -193,7 +192,31 @@ twikoo:
   path: window.location.pathname  # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
   option: 
 
+## 说说
 
+# Artitalk
+## https://artitalk.js.org/settings.html
+artitalk:
+  enable: false # 是否开启
+  title: Artitalk # 标题
+  path: artitalk/index.html # 路径
+  appid: WhOxxxxxxxxxxxxxMMI #  LeanCloud appId
+  appkey: M9Pxxxxxxxxxxxxxxx3Kvs # LeanCloud appKey
+  serverURL: # 如果你是国内版 LeanCloud 用户，此项必填
+  lang:  # 语言设置 默认中文 zh / en / es
+  atEmoji: # 自定义表情包
+  option: 
+
+# HPP_talk
+## https://hexoplusplus.js.org/
+hpp_talk:
+  enable: false # 是否开启
+  title: HPP_talk # 标题
+  path: hpp_talk/index.html # 路径
+  domain: blog.lete114.workers.dev # 您的HexoPlusPlus域名
+  limit: 10 # 单次获取的最多条数
+  start: 0 # 从第几条开始
+  option: 
 
 # toc目录
 toc:
@@ -205,12 +228,12 @@ footer:
   since: 2020
   custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！  
   icp:
-    enable: true
-    text: 黔 ICP 备 20006055 号
+    enable: false
+    text: 
     icon: /img/icp.png
     url: http://www.beian.miit.gov.cn/
   cdn:
-    enable: true
+    enable: false
     text: 提供加速服务
     icon: https://cdn.jsdelivr.net/gh/lete114/CDN/upyun/05.png
     url: https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral
@@ -255,6 +278,14 @@ CDN:
   valine: https://cdn.jsdelivr.net/gh/lete114/CDN2/js/Valine-Lete3.2.js ## 原版: //unpkg.com/valine/dist/Valine.min.js
   waline: //cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js
   twikoo: https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js
+  
+  # 说说
+  # Artitalk
+  artitalk: https://cdn.jsdelivr.net/npm/artitalk
+  # hpp_talk
+  hpp_talk_js: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@9bf1085/talk_user.js
+  hpp_talk_css: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@9bf1085/talk.css
+  
   # yml转json
   js_yaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
   # clipboard

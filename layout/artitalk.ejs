@@ -1,0 +1,43 @@
+<div class="main">
+    <div id="page-title" class="page-title">
+        <h2><%= theme.artitalk.title %></h2>
+        
+    </div>
+    <% var option = theme.artitalk.option ? JSON.stringify(theme.artitalk.option) : false %>
+    <%if(theme.pjax){%>
+    <div id="artitalk_main" artitalk='
+    <script data-pjax>
+    function initArtitalk(){
+        let initData = {
+            appId: "<%-theme.artitalk.appid%>",
+            appKey: "<%-theme.artitalk.appkey%>",
+            atEmoji: <%-JSON.stringify(theme.artitalk.atEmoji)%>,
+        }
+        var option = <%-option%>;
+        if(option){
+            initData = Object.assign(initData, option)
+        }
+        new Artitalk(initData)
+    }
+    initArtitalk()'></div>
+    <%}%>
+    <%if(!theme.pjax){%>
+    <div id="artitalk_main"></div>
+    <script src="<%-theme.CDN.artitalk%>"></script>
+    <script>
+    function initArtitalk(){
+        let initData = {
+            appId: '<%-theme.artitalk.appid%>',
+            appKey: '<%-theme.artitalk.appkey%>',
+            atEmoji: <%-JSON.stringify(theme.artitalk.atEmoji)%>,
+        }
+        var option = <%-option%>;
+        if(option){
+            initData = Object.assign(initData, option)
+        }
+        new Artitalk(initData)
+    }
+    initArtitalk()
+    </script>
+    <%}%>
+</div>

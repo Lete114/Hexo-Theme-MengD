@@ -44,6 +44,12 @@
     <script src="<%-theme.CDN.pjax%>"></script>
     <script src="<%-theme.CDN.share_js%>"></script>
     <script src="<%-theme.CDN.fancybox_js%>"></script>
+    <%if(theme.artitalk.enable){%>
+    <script src="<%-theme.CDN.artitalk%>"></script>
+    <%}%>
+    <%if(theme.hpp_talk.enable){%>
+    <script src="<%-theme.CDN.hpp_talk_js%>"></script>
+    <%}%>
     <script>
         var pjax = new Pjax({
             selectors: [
@@ -129,6 +135,7 @@
         <%}%>
         <%if(theme.MathJax){%>
         // MathJax
+        MathJaxFn();
         function MathJaxFn(){
             MathJax = {
                 loader: {
@@ -168,10 +175,29 @@
                 hash: false
             });
         }
-
-        <%if(theme.MathJax){%>
-        MathJaxFn();
+        
+        <%if(theme.artitalk.enable){%>
+        // artitalk
+        function loadArtitalk() {
+            var content = $("#artitalk_main");
+            var artitalk = content.attr("artitalk");
+            $(content).html(artitalk);
+            content.removeAttr("artitalk");
+        }
+        loadArtitalk();
         <%}%>
+        
+        <%if(theme.hpp_talk.enable){%>
+        // hpp_talk
+        function loadHPP_talk() {
+            var content = $("#hpp_talk");
+            var hpp_talk = content.attr("hpp_talk");
+            $(content).html(hpp_talk);
+            content.removeAttr("hpp_talk");
+        }
+        loadHPP_talk();
+        <%}%>
+
         LoadShare();
         LoadFancybox();
 
@@ -257,13 +283,21 @@
                 }
             );
 
-            
+            <%if(theme.artitalk.enable){%>
+            loadArtitalk();
+            <%}%>
+            <%if(theme.hpp_talk.enable){%>
+            loadHPP_talk();
+            <%}%>
+
             <%if(theme.MathJax){%>
             MathJaxFn();
             <%}%>
             LoadShare();
             LoadFancybox();
             
+            
+
             
             document.querySelectorAll('script[data-pjax]').forEach(item => {
                 const newScript = document.createElement('script')
