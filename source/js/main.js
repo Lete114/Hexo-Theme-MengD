@@ -50,11 +50,9 @@ $(document).on('click', '.rightside-toc', function () {
     if ($("#toc").css("display") == "none") {
         $("#toc").css("display", "block")
         $("#toc").addClass('search-animation-max');
-        $("#up").css("display", "none")
     } else {
         $("#toc").css("display", "none")
         $("#toc").removeClass('search-animation-max');
-        $("#up").css("display", "block")
         
     }
 })
@@ -93,7 +91,26 @@ clipboard.on('error', function(event) {
     }, 2000)
 });
 
+// 深色模式
+if(localStorage.isDark=="dark"){
+    $("body").addClass("dark")
+    $("#darkmode i").attr("class","fas fa-sun")
+}else{
+    $("body").removeClass("dark")
+    $("#darkmode i").attr("class","fas fa-moon")
+}
 
+$('#darkmode').click(function () {
+    if($('#darkmode i').attr("class")=="fas fa-moon"){
+        localStorage.isDark = "dark";
+        $("body").addClass("dark")
+        $("#darkmode i").attr("class","fas fa-sun")
+    }else{
+        localStorage.isDark = "";
+        $("body").removeClass("dark")
+        $("#darkmode i").attr("class","fas fa-moon")
+    }
+})
 
 $(window).resize( function  () {           //当浏览器大小变化时
 
@@ -127,24 +144,14 @@ $(function() {
         $("#progress").val(num);
         $("#num").text(num+"%");
 
-        var up = $(window).scrollTop();
-        if (up > 300) {
-            $('#up').fadeIn(600);
+        var rightside = $(window).scrollTop();
+        if (rightside > 100) {
+            $('#rightside').fadeIn(500);
         } else {
-            $('#up').fadeOut(600);
+            $('#rightside').fadeOut(500);
         }
     });
-    $("#up").click(function() {
-        $("html,body").animate({
-            scrollTop: 0
-        }, 0);
-    });
 });
-
-// 修复代码块显示bug
-$(".post-content ol li figure.highlight").css({"margin-bottom":"1.2rem","margin-top":"1.2rem"})
-$(".post-content ol li div.highlight-wrap figure.highlight").css({"margin-bottom":"0","margin-top":"36px"})
-
 
 
 

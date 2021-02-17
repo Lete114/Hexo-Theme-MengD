@@ -4,13 +4,13 @@ nav
     margin 0 30px
     padding 20px 0
     .search-btn
-        cursor: pointer;
-        padding-top: 10px;
+        cursor pointer
+        padding-top 10px
 
 #site_nav 
     ul
         float right
-        top: -30px;
+        top -30px
         li
             position relative
             list-style none
@@ -18,24 +18,57 @@ nav
             a
                 font-weight 700
                 display block
+                cursor: pointer;
                 white-space nowrap
                 padding 10px
                 font-size .9rem
     if hexo-config('search.enable')
         ul
-            position: relative;
+            position relative
 
     #mobileNav
         opacity 0
-        display: table-column;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-        -o-transition: all 0.5s;
-        -ms-transition: all 0.5s;
-        transition: all 0.5s;
+        display table-column
+        -webkit-transition all 0.5s
+        -moz-transition all 0.5s
+        -o-transition all 0.5s
+        -ms-transition all 0.5s
+        transition all 0.5s
     .open
-        -webkit-transform: translate3d(-100%, 0, 0);
-        -moz-transform: translate3d(-100%, 0, 0);
-        -o-transform: translate3d(-100%, 0, 0);
-        -ms-transform: translate3d(-100%, 0, 0);
-        transform: translate3d(-100%, 0, 0);    
+        -webkit-transform translate3d(-100%, 0, 0)
+        -moz-transform translate3d(-100%, 0, 0)
+        -o-transform translate3d(-100%, 0, 0)
+        -ms-transform translate3d(-100%, 0, 0)
+        transform translate3d(-100%, 0, 0)    
+
+// 导航栏子菜单
+
+.menu_child
+    display none
+    li
+        float: none !important;
+
+#site_nav ul li:hover .menu_child
+    background-color: #fff;
+    position: absolute !important;
+    right: 0;
+    display: inline-block !important;
+    margin-top: 66px;
+    padding: 0;
+    border-radius: 6px;
+    width: max-content;
+    -webkit-box-shadow: 0 5px 20px -4px rgba(0,0,0,.5);
+    box-shadow: 0 5px 20px -4px rgba(0,0,0,.5);
+@media screen and (max-width: 600px)
+    #site_nav ul li:hover .menu_child
+        background-color: transparent;
+        position: relative!important;
+        margin-top: 20px;
+        -webkit-box-shadow: 0 0 0 0 rgba(0,0,0,0);
+        box-shadow: 0 0 0 0 rgba(0,0,0,0);
+        transition all 1s
+    .site_nav #mobileNav
+        .menu_child
+            li
+                line-height .8
+                padding-left: 30px;

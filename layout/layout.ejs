@@ -8,7 +8,7 @@
     <div id="mask"></div>
     <%- partial('_partial/search') %>
     <%- partial('_partial/analytics') %>  
-    <div style="display: flex;">
+    <div class="body-main" id="body-main">
         <div id="body-wrap">
             <%- partial('_partial/nav') %>
             <%- partial('_partial/header') %>
@@ -35,9 +35,7 @@
             <div id="toc" style="display: none;"></div>
         <%}%>
         <%}%>
-        
     </div>
-    <img id="up" src="<%-theme.CDN.upj%>" alt="<%-_p('rightside.back_to_top')%>">
     <%- partial('_partial/footer') %>   
     <%- partial('_partial/import_botton') %>
     <%if(theme.pjax){%>
@@ -296,8 +294,27 @@
             LoadShare();
             LoadFancybox();
             
-            
 
+
+            if(localStorage.isDark=="dark"){
+                $("body").addClass("dark")
+                $("#darkmode i").attr("class","fas fa-sun")
+            }else{
+                $("body").removeClass("dark")
+                $("#darkmode i").attr("class","fas fa-moon")
+            }
+
+            $('#darkmode').click(function () {
+                if($('#darkmode i').attr("class")=="fas fa-moon"){
+                    localStorage.isDark = "dark";
+                    $("body").addClass("dark")
+                    $("#darkmode i").attr("class","fas fa-sun")
+                }else{
+                    localStorage.isDark = "";
+                    $("body").removeClass("dark")
+                    $("#darkmode i").attr("class","fas fa-moon")
+                }
+            })
             
             document.querySelectorAll('script[data-pjax]').forEach(item => {
                 const newScript = document.createElement('script')

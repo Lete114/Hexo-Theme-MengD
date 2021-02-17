@@ -2,16 +2,16 @@
     
 main.content
     .clipboard
-        right: 16px;
-        top: 8px;
-        cursor: pointer;
-        border-radius: 3px;
+        right 16px
+        top 8px
+        cursor pointer
+        border-radius 3px
         color $highlight-foreground
-        position: relative;
-        float: right;
-        padding: 2px;
+        position relative
+        float right
+        padding 2px
         :hover
-            color: $main
+            color $main
     code
         padding .1rem .2rem
         background rgba(27,31,35,.05)
@@ -22,42 +22,42 @@ main.content
         word-break break-word
         overflow-wrap break-word
     ol
-        margin-top: .4rem;
-        padding: 0 0 0 .8rem;
-        list-style: none;
-        counter-reset: li;
+        margin-top .4rem
+        padding 0 0 0 .8rem
+        list-style none
+        counter-reset li
         li
-            position: relative; 
-            margin: .3rem 0;
+            position relative 
+            margin .3rem 0
             p
-                margin: 0
+                margin 0
                 line-height unset
     ol>li:not(.tab) 
-        padding: .2em .2em .2em 1.8em;
+        padding .2em .2em .2em 1.8em
     ol>li:before 
-        margin-top: .5em;
-        width: 1.45em;
-        height: 1.45em;
-        border-radius: .725em;
-        content: counter(li);
-        counter-increment: li;
-        text-align: center;
-        font-size: .85em;
-        line-height: 1.45em;
+        margin-top .5em
+        width 1.45em
+        height 1.45em
+        border-radius .725em
+        content counter(li)
+        counter-increment li
+        text-align center
+        font-size .85em
+        line-height 1.45em
     ol li:before
-        position: absolute;
-        top: 0;
-        left: 0;
-        background:$main;
-        color: #fff;
-        cursor: pointer; 
-        line-height: 20px;
+        position absolute
+        top 0
+        left 0
+        background:$main
+        color #fff
+        cursor pointer 
+        line-height 20px
     blockquote 
-        margin: 0 0 1rem;
-        padding: .1rem .8rem;
-        border-left: .2rem solid $main;
-        background-color: rgba(73,177,245,0.1);
-        color: #6a737d;   
+        margin 0 0 1rem
+        padding .1rem .8rem
+        border-left .2rem solid $main
+        background-color rgba(73,177,245,0.1)
+        color #6a737d   
 
 article
     .post 
@@ -121,7 +121,7 @@ article
             font-size .5em
         figure.highlight
             table 
-                display: table
+                display table
             td 
                 padding 0
                 border none
@@ -143,15 +143,6 @@ article
                 margin 0
                 padding 8px 0
                 border none
-        code
-            padding .1rem .2rem
-            background rgba(27,31,35,.05)
-            color #f47466
-            border-radius 5px
-            margin 0 6px
-            word-wrap break-word
-            word-break break-word
-            overflow-wrap break-word
         img 
             margin 0 auto .8rem
             display block
@@ -160,8 +151,8 @@ article
             overflow-x scroll
             margin 0 0 1rem
         table 
-            overflow-x: scroll
-            display: block
+            overflow-x scroll
+            display block
             border-spacing 0
             border-collapse collapse
             empty-cells show
@@ -173,11 +164,13 @@ article
                 vertical-align middle
 
 #rightside
+    display none
     position fixed 
     right 0px 
     bottom 80px 
     z-index 100 
     width 30px
+    cursor pointer 
     #rightside-item
         text-align center
         a
@@ -189,6 +182,6 @@ article
             margin-bottom 3px 
             border-radius 6px 
             i 
-                margin-top 7px        
-
-@import "_partial/comment"
+                margin-top 7px
+        a:hover
+            color #fff !important

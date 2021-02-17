@@ -1,23 +1,10 @@
 
 @import 'var'
-@import 'post'
-@import 'article'
-@import '_partial/else'
-@import "_partial/search"
-@import "_partial/nav"
-@import "_partial/header"
-@import "_partial/main"
-@import "_partial/reward"
-@import "_partial/footer"
-
-
-@import "_partial/archive"
-@import "_partial/link"
-@import "_partial/animation"
-@import '_highlight/codeFrame'
-@import '_highlight/theme'
-@import '_highlight/diff'
+@import '_partial/*'
+@import '_highlight/*'
 @import 'media'
+
+
 
 *
     margin  0
@@ -26,29 +13,27 @@ html
     overflow-x hidden
     scroll-behavior smooth       
 body
+    transition: all .3s linear;
     background-color #eaeaea
     color #333333
     font-size 16px
     font-family 'source-han-sans-simplified-c', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif
     .progress
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        width: 10%;
-        height: 2px;
-        z-index: 103;
-        background-color: $main;
-        transition: width 0.4s ease 0s;
-    #up
-        display none
-        cursor pointer
-        z-index 999
         position fixed
-        bottom 80px
-        right 32px
+        top 0px
+        left 0px
+        width 10%
+        height 2px
+        z-index 103
+        background-color $main
+        transition width 0.4s ease 0s
     a
         text-decoration none
         color $body-a
+        transition: all .5s linear;
+    a:hover
+        transition: all .2s linear;
+        color $main !important
     .mask
         width 100%
         height 100%
@@ -60,12 +45,36 @@ body
         border 2px dashed $scrollbar
         margin 2rem auto   
 
+#body-main.body-main
+    display -webkit-box
+    display -moz-box
+    display -webkit-flex
+    display -ms-flexbox
+    display box
+    display flex
+    margin 0 auto
+    max-width 1200px
+@media screen and (max-width 1200px)
+    #body-main.body-main
+        max-width 1200px
+@media screen and (max-width 1190px)
+    #body-main.body-main
+        max-width 1100px
+@media screen and (max-width 1100px)
+    #body-main.body-main
+        max-width 1000px
+
+
 #body-wrap
     background-color #fff
     width convert(hexo-config('body_width'))
     margin 60px auto
     border-radius 10px
 
+
+::selection 
+    background $body-a
+    color #fff
 
 /* 滚动条 */
 
@@ -86,5 +95,3 @@ body
 ::-moz-selection 
     color #fff
     background-color $scrollbar
-
-

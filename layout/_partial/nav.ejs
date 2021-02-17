@@ -15,13 +15,35 @@
         </div>
         <ul>
         <% for (name in theme.menu) { %>
+            <% if(!Array.isArray(theme.menu[name])){ %>
             <li><a href="<%- url_for(theme.menu[name]) %>"><%= name %></a></li>
+            <% }else{%>
+            <li>
+                <a class="menu_child_hover"><%-name%></a>
+                <ul class="menu_child">
+                <% for (child in theme.menu[name]) {%>
+                    <li><a href='<%-url_for(theme.menu[name][child].split("||")[1].trim())%>'><%-theme.menu[name][child].split("||")[0].trim()%></a></li>
+                <% } %>
+                </ul>
+            </li>
+            <% } %>
         <% } %>
         </ul>
     </div>
     <ul>
     <% for (name in theme.menu) { %>
-        <li><a href="<%- url_for(theme.menu[name]) %>"><%= name %></a></li>
-    <% } %>
+            <% if(!Array.isArray(theme.menu[name])){ %>
+            <li><a href="<%- url_for(theme.menu[name]) %>"><%= name %></a></li>
+            <% }else{%>
+            <li>
+                <a class="menu_child_hover"><%-name%></a>
+                <ul class="menu_child">
+                <% for (child in theme.menu[name]) {%>
+                    <li><a href='<%-url_for(theme.menu[name][child].split("||")[1].trim())%>'><%-theme.menu[name][child].split("||")[0].trim()%></a></li>
+                <% } %>
+                </ul>
+            </li>
+            <% } %>
+        <% } %>
     </ul>
 </nav>

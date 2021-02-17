@@ -5,7 +5,6 @@
 # 一个简约优雅，及美观漂亮的主题
 #--------------------------------------------------------
 
-
 # 导航栏菜单
 # menu:
 #   首页: /
@@ -25,7 +24,6 @@ language: zh-CN
 keywords: 
 description: 一个简约优雅，及美观漂亮的主题!!
 body_width: 800px # 页面主体大小
-upjiang: false # 是否显示up酱(回到顶部)
 cover: true # 是否开启主页文章cover(首图) 
 # 是否开启版权(文章内可以设置copyright: false 属性单独关闭某个文章的版权)
 copyright: true  
@@ -36,13 +34,13 @@ search:
   enable: true
   path: /search.xml
   field: post
-
-# 资源压缩，主题默认内置的压缩只是简单的压缩
+  
+# https://github.com/lete114/hexo-minify
 # 需要更全面的压缩请安装插件: npm install hexo-minify --save
 minify:
-  js: true
+  js: false
   css: true 
-  html: true
+  html: false
 
 ## 404页面
 error_404:
@@ -113,7 +111,7 @@ MathJax: false
 
 # 评论
 ## 注意大小写
-comment: twikoo # twikoo / waline / valine
+comment: waline # twikoo / waline / valine
 
 # valine
 ## https://valine.js.org/
