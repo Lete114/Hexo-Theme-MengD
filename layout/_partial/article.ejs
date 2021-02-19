@@ -70,12 +70,6 @@
 <% }else{ %>
     <%if(page.type==null || page.layout==null){%>
         <article class="post">
-            <link rel="stylesheet" href="<%-theme.CDN.share_css%>">
-            <link rel="stylesheet" href="<%-theme.CDN.fancybox_css%>"/>
-            <%if(!theme.pjax){%>
-            <script src="<%-theme.CDN.share_js%>"></script>
-            <script src="<%-theme.CDN.fancybox_js%>"></script>
-            <%}%>
             <div class="post-title">
               <h2 class="title"><%= page.title %></h2>
             </div>
@@ -261,41 +255,45 @@
 
     <%}else if(page.type!=null || page.layout!=null){%>
         <div class="main">
-        <div id="page-title" class="page-title">
-            <h2><%= page.title %></h2>
-            <span class="page-description"><%= page.description %></span>
-        </div>
-        <div class="post-content">
-            <%- page.content %>
-        </div>
-        <%if(theme.comment!=null){%>
-            <%if(post.comment==null || post.comment){%>
-            <hr>
+            <div id="page-title" class="page-title">
+                <h2><%= page.title %></h2>
+                <span class="page-description"><%= page.description %></span>
+            </div>
+            <div class="post-content">
+                <%- page.content %>
+            </div>
+            <%if(theme.comment!=null){%>
+                <%if(post.comment==null || post.comment){%>
+                <div class="comment-head" id="<%-_p('rightside.direct_comments')%>">
+                    <div class="comment-headline">
+                        <i class="fas fa-comments fa-fw"></i>
+                        <span><%-_p('article.comments')%></span>
+                    </div>
+                    <%if(theme.comment=="valine"){%>
+                        <%- partial('third-party/comment/valine') %>
+                    <%}else if(theme.comment=="waline"){%>
+                        <%- partial('third-party/comment/waline') %>
+                    <%}else if(theme.comment=="twikoo"){%>
+                        <%- partial('third-party/comment/twikoo') %>
+                    <%}%>
+                </div>
+                <%}%>
+            <%}%>
             <section id="rightside">
                 <div id="rightside-item">
+                    <a id="darkmode" title="<%-_p('rightside.dark')%>">
+                        <i class="fas fa-moon"></i>
+                    </a>
+                    <%if(page.comment==null||page.comment){%>
                     <a href="#<%-_p('rightside.direct_comments')%>" title="<%-_p('rightside.direct_comments')%>">
                         <i class="fas fa-comments"></i>
                     </a>
+                    <%}%>
                     <a href="#" title="<%-_p('rightside.back_to_top')%>">
                         <i class="fas fa-arrow-up"></i>
                     </a>
                 </div>
             </section>
-            <div class="comment-head" id="<%-_p('rightside.direct_comments')%>">
-                <div class="comment-headline">
-                    <i class="fas fa-comments fa-fw"></i>
-                    <span><%-_p('article.comments')%></span>
-                </div>
-                <%if(theme.comment=="valine"){%>
-                    <%- partial('third-party/comment/valine') %>
-                <%}else if(theme.comment=="waline"){%>
-                    <%- partial('third-party/comment/waline') %>
-                <%}else if(theme.comment=="twikoo"){%>
-                    <%- partial('third-party/comment/twikoo') %>
-                <%}%>
-            </div>
-            <%}%>
-        <%}%>
         </div>
     <%}%>
 <% } %>

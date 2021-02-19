@@ -102,23 +102,32 @@
         }
 
         // fancybox
-        $.getScript("<%-theme.CDN.fancybox_js%>",function(){
-            $(".post-content img").each(function () {
-                var element = document.createElement("a");
-                $(element).attr("data-fancybox", "images");
-                $(element).attr("href", $(this).attr("src"));
-                $(this).wrap(element);
-            });
-
-            $().fancybox({
-                selector: '[data-fancybox="images"]',
-                loop: true,
-                transitionEffect: 'slide',
-                protect: true,
-                buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
-                hash: false
-            });
-        })
+        function FancyboxFn(){
+            $.getScript("<%-theme.CDN.fancybox_js%>",function(){
+                $(".post-content img").each(function () {
+                    var element = document.createElement("a");
+                    $(element).attr("data-fancybox", "images");
+                    $(element).attr("href", $(this).attr("src"));
+                    $(this).wrap(element);
+                });
+                $().fancybox({
+                    selector: '[data-fancybox="images"]',
+                    loop: true,
+                    transitionEffect: 'slide',
+                    protect: true,
+                    buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
+                    hash: false
+                });
+                $("head").append("<link>");
+                fancybox_css =$("head").children(":last");
+                    fancybox_css.attr({
+                    rel: "stylesheet",
+                    type: "text/css",
+                    href: "<%-theme.CDN.fancybox_css%>"
+                });
+            })
+        }
+        FancyboxFn()
     </script>
     <%- partial('_partial/import_bottom') %>
     <%- partial('_partial/third-party/pjax') %>
