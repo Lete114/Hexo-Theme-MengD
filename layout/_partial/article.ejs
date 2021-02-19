@@ -128,37 +128,13 @@
             <% } %>
 
             
-            <div class="social-share"></div>
+            <div class="social-share" data-sites="<%=theme.share.sites%>"></div>
 
             <%- partial('reward') %>
             
         </article>
-        <script>
-            <%if(!theme.pjax){%>
-            var $config = {
-                sites   : "<%=theme.share.sites%>".split(","),
-                wechatQrcodeTitle: "<%-_p('share.wechatQrcodeTitle')%>",
-                wechatQrcodeHelper: "<%-_p('share.wechatQrcodeHelper')%>",
-            };
-            socialShare('.social-share', $config);
-
-            $(".post-content img").each(function () {
-                var element = document.createElement("a");
-                $(element).attr("data-fancybox", "images");
-                $(element).attr("href", $(this).attr("src"));
-                $(this).wrap(element);
-            });
-            $().fancybox({
-                selector: '[data-fancybox="images"]',
-                loop: true,
-                transitionEffect: 'slide',
-                protect: true,
-                buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
-                hash: false
-            });
-            <%}%>
-        </script>
-        
+        <link rel="stylesheet" href="<%-theme.CDN.share_css%>" media="all" onload="this.media='all'">
+        <script src="<%-theme.CDN.share_js%>" defer="defer"></script>
         <section id="rightside">
             <div id="rightside-item">
                 <a id="darkmode" title="<%-_p('rightside.dark')%>">
@@ -214,11 +190,11 @@
                     <span><%-_p('article.comments')%></span>
                 </div>
                 <%if(theme.comment=="valine"){%>
-                    <%- partial('comment/valine') %>
+                    <%- partial('third-party/comment/valine') %>
                 <%}else if(theme.comment=="waline"){%>
-                    <%- partial('comment/waline') %>
+                    <%- partial('third-party/comment/waline') %>
                 <%}else if(theme.comment=="twikoo"){%>
-                    <%- partial('comment/twikoo') %>
+                    <%- partial('third-party/comment/twikoo') %>
                 <%}%>
             </div>
             <%}%>
@@ -255,6 +231,9 @@
         <hr>
         <section id="rightside">
             <div id="rightside-item">
+                <a id="darkmode" title="<%-_p('rightside.dark')%>">
+                    <i class="fas fa-moon"></i>
+                </a>
                 <a href="#<%-_p('rightside.direct_comments')%>" title="<%-_p('rightside.direct_comments')%>">
                     <i class="fas fa-comments"></i>
                 </a>
@@ -269,11 +248,11 @@
                 <span><%-_p('article.comments')%></span>
             </div>
             <%if(theme.comment=="valine"){%>
-                <%- partial('comment/valine') %>
+                <%- partial('third-party/comment/valine') %>
             <%}else if(theme.comment=="waline"){%>
-                <%- partial('comment/waline') %>
+                <%- partial('third-party/comment/waline') %>
             <%}else if(theme.comment=="twikoo"){%>
-                <%- partial('comment/twikoo') %>
+                <%- partial('third-party/comment/twikoo') %>
             <%}%>
         </div>
         <%}%>
@@ -308,11 +287,11 @@
                     <span><%-_p('article.comments')%></span>
                 </div>
                 <%if(theme.comment=="valine"){%>
-                    <%- partial('comment/valine') %>
+                    <%- partial('third-party/comment/valine') %>
                 <%}else if(theme.comment=="waline"){%>
-                    <%- partial('comment/waline') %>
+                    <%- partial('third-party/comment/waline') %>
                 <%}else if(theme.comment=="twikoo"){%>
-                    <%- partial('comment/twikoo') %>
+                    <%- partial('third-party/comment/twikoo') %>
                 <%}%>
             </div>
             <%}%>

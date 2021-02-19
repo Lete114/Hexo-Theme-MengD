@@ -1,0 +1,27 @@
+<%if(theme.MathJax){%>
+<script>
+    // MathJax
+    function MathJaxFn(){
+        MathJax = {
+            loader: {
+                source: {
+                    '[tex]/amsCd': '[tex]/amscd'
+                }
+            },
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+        const script = document.createElement('script')
+        script.src = '<%-theme.CDN.mathjax%>'
+        script.id = 'MathJax-script'
+        script.async = true
+        document.head.appendChild(script)
+    }
+    MathJaxFn()
+
+    document.addEventListener('pjax:complete', function () {
+        MathJaxFn()
+    })
+</script>
+<%}%>

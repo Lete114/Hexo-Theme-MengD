@@ -1,0 +1,31 @@
+<% var option = theme.valine.option ? JSON.stringify(theme.valine.option) : false %>
+<div id="vcomments"></div>
+<script>
+function LoadValine(){
+    $.getScript("<%-theme.CDN.valine%>",function(){ 
+        let initData = {
+            el: '#vcomments',
+            appId: '<%- theme.valine.appid %>',
+            appKey: '<%- theme.valine.appkey %>',
+            master: '<%- theme.valine.master %>',
+            friends: '<%- theme.valine.friends %>',
+            placeholder: '<%- theme.valine.placeholder %>',
+            avatar: '<%- theme.valine.avatar %>',
+            meta: '<%- theme.valine.meta %>'.split(","),
+            pageSize: <%- theme.valine.pageSize %>,
+            lang: '<%- theme.valine.lang %>',
+            emojiCDN: '<%- theme.valine.emojiCDN %>',
+            emojiMaps: <%- JSON.stringify(theme.valine.emojiMaps) %>,
+            enableQQ: <%- theme.valine.enableQQ %>,
+            path: window.location.pathname,
+            visitor: true
+        }
+        var option = <%-option%>;
+        if(option){
+            initData = Object.assign(initData, option)
+        }
+        new Valine(initData)
+    });
+}
+LoadValine()
+</script>

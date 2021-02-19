@@ -1,9 +1,9 @@
 <% var option = theme.waline.option ? JSON.stringify(theme.waline.option) : false %>
 <div id="wcomments"></div>
-<%if(!theme.pjax){%>
-<script src="<%- theme.CDN.waline %>"></script>
 <script>
-    let initData = {
+function LoadWaline(){
+    $.getScript("<%-theme.CDN.waline%>",function(){ 
+        let initData = {
         el: '#wcomments',
         path: location.pathname,
         serverURL: '<%- theme.waline.serverURL %>',
@@ -22,5 +22,7 @@
         initData = Object.assign(initData, option)
     }
     new Waline(initData)
+    })
+}
+LoadWaline()
 </script>
-<%}%>

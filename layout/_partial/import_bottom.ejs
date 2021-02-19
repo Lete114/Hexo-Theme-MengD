@@ -1,6 +1,6 @@
-<%- partial('_partial/MathJax') %>
+<%- partial('third-party/math/MathJax') %>
 <script data-pjax src="<%-theme.CDN.clipboard%>"></script>
 <script src="<%-theme.CDN.index_js%>"></script>
-<% theme.import.botton.forEach(function(script, i){ %>
+<% theme.import.bottom.forEach(function(script, i){ %>
     <%-script%>
 <% }) %>

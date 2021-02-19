@@ -1,9 +1,13 @@
 
 /* 深色模式 */
 body.dark
-    transition: all .3s linear;
     color: rgba(255, 255, 255, .6);
     background-color: #333841;
+    #local-search,#local-search input,.site_nav #mobileNav
+        color: rgba(255, 255, 255, .6);
+        background: #333841;
+    .menu_child
+        background-color: #333841 !important;
     .fancybox-stage img,.avatar
         -webkit-filter: brightness(.7);
         filter: brightness(.7);
@@ -11,7 +15,12 @@ body.dark
         color: rgba(255, 255, 255, .6) !important
     #body-wrap,#toc
         background-color: #282c34;
-        main.content 
+        main.content
+            figure.highlight,.gutter pre
+                color: rgba(255, 255, 255, .6);
+                background: #333841;
+            .highlight-wrap[data-rel]::before
+                background: #444851
             code
                 background: rgba(244,116,102,.05);
             img
@@ -31,7 +40,8 @@ body.dark
                         border-color: #333841 transparent transparent transparent;
             #link *
                 color: rgba(255, 255, 255, .6);
-
+            .link-list .link-list-item:hover
+                background-color: #333841;
         .post-title h2 a
             color rgba(255,255,255,.9);
         .post-item

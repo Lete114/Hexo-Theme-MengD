@@ -5,8 +5,6 @@ $('#openNav').click(function () {
         $("html").css("overflow", "hidden")
         $("#mobileNav").css("opacity", "1")
         $("#toc").css("display", "none")
-        
-
     } else {
         $("#mobileNav").css("opacity", "0")
         $("#mobileNav").removeClass("open")
@@ -58,15 +56,7 @@ $(document).on('click', '.rightside-toc', function () {
 })
 
 // 当鼠标移动到代码块上时执行
-$(".highlight-wrap").hover(
-    function() {
-        // 移除其他代码块的 CopyContent 属性
-        $("[CopyContent]").removeAttr("CopyContent");
-        // 在当前鼠标所在的元素下的 .code 元素上添加 CopyContent属性
-        $(this).find(".code").attr("CopyContent", "");
-    }
-);
-
+CopyContent()
 // 代码块复制
 var clipboard = new ClipboardJS('.clipboard', {
     target: function() {
@@ -74,7 +64,6 @@ var clipboard = new ClipboardJS('.clipboard', {
         return document.querySelector("[CopyContent]");
     }
 });
-
 //  复制成功
 clipboard.on('success', function(event) {
     event.trigger.innerHTML = "<i class='fa fa-check' style='color:green'></i>";
@@ -99,25 +88,25 @@ if(localStorage.isDark=="dark"){
     $("body").removeClass("dark")
     $("#darkmode i").attr("class","fas fa-moon")
 }
-
 $('#darkmode').click(function () {
     if($('#darkmode i').attr("class")=="fas fa-moon"){
         localStorage.isDark = "dark";
+        $("body").css("transition","all .3s linear")
         $("body").addClass("dark")
         $("#darkmode i").attr("class","fas fa-sun")
     }else{
         localStorage.isDark = "";
+        $("body").css("transition","all .3s linear")
         $("body").removeClass("dark")
         $("#darkmode i").attr("class","fas fa-moon")
     }
 })
 
-$(window).resize( function  () {           //当浏览器大小变化时
-
+//当浏览器大小变化时
+$(window).resize(function(){
     if(document.body.clientWidth > 800){
         $("#local-search").css("display", "none")
     }
-
     if(document.body.clientWidth > 600){
         $("#mask").removeClass("mask")
         $("html").css("overflow", "auto")
@@ -130,7 +119,6 @@ $(window).resize( function  () {           //当浏览器大小变化时
 $(function() {
     var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
         var num = parseInt((wintop/(docheight-winheight))*100)+1;
-        
         if(num==1)num=0
         if(num>100)num=100
         $("#progress").val(num);
@@ -144,14 +132,14 @@ $(function() {
         $("#progress").val(num);
         $("#num").text(num+"%");
 
+        // 向下滚动时右侧栏淡出
         var rightside = $(window).scrollTop();
         if (rightside > 100) {
-            $('#rightside').fadeIn(500);
+            $('#rightside').fadeIn(300);
         } else {
-            $('#rightside').fadeOut(500);
+            $('#rightside').fadeOut(300);
         }
     });
 });
-
 
 

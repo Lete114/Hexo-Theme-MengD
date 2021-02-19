@@ -6,8 +6,8 @@
 </head>
 <body id="body">
     <div id="mask"></div>
-    <%- partial('_partial/search') %>
-    <%- partial('_partial/analytics') %>  
+    <%- partial('_partial/third-party/search/local-search') %>
+    <%- partial('_partial/third-party/analytics') %>  
     <div class="body-main" id="body-main">
         <div id="body-wrap">
             <%- partial('_partial/nav') %>
@@ -36,127 +36,73 @@
         <%}%>
         <%}%>
     </div>
-    <%- partial('_partial/footer') %>   
-    <%- partial('_partial/import_botton') %>
-    <%if(theme.pjax){%>
-    <script src="<%-theme.CDN.pjax%>"></script>
-    <script src="<%-theme.CDN.share_js%>"></script>
-    <script src="<%-theme.CDN.fancybox_js%>"></script>
-    <%if(theme.artitalk.enable){%>
-    <script src="<%-theme.CDN.artitalk%>"></script>
-    <%}%>
-    <%if(theme.hpp_talk.enable){%>
-    <script src="<%-theme.CDN.hpp_talk_js%>"></script>
-    <%}%>
+    <%- partial('_partial/footer') %>
     <script>
-        var pjax = new Pjax({
-            selectors: [
-                "head title",
-                "main.content",
-                <%-theme.toc.enable==true?'"#toc"':""%>
-            ],
-            cache: true,
-            cacheBust: false
-        });
-        <%if(theme.comment!=null){%>
-            <%if(theme.comment=="valine"){%>
-                function LoadValine(){
-                    <% var option = theme.valine.option ? JSON.stringify(theme.valine.option) : false %>
-                    $.getScript("<%-theme.CDN.valine%>",function(){ 
-                        let initData = {
-                            el: '#vcomments',
-                            appId: '<%- theme.valine.appid %>',
-                            appKey: '<%- theme.valine.appkey %>',
-                            master: '<%- theme.valine.master %>',
-                            friends: '<%- theme.valine.friends %>',
-                            placeholder: '<%- theme.valine.placeholder %>',
-                            avatar: '<%- theme.valine.avatar %>',
-                            meta: '<%- theme.valine.meta %>'.split(","),
-                            pageSize: <%- theme.valine.pageSize %>,
-                            lang: '<%- theme.valine.lang %>',
-                            emojiCDN: '<%- theme.valine.emojiCDN %>',
-                            emojiMaps: <%- JSON.stringify(theme.valine.emojiMaps) %>,
-                            enableQQ: <%- theme.valine.enableQQ %>,
-                            path: window.location.pathname,
-                            visitor: true
-                        }
-                        var option = <%-option%>;
-                        if(option){
-                            initData = Object.assign(initData, option)
-                        }
-                        new Valine(initData)
-                    });
-                }
-            <%}else if(theme.comment=="waline"){%>
-                function LoadWaline(){
-                    <% var option = theme.waline.option ? JSON.stringify(theme.waline.option) : false %>
-                    $.getScript("<%-theme.CDN.waline%>",function(){ 
-                        let initData = {
-                        el: '#wcomments',
-                        path: location.pathname,
-                        serverURL: '<%- theme.waline.serverURL %>',
-                        placeholder: '<%- theme.waline.placeholder %>',
-                        avatar: '<%- theme.waline.avatar %>',
-                        meta: '<%- theme.waline.meta %>'.split(","),
-                        requiredFields: '<%- theme.waline.requiredFields %>'.split(","),
-                        pageSize: <%- theme.waline.pageSize %>,
-                        lang: '<%- theme.waline.lang %>',
-                        emojiCDN: '<%- theme.waline.emojiCDN %>',
-                        emojiMaps: <%- JSON.stringify(theme.waline.emojiMaps) %>,
-                        visitor: true
-                    }
-                    var option = <%-option%>;
-                    if(option){
-                        initData = Object.assign(initData, option)
-                    }
-                    new Waline(initData)
-                    })
-                }
-            <%}else if(theme.comment=="twikoo"){%>
-                function LoadTwikoo(){
-                    <% var option = theme.twikoo.option ? JSON.stringify(theme.twikoo.option) : false %>
-                    $.getScript("<%-theme.CDN.twikoo%>",function(){ 
-                    initData = {
-                        el: '#tcomment',
-                        envId: '<%-theme.twikoo.envId%>',
-                        region: '<%-theme.twikoo.region%>',
-                        path: '<%-theme.twikoo.path%>',
-                    }
-                    var option = <%-option%>;
-                    if(option){
-                        initData = Object.assign(initData, option)
-                    }
-                    twikoo.init(initData);
-                    })
-                }
-            <%}%>
-        <%}%>
-        <%if(theme.MathJax){%>
-        // MathJax
-        MathJaxFn();
-        function MathJaxFn(){
-            MathJax = {
-                loader: {
-                    source: {
-                        '[tex]/amsCd': '[tex]/amscd'
-                    }
-                },
-                tex: {
-                    inlineMath: [['$', '$'], ['\\(', '\\)']]
-                }
-            };
+        // local-search
+        $.getScript('<%-theme.CDN.search%>', function () {
+            searchFunc('<%-theme.search.path%>','local-search-input','local-search-result')
+        })
+        
+        // 清除时间
+        var timer = null;
+        // 执行进度条
+        function ProgressStart(){
+            // 设置初始进度
+            var progress = 10;
+            // 创建进度条 及 css样式
+            $("body").append("<div class='progress'></div>")
+            // 定义随机数最大值最小值
+            var max=10,mini=3;
+            var result=max-mini;
+            // 清除
+            clearInterval(timer);
+            // 0.5秒内累加进度
+            timer = setInterval(function(){
+                // 随机数
+                var num = parseInt(Math.random()*result);
+                var randomResult = num+mini;
+                // 累加
+                progress+=randomResult
+                $("body .progress").css("width",progress+"%")
+                // 当进度达到95%时停止
+                if(progress>95)progress=95
+            },500)
         }
-        <%}%>
-        function LoadShare(){
-                var $config = {
-                sites   : "<%=theme.share.sites%>".split(","),
-                wechatQrcodeTitle: "<%-_p('share.wechatQrcodeTitle')%>",
-                wechatQrcodeHelper: "<%-_p('share.wechatQrcodeHelper')%>",
-            };
-            socialShare('.social-share', $config);
+        // 加载进度条加载完毕
+        function ProgressFinish(){
+            clearInterval(timer);
+            // 页面加载完毕后进度100% 并在0.7秒后删除
+            $("body .progress").css("width","100%")
+            timer = setTimeout(function () {
+                $("body .progress").remove();
+            }, 700);
+        }
+        // 手机端
+        function Mobile(){
+            // 手机端导航栏跳转关闭
+            $("#mobileNav").css("opacity", "0")
+            $("#mobileNav").removeClass("open")
+            $("#mask").removeClass("mask")
+            // 解除手机端页面跳转无法滚动
+            $("html").css("overflow", "auto")
+            // 手机端搜索框关闭
+            $("#local-search").css("display", "none")
         }
 
-        function LoadFancybox(){
+        function CopyContent(){
+            // 当鼠标移动到代码块上时执行
+            $(".highlight-wrap").hover(
+                function() {
+                    // 移除其他代码块的 CopyContent 属性
+                    $("[CopyContent]").removeAttr("CopyContent");
+                    // 在当前鼠标所在的元素下的 .code 元素上添加 CopyContent属性
+                    $(this).find(".code").attr("CopyContent", "");
+                }
+            );
+        }
+
+        // fancybox
+        $.getScript("<%-theme.CDN.fancybox_js%>",function(){
             $(".post-content img").each(function () {
                 var element = document.createElement("a");
                 $(element).attr("data-fancybox", "images");
@@ -172,160 +118,9 @@
                 buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
                 hash: false
             });
-        }
-        
-        <%if(theme.artitalk.enable){%>
-        // artitalk
-        function loadArtitalk() {
-            var content = $("#artitalk_main");
-            var artitalk = content.attr("artitalk");
-            $(content).html(artitalk);
-            content.removeAttr("artitalk");
-        }
-        loadArtitalk();
-        <%}%>
-        
-        <%if(theme.hpp_talk.enable){%>
-        // hpp_talk
-        function loadHPP_talk() {
-            var content = $("#hpp_talk");
-            var hpp_talk = content.attr("hpp_talk");
-            $(content).html(hpp_talk);
-            content.removeAttr("hpp_talk");
-        }
-        loadHPP_talk();
-        <%}%>
-
-        LoadShare();
-        LoadFancybox();
-
-        <%if(theme.comment!=null){%>
-            <%if(theme.comment=="valine"){%>
-                LoadValine();
-            <%}else if(theme.comment=="waline"){%>
-                LoadWaline();
-            <%}else if(theme.comment=="twikoo"){%>
-                LoadTwikoo();
-            <%}%>
-        <%}%>
-
-        
-
-        // 开始 PJAX 执行的函数
-		document.addEventListener('pjax:send', function () {
-
-            // 设置初始进度
-            var progress = 10;
-            // 创建进度条 及 css样式
-            $("body").append("<div class='progress'></div>")
-
-            // 定义随机数最大值最小值
-            var max=10,mini=3;
-            var result=max-mini;
-            
-            // 清除
-            clearInterval(timer);
-            // 0.5秒内累加进度
-            timer = setInterval(function(){
-                // 随机数
-                var num = parseInt(Math.random()*result);
-                var randomResult = num+mini;
-                // 累加
-                progress+=randomResult
-                $("body .progress").css("width",progress+"%")
-                // 当进度达到95%时停止
-                if(progress>95)progress=95
-            },500)
-        });
-        
-        
-        // 清除时间
-        var timer = null;
-
-        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
-		document.addEventListener('pjax:complete', function () {
-            <%if(theme.comment!=null){%>
-                <%if(theme.comment=="valine"){%>
-                    LoadValine();
-                <%}else if(theme.comment=="waline"){%>
-                    LoadWaline();
-                <%}else if(theme.comment=="twikoo"){%>
-                    LoadTwikoo();
-                <%}%>
-            <%}%>
-            clearInterval(timer);
-            // 页面加载完毕后进度100% 并在0.7秒后删除
-            $("body .progress").css("width","100%")
-            timer = setTimeout(function () {
-                $("body .progress").remove();
-            }, 700);
-
-            // 手机端导航栏跳转关闭
-            $("#mobileNav").css("opacity", "0")
-            $("#mobileNav").removeClass("open")
-            $("#mask").removeClass("mask")
-
-            // 手机端搜索框关闭
-            $("#local-search").css("display", "none")
-
-            // 接触滚动
-            $("html").css("overflow", "auto")
-
-            // 当鼠标移动到代码块上时执行
-            $(".highlight-wrap").hover(
-                function() {
-                    // 移除其他代码块的 CopyContent 属性
-                    $("[CopyContent]").removeAttr("CopyContent");
-                    // 在当前鼠标所在的元素下的 .code 元素上添加 CopyContent属性
-                    $(this).find(".code").attr("CopyContent", "");
-                }
-            );
-
-            <%if(theme.artitalk.enable){%>
-            loadArtitalk();
-            <%}%>
-            <%if(theme.hpp_talk.enable){%>
-            loadHPP_talk();
-            <%}%>
-
-            <%if(theme.MathJax){%>
-            MathJaxFn();
-            <%}%>
-            LoadShare();
-            LoadFancybox();
-            
-
-
-            if(localStorage.isDark=="dark"){
-                $("body").addClass("dark")
-                $("#darkmode i").attr("class","fas fa-sun")
-            }else{
-                $("body").removeClass("dark")
-                $("#darkmode i").attr("class","fas fa-moon")
-            }
-
-            $('#darkmode').click(function () {
-                if($('#darkmode i').attr("class")=="fas fa-moon"){
-                    localStorage.isDark = "dark";
-                    $("body").addClass("dark")
-                    $("#darkmode i").attr("class","fas fa-sun")
-                }else{
-                    localStorage.isDark = "";
-                    $("body").removeClass("dark")
-                    $("#darkmode i").attr("class","fas fa-moon")
-                }
-            })
-            
-            document.querySelectorAll('script[data-pjax]').forEach(item => {
-                const newScript = document.createElement('script')
-                const content = item.text || item.textContent || item.innerHTML || ""
-                Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-                newScript.appendChild(document.createTextNode(content))
-                item.parentNode.replaceChild(newScript, item)
-            })
-        });
+        })
     </script>
-    <%}%>
-    
+    <%- partial('_partial/import_bottom') %>
+    <%- partial('_partial/third-party/pjax') %>
 </body>
 </html>

@@ -76,9 +76,9 @@ search:
 # https://github.com/lete114/hexo-minify
 # 需要更全面的压缩请安装插件: npm install hexo-minify --save
 minify:
-  js: false
+  js: true
   css: true 
-  html: false
+  html: true
 
 ## 404页面
 error_404:
@@ -229,7 +229,7 @@ footer:
     enable: false
     text: 
     icon: /img/icp.png
-    url: http://www.beian.miit.gov.cn/
+    url: https://beian.miit.gov.cn/
   cdn:
     enable: false
     text: 提供加速服务
@@ -247,7 +247,7 @@ analytics:
 import:
   head: 
     - 
-  botton:
+  bottom:
     - 
   # 例如： 
   # - <link rel="stylesheet" href="/css/index.css">
@@ -260,9 +260,7 @@ import:
 CDN:
   index_css: /css/index.css
   index_js: /js/main.js
-  article_css: /css/article.css
   search: /js/search.js
-  upj: https://cdn.jsdelivr.net/gh/lete114/CDN/Use/up.gif
 
   # pjax
   pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.js
