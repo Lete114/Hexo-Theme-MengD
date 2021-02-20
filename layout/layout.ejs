@@ -38,11 +38,25 @@
     </div>
     <%- partial('_partial/footer') %>
     <script>
-        // local-search
-        $.getScript('<%-theme.CDN.search%>', function () {
-            searchFunc('<%-theme.search.path%>','local-search-input','local-search-result')
-        })
+
+        var $config = {
+            search:{
+                enable: "<%-theme.search.enable%>",
+                path: "<%-theme.search.path%>"
+            },
+            CodeBlock:{
+                enable: "<%-theme.CodeBlock.enable%>",
+                height: "<%-theme.CodeBlock.height%>",
+                scrollTop: "<%-theme.CodeBlock.scrollTop%>"
+            },
+            CDN:{
+                fancybox_js: "<%-theme.CDN.fancybox_js%>",
+                fancybox_css: "<%-theme.CDN.fancybox_css%>",
+                search: "<%-theme.CDN.search%>",
+            }
+        }
         
+        <%if(theme.pjax){%>
         // 清除时间
         var timer = null;
         // 执行进度条
@@ -88,46 +102,7 @@
             // 手机端搜索框关闭
             $("#local-search").css("display", "none")
         }
-
-        function CopyContent(){
-            // 当鼠标移动到代码块上时执行
-            $(".highlight-wrap").hover(
-                function() {
-                    // 移除其他代码块的 CopyContent 属性
-                    $("[CopyContent]").removeAttr("CopyContent");
-                    // 在当前鼠标所在的元素下的 .code 元素上添加 CopyContent属性
-                    $(this).find(".code").attr("CopyContent", "");
-                }
-            );
-        }
-
-        // fancybox
-        function FancyboxFn(){
-            $.getScript("<%-theme.CDN.fancybox_js%>",function(){
-                $(".post-content img").each(function () {
-                    var element = document.createElement("a");
-                    $(element).attr("data-fancybox", "images");
-                    $(element).attr("href", $(this).attr("src"));
-                    $(this).wrap(element);
-                });
-                $().fancybox({
-                    selector: '[data-fancybox="images"]',
-                    loop: true,
-                    transitionEffect: 'slide',
-                    protect: true,
-                    buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
-                    hash: false
-                });
-                $("head").append("<link>");
-                fancybox_css =$("head").children(":last");
-                    fancybox_css.attr({
-                    rel: "stylesheet",
-                    type: "text/css",
-                    href: "<%-theme.CDN.fancybox_css%>"
-                });
-            })
-        }
-        FancyboxFn()
+        <%}%>
     </script>
     <%- partial('_partial/import_bottom') %>
     <%- partial('_partial/third-party/pjax') %>

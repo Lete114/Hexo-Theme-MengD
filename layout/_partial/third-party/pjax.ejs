@@ -27,29 +27,12 @@
             CopyContent()
             // Fancybox
             FancyboxFn()
-            
             // 深色模式
-            if(localStorage.isDark=="dark"){
-                $("body").addClass("dark")
-                $("#darkmode i").attr("class","fas fa-sun")
-            }else{
-                $("body").removeClass("dark")
-                $("#darkmode i").attr("class","fas fa-moon")
-            }
-
-            $('#darkmode').click(function () {
-                if($('#darkmode i').attr("class")=="fas fa-moon"){
-                    localStorage.isDark = "dark";
-                    $("body").css("transition","all .3s linear")
-                    $("body").addClass("dark")
-                    $("#darkmode i").attr("class","fas fa-sun")
-                }else{
-                    localStorage.isDark = "";
-                    $("body").css("transition","all .3s linear")
-                    $("body").removeClass("dark")
-                    $("#darkmode i").attr("class","fas fa-moon")
-                }
-            })
+            DarkMode()
+            // 代码块折叠
+            CodeBlock()
+            
+            
             
             document.querySelectorAll('script[data-pjax]').forEach(item => {
                 const newScript = document.createElement('script')
@@ -67,4 +50,4 @@
             }
         })
     </script>
-    <%}%>
+<%}%>

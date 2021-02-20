@@ -57,6 +57,17 @@ $(document).on('click', '.rightside-toc', function () {
 
 // 当鼠标移动到代码块上时执行
 CopyContent()
+function CopyContent(){
+    // 当鼠标移动到代码块上时执行
+    $(".highlight-wrap").hover(
+        function() {
+            // 移除其他代码块的 CopyContent 属性
+            $("[CopyContent]").removeAttr("CopyContent");
+            // 在当前鼠标所在的元素下的 .code 元素上添加 CopyContent属性
+            $(this).find(".code").attr("CopyContent", "");
+        }
+    );
+}
 // 代码块复制
 var clipboard = new ClipboardJS('.clipboard', {
     target: function() {
@@ -81,26 +92,98 @@ clipboard.on('error', function(event) {
 });
 
 // 深色模式
-if(localStorage.isDark=="dark"){
-    $("body").addClass("dark")
-    $("#darkmode i").attr("class","fas fa-sun")
-}else{
-    $("body").removeClass("dark")
-    $("#darkmode i").attr("class","fas fa-moon")
-}
-$('#darkmode').click(function () {
-    if($('#darkmode i').attr("class")=="fas fa-moon"){
-        localStorage.isDark = "dark";
-        $("body").css("transition","all .3s linear")
+DarkMode()
+function DarkMode(){
+    // 深色模式
+    if(localStorage.isDark=="dark"){
         $("body").addClass("dark")
         $("#darkmode i").attr("class","fas fa-sun")
     }else{
-        localStorage.isDark = "";
-        $("body").css("transition","all .3s linear")
         $("body").removeClass("dark")
         $("#darkmode i").attr("class","fas fa-moon")
     }
-})
+    // 点击 开/关
+    $('#darkmode').click(function () {
+        if($('#darkmode i').attr("class")=="fas fa-moon"){
+            localStorage.isDark = "dark";
+            $("body").css("transition","all .3s linear")
+            $("body").addClass("dark")
+            $("#darkmode i").attr("class","fas fa-sun")
+        }else{
+            localStorage.isDark = "";
+            $("body").css("transition","all .3s linear")
+            $("body").removeClass("dark")
+            $("#darkmode i").attr("class","fas fa-moon")
+        }
+    })
+}
+if($config.CodeBlock.enable){
+    // 代码块折叠
+    CodeBlock()
+    function CodeBlock(){
+        // 代码块折叠
+        var CodeBlock = $("figure.highlight")
+        // 定义高度
+        var height = $config.CodeBlock.height
+        // 获取当前页面的所有的代码块 循环判断符合条件的折叠
+        for(var i = 0;i<CodeBlock.length;i++){
+            if(CodeBlock.eq(i).height()>height){
+                CodeBlock.eq(i).css("max-height",height+"px")
+                CodeBlock.eq(i).append('<div class="show-btn"><i class="fas fa-angle-down"></i></div>')
+            }
+        }
+        // 点击 展开 / 关闭
+        $(".show-btn").click(function(){
+            var $this = $(this);
+            if($this.children("i").attr("class")=="fas fa-angle-down"){
+                $this.children("i").removeClass("fas fa-angle-down")
+                $this.children("i").addClass("fas fa-angle-up")
+                $this.closest(".highlight").removeAttr("style")
+            }else{
+                $this.children("i").removeClass("fas fa-angle-up")
+                $this.children("i").addClass("fas fa-angle-down")
+                $this.closest(".highlight").css("max-height","400px")
+                var thisCodeBlock = $this.closest(".highlight").offset();
+                $("html,body").animate({
+                    scrollTop: thisCodeBlock.top-$config.CodeBlock.scrollTop
+                }, 0);
+            }
+        })
+    }
+}
+// fancybox
+FancyboxFn()
+function FancyboxFn(){
+    $.getScript($config.CDN.fancybox_js,function(){
+        $(".post-content img").each(function () {
+            var element = document.createElement("a");
+            $(element).attr("data-fancybox", "images");
+            $(element).attr("href", $(this).attr("src"));
+            $(this).wrap(element);
+        });
+        $().fancybox({
+            selector: '[data-fancybox="images"]',
+            loop: true,
+            transitionEffect: 'slide',
+            protect: true,
+            buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
+            hash: false
+        });
+        $("head").append("<link>");
+        fancybox_css =$("head").children(":last");
+            fancybox_css.attr({
+            rel: "stylesheet",
+            type: "text/css",
+            href: $config.CDN.fancybox_css
+        });
+    })
+}
+if($config.search.enable){
+    // local-search
+    $.getScript($config.CDN.search, function () {
+        searchFunc($config.search.path,'local-search-input','local-search-result')
+    })
+}
 
 //当浏览器大小变化时
 $(window).resize(function(){
@@ -141,5 +224,4 @@ $(function() {
         }
     });
 });
-
 

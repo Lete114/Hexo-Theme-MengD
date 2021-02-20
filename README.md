@@ -76,9 +76,9 @@ search:
 # https://github.com/lete114/hexo-minify
 # 需要更全面的压缩请安装插件: npm install hexo-minify --save
 minify:
-  js: true
+  js: false
   css: true 
-  html: true
+  html: false
 
 ## 404页面
 error_404:
@@ -94,6 +94,11 @@ post_content:
 
 ## 代码块样式
 highlight_theme: mac # default / darker / pale night / light / ocean / mac / mac light
+CodeBlock: # 是否开启代码块折叠
+  enable: true
+  height: 400 # 代码块高度超过400折叠 单位px
+  scrollTop: 200 # 展开后,再次(手动点击)折叠滚动到代码块开始的距离 单位px
+
 
 # 图标
 social:
@@ -141,7 +146,7 @@ reward:
 
 ## pjax
 ## https://github.com/MoOx/pjax
-pjax: true
+pjax: false
 
 ## MathJax
 ## https://github.com/mathjax/MathJax
@@ -149,7 +154,7 @@ MathJax: false
 
 # 评论
 ## 注意大小写
-comment: waline # twikoo / waline / valine
+comments: waline # twikoo / waline / valine
 
 # valine
 ## https://valine.js.org/
