@@ -31,7 +31,7 @@ page_count: 5 # 首页显示的文章数
 
 # 需安装插件: npm install hexo-generator-search --save
 search: 
-  enable: true
+  enable: false
   path: /search.xml
   field: post
   
@@ -53,6 +53,10 @@ error_404:
 post_content:
   line: 3 # 显示多少行后出现省略号(...)
   length: 500 # 截取多少字 
+
+lazyload:
+  enable: true
+  loadimg: /img/load.gif
 
 ## 代码块样式
 highlight_theme: mac # default / darker / pale night / light / ocean / mac / mac light
@@ -108,7 +112,7 @@ reward:
 
 ## pjax
 ## https://github.com/MoOx/pjax
-pjax: false
+pjax: true
 
 ## MathJax
 ## https://github.com/mathjax/MathJax
@@ -228,6 +232,7 @@ CDN:
   index_css: /css/index.css
   index_js: /js/main.js
   search: /js/search.js
+  lazyload: /js/lazyLoad.js
 
   # pjax
   pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.js

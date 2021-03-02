@@ -139,7 +139,9 @@ if($config.CodeBlock.enable){
                 $this.children("i").removeClass("fas fa-angle-down")
                 $this.children("i").addClass("fas fa-angle-up")
                 $this.closest(".highlight").removeAttr("style")
+                $this.prev().css("margin-bottom","20px")
             }else{
+                $this.prev().removeAttr("style")
                 $this.children("i").removeClass("fas fa-angle-up")
                 $this.children("i").addClass("fas fa-angle-down")
                 $this.closest(".highlight").css("max-height","400px")
@@ -158,7 +160,11 @@ function FancyboxFn(){
         $(".post-content img").each(function () {
             var element = document.createElement("a");
             $(element).attr("data-fancybox", "images");
-            $(element).attr("href", $(this).attr("src"));
+            if($config.lazyload.enable){
+                $(element).attr("href", $(this).attr("data-img"));
+            }else{
+                $(element).attr("href", $(this).attr("src"));
+            }
             $(this).wrap(element);
         });
         $().fancybox({
@@ -224,4 +230,3 @@ $(function() {
         }
     });
 });
-
