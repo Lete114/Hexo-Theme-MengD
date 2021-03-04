@@ -69,7 +69,7 @@ page_count: 5 # 首页显示的文章数
 
 # 需安装插件: npm install hexo-generator-search --save
 search: 
-  enable: false
+  enable: true
   path: /search.xml
   field: post
   
@@ -108,6 +108,12 @@ CodeBlock: # 是否开启代码块折叠
 social:
   fab fa-github: https://github.com/lete114
   fa fa-envelope: mailto:lete@lete114.top
+
+# 自定义标题切换
+amusing_title:
+  enable: true
+  leave_title: '(つェ⊂) 我藏好了哦~ '
+  return_title: '(*´∇｀*) 被你发现啦~ '
 
 ## 主题颜色
 theme_color:  
@@ -244,7 +250,16 @@ footer:
     text: 提供加速服务
     icon: https://cdn.jsdelivr.net/gh/lete114/CDN/upyun/05.png
     url: https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral
-    
+
+## 滚动顶部 / 滚动底部 按钮
+updown:
+  enable: false
+  left: # A默认显示 B鼠标悬浮 如果没有第二张图片 设置A/B一样 否则错误
+    - /img/leimuA.png
+    - /img/leimuB.png
+  rgiht: 
+    - /img/lamuA.png
+    - /img/lamuB.png
 
 
 # 百度统计

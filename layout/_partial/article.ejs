@@ -91,12 +91,14 @@
                         <span class="word-count"><%= wordcount(page.content) %> | </span>
                         <i class="far fa-clock fa-fw post-meta-icon"></i>
                         <span class="post-meta-label"><%-_p("article.min2read")%>:</span>
-                        <span><%= min2read(page.content) %><%-_p("article.min2read_unit")%> | </span>
-                        <i class="far fa-eye fa-fw post-meta-icon"></i>
+                        <span><%= min2read(page.content) %><%-_p("article.min2read_unit")%></span>
+                        <%if(page.comments){%>
+                        | <i class="far fa-eye fa-fw post-meta-icon"></i>
                         <span id="<%- url_for(post.path) %>" class="leancloud_visitors">
                             <span class="post-meta-label"><%-_p("article.visitors")%>:</span>
                             <span class="leancloud-visitors-count" id="twikoo_visitors">0</span>
                         </span>
+                        <%}%>
                     </span>
                 </div>
             </div>

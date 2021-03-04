@@ -58,6 +58,22 @@
                 search: "<%-theme.CDN.search%>",
             }
         }
+
+        <% if (theme.amusing_title && theme.amusing_title.enable) { %>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function () {
+            if (document.hidden) {
+                document.title = "<%- theme.amusing_title.leave_title %>" + originTitle;
+                clearTimeout(titleTime);
+            } else {
+                document.title = "<%- theme.amusing_title.return_title %>" + originTitle;
+                titleTime = setTimeout(function () {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        });
+        <% } %>
         
         <%if(theme.pjax){%>
         // 清除时间
@@ -109,5 +125,15 @@
     </script>
     <%- partial('_partial/import_bottom') %>
     <%- partial('_partial/third-party/pjax') %>
+    <%if(theme.updown.enable){%>
+    <div id="updown">
+        <a href="#footer">
+            <img src="<%-theme.updown.left[0]%>" onmouseout='this.src="<%-theme.updown.left[0]%>";' onmouseover='this.src="<%-theme.updown.left[1]%>";'>
+        </a>
+        <a href="#body">
+            <img src="<%-theme.updown.rgiht[0]%>" onmouseout='this.src="<%-theme.updown.rgiht[0]%>";' onmouseover='this.src="<%-theme.updown.rgiht[1]%>";'>
+        </a>
+    </div>
+    <%}%>
 </body>
 </html>
