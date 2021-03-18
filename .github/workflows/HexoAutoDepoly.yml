@@ -46,7 +46,7 @@ jobs:
         cd ./public
         git config --global user.name "lete114"
         git config --global user.email "lete@lete114.top"
-        git -f add .
+        git add -A -f
         git branch -m gh-pages
         git commit -m "${{ github.event.head_commit.message }} - Auto Push Docs"
         git push -f origin gh-pages https://lete114:${{secrets.TOKEN}}@github.com/lete114/hexo-theme-MengD.git
