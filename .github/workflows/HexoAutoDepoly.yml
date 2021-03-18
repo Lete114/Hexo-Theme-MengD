@@ -44,6 +44,7 @@ jobs:
     - name: 部署
       run: |
         cd ./public
+        ls
         git config --global user.name "lete114"
         git config --global user.email "lete@lete114.top"
         git add -A -f
