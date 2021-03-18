@@ -39,12 +39,12 @@ jobs:
     - name: 生成静态文件
       run: |
         hexo clean
+        git clone -b gh-pages https://github.com/lete114/hexo-theme-MengD.git public
         hexo generate
     
     - name: 部署
       run: |
         cd ./public
-        git init
         git config --global user.name "lete114"
         git config --global user.email "lete@lete114.top"
         git add .
