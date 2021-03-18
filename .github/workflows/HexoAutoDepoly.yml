@@ -49,5 +49,5 @@ jobs:
         git config --global user.email "lete@lete114.top"
         git add .
         git commit -m "${{ github.event.head_commit.message }} - Auto Push Docs"
-        git push --force --quiet "https://${{secrets.TOKEN}}@github.com/lete114/hexo-theme-MengD.git" master:master
+        git push --force --quiet "https://${{secrets.TOKEN}}@github.com/lete114/hexo-theme-MengD.git" docs:docs
         #git push --force https://lete114:${{secrets.TOKEN}}@github.com/lete114/hexo-theme-MengD.git
