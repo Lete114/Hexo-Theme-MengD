@@ -41,14 +41,12 @@ jobs:
       run: |
         hexo clean
         hexo generate
-        git clone -b gh-pages https://github.com/lete114/hexo-theme-MengD.git ./public
     
     - name: 部署
       run: |
         cd ./public
         git config --global user.name "lete114"
         git config --global user.email "lete@lete114.top"
-        hexo generate
         git add .
         git commit -m'Auto Push Docs'
-        git push origin gh-pages https://lete114:${{secrets.TOKEN}}@github.com/lete114/hexo-theme-MengD.git
+        git push -f origin gh-pages https://lete114:${{secrets.TOKEN}}@github.com/lete114/hexo-theme-MengD.git
