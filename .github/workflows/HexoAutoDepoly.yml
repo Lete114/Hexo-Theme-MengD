@@ -1,25 +1,23 @@
-name: AutoDeploy
+name: AutoDeployDocs
 
 on: 
   push:
-    branches:
-      - docs
+    branches: docs
   release:
-    types:
-      - published
-  watch:
-    types: [started]
+    types: published
+  repository_dispatch:
+  workflow_dispatch:
 
 jobs:
   deploy:
+    name: AutoDeployDocs
     runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id
     steps:
     - name: 检查分支
-      uses: actions/checkout@v2
+      uses: actions/checkout@main
 
     - name: 安装 Node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@main
       with:
         node-version: "12.x"
         
@@ -28,13 +26,14 @@ jobs:
         export TZ='Asia/Shanghai'
         npm install hexo-cli -g
     - name: 缓存 Hexo
-      uses: actions/cache@v1
+      uses: actions/cache@main
       id: cache
       with:
         path: node_modules
         key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
 
     - name: 安装依赖
+      if: steps.cache-dependencies.outputs.cache-hit != 'true'
       run: |
         npm install --save
     - name: 生成静态文件
@@ -47,6 +46,7 @@ jobs:
         cd ./public
         git config --global user.name "lete114"
         git config --global user.email "lete@lete114.top"
-        git add .
-        git commit -m'Auto Push Docs'
+        git -f add .
+        git branch -m gh-pages
+        git commit -m "${{ github.event.head_commit.message }} - Auto Push Docs"
         git push -f origin gh-pages https://lete114:${{secrets.TOKEN}}@github.com/lete114/hexo-theme-MengD.git
