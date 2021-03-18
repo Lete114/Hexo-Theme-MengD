@@ -39,15 +39,15 @@ jobs:
     - name: 生成静态文件
       run: |
         hexo clean
-        git clone -b gh-pages https://github.com/lete114/hexo-theme-MengD.git public
         hexo generate
     
     - name: 部署
       run: |
         cd ./public
-        git config --global user.name "lete114"
-        git config --global user.email "lete@lete114.top"
+        git init
+        git config user.name "lete114"
+        git config user.email "lete@lete114.top"
         git add .
         git commit -m "${{ github.event.head_commit.message }} - Auto Push Docs"
-        git push --force --quiet "https://${{secrets.TOKEN}}@hexo-theme-MengD" docs:docs
+        git push --force --quiet "https://${{secrets.TOKEN}}@github.com/lete114/hexo-theme-MengD.git" docs:docs
         #git push --force https://lete114:${{secrets.TOKEN}}@github.com/lete114/hexo-theme-MengD.git
