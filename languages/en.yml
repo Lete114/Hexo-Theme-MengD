@@ -12,6 +12,7 @@ share:
   wechatQrcodeHelper: Download and send exclusive QR code now, and invite friends to join
 
 article: 
+  title: No Title
   created: Created
   updated: Updated
   wordcount: Word Count

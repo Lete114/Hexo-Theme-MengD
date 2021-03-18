@@ -123,27 +123,28 @@
             </div>
             <% } %>
 
-            
+            <%if(theme.share.sites!=null){%>
             <div class="social-share" data-sites="<%=theme.share.sites%>"></div>
+            <link rel="stylesheet" href="<%-theme.CDN.share_css%>" media="all" onload="this.media='all'">
+            <script src="<%-theme.CDN.share_js%>" defer="defer"></script>
+            <%}%>
 
             <%- partial('reward') %>
             
         </article>
-        <link rel="stylesheet" href="<%-theme.CDN.share_css%>" media="all" onload="this.media='all'">
-        <script src="<%-theme.CDN.share_js%>" defer="defer"></script>
         <%- partial('rightside') %>
 
         <div class="pagination">
             <% if (post.prev){ %>
             <a href="<%- url_for(post.prev.path) %>" class="page-pre">
                 <i class="fas fa-arrow-alt-circle-left"></i>
-                <%= post.prev.title %>
+                <%= post.prev.title==""?_p("article.title"): post.prev.title %>
             </a>
             
             <% } %>
             <% if (post.next){ %>
             <a href="<%- url_for(post.next.path) %>" class="page-next">
-                <%= post.next.title %>
+                <%= post.next.title==""?_p("article.title"):post.next.title %>
                 <i class="fas fa-arrow-alt-circle-right"></i>
             </a>
             <% } %>

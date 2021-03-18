@@ -11,7 +11,10 @@ body.compensate-for-scrollbar
     width 300px
     padding 1rem
     margin 60px 10px
-    background #fff 
+    background #fff
+    #toc-list
+        overflow-y: scroll;
+        max-height: 500px;
     ol 
         li 
             list-style none
@@ -21,8 +24,15 @@ body.compensate-for-scrollbar
     .toc
         overflow-y scroll
         max-height 500px
+        padding: 0;
+        margin-left: 20px;
+    li.toc-item.toc-level-1
+        list-style: none;
+        margin-left: 20px;
    if hexo-config("toc.scrollbar")
     .toc::-webkit-scrollbar
+        width 0px
+    #toc-list::-webkit-scrollbar
         width 0px
 
 .rightside-toc
@@ -99,6 +109,9 @@ progress::-webkit-progress-value
     text-align center
     padding-bottom 30px 
 
+@media screen and (max-width 1100px)
+    #toc .toc
+        margin-left: 0
 @media screen and (max-width 1000px)
     #toc
         display none
@@ -111,9 +124,8 @@ progress::-webkit-progress-value
         background rgba(255,255,255,.9) 
         margin 0
     
-    .toc
+    #toc-list,.toc
         max-height 180px !important
-    
     .rightside-toc
         display inline-block !important
     

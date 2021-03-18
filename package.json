@@ -1,7 +1,7 @@
 {
   "name": "hexo-theme-mengd",
-  "version": "1.6.1",
-  "description": "A simple elegant, and beautiful beautiful theme",
+  "version": "1.6.5-beta",
+  "description": "A simple, elegant, and beautiful Hexo theme",
   "main": "package.json",
   "scripts": {},
   "keywords": [

@@ -21,43 +21,38 @@ main.content
         word-wrap break-word
         word-break break-word
         overflow-wrap break-word
-    ol
-        margin-top .4rem
-        padding 0 0 0 .8rem
-        list-style none
-        counter-reset li
+    ol,ul
+        margin-top: 0.4rem
         li
-            position relative 
-            margin .3rem 0
+            position: relative;
+            margin: 0.3rem 0;
+            padding-left: 0.3rem;
             p
                 margin 0
                 line-height unset
-    ol>li:not(.tab) 
-        padding .2em .2em .2em 1.8em
-    ol>li:before 
-        margin-top .5em
-        width 1.45em
-        height 1.45em
-        border-radius .725em
-        content counter(li)
-        counter-increment li
-        text-align center
-        font-size .85em
-        line-height 1.45em
-    ol li:before
-        position absolute
-        top 0
-        left 0
-        background:$main
-        color #fff
-        cursor pointer 
-        line-height 20px
     blockquote 
-        margin 0 0 1rem
+        margin 1rem 0
         padding .1rem .8rem
         border-left .2rem solid $main
         background-color rgba(73,177,245,0.1)
-        color #6a737d   
+        color #6a737d
+    blockquote.pullquote.left
+        max-width: 45%;
+        float: left;
+        margin: .5em .5em 0 0;
+    blockquote.pullquote.right
+        max-width: 45%;
+        float: right;
+        margin: .5em 0 0 .5em;
+    kbd
+        margin: 0 3px;
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #fff;
+        background-color: #333;
+        border-radius: 3px;
+        -webkit-box-shadow: inset 0 -1px 0 rgb(0 0 0 / 25%);
+        box-shadow: inset 0 -1px 0 rgb(0 0 0 / 25%);
 
 article
     .post 
@@ -122,6 +117,7 @@ article
         figure.highlight
             table 
                 display table
+                width 0
             td 
                 padding 0
                 border none
@@ -152,7 +148,7 @@ article
             margin 0 0 1rem
         table 
             overflow-x scroll
-            display block
+            width 100%
             border-spacing 0
             border-collapse collapse
             empty-cells show
@@ -185,3 +181,17 @@ article
                 margin-top 7px
         a:hover
             color #fff !important
+
+.video-container
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+    padding-top: 56.25%;
+    height: 0;
+    iframe
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 0;
+        width: 100%;
+        height: 100%;  

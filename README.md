@@ -40,7 +40,7 @@ git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 # Hexo-MengD(萌典)
 # 项目地址：https://github.com/lete114/hexo-theme-MengD
 # 主题文档：https://mengd.lete114.top/
-# 一个简约优雅，及美观漂亮的主题
+# 一个简约优雅，及美观漂亮的Hexo主题
 #--------------------------------------------------------
 
 # 导航栏菜单
@@ -58,7 +58,7 @@ author: MengD(萌典)
 mail: lete@lete114.top
 favicon: /img/favicon.png
 avatar: /img/logo.gif
-language: zh-CN
+language: zh-CN # 如果需要更换全局语言，请到hexo配置文件内设置(此处设置无效)
 keywords: 
 description: 一个简约优雅，及美观漂亮的主题!!
 body_width: 800px # 页面主体大小
@@ -106,10 +106,10 @@ CodeBlock: # 是否开启代码块折叠
 
 # 图标
 social:
-  fab fa-github: https://github.com/lete114
-  fa fa-envelope: mailto:lete@lete114.top
+  # fab fa-github: https://github.com/lete114
+  # fa fa-envelope: mailto:lete@lete114.top
 
-# 自定义标题切换
+# 有趣的标题切换
 amusing_title:
   enable: true
   leave_title: '(つェ⊂) 我藏好了哦~ '
@@ -142,11 +142,11 @@ link:
 ## https://github.com/overtrue/share.js/
 share:
   sites:
-    - facebook
-    - qq
-    - weibo
-    - wechat
-    - twitter
+    # - facebook
+    # - qq
+    # - weibo
+    # - wechat
+    # - twitter
 
 ## 打赏
 reward:
@@ -254,12 +254,12 @@ footer:
 ## 滚动顶部 / 滚动底部 按钮
 updown:
   enable: false
-  left: # A默认显示 B鼠标悬浮 如果没有第二张图片 设置A/B一样 否则错误
-    - /img/leimuA.png
-    - /img/leimuB.png
-  rgiht: 
-    - /img/lamuA.png
-    - /img/lamuB.png
+  # left: # A默认显示 B鼠标悬浮 如果没有第二张图片 设置A/B一样 否则错误
+  #   - /img/leimuA.png
+  #   - /img/leimuB.png
+  # rgiht: 
+  #   - /img/lamuA.png
+  #   - /img/lamuB.png
 
 
 # 百度统计
@@ -286,6 +286,8 @@ CDN:
   index_js: /js/main.js
   search: /js/search.js
   lazyload: /js/lazyLoad.js
+  jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
+  fortawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
 
   # pjax
   pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.js

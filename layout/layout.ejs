@@ -26,7 +26,9 @@
                     </h4>
                     <progress id="progress" value="0" max="100"></progress>
                 </div>
-                <%- toc(page.content,{list_number: false}) %>
+                <div id="toc-list">
+                    <%- toc(page.content,{list_number: false}) %>
+                </div>
             </div>
             <%}else{%>
                 <div id="toc" style="display: none;"></div>

@@ -42,7 +42,7 @@ var url = config.url+"/"+page.path;
 <meta name="twitter:description" content="<%=description || theme.description || config.description%>">
 <link rel="dns-prefetch" href="<%- url || config.url%>">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="<%-theme.CDN.fortawesome%>">
+<script src="<%-theme.CDN.jquery%>"></script>
 <link rel="stylesheet" href="<%-theme.CDN.index_css%>">
 
