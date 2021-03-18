@@ -1,0 +1,24 @@
+<section id="rightside">
+    <div id="rightside-item">
+        <a id="darkmode" title="<%-_p('rightside.dark')%>">
+            <i class="fas fa-moon"></i>
+        </a>
+        <%if(toc(page.content,{list_number: false})!=""){%>
+            <%if(is_post()){%>
+                <a class="rightside-toc" title="<%-_p('article.toc')%>">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+            <%}%>
+        <%}%>
+        <%if(theme.comments!=null){%>
+            <%if(page.comments==null||page.comments){%>
+            <a href="#<%-_p('rightside.direct_comments')%>" title="<%-_p('rightside.direct_comments')%>">
+                <i class="fas fa-comments"></i>
+            </a>
+            <%}%>
+        <%}%>
+        <a href="#" title="<%-_p('rightside.back_to_top')%>">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+</section>

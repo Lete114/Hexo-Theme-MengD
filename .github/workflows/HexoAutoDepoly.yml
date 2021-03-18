@@ -1,0 +1,53 @@
+name: AutoDeploy
+
+on: 
+  push:
+    branches:
+      - docs
+  release:
+    types:
+      - published
+  watch:
+    types: [started]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+    - name: 检查分支
+      uses: actions/checkout@v2
+
+    - name: 安装 Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: "12.x"
+        
+    - name: 安装 Hexo
+      run: |
+        export TZ='Asia/Shanghai'
+        npm install hexo-cli -g
+    - name: 缓存 Hexo
+      uses: actions/cache@v1
+      id: cache
+      with:
+        path: node_modules
+        key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
+
+    - name: 安装依赖
+      run: |
+        npm install --save
+    - name: 生成静态文件
+      run: |
+        hexo clean
+        hexo generate
+    
+    - name: 部署
+      run: |
+        cd ./public
+        git config --global user.name "lete114"
+        git config --global user.email "lete@lete114.top"
+        git clone -b gh-pages https://github.com/lete114/hexo-theme-MengD.git public
+        git add .
+        git commit -m'Auto Push Docs'
+        git push origin gh-pages https://lete114:${{secrets.TOKEN}}@github.com/lete114/hexo-theme-MengD.git

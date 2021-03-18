@@ -1,0 +1,20 @@
+<% var option = theme.twikoo.option ? JSON.stringify(theme.twikoo.option) : false %>
+<div id="tcomment"></div>
+<script>
+function LoadTwikoo(){
+  $.getScript("<%-theme.CDN.twikoo%>",function(){ 
+  initData = {
+      el: '#tcomment',
+      envId: '<%-theme.twikoo.envId%>',
+      region: '<%-theme.twikoo.region%>',
+      path: '<%-theme.twikoo.path%>',
+  }
+  var option = <%-option%>;
+  if(option){
+      initData = Object.assign(initData, option)
+  }
+  twikoo.init(initData);
+  })
+}
+LoadTwikoo()
+</script>
