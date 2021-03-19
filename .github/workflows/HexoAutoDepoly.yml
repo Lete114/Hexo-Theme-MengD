@@ -40,14 +40,13 @@ jobs:
       run: |
         hexo clean
         hexo generate
-    
+
     - name: 部署
-      run: |
-        cd ./public
-        git init
-        git config user.name "lete114"
-        git config user.email "lete@lete114.top"
-        git add .
-        git commit -m "${{ github.event.head_commit.message }} - Auto Push Docs"
-        git push --force --quiet "https://${{secrets.GH_TOKEN}}@github.com/lete114/hexo-theme-MengD.git" docs:docs
-        #git push --force https://lete114:${{secrets.TOKEN}}@github.com/lete114/hexo-theme-MengD.git
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: ./public
+        user_name: 'lete114'
+        user_email: 'lete@lete114.top'
+        full_commit_message: '${{ github.event.head_commit.message }} - Auto Push Docs'
