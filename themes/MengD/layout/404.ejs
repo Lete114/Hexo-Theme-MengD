@@ -1,0 +1,212 @@
+---
+layout: false
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="<%-theme.author || config.author%>">
+    <meta name="description" content="<%-theme.description || config.description%>">
+    <meta name="keywords" content="<%-theme.keywords || config.keywords%>">
+    <title><%-theme.author || config.author%> | 404！页面君找不到这个网页！！</title>
+    <link rel="icon" href="<%theme.favicon%>">
+    <style>
+.error_404 p {
+  font-size: 26px;
+  color: #e58a8a;
+}
+.intro .avatar :hover {
+    position: relative;
+    -webkit-transform: rotate(540deg);
+    -moz-transform: rotate(540deg);
+    -o-transform: rotate(540deg);
+    -ms-transform: rotate(540deg);
+    transform: rotate(540deg);
+    cursor: pointer;
+}
+.body {
+  background: url("<%-theme.error_404.background==null?'#fff':theme.error_404.background%>");
+  min-height: 100vh;
+  z-index: -999;
+  width: 100%;
+  height: 100%;
+  background-attachment: local;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.homebtn {
+  padding: 15px;
+  border-radius: 15px;
+  border: 0px;
+  background: rgba(255,255,255,0.5);
+}
+/* 按钮 */
+.button--antiman {
+  background: none;
+  border: none;
+  height: 60px;
+}
+.button--antiman.button--inverted,
+.button--antiman.button--inverted-alt {
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+.button--antiman > span {
+  padding-left: 0.35em;
+}
+.button--antiman::before,
+.button--antiman::after {
+  content: '';
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+.button--antiman:before {
+  border: 2px solid;
+  opacity: 0;
+  -webkit-transform: scale3d(1.2, 1.2, 1);
+  transform: scale3d(1.2, 1.2, 1);
+}
+.button--antiman:before {
+  border-width: 1px;
+  border-color: #7986cb;
+}
+.button--antiman:after {
+  background: rgba(255,255,255,0.7);
+}
+.button--antiman:hover {
+  color: #80bdab;
+}
+.button--antiman:hover::before {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+}
+.button--antiman:hover::after {
+  opacity: 0;
+  -webkit-transform: scale3d(0.8, 0.8, 1);
+  transform: scale3d(0.8, 0.8, 1);
+}
+.box {
+  padding: 0.5em 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.button--round-l {
+  border-radius: 40px;
+}
+.button {
+  float: left;
+  box-shadow: 2px 2px 3px #bbb;
+  min-width: 150px;
+  max-width: 250px;
+  display: block;
+  margin: 1em;
+  padding: 1em 2em;
+  border: none;
+  background: none;
+  color: inherit;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+}
+.intro .avatar img {
+    width: 128px;
+    height: auto;
+    display: inline-block;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+    -webkit-box-shadow: 0 0 0 0.3618em rgba(0,0,0,0.05);
+    box-shadow: 0 0 0 0.3618em rgba(0,0,0,0.05);
+    margin: 0 auto;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.name {
+    color: #80bdab;
+    font-size: 2em;
+    font-weight: normal;
+}
+.main {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+}
+.container {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.intro {
+    transform: translateY(20vh);
+    text-align: center;
+}
+html{
+    overflow: hidden;
+}
+    </style>
+<body>
+
+<div class="body">
+    <div class="main">
+        <div class="container">
+            <div class="intro">
+                <div class="avatar">
+                    <a href="/"><img src="<%-theme.avatar%>" alt="<%-theme.author || config.author%>"></a>
+                </div>
+                <div class="name"><%-theme.author || config.author%></div>
+                <div class="error_404">
+                    <p><%-theme.error_404.text%></p>
+
+                    <p><span id="jumpTo">0</span>秒后自动跳转回首页</p>
+                </div>
+                <div class="box">
+                    <button class="homebtn button button--antiman button--round-l button--text-medium" onClick="window.open('/','_self')">返回首页</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var i = <%-theme.error_404.sec%>;
+    function remainTime() {
+        if (i == 0) {
+            location.href = '/';
+        }
+        document.getElementById('jumpTo').innerHTML = i--;
+        setTimeout("remainTime()", 1000);
+    }
+    remainTime();
+</script>
+</body>
+</html>

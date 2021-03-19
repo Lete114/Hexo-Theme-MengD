@@ -1,0 +1,244 @@
+<% if(index){ %>
+        <div class="post-item">
+            <div class="post-title">
+                <h2><a href="<%- url_for(post.path) %>"><%= post.title %></a></h2>
+            </div>
+            <div class="post-description">
+                <p style="-webkit-line-clamp: <%- theme.post_content.line %>">
+                    <%
+                        var content = strip_html(post.content)
+                        content = strip_html(content.substring(0, theme.post_content.length))
+                    %>
+                    <%- content %>
+                </p>
+            </div>
+                <% 
+                if (theme.cover){
+                    if (post.cover){%>
+                    <img src="<%-post.cover%>" class="cover" alt='<%-_p("index.cover")%>'>
+                    <%}
+                }
+                %>
+
+            <div class="post-footer">
+                <!-- 发布时间 -->
+                <div class="post-meta">
+                    <span class="post-date">
+                        <i class="far fa-calendar-alt"></i>
+                        <span><%-_p("index.created")%></span>
+                        <span><%- date(post.date, "YYYY-MM-DD") %></span>
+                    </span>
+                </div>
+                <!-- 标签 -->
+                <% if(post.tags.length!=0){ %>
+                    <div class="post-tag">
+                        <span>
+                            <i class="fa fa-tag"></i>
+                            <% post.tags.forEach(function(tag, i){ %> 
+                            <span>
+                                <a href="<%= tag.path %>">
+                                    <span><%-tag.name%></span>
+                                </a>
+                                <%if(post.tags.length-1 > i){%>
+                                    <i class="fas fa-angle-right"></i>
+                                <%} %>
+                            </span>
+                            <% }) %>
+                        </span>
+                    </div>
+                <% } %>
+                <!-- 分类 -->
+                <% if(post.categories.length!=0){ %>
+                    <div class="post-categorie">
+                        <span>
+                            <i class="fas fa-folder-open"></i>
+                            <% post.categories.forEach(function(categories, i){ %> 
+                            <span>
+                                <a href="<%= categories.path %>">
+                                    <span><%-categories.name%></span>
+                                </a>
+                                <%if(post.categories.length-1 > i){%>
+                                    <i class="fas fa-angle-right"></i>
+                                <%} %>
+                            </span>
+                            <% }) %>
+                        </span>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+<% }else{ %>
+    <%if(page.type==null || page.layout==null){%>
+        <article class="post">
+            <div class="post-title">
+              <h2 class="title"><%= page.title %></h2>
+            </div>
+             <%if(page.type==null){%>
+             <div class="post-meta">
+                <div class="meta-firstline">
+                    <span class="post-meta-date">
+                        <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
+                        <span class="post-meta-label"><%-_p("article.created")%> <%- date(page.date, "YYYY-MM-DD") %> | </span>
+                        
+                        <i class="fas fa-history fa-fw post-meta-icon"></i>
+                        <span class="post-meta-label"><%-_p("article.updated")%> <%- date(page.update, "YYYY-MM-DD") %></span>
+                    </span>
+                </div>
+                <div class="meta-secondline"> 
+                    <span class="post-meta-wordcount">
+                        <i class="far fa-file-word fa-fw post-meta-icon"></i>
+                        <span class="post-meta-label"><%-_p("article.wordcount")%>:</span>
+                        <span class="word-count"><%= wordcount(page.content) %> | </span>
+                        <i class="far fa-clock fa-fw post-meta-icon"></i>
+                        <span class="post-meta-label"><%-_p("article.min2read")%>:</span>
+                        <span><%= min2read(page.content) %><%-_p("article.min2read_unit")%></span>
+                        <%if(page.comments){%>
+                        | <i class="far fa-eye fa-fw post-meta-icon"></i>
+                        <span id="<%- url_for(post.path) %>" class="leancloud_visitors">
+                            <span class="post-meta-label"><%-_p("article.visitors")%>:</span>
+                            <span class="leancloud-visitors-count" id="twikoo_visitors">0</span>
+                        </span>
+                        <%}%>
+                    </span>
+                </div>
+            </div>
+             <%}%>
+            <div class="post-content">
+                <%- page.content %>
+            </div>
+            
+            <%- partial('copyright') %>
+            
+            <% if(page.tags.length!=0){ %>
+            <div class="post-tag">
+                <span>
+                    <i class="fa fa-tag"></i>
+                    <% post.tags.forEach(function(tag, i){ %> 
+                    <a href="<%= tag.path %>"><span><%-tag.name%></span></a>
+                        <%if(post.tags.length-1 > i){%>
+                            <i class="fas fa-angle-right"></i>
+                        <%} %>
+                    <% }) %>
+                </span>
+            </div>
+            <% } %>
+
+            <%if(theme.share.sites!=null){%>
+            <div class="social-share" data-sites="<%=theme.share.sites%>"></div>
+            <link rel="stylesheet" href="<%-theme.CDN.share_css%>" media="all" onload="this.media='all'">
+            <script src="<%-theme.CDN.share_js%>" defer="defer"></script>
+            <%}%>
+
+            <%- partial('reward') %>
+            
+        </article>
+        <%- partial('rightside') %>
+
+        <div class="pagination">
+            <% if (post.prev){ %>
+            <a href="<%- url_for(post.prev.path) %>" class="page-pre">
+                <i class="fas fa-arrow-alt-circle-left"></i>
+                <%= post.prev.title==""?_p("article.title"): post.prev.title %>
+            </a>
+            
+            <% } %>
+            <% if (post.next){ %>
+            <a href="<%- url_for(post.next.path) %>" class="page-next">
+                <%= post.next.title==""?_p("article.title"):post.next.title %>
+                <i class="fas fa-arrow-alt-circle-right"></i>
+            </a>
+            <% } %>
+        </div>
+        <%if(theme.comments!=null){%>
+            <%if(post.comments==null || post.comments){%>
+            <hr>
+            <div class="comment-head" id="<%-_p('rightside.direct_comments')%>">
+                <div class="comment-headline">
+                    <i class="fas fa-comments fa-fw"></i>
+                    <span><%-_p('article.comments')%></span>
+                </div>
+                <%if(theme.comments=="valine"){%>
+                    <%- partial('third-party/comments/valine') %>
+                <%}else if(theme.comments=="waline"){%>
+                    <%- partial('third-party/comments/waline') %>
+                <%}else if(theme.comments=="twikoo"){%>
+                    <%- partial('third-party/comments/twikoo') %>
+                <%}%>
+            </div>
+            <%}%>
+        <%}%>
+    <%}else if(page.type=="tags" || page.layout=="tags"){%>
+        <div id="page-title" class="page-title">
+            <h2><%= page.title %> - <%= site.tags.length %></h2>
+        </div>
+        <%- partial('tags') %>
+        <%- partial('rightside') %>
+    <%}else if(page.type=="categories" || page.layout=="categories"){%>
+        <div id="page-title" class="page-title">
+            <h2><%= page.title %></h2>
+        </div>
+        <%- partial('categories') %>    
+        <%- partial('rightside') %>
+    <%}else if(page.type=="archives" || page.layout=="archives"){%>
+        <div id="page-title" class="page-title">
+            <h2><%= page.title %></h2>
+        </div>
+        <%- partial('archive') %>
+        <%- partial('rightside') %>
+    <%}else if(page.type=="links" || page.layout=="links"){%>
+        <div class="main">
+        <div id="page-title" class="page-title">
+            <h2><%= page.title %></h2>
+        </div>
+        <%- partial('link') %>
+        <%- page.content %>
+        <%if(theme.comments!=null){%>
+        <%if(post.comments==null || post.comments){%>
+        <hr>
+        <div class="comment-head" id="<%-_p('rightside.direct_comments')%>">
+            <div class="comment-headline">
+                <i class="fas fa-comments fa-fw"></i>
+                <span><%-_p('article.comments')%></span>
+            </div>
+            <%if(theme.comments=="valine"){%>
+                <%- partial('third-party/comments/valine') %>
+            <%}else if(theme.comments=="waline"){%>
+                <%- partial('third-party/comments/waline') %>
+            <%}else if(theme.comments=="twikoo"){%>
+                <%- partial('third-party/comments/twikoo') %>
+            <%}%>
+        </div>
+        <%}%>
+        <%}%>
+        </div>
+        <%- partial('rightside') %>
+    <%}else if(page.type!=null || page.layout!=null){%>
+        <div class="main">
+            <div id="page-title" class="page-title">
+                <h2><%= page.title %></h2>
+                <span class="page-description"><%= page.description %></span>
+            </div>
+            <div class="post-content">
+                <%- page.content %>
+            </div>
+            <%if(theme.comments!=null){%>
+                <%if(post.comments==null || post.comments){%>
+                <div class="comment-head" id="<%-_p('rightside.direct_comments')%>">
+                    <div class="comment-headline">
+                        <i class="fas fa-comments fa-fw"></i>
+                        <span><%-_p('article.comments')%></span>
+                    </div>
+                    <%if(theme.comments=="valine"){%>
+                        <%- partial('third-party/comments/valine') %>
+                    <%}else if(theme.comments=="waline"){%>
+                        <%- partial('third-party/comments/waline') %>
+                    <%}else if(theme.comments=="twikoo"){%>
+                        <%- partial('third-party/comments/twikoo') %>
+                    <%}%>
+                </div>
+                <%}%>
+            <%}%>
+            <%- partial('rightside') %>
+        </div>
+    <%}%>
+<% } %>

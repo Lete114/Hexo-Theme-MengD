@@ -1,0 +1,51 @@
+name: AutoDeployDocs
+
+on: 
+  push:
+    branches: docs
+  release:
+    types: published
+  repository_dispatch:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: AutoDeployDocs
+    runs-on: ubuntu-latest
+    steps:
+    - name: 检查分支
+      uses: actions/checkout@main
+
+    - name: 安装 Node
+      uses: actions/setup-node@main
+      with:
+        node-version: "12.x"
+        
+    - name: 安装 Hexo
+      run: |
+        export TZ='Asia/Shanghai'
+        npm install hexo-cli -g
+    - name: 缓存 Hexo
+      uses: actions/cache@main
+      id: cache
+      with:
+        path: node_modules
+        key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
+
+    - name: 安装依赖
+      if: steps.cache-dependencies.outputs.cache-hit != 'true'
+      run: |
+        npm install --save
+    - name: 生成静态文件
+      run: |
+        hexo clean
+        hexo generate
+    - name: 部署
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: ./public
+        user_name: 'lete114'
+        user_email: 'lete@lete114.top'
+        full_commit_message: '${{ github.event.head_commit.message }} - Auto Push Docs'

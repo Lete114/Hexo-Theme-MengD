@@ -1,0 +1,137 @@
+@require 'var'
+
+body.compensate-for-scrollbar
+    overflow unset !important
+
+#toc 
+    height 100%
+    position sticky
+    border-radius 10px
+    top 60px
+    width 300px
+    padding 1rem
+    margin 60px 10px
+    background #fff
+    #toc-list
+        overflow-y: scroll;
+        max-height: 500px;
+    ol 
+        li 
+            list-style none
+            line-height 30px
+    .toc-child
+        padding-left 1rem    
+    .toc
+        overflow-y scroll
+        max-height 500px
+        padding: 0;
+        margin-left: 20px;
+    li.toc-item.toc-level-1
+        list-style: none;
+        margin-left: 20px;
+   if hexo-config("toc.scrollbar")
+    .toc::-webkit-scrollbar
+        width 0px
+    #toc-list::-webkit-scrollbar
+        width 0px
+
+.rightside-toc
+    cursor pointer 
+    display none !important
+
+
+
+.social-share
+    float right
+    .social-share-icon
+        font-size 16px !important
+        width 26px !important
+        height 26px !important
+        line-height 26px !important
+
+
+/*版权框两边颜色*/
+.post-copyright  
+    margin-bottom 10px
+    position relative
+    padding .5rem .8rem
+    -webkit-transition box-shadow .3s ease-in-out
+    -moz-transition box-shadow .3s ease-in-out
+    -o-transition box-shadow .3s ease-in-out
+    -ms-transition box-shadow .3s ease-in-out
+    transition box-shadow .3s ease-in-out
+    box-shadow 0 0px 2px 0px rgba(0, 0, 0, .4)
+    border-radius 10px
+    border-left 3px solid $main
+    border-right 3px solid $main
+    div
+        line-height 28px
+        word-break:break-all
+ 
+    .post-copyright-icon
+        :before
+            position absolute
+            top .5rem
+            right .5rem
+            width .8rem
+            height .8rem
+            border-radius 50%
+            background $main
+            content ''
+        :after
+            position absolute
+            top .7rem
+            right .7rem
+            width .4rem
+            height .4rem
+            border-radius 50%
+            content ''
+            background #fff
+    .post-copyright-meta
+        color $main
+        font-weight 700
+
+#progress 
+    width 60% 
+    height 10px 
+    background #ededed 
+    border-radius 10px 
+
+progress::-webkit-progress-bar 
+    background #ededed 
+    border-radius 8px 
+
+progress::-webkit-progress-value 
+    background convert(hexo-config('theme_color.progress'))
+    border-radius 8px 
+
+#toc-title
+    text-align center
+    padding-bottom 30px 
+
+@media screen and (max-width 1100px)
+    #toc .toc
+        margin-left: 0
+@media screen and (max-width 1000px)
+    #toc
+        display none
+        height 250px 
+        position fixed 
+        right 35px
+        bottom 30px 
+        top 48%
+        width 280px 
+        background rgba(255,255,255,.9) 
+        margin 0
+    
+    #toc-list,.toc
+        max-height 180px !important
+    .rightside-toc
+        display inline-block !important
+    
+
+    
+
+
+
+

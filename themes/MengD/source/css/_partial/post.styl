@@ -1,0 +1,197 @@
+@require '_highlight/theme'
+    
+main.content
+    .clipboard
+        right 16px
+        top 8px
+        cursor pointer
+        border-radius 3px
+        color $highlight-foreground
+        position relative
+        float right
+        padding 2px
+        :hover
+            color $main
+    code
+        padding .1rem .2rem
+        background rgba(27,31,35,.05)
+        color #f47466
+        border-radius 5px
+        margin 0 6px
+        word-wrap break-word
+        word-break break-word
+        overflow-wrap break-word
+    ol,ul
+        margin-top: 0.4rem
+        li
+            position: relative;
+            margin: 0.3rem 0;
+            padding-left: 0.3rem;
+            p
+                margin 0
+                line-height unset
+    blockquote 
+        margin 1rem 0
+        padding .1rem .8rem
+        border-left .2rem solid $main
+        background-color rgba(73,177,245,0.1)
+        color #6a737d
+    blockquote.pullquote.left
+        max-width: 45%;
+        float: left;
+        margin: .5em .5em 0 0;
+    blockquote.pullquote.right
+        max-width: 45%;
+        float: right;
+        margin: .5em 0 0 .5em;
+    kbd
+        margin: 0 3px;
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #fff;
+        background-color: #333;
+        border-radius: 3px;
+        -webkit-box-shadow: inset 0 -1px 0 rgb(0 0 0 / 25%);
+        box-shadow: inset 0 -1px 0 rgb(0 0 0 / 25%);
+
+article
+    .post 
+    .post-tag
+        color #858585
+        float left
+        font-size 16px
+        max-width 300px
+        height 25px
+        padding-top 5px
+        .post-meta
+            text-align center
+            margin-bottom .5rem
+            font-size 90%
+    .post-title,.post-meta
+            text-align center
+        .post-title .title:before
+            content none
+        .post-title h2:before 
+                content none
+
+    .post-content
+        padding-top 50px
+
+    .post-content 
+        p
+            line-height 1.7em
+            letter-spacing .2px
+            font-weight 530
+            margin .8rem 0 
+        h1,h2,h3,h4,h5,h6
+            margin-block-start .83em
+            margin-block-end .83em
+        h1:before,
+        h2:before,
+        h3:before,
+        h4:before,
+        h5:before,
+        h6:before
+            color $fan
+            margin-right 10px
+            display inline-block
+            content '\f863'
+            -webkit-animation turn 1s linear infinite
+            -moz-animation turn 1s linear infinite
+            -o-animation turn 1s linear infinite
+            -ms-animation turn 1s linear infinite
+            animation turn 1s linear infinite
+            font-family 'Font Awesome 5 Free'
+        h1
+            font-size 1.5em
+        h2
+            font-size 1.3em
+        h3
+            font-size 1.1em
+        h4
+            font-size .9em
+        h5
+            font-size .7em
+        h6
+            font-size .5em
+        figure.highlight
+            table 
+                display table
+                width 0
+            td 
+                padding 0
+                border none
+                vertical-align unset
+                padding-right .5rem
+                padding-left .5rem
+            .highlight-tools 
+                position relative
+                overflow hidden
+                width 100%
+                height 1.5rem
+                background #1c1c1c
+                color rgba(238,255,255,.8)
+                font-size 14px
+            .code pre 
+                padding-right .5rem
+                padding-left .5rem
+                width 100%
+                margin 0
+                padding 8px 0
+                border none
+        img 
+            margin 0 auto .8rem
+            display block
+            max-width 100%
+        .table-wrap 
+            overflow-x scroll
+            margin 0 0 1rem
+        table 
+            overflow-x scroll
+            width 100%
+            border-spacing 0
+            border-collapse collapse
+            empty-cells show
+            thead 
+                background rgba(153,169,191,.1)
+            th,td 
+                padding .3rem .6rem
+                border 1px solid #eee
+                vertical-align middle
+
+#rightside
+    display none
+    position fixed 
+    right 0px 
+    bottom 80px 
+    z-index 100 
+    width 30px
+    cursor pointer 
+    #rightside-item
+        text-align center
+        a
+            display inline-block 
+            width 30px 
+            height 30px 
+            background-color $main 
+            color #fff 
+            margin-bottom 3px 
+            border-radius 6px 
+            i 
+                margin-top 7px
+        a:hover
+            color #fff !important
+
+.video-container
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+    padding-top: 56.25%;
+    height: 0;
+    iframe
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 0;
+        width: 100%;
+        height: 100%;  

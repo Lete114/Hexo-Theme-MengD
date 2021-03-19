@@ -1,0 +1,69 @@
+.link-list
+    overflow auto
+    padding 10px 10px 0
+    text-align center
+    .link-list-item:hover
+        background #f8f9fa
+    .link-list-item:hover a img
+        -webkit-transform rotate(360deg)
+        -moz-transform rotate(360deg)
+        -o-transform rotate(360deg)
+        -ms-transform rotate(360deg)
+        transform rotate(360deg)
+        -webkit-transition all .5s
+        -moz-transition all .5s
+        -o-transition all .5s
+        -ms-transition all .5s
+        transition all .5s
+    .link-list-item
+        position relative
+        float left
+        overflow hidden
+        margin 15px 7px
+        width calc(50% - 15px)
+        height 90px
+        border-radius 8px
+        line-height 17px 
+        a 
+            color #222
+            img 
+                float left
+                margin 15px 10px
+                width 60px
+                height 60px
+                border-radius 35px
+                -webkit-transition all 0.3s
+                -moz-transition all 0.3s
+                -o-transition all 0.3s
+                -ms-transition all 0.3s
+                transition all 0.3s
+    .link-item-name
+        display block
+        padding 16px 10px 0 0
+        height 40px
+        line-height 1.5rem
+        font-weight bold
+        font-size 1.2em  
+    .link-item-desc
+        display block
+        padding 16px 10px 16px 0
+        height 50px
+        font-size 0.93em 
+        overflow hidden
+        white-space nowrap
+        text-overflow ellipsis     
+
+.link-subtitle
+    padding-top 10px
+#link
+    padding 50px 20px 50px 20px        
+
+@media screen and (max-width 1000px)
+    .link-list
+        .link-list-item
+            width calc(50% - 15px)
+
+@media screen and (max-width 600px)
+    .link-list
+        .link-list-item
+            width calc(100% - 15px)
