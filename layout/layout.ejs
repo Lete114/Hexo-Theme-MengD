@@ -5,7 +5,8 @@
     <%- partial('_partial/import_head') %>   
 </head>
 <body id="body">
-    <%- partial('_partial/import_top') %> 
+    <%- partial('_partial/import_top') %>
+    <%- partial('_partial/navbar') %>
     <div id="mask"></div>
     <%- partial('_partial/third-party/search/local-search') %>
     <%- partial('_partial/third-party/analytics') %>  
@@ -64,6 +65,11 @@
         const script = document.createElement('script')
         script.src = '<%-theme.CDN.index_js%>'
         document.head.appendChild(script)
+        // 注入fortawesome.css
+        const link = document.createElement('link')
+        link.href = '<%-theme.CDN.fortawesome%>'
+        link.rel = 'stylesheet'
+        document.head.appendChild(link)
 
         <% if (theme.amusing_title && theme.amusing_title.enable) { %>
         var originTitle = document.title;

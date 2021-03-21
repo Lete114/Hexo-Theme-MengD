@@ -48,6 +48,7 @@ git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 #--------------------------------------------------------
 
 # 导航栏菜单
+navbar: true # 悬浮导航栏
 # menu:
 #   首页: /
 #   标签: /tags
