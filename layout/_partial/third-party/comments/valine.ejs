@@ -2,7 +2,7 @@
 <div id="vcomments"></div>
 <script>
 function LoadValine(){
-    $.getScript("<%-theme.CDN.valine%>",function(){ 
+    $.getScript("<%-theme.valine.source%>",function(){ 
         let initData = {
             el: '#vcomments',
             appId: '<%- theme.valine.appid %>',

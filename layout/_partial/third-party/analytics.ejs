@@ -24,23 +24,25 @@
 <%}%>
 
 <%if(theme.pjax){%>
-<script>
-  document.addEventListener('pjax:complete', function () {
-    <%if(theme.analytics.baidu!=null){%>
-    // 百度统计 Pjax
-    if(typeof _hmt !== "undefined" && typeof _hmt.push === "function") {
-      _hmt.push(['_trackPageview',window.location.pathname]);
-    }
-    <%}%>
-    <%if(theme.analytics.google!=null){%>
-    // 谷歌统计 Pjax
-    if(typeof ga === "function") {
-      ga('send', 'pageview', window.location.href);
-    }
-    if(typeof gtag === "function"){
-      gtag('event', 'pageview', {page_location: window.location.href});
-    }
-    <%}%>
-  })
-</script>
+  <%if(theme.analytics.baidu!=null&&theme.analytics.google!=null){%>
+  <script>
+    document.addEventListener('pjax:complete', function () {
+      <%if(theme.analytics.baidu!=null){%>
+      // 百度统计 Pjax
+      if(typeof _hmt !== "undefined" && typeof _hmt.push === "function") {
+        _hmt.push(['_trackPageview',window.location.pathname]);
+      }
+      <%}%>
+      <%if(theme.analytics.google!=null){%>
+      // 谷歌统计 Pjax
+      if(typeof ga === "function") {
+        ga('send', 'pageview', window.location.href);
+      }
+      if(typeof gtag === "function"){
+        gtag('event', 'pageview', {page_location: window.location.href});
+      }
+      <%}%>
+    })
+  </script>
+  <%}%>
 <%}%>

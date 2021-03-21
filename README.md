@@ -11,6 +11,8 @@
 
 Docs: [MengD(萌典)](https://mengd.lete114.top/)
 
+更新日志: [更新日志](https://mengd.lete114.top/article/ChangeLog.html)
+
 布局参考自[菩提树下](https://blog.caicai.me/)非常感谢
 
 部分样式模仿自[hexo-theme-Butterfly](https://github.com/jerryc127/hexo-theme-butterfly)非常感谢
@@ -32,6 +34,8 @@ git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 ```
 
 打开根目录下的`_config.yml`修改`theme: MengD`
+
+
 
 ## 配置
 
@@ -169,6 +173,7 @@ comments: waline # twikoo / waline / valine
 # valine
 ## https://valine.js.org/
 valine:
+  source: https://cdn.jsdelivr.net/gh/lete114/CDN2/js/Valine-Lete3.2.js ## 原版: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js
   appid: qvkfxxxxxxxxxxxxxxxxxxxxxbMMI # 你的 leancloud app id 
   appkey: WOURxxxxxxxxxxxxxxxxxWJrog # 你的 leancloud app key 
   master: 2a776xxxxxxxxxxxxxxxxxd7f4442e2 # (原版valine不支持)你的邮箱md5加密(百度搜索md5在线加密)
@@ -186,6 +191,7 @@ valine:
 # waline
 ## https://waline.js.org
 waline:
+  source: //cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js
   serverURL: https://waline.vercel.app/ # 服务端地址
   placeholder: 快来评论吧!! #评论框占位符
   avatar: '' # gravatar style https://valine.js.org/#/avatar
@@ -200,6 +206,7 @@ waline:
 # twikoo
 ## https://twikoo.js.org/
 twikoo:
+  source: https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js
   envId: xxxxxxxx # 你的环境id
   region: ap-shanghai # 环境地域，ap-shanghai / ap-guangzhou
   path: window.location.pathname  # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
@@ -211,6 +218,7 @@ twikoo:
 ## https://artitalk.js.org/settings.html
 artitalk:
   enable: false # 是否开启
+  source: https://cdn.jsdelivr.net/npm/artitalk
   title: Artitalk # 标题
   path: artitalk/index.html # 路径
   appid: WhOxxxxxxxxxxxxxMMI #  LeanCloud appId
@@ -218,12 +226,14 @@ artitalk:
   serverURL: # 如果你是国内版 LeanCloud 用户，此项必填
   lang:  # 语言设置 默认中文 zh / en / es
   atEmoji: # 自定义表情包
-  option: 
+  option:  
 
 # HPP_talk
 ## https://hexoplusplus.js.org/
 hpp_talk:
   enable: false # 是否开启
+  source_css: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@9bf1085/talk.css
+  source_js: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@9bf1085/talk_user.js
   title: HPP_talk # 标题
   path: hpp_talk/index.html # 路径
   domain: blog.lete114.workers.dev # 您的HexoPlusPlus域名
@@ -267,11 +277,20 @@ analytics:
   baidu: 
   google: 
 
+# 设置字体
+font:
+  # 全局字体
+  html: '"PingFang SC","Microsoft YaHei",Helvetica,Arial,Menlo,Monaco,monospace,sans-serif'
+  # 代码块字体
+  code: '"PingFang SC","Microsoft YaHei",Helvetica,Arial,Menlo,Monaco,monospace,sans-serif'
+
 # 自定义引入外部css、js
 import:
-  head: 
+  head: # 引入到</head>之前
     - 
-  bottom:
+  top: # 引入到<body>之后
+    - 
+  bottom: # 引入到</body>之前
     - 
   # 例如： 
   # - <link rel="stylesheet" href="/css/index.css">
@@ -297,17 +316,6 @@ CDN:
   # 分享
   share_css: https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css
   share_js: https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js
-  # 评论
-  valine: https://cdn.jsdelivr.net/gh/lete114/CDN2/js/Valine-Lete3.2.js ## 原版: //unpkg.com/valine/dist/Valine.min.js
-  waline: //cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js
-  twikoo: https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js
-  
-  # 说说
-  # Artitalk
-  artitalk: https://cdn.jsdelivr.net/npm/artitalk
-  # hpp_talk
-  hpp_talk_js: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@9bf1085/talk_user.js
-  hpp_talk_css: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@9bf1085/talk.css
   
   # yml转json
   js_yaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
@@ -318,7 +326,4 @@ CDN:
 ```
 
 
-## 更新日志
-
-[更新日志](https://mengd.lete114.top/article/ChangeLog.html)
 

@@ -2,7 +2,7 @@
 <div id="tcomment"></div>
 <script>
 function LoadTwikoo(){
-  $.getScript("<%-theme.CDN.twikoo%>",function(){ 
+  $.getScript("<%-theme.twikoo.source%>",function(){ 
   initData = {
       el: '#tcomment',
       envId: '<%-theme.twikoo.envId%>',

@@ -2,7 +2,7 @@
 <div id="wcomments"></div>
 <script>
 function LoadWaline(){
-    $.getScript("<%-theme.CDN.waline%>",function(){ 
+    $.getScript("<%-theme.waline.source%>",function(){ 
         let initData = {
         el: '#wcomments',
         path: location.pathname,

@@ -5,6 +5,7 @@
     <%- partial('_partial/import_head') %>   
 </head>
 <body id="body">
+    <%- partial('_partial/import_top') %> 
     <div id="mask"></div>
     <%- partial('_partial/third-party/search/local-search') %>
     <%- partial('_partial/third-party/analytics') %>  
@@ -40,7 +41,6 @@
     </div>
     <%- partial('_partial/footer') %>
     <script>
-
         var $config = {
             search:{
                 enable: <%-theme.search.enable%>,
@@ -60,6 +60,10 @@
                 search: "<%-theme.CDN.search%>",
             }
         }
+        // 注入main.js
+        const script = document.createElement('script')
+        script.src = '<%-theme.CDN.index_js%>'
+        document.head.appendChild(script)
 
         <% if (theme.amusing_title && theme.amusing_title.enable) { %>
         var originTitle = document.title;
