@@ -4,11 +4,11 @@
         <h2><%= theme.hpp_talk.title %></h2>
     </div>
     
-    <link rel="stylesheet" href="<%-theme.CDN.hpp_talk_css%>" /> 
+    <link rel="stylesheet" href="<%-theme.hpp_talk.source_css%>" /> 
     
     <div id="hpp_talk"></div>
     <script>
-        $.getScript("<%-theme.CDN.hpp_talk_js%>",function(){
+        $.getScript("<%-theme.hpp_talk.source_js%>",function(){
             let initData = {
                 id:"hpp_talk",
                 domain: "<%-theme.hpp_talk.domain%>",

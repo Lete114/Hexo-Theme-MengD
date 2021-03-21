@@ -12,7 +12,7 @@
             <p><%= theme.description || config.description %></p>
             <div class="social-icon">
                 <% for (social in theme.social) { %>
-                    <a href="<%- url_for(theme.social[social]) %>"><i class="<%= social %>"></i></a>
+                    <a href="<%- url_for(theme.social[social]) %>" ><i class="<%= social %>"></i></a>
                 <% } %>
             </div>
         </div>

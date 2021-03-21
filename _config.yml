@@ -1,3 +1,18 @@
+# enable: 开启/关闭 推送
+# count: 每次提交最新的10篇文章
+hexo_seo_autopush:
+  baidu:
+    enable: true
+    count: 100
+  bing:
+    enable: false
+    count: 100
+  google:
+    enable: false
+    count: 100
+    google_file: google_service_account.json # 谷歌服务账户
+
+
 # Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/

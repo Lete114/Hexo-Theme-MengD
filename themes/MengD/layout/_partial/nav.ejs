@@ -31,7 +31,7 @@
             <li><a href="<%- url_for(theme.menu[name]) %>"><%= name %></a></li>
             <% }else{%>
             <li>
-                <a class="menu_child_hover"><%-name%></a>
+                <a class="menu_child_hover" href="javascript:void(0);"><%-name%></a>
                 <ul class="menu_child">
                 <% for (child in theme.menu[name]) {%>
                     <li><a href='<%-url_for(theme.menu[name][child].split("||")[1].trim())%>'><%-theme.menu[name][child].split("||")[0].trim()%></a></li>
