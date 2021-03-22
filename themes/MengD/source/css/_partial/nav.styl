@@ -1,4 +1,5 @@
 /* 导航栏 */
+
 nav
     height 3rem
     margin 0 30px
@@ -59,6 +60,8 @@ nav
     width: max-content;
     -webkit-box-shadow: 0 5px 20px -4px rgba(0,0,0,.5);
     box-shadow: 0 5px 20px -4px rgba(0,0,0,.5);
+
+
 @media screen and (max-width: 600px)
     #site_nav ul li:hover .menu_child
         background-color: transparent;
@@ -72,3 +75,47 @@ nav
             li
                 line-height .8
                 padding-left: 30px;
+
+// 悬浮导航栏
+if hexo-config('navbar')
+    navbar
+        position: fixed;
+        z-index: 99;
+        top: 0;
+        width: 100%;
+        height: 64px;
+        opacity 0
+        #site_nav
+                margin: 0 10%;
+                background: #fff;
+                border-radius: 10px;
+                padding: 10px 30px 0px;
+            .author
+                font-weight: 700;
+                font-size: 1.1rem;
+                color: $author-name
+                display: inline-block;
+                margin-right: 10px;
+            ul
+                top 0 !important
+                li:hover .menu_child 
+                    margin-top: 35px !important
+    @media screen and (max-width: 1200px)
+        navbar #site_nav
+            margin: 0
+
+    @media screen and (max-width: 1000px)
+        navbar nav
+            margin: 0
+
+    @media screen and (max-width: 900px)
+        navbar #site_nav
+            #openNav
+                padding: 10px 0 0 15px;
+                display: inline-block;
+            .author
+                padding-top: 6px;
+            ul li
+                display: none
+            i
+                float: right;

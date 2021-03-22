@@ -228,5 +228,20 @@ $(function() {
         } else {
             $('#rightside').fadeOut(300);
         }
+        navbar()
     });
 });
+
+// 悬浮导航栏
+var windowTop=0;
+function navbar(){
+    var NowLocation = parseInt($(window).scrollTop());
+    if(NowLocation>windowTop){
+        $('navbar').css({"opacity":"0","transition":"all .2s linear"})
+        windowTop=NowLocation;
+    }else {
+        $('navbar').css({"opacity":"1","transition":"all .2s linear"})
+        windowTop=NowLocation;
+    }
+    if(NowLocation==0) $('navbar').css({"opacity":"0","transition":"all .2s linear"})
+}
