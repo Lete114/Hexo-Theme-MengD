@@ -90,12 +90,27 @@ main.content
         -webkit-line-clamp 1
         -webkit-box-orient vertical
 
-main.content .post-content
-    padding 50px 20px
-    h1,h2,h3,h4,h5,h6
-        padding 16px 0
-    p
-        line-height 1.7em
+main.content 
+    .post-content
+        padding 50px 20px
+        h1,h2,h3,h4,h5,h6
+            padding 16px 0
+        p
+            line-height 1.7em
+    .table-wrap
+        overflow-x: scroll;
+        table
+            display: table;
+            width: 100%;
+            border-spacing: 0;
+            border-collapse: collapse;
+            empty-cells: show;
+            thead 
+                background rgba(153,169,191,.1)
+            th,td 
+                padding .3rem .6rem
+                border 1px solid #eee
+                vertical-align middle
 
 
 

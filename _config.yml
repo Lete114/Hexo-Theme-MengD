@@ -45,10 +45,8 @@ minify:
 
 ## 404页面
 error_404:
-  enable: true # 是否开启404页面
-  text: 404！页面君找不到这个网页！！ # 自定义内容
-  sec: 10 # 多少秒后返回首页
-  background: https://cdn.jsdelivr.net/gh/lete114/CDN2/img/wei_er_li_te/3.jpg # 404页面背景颜色，默认白色
+  enable: true
+  background: '#00c4b6'
 
 # 自动截取
 post_content:
@@ -253,7 +251,6 @@ import:
     - 
   # 例如： 
   # - <link rel="stylesheet" href="/css/index.css">
-  # - <link rel="stylesheet" href="/css/index.css">
   # - '<style>body{color: red}</style>' ## 注意由于css的‘{}’是关键符号所以需要(单/双)引号''
   # - <script>alert(1)</script>
 
@@ -266,6 +263,7 @@ CDN:
   lazyload: /js/lazyLoad.js
   jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
   fortawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
+  pixi: https://cdnjs.cloudflare.com/ajax/libs/pixi.js/2.2.5/pixi.js
 
   # pjax
   pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.js

@@ -67,26 +67,20 @@ body.compensate-for-scrollbar
     div
         line-height 28px
         word-break:break-all
- 
-    .post-copyright-icon
-        :before
-            position absolute
-            top .5rem
-            right .5rem
-            width .8rem
-            height .8rem
-            border-radius 50%
-            background $main
-            content ''
-        :after
-            position absolute
-            top .7rem
-            right .7rem
-            width .4rem
-            height .4rem
-            border-radius 50%
-            content ''
-            background #fff
+    .post-copyright-icon:before
+        position absolute
+        top .1rem
+        right .6rem
+        color $main
+        content '\f1f9'
+        font-size 1rem
+        display inline-block
+        font-weight 600
+        font-style normal
+        font-variant normal
+        font-family 'Font Awesome 5 Free'
+        text-rendering auto
+        -webkit-font-smoothing antialiased
     .post-copyright-meta
         color $main
         font-weight 700
