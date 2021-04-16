@@ -1,212 +1,233 @@
 ---
 layout: false
 ---
-
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="<%-theme.language%>">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="author" content="<%-theme.author || config.author%>">
-    <meta name="description" content="<%-theme.description || config.description%>">
-    <meta name="keywords" content="<%-theme.keywords || config.keywords%>">
-    <title><%-theme.author || config.author%> | 404！页面君找不到这个网页！！</title>
-    <link rel="icon" href="<%theme.favicon%>">
+    <title><%- theme.author %> | <%- theme.description %></title>
+    <link rel="icon" href="<%- theme.favicon %>">
     <style>
-.error_404 p {
-  font-size: 26px;
-  color: #e58a8a;
-}
-.intro .avatar :hover {
-    position: relative;
-    -webkit-transform: rotate(540deg);
-    -moz-transform: rotate(540deg);
-    -o-transform: rotate(540deg);
-    -ms-transform: rotate(540deg);
-    transform: rotate(540deg);
-    cursor: pointer;
-}
-.body {
-  background: url("<%-theme.error_404.background==null?'#fff':theme.error_404.background%>");
-  min-height: 100vh;
-  z-index: -999;
-  width: 100%;
-  height: 100%;
-  background-attachment: local;
-  background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.homebtn {
-  padding: 15px;
-  border-radius: 15px;
-  border: 0px;
-  background: rgba(255,255,255,0.5);
-}
-/* 按钮 */
-.button--antiman {
-  background: none;
-  border: none;
-  height: 60px;
-}
-.button--antiman.button--inverted,
-.button--antiman.button--inverted-alt {
-  -webkit-transition: color 0.3s;
-  transition: color 0.3s;
-  -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
-  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
-}
-.button--antiman > span {
-  padding-left: 0.35em;
-}
-.button--antiman::before,
-.button--antiman::after {
-  content: '';
-  z-index: -1;
-  border-radius: inherit;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-  transition: transform 0.3s, opacity 0.3s;
-  -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
-  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
-}
-.button--antiman:before {
-  border: 2px solid;
-  opacity: 0;
-  -webkit-transform: scale3d(1.2, 1.2, 1);
-  transform: scale3d(1.2, 1.2, 1);
-}
-.button--antiman:before {
-  border-width: 1px;
-  border-color: #7986cb;
-}
-.button--antiman:after {
-  background: rgba(255,255,255,0.7);
-}
-.button--antiman:hover {
-  color: #80bdab;
-}
-.button--antiman:hover::before {
-  opacity: 1;
-  -webkit-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-}
-.button--antiman:hover::after {
-  opacity: 0;
-  -webkit-transform: scale3d(0.8, 0.8, 1);
-  transform: scale3d(0.8, 0.8, 1);
-}
-.box {
-  padding: 0.5em 0;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-.button--round-l {
-  border-radius: 40px;
-}
-.button {
-  float: left;
-  box-shadow: 2px 2px 3px #bbb;
-  min-width: 150px;
-  max-width: 250px;
-  display: block;
-  margin: 1em;
-  padding: 1em 2em;
-  border: none;
-  background: none;
-  color: inherit;
-  vertical-align: middle;
-  position: relative;
-  z-index: 1;
-  -webkit-backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-}
-.intro .avatar img {
-    width: 128px;
-    height: auto;
-    display: inline-block;
-    -webkit-border-radius: 100%;
-    border-radius: 100%;
-    -webkit-box-shadow: 0 0 0 0.3618em rgba(0,0,0,0.05);
-    box-shadow: 0 0 0 0.3618em rgba(0,0,0,0.05);
-    margin: 0 auto;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    transition: all 0.5s;
-    cursor: pointer;
-}
-.name {
-    color: #80bdab;
-    font-size: 2em;
-    font-weight: normal;
-}
-.main {
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-basis: auto;
-}
-.container {
-    padding-left: 1em;
-    padding-right: 1em;
-}
-.intro {
-    transform: translateY(20vh);
-    text-align: center;
-}
-html{
-    overflow: hidden;
-}
-    </style>
-<body>
-
-<div class="body">
-    <div class="main">
-        <div class="container">
-            <div class="intro">
-                <div class="avatar">
-                    <a href="/"><img src="<%-theme.avatar%>" alt="<%-theme.author || config.author%>"></a>
-                </div>
-                <div class="name"><%-theme.author || config.author%></div>
-                <div class="error_404">
-                    <p><%-theme.error_404.text%></p>
-
-                    <p><span id="jumpTo">0</span>秒后自动跳转回首页</p>
-                </div>
-                <div class="box">
-                    <button class="homebtn button button--antiman button--round-l button--text-medium" onClick="window.open('/','_self')">返回首页</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<script type="text/javascript">
-    var i = <%-theme.error_404.sec%>;
-    function remainTime() {
-        if (i == 0) {
-            location.href = '/';
+        body {
+            background: <%-theme.error_404.background%>;
         }
-        document.getElementById('jumpTo').innerHTML = i--;
-        setTimeout("remainTime()", 1000);
-    }
-    remainTime();
-</script>
+        #notFound {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%) scale(1.2);
+            width: 80%;
+            height: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script src='<%-theme.CDN.pixi%>'></script>
+    <script id="rendered-js">
+        (function () {
+            var lastTime = 0;
+            var vendors = ['ms', 'moz', 'webkit', 'o'];
+            for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+                window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+                window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+            }
+
+            if (!window.requestAnimationFrame)
+                window.requestAnimationFrame = function (callback, element) {
+                    var currTime = new Date().getTime();
+                    var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+                    var id = window.setTimeout(function () {
+                        callback(currTime + timeToCall);
+                    },
+                        timeToCall);
+                    lastTime = currTime + timeToCall;
+                    return id;
+                };
+
+            if (!window.cancelAnimationFrame)
+                window.cancelAnimationFrame = function (id) {
+                    clearTimeout(id);
+                };
+        })();
+
+        //math2 utils
+        var Math2 = {}; Math2.random = function (t, n) { return Math.random() * (n - t) + t; }, Math2.map = function (t, n, r, a, o) { return (o - a) * ((t - n) / (r - n)) + a; }, Math2.randomPlusMinus = function (t) { return t = t ? t : .5, Math.random() > t ? -1 : 1; }, Math2.randomInt = function (t, n) { return n += 1, Math.floor(Math.random() * (n - t) + t); }, Math2.randomBool = function (t) { return t = t ? t : .5, Math.random() < t ? !0 : !1; }, Math2.degToRad = function (t) { return rad = t * Math.PI / 180, rad; }, Math2.radToDeg = function (t) { return deg = 180 / (Math.PI * t), deg; }, Math2.rgbToHex = function (t) { function n(t) { return ("0" + parseInt(t).toString(16)).slice(-2); } t = t.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/); var r = n(t[1]) + n(t[2]) + n(t[3]); return r.toUpperCase(); }, Math2.distance = function (t, n, r, a) { return Math.sqrt((r - t) * (r - t) + (a - n) * (a - n)); };
+
+        //mouse
+        var mousePos = {
+            x: 0,
+            y: 0
+        };
+
+        window.onmousemove = function (e) {
+            e = e || window.event;
+
+            var pageX = e.pageX;
+            var pageY = e.pageY;
+            if (pageX === undefined) {
+                pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+            }
+            mousePos = {
+                x: pageX,
+                y: pageY
+            };
+
+        };
+
+        var options = {
+            width: window.innerWidth,
+            height: window.innerHeight,
+            keyword: "404",
+            density: 10,
+            densityText: 3,
+            minDist: 20
+        };
+
+        // initialize canvas
+        var canvas = document.createElement('canvas');
+        canvas.width = options.width;
+        canvas.height = options.height;
+        canvas.style.width = options.width / 2;
+        canvas.style.height = options.height / 2;
+        canvas.getContext('2d').scale(2, 2);
+
+        var renderer = new PIXI.autoDetectRenderer(options.width, options.height, {
+            transparent: true
+        });
+
+        var stage = new PIXI.Stage("0X000000", true);
+        document.body.appendChild(renderer.view);
+        renderer.view.id = "notFound";
+
+        var imageData = false;
+        var particles = [];
+
+        function init() {
+            positionParticles();
+            positionText();
+        }
+        function positionParticles() {
+            var canvas = document.createElement("canvas");
+            canvas.width = 500;
+            canvas.height = 350;
+            var context = canvas.getContext("2d");
+            context.fillStyle = "#000000";
+            context.font = "300px 'Arial', sans-serif";
+            context.fillText(options.keyword, 0, 250);
+
+            var imageData = context.getImageData(0, 0, 350, 500);
+            data = imageData.data;
+
+            // Iterate each row and column
+            for (var i = 0; i < imageData.height; i += options.density) {
+                for (var j = 0; j < imageData.width; j += options.density) {
+
+                    // Get the color of the pixel
+                    var color = data[j * (imageData.width * 4) + i * 4 - 1];
+
+                    // If the color is black, draw pixels
+                    if (color == 255) {
+                        var newPar = particle();
+                        newPar.setPosition(i, j);
+                        particles.push(newPar);
+                        stage.addChild(newPar);
+                    }
+                }
+            }
+        }
+
+        function positionText() {
+            var canvas = document.createElement("canvas");
+            canvas.width = 400;
+            canvas.height = 200;
+            var context = canvas.getContext("2d");
+            context.fillStyle = "#000000";
+            context.font = "80px 'Arial', sans-serif";
+            context.fillText("Not Found", 0, 80);
+
+            var imageData = context.getImageData(0, 0, 400, 400);
+            data = imageData.data;
+
+            // Iterate each row and column
+            for (var i = 0; i < imageData.height; i += options.densityText) {
+                for (var j = 0; j < imageData.width; j += options.densityText) {
+
+                    // Get the color of the pixel
+                    var color = data[j * (imageData.width * 4) + i * 4 - 1];
+
+                    // If the color is black, draw pixels
+                    if (color == 255) {
+                        var newPar = particle(true);
+                        newPar.setPosition(i, j);
+                        particles.push(newPar);
+                        stage.addChild(newPar);
+                    }
+                }
+            }
+        }
+        function particle(text) {
+
+            $this = new PIXI.Graphics();
+
+            if (text == true) {
+                $this.text = true;
+            }
+
+            $this.beginFill(0XFFFFFF);
+
+            var radius;
+            $this.radius = radius = $this.text ? Math.random() * 3.5 : Math.random() * 10.5;
+
+            $this.drawCircle(0, 0, radius);
+
+            $this.size = this.radius;
+            $this.x = -this.width;
+            $this.y = -this.height;
+            $this.free = false;
+
+            $this.timer = Math2.randomInt(0, 100);
+            $this.v = Math2.randomPlusMinus() * Math2.random(.5, 1);
+            $this.hovered = false;
+
+            $this.alpha = Math2.randomInt(10, 100) / 100;
+
+            $this.vy = -5 + parseInt(Math.random() * 10) / 2;
+            $this.vx = -4 + parseInt(Math.random() * 8);
+
+            $this.setPosition = function (x, y) {
+                if ($this.text) {
+                    $this.x = x + (options.width / 2 - 180);
+                    $this.y = y + (options.height / 2 + 100);
+                } else {
+                    $this.x = x + (options.width / 2 - 250);
+                    $this.y = y + (options.height / 2 - 175);
+                }
+            };
+            return $this;
+        }
+        function update() {
+            renderer.render(stage);
+            for (i = 0; i < particles.length; i++) {
+                var p = particles[i];
+
+                if (mousePos.x > p.x && mousePos.x < p.x + p.size && mousePos.y > p.y && mousePos.y < p.y + p.size) {
+                    p.hovered = true;
+                }
+                p.scale.x = p.scale.y = scale = Math.max(Math.min(2.5 - Math2.distance(p.x, p.y, mousePos.x, mousePos.y) / 160, 160), 1);
+
+                p.x = p.x + .2 * Math.sin(p.timer * .15);
+                p.y = p.y + .2 * Math.cos(p.timer * .15);
+                p.timer = p.timer + p.v;
+            }
+            window.requestAnimationFrame(update);
+        }
+        init();
+        update();
+    </script>
 </body>
+
 </html>

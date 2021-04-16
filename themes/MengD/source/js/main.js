@@ -245,3 +245,28 @@ function navbar(){
     }
     if(NowLocation==0) $('navbar').css({"opacity":"0","transition":"all .2s linear"})
 }
+
+// 处理table块
+/**
+ * 
+ * @param {*} selectNode 被选择中的元素(标签)
+ * @param {*} eleType 需要创建的元素(标签)
+ * @param {*} id 创建元素id
+ * @param {*} cn 创建元素className
+ */
+function wrap(selectNode, eleType, id = '', cn = '') {
+    const creatEle = document.createElement(eleType)
+    if (id) creatEle.id = id
+    if (cn) creatEle.className = cn
+    selectNode.parentNode.insertBefore(creatEle, selectNode)
+    creatEle.appendChild(selectNode)
+}
+function TableWrap(){
+    const $table = document.querySelectorAll(':not(.highlight) > table')
+    if ($table.length) {
+        $table.forEach(item => {
+            wrap(item, 'div', '', 'table-wrap')
+        })
+    }
+}
+TableWrap()
