@@ -2,8 +2,8 @@
 <div id="tcomment"></div>
 <script>
 function LoadTwikoo(){
-  $.getScript("<%-theme.twikoo.source%>",function(){ 
-  initData = {
+  getScript("<%-theme.twikoo.source%>",function(){
+    initData = {
       el: '#tcomment',
       envId: '<%-theme.twikoo.envId%>',
       region: '<%-theme.twikoo.region%>',

@@ -1,27 +1,27 @@
-<% var option = theme.waline.option ? JSON.stringify(theme.waline.option) : false %>
+<% var option=theme.waline.option ? JSON.stringify(theme.waline.option) : false %>
 <div id="wcomments"></div>
 <script>
-function LoadWaline(){
-    $.getScript("<%-theme.waline.source%>",function(){ 
+function LoadWaline() {
+    getScript("<%-theme.waline.source%>",function(){
         let initData = {
-        el: '#wcomments',
-        path: location.pathname,
-        serverURL: '<%- theme.waline.serverURL %>',
-        placeholder: '<%- theme.waline.placeholder %>',
-        avatar: '<%- theme.waline.avatar %>',
-        meta: '<%- theme.waline.meta %>'.split(","),
-        requiredFields: '<%- theme.waline.requiredFields %>'.split(","),
-        pageSize: <%- theme.waline.pageSize %>,
-        lang: '<%- theme.waline.lang %>',
-        emojiCDN: '<%- theme.waline.emojiCDN %>',
-        emojiMaps: <%- JSON.stringify(theme.waline.emojiMaps) %>,
-        visitor: true
-    }
-    var option = <%-option%>;
-    if(option){
-        initData = Object.assign(initData, option)
-    }
-    new Waline(initData)
+            el: '#wcomments',
+            path: location.pathname,
+            serverURL: '<%- theme.waline.serverURL %>',
+            placeholder: '<%- theme.waline.placeholder %>',
+            avatar: '<%- theme.waline.avatar %>',
+            meta: '<%- theme.waline.meta %>'.split(","),
+            requiredFields: '<%- theme.waline.requiredFields %>'.split(","),
+            pageSize: <%-theme.waline.pageSize %>,
+            lang: '<%- theme.waline.lang %>',
+            emojiCDN: '<%- theme.waline.emojiCDN %>',
+            emojiMaps: <%-JSON.stringify(theme.waline.emojiMaps)%>,
+            visitor: true
+        }
+        var option = <%-option%>;
+        if (option) {
+            initData = Object.assign(initData, option)
+        }
+        new Waline(initData)
     })
 }
 LoadWaline()

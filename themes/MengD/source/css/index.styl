@@ -2,10 +2,6 @@
 @import '_partial/*'
 @import '_partial/third-party/*'
 @import '_highlight/*'
-@import 'media'
-
-.tk-admin[data-v-45b8c260]
-    background-color: rgba(0,0,0,.6) !important;
 
 *
     margin  0
@@ -66,6 +62,16 @@ body
 @media screen and (max-width 1100px)
     #body-main.body-main
         max-width 1000px
+@media screen and (max-width 850px)
+    #body-wrap
+        margin 60px 20px !important
+@media screen and (max-width 800px)
+    #body-wrap
+        width 95% !important
+        margin 60px auto !important
+@media screen and (max-width 600px)
+    body
+        font-size 14px
 
 #body-wrap
     background-color #fff

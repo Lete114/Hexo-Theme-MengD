@@ -1,44 +1,31 @@
-(function($){
-    $.extend($,{
-        imgLazyLoad:function(){
-            var timer,
-                len = $('img.lazyload').length;
-            function getPos(node) {
-                var scrollx = document.documentElement.scrollLeft || document.body.scrollLeft,
-                    scrollt = document.documentElement.scrollTop || document.body.scrollTop;
-                var pos = node.getBoundingClientRect();
-                return {top:pos.top + scrollt, right:pos.right + scrollx, bottom:pos.bottom + scrollt, left:pos.left + scrollx }
-            }
-            function loading(){
-                timer && clearTimeout(timer);
-                timer = setTimeout(function(){
-                    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop,
-                        imgs=$('img.lazyload');
-                    screenHeight = document.documentElement.clientHeight;
-                    for(var i = 0;i < imgs.length;i++){
-                        var pos = getPos(imgs[i]),
-                            posT = pos.top,
-                            posB = pos.bottom,
-                            screenTop = screenHeight+scrollTop;
-                        if((posT > scrollTop && posT <  screenTop) || (posB > scrollTop && posB < screenTop)){
-                            imgs[i].src = imgs[i].getAttribute('data-img');
-                            $(imgs[i]).removeClass('lazyload');
-                        }else{
-                            // new Image().src = imgs[i].getAttribute('data-img');
-                        }
-                    }
-                },100);
-            }
-            if(!len) return;
-            loading();
-            $(window).on('scroll resize',function(){
-                if(!$('img.lazyload').length){
-                    return;
-                }else{
-                    loading();
+
+function imgLazyLoad(selectNode,dataImg){
+    // 获取 指定的img
+    var imgLazyLoad = document.querySelectorAll(selectNode)
+    var timer,
+        len = imgLazyLoad.length;
+    
+    // 加载
+    function loading(){
+        timer && clearTimeout(timer); // 清除延迟
+        timer = setTimeout(function(){ // 设置延迟
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop,
+            winHeight = document.documentElement.clientHeight;
+            // 遍历所有的img
+            for(var i = 0;i < imgLazyLoad.length;i++){
+                var nodePos = getNodePosition(imgLazyLoad[i]),
+                    winTop = winHeight+scrollTop;
+                if((nodePos.top > scrollTop && nodePos.top <  winTop) || (nodePos.bottom > scrollTop && nodePos.bottom < winTop)){
+                    imgLazyLoad[i].src = imgLazyLoad[i].getAttribute(dataImg);
                 }
-            })
-        }
+            }
+        },100);
+    }
+    if(!len) return; // 没有img元素则结束
+    loading();
+    document.addEventListener('scroll', function(){
+        if(!len) return;
+        else loading();
     })
-})($||Zepto||jQuery);
-$.imgLazyLoad()
+}
+imgLazyLoad("body img[data-img]","data-img")

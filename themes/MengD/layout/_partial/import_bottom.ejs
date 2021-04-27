@@ -1,8 +1,7 @@
 <%if(theme.lazyload.enable){%>
-<script data-pjax src="<%-theme.CDN.lazyload%>"></script>
+<script src="<%-theme.CDN.lazyload%>"></script>
 <%}%>
 <%- partial('third-party/math/MathJax') %>
-<script data-pjax src="<%-theme.CDN.clipboard%>"></script>
 <% theme.import.bottom.forEach(function(bottom, i){ %>
     <%-bottom%>
 <% }) %>

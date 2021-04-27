@@ -5,13 +5,4 @@
 	<%- partial('_partial/article', {index: true, post: post}) %>
 <% }) %>
 <%- partial('_partial/pagination') %>
-<section id="rightside">
-	<div id="rightside-item">
-		<a id="darkmode" title="<%-_p('rightside.dark')%>">
-			<i class="fas fa-moon"></i>
-		</a>
-		<a href="#" title="<%-_p('rightside.back_to_top')%>">
-			<i class="fas fa-arrow-up"></i>
-		</a>
-	</div>
-</section>
+<%- partial('_partial/rightside') %>

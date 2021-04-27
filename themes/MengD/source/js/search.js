@@ -1,24 +1,24 @@
 
+var local_search = document.getElementById("local-search");
+var html = document.querySelector("html")
+var search_mask = document.getElementById("search-mask")
 
-var searchFunc = function(path, search_id, content_id) {
-    'use strict';
-    $.ajax({
-        url: path,
-        dataType: "xml",
-        success: function( xmlResponse ) {
-            // get the contents from search data
-            var datas = $( "entry", xmlResponse ).map(function() {
+var searchFunc = function (path, search_id, content_id) {
+    fetch(path)
+        .then(res => res.text())
+        .then(str => new window.DOMParser().parseFromString(str, 'text/xml'))
+        .then(function (data) {
+            const datas = [...data.querySelectorAll('entry')].map(function (item) {
                 return {
-                    title: $( "title", this ).text(),
-                    content: $("content",this).text(),
-                    url: $( "url" , this).text()
-                };
-            }).get();
-
-            var $input = document.getElementById(search_id);
-			if (!$input) return;
-            var $resultContent = document.getElementById(content_id);
-            if ($("#local-search-input").length > 0) {
+                    title: item.querySelector('title').textContent,
+                    content: item.querySelector('content').textContent,
+                    url: item.querySelector('url').textContent
+                }
+            })
+            datas.forEach(function (item) {
+                var $input = document.getElementById(search_id);
+                if (!$input) return;
+                var $resultContent = document.getElementById(content_id);
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -35,7 +35,7 @@ var searchFunc = function(path, search_id, content_id) {
                         }
                         var data_title = data.title.trim().toLowerCase();
                         var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                        var data_url = data.url.startsWith('/')?data.url:"/"+data.url;
+                        var data_url = data.url.startsWith('/') ? data.url : "/" + data.url;
                         var index_title = -1;
                         var index_content = -1;
                         var first_occur = -1;
@@ -98,7 +98,48 @@ var searchFunc = function(path, search_id, content_id) {
                     $resultContent.innerHTML = str;
                     window.pjax && window.pjax.refresh($resultContent)
                 });
-            }
+            })
+        })
+}
+searchFunc($config.search.path, 'local-search-input', 'local-search-result')
+
+
+// 显示搜索框
+document.querySelectorAll(".search-btn").forEach(function(item){
+    item.onclick=function(){
+        search_mask.className="mask"
+        if(local_search.style.opacity==""){
+            local_search.style.display=""
+            local_search.style.opacity=1
+            html.style.overflow="hidden";
+            local_search.classList.remove("search-animation-min")
+            local_search.classList.add("search-animation-max")
         }
-    });
+    }
+})
+
+// 关闭搜索框
+document.querySelector(".search-close-button").onclick=function(){
+    local_search.style.opacity=0
+    local_search.classList.remove("search-animation-max")
+    local_search.classList.add("search-animation-min")
+    search_mask.classList.remove("mask")
+    html.style.overflow="auto";
+    setTimeout(function(){
+        local_search.style.display="none"
+        local_search.style.opacity=""
+    },500)
+}
+
+// 关闭所有正在打开的弹窗
+search_mask.onclick=function(){
+    local_search.style.opacity=0
+    local_search.classList.remove("search-animation-max")
+    local_search.classList.add("search-animation-min")
+    html.style.overflow="auto";
+    search_mask.className=""
+    setTimeout(function(){
+        local_search.style.display="none"
+        local_search.style.opacity=""
+    },500)
 }

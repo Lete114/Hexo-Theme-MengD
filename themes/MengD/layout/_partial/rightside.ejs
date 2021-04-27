@@ -1,8 +1,20 @@
 <section id="rightside">
-    <div id="rightside-item">
-        <a id="darkmode" title="<%-_p('rightside.dark')%>">
-            <i class="fas fa-moon"></i>
+    <%if(theme.rightside!=null){%>
+    <div id="rightside-btn">
+        <%for(var i in theme.rightside){%>
+        <%var item = theme.rightside[i].split("||")%>
+        <a <%-item[0]%> title="<%-item[1]%>">
+            <i class="<%-item[2]%>"></i>
         </a>
+        <%}%>
+    </div>
+    <%}%>
+    <div id="rightside-item">
+        <%if(theme.rightside!=null){%>
+            <a href="javascript:(0)" id="settings" title="<%-_p('rightside.settings')%>">
+                <i class="fas fa-cog fa-spin"></i>
+            </a>
+        <%}%>
         <%if(toc(page.content,{list_number: false})!=""){%>
             <%if(is_post()){%>
                 <a class="rightside-toc" title="<%-_p('article.toc')%>">
@@ -10,8 +22,8 @@
                 </a>
             <%}%>
         <%}%>
-        <%if(theme.comments!=null){%>
-            <%if(page.comments==null||page.comments){%>
+        <%if(theme.comments!=null||page.comments==null){%>
+            <%if(page.comments){%>
             <a href="#<%-_p('rightside.direct_comments')%>" title="<%-_p('rightside.direct_comments')%>">
                 <i class="fas fa-comments"></i>
             </a>

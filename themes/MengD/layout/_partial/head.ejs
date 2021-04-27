@@ -40,5 +40,13 @@ var url = config.url+"/"+page.path;
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="<%- title || theme.title || config.title %>">
 <meta name="twitter:description" content="<%=description || theme.description || config.description%>">
+<%//域名验证
+    if(theme.verify!=null){
+        for(let i in theme.verify){%>
+        <%-theme.verify[i]%>
+        <%}
+    }
+%>
 <link rel="dns-prefetch" href="<%- url || config.url%>">
 <link rel="stylesheet" href="<%-theme.CDN.index_css%>">
+<script src="<%-theme.CDN.utlis%>"></script>

@@ -1,0 +1,57 @@
+// 侧边按钮
+#rightside
+    transition all 0.5s
+    opacity 0
+    position fixed 
+    right 0px 
+    bottom 80px 
+    z-index 100 
+    width 30px
+    cursor pointer 
+    #rightside-item
+        text-align center
+        .rightside-toc
+            cursor pointer 
+            display none
+        a
+            display inline-block 
+            width 30px 
+            height 30px 
+            background-color $main 
+            color #fff 
+            margin-bottom 3px 
+            border-radius 6px 
+            i 
+                margin-top 7px
+        a:hover
+            color #fff !important
+#rightside-btn
+    text-align center
+    -webkit-transition -webkit-transform .4s
+    -moz-transition -moz-transform .4s
+    -o-transition -o-transform .4s
+    -ms-transition -ms-transform .4s
+    transition transform .4s
+    -webkit-transform translate(35px,0)
+    -moz-transform translate(35px,0)
+    -o-transform translate(35px,0)
+    -ms-transform translate(35px,0)
+    transform translate(35px,0)
+    a
+        display inline-block
+        width 30px
+        height 30px
+        background-color $main 
+        color #fff
+        margin-bottom 3px
+        border-radius 6px
+        i 
+            margin-top 7px
+    a:hover
+        color #fff !important
+.rightside-shwo
+    -webkit-transform translate(0,0)!important
+    -moz-transform translate(0,0)!important
+    -o-transform translate(0,0)!important
+    -ms-transform translate(0,0)!important
+    transform translate(0,0)!important

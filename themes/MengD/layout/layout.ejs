@@ -4,11 +4,55 @@
     <%- partial('_partial/head') %>
     <%- partial('_partial/import_head') %>   
 </head>
-<body id="body">
-    <%- partial('_partial/import_top') %>
+<body id="body"><%- partial('_partial/import_top') %>
+    <script>
+        var $config = {
+            navbar: <%-theme.navbar%>,
+            search:{
+                path: "<%-theme.search.path%>"
+            },
+            lazyload:{
+                enable: <%-theme.lazyload.enable%>,
+            },
+            CodeBlock:{
+                enable: <%-theme.CodeBlock.enable%>,
+                height: "<%-theme.CodeBlock.height%>",
+                scrollTop: "<%-theme.CodeBlock.scrollTop%>"
+            },
+            CDN:{
+                search: "<%-theme.CDN.search%>",
+            }
+        }
+        
+        // // 注入main.js
+        const main = document.createElement('script')
+        main.src = '<%-theme.CDN.index_js%>'
+        document.head.appendChild(main)
+
+        // 注入fortawesome.css
+        const link = document.createElement('link')
+        link.href = '<%-theme.CDN.fortawesome%>'
+        link.rel = 'stylesheet'
+        document.head.appendChild(link)
+
+        <% if (theme.amusing_title && theme.amusing_title.enable) { %>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function () {
+            if (document.hidden) {
+                document.title = "<%- theme.amusing_title.leave_title %>" + originTitle;
+                clearTimeout(titleTime);
+            } else {
+                document.title = "<%- theme.amusing_title.return_title %>" + originTitle;
+                titleTime = setTimeout(function () {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        });
+        <% } %>
+    </script>
     <%- partial('_partial/navbar') %>
     <div id="mask"></div>
-    <%- partial('_partial/third-party/search/local-search') %>
     <%- partial('_partial/third-party/analytics') %>  
     <div class="body-main" id="body-main">
         <div id="body-wrap">
@@ -41,100 +85,7 @@
         <%}%>
     </div>
     <%- partial('_partial/footer') %>
-    <script>
-        var $config = {
-            search:{
-                enable: <%-theme.search.enable%>,
-                path: "<%-theme.search.path%>"
-            },
-            lazyload:{
-                enable: <%-theme.lazyload.enable%>,
-            },
-            CodeBlock:{
-                enable: <%-theme.CodeBlock.enable%>,
-                height: "<%-theme.CodeBlock.height%>",
-                scrollTop: "<%-theme.CodeBlock.scrollTop%>"
-            },
-            CDN:{
-                fancybox_js: "<%-theme.CDN.fancybox_js%>",
-                fancybox_css: "<%-theme.CDN.fancybox_css%>",
-                search: "<%-theme.CDN.search%>",
-            }
-        }
-        // 注入main.js
-        const script = document.createElement('script')
-        script.src = '<%-theme.CDN.index_js%>'
-        document.head.appendChild(script)
-        // 注入fortawesome.css
-        const link = document.createElement('link')
-        link.href = '<%-theme.CDN.fortawesome%>'
-        link.rel = 'stylesheet'
-        document.head.appendChild(link)
-
-        <% if (theme.amusing_title && theme.amusing_title.enable) { %>
-        var originTitle = document.title;
-        var titleTime;
-        document.addEventListener("visibilitychange", function () {
-            if (document.hidden) {
-                document.title = "<%- theme.amusing_title.leave_title %>" + originTitle;
-                clearTimeout(titleTime);
-            } else {
-                document.title = "<%- theme.amusing_title.return_title %>" + originTitle;
-                titleTime = setTimeout(function () {
-                    document.title = originTitle;
-                }, 2000);
-            }
-        });
-        <% } %>
-        
-        <%if(theme.pjax){%>
-        // 清除时间
-        var timer = null;
-        // 执行进度条
-        function ProgressStart(){
-            // 设置初始进度
-            var progress = 10;
-            // 创建进度条 及 css样式
-            $("body").append("<div class='progress'></div>")
-            // 定义随机数最大值最小值
-            var max=10,mini=3;
-            var result=max-mini;
-            // 清除
-            clearInterval(timer);
-            // 0.5秒内累加进度
-            timer = setInterval(function(){
-                // 随机数
-                var num = parseInt(Math.random()*result);
-                var randomResult = num+mini;
-                // 累加
-                progress+=randomResult
-                $("body .progress").css("width",progress+"%")
-                // 当进度达到95%时停止
-                if(progress>95)progress=95
-            },500)
-        }
-        // 加载进度条加载完毕
-        function ProgressFinish(){
-            clearInterval(timer);
-            // 页面加载完毕后进度100% 并在0.7秒后删除
-            $("body .progress").css("width","100%")
-            timer = setTimeout(function () {
-                $("body .progress").remove();
-            }, 700);
-        }
-        // 手机端
-        function Mobile(){
-            // 手机端导航栏跳转关闭
-            $("#mobileNav").css("opacity", "0")
-            $("#mobileNav").removeClass("open")
-            $("#mask").removeClass("mask")
-            // 解除手机端页面跳转无法滚动
-            $("html").css("overflow", "auto")
-            // 手机端搜索框关闭
-            $("#local-search").css("display", "none")
-        }
-        <%}%>
-    </script>
+    <%- partial('_partial/third-party/search/local-search') %>
     <%- partial('_partial/import_bottom') %>
     <%- partial('_partial/third-party/pjax') %>
     <%if(theme.updown.enable){%>
