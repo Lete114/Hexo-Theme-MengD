@@ -46,18 +46,21 @@ if(document.getElementsByClassName("rightside-toc")[0]!=null){
 }
 
 // 代码块复制
-document.querySelectorAll(".highlight-wrap").forEach(function (item) {
-    item.firstChild.onclick = function () {
-        const selection = window.getSelection()
-        selection.selectAllChildren(item.querySelector(".code"))
-        document.execCommand("Copy");
-        selection.removeAllRanges()
-        item.firstChild.innerHTML = "<i class='fa fa-check' style='color:green'></i>";
-        setTimeout(function () {
-            item.firstChild.innerHTML = "<i class='fa fa-clipboard'></i>"
-        }, 2000)
-    }
-})
+CodeCopy()
+function CodeCopy(){
+    document.querySelectorAll(".highlight-wrap").forEach(function (item) {
+        item.firstChild.onclick = function () {
+            const selection = window.getSelection()
+            selection.selectAllChildren(item.querySelector(".code"))
+            document.execCommand("Copy");
+            selection.removeAllRanges()
+            item.firstChild.innerHTML = "<i class='fa fa-check' style='color:green'></i>";
+            setTimeout(function () {
+                item.firstChild.innerHTML = "<i class='fa fa-clipboard'></i>"
+            }, 2000)
+        }
+    })
+}
 
 // 深色模式
 DarkMode()
