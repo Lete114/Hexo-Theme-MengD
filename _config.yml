@@ -62,7 +62,7 @@ highlight_theme: mac # default / darker / pale night / light / ocean / mac / mac
 CodeBlock: # 是否开启代码块折叠
   enable: true
   height: 400 # 代码块高度超过400折叠 单位px
-  scrollTop: 200 # 展开后,再次(手动点击)折叠滚动到代码块开始的距离 单位px
+  scrollTop: 200 # 展开后,再次(手动点击)点击折叠滚动到代码块开始的距离 单位px
 
 
 # 图标
@@ -85,11 +85,16 @@ theme_color:
   body-a: '#00c4b6' # 全局a标签颜色
   author-name: '#ff7242' # 博主昵称
 
+## 自定义侧边栏按钮
+## 使用 || 分割
+rightside:
+  - harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon #渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
+  
+
 # 通过issues申请友情链接(目前只支持gitee)
 link:
   issues:
     enable: false # 是否开启
-    title: Gitee友链 # 主标题
     subtitle: Gitee友链 # 副标题
     owner: lete114 # 仓库拥有者
     repo: link # 仓库昵称
@@ -130,7 +135,7 @@ comments: waline # twikoo / waline / valine
 # valine
 ## https://valine.js.org/
 valine:
-  source: https://cdn.jsdelivr.net/gh/lete114/CDN2/js/Valine-Lete3.2.js ## 原版: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js
+  source: https://cdn.jsdelivr.net/gh/lete114/CDN2/js/Valine-Lete3.2.min.js ## 原版: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js
   appid: qvkfxxxxxxxxxxxxxxxxxxxxxbMMI # 你的 leancloud app id 
   appkey: WOURxxxxxxxxxxxxxxxxxWJrog # 你的 leancloud app key 
   master: 2a776xxxxxxxxxxxxxxxxxd7f4442e2 # (原版valine不支持)你的邮箱md5加密(百度搜索md5在线加密)
@@ -229,10 +234,13 @@ updown:
   #   - /img/lamuB.png
 
 
-# 百度统计
+# 统计(分析)
 analytics:
   baidu: 
   google: 
+# 域名验证
+verify:
+  # 例如：- <meta name="google-site-verification" content="uPApgr9zH7JO36gqOf48_UpfbFRRJ6zCf4cQd-s80eA" />
 
 # 设置字体
 font:
@@ -259,25 +267,20 @@ import:
 CDN:
   index_css: /css/index.css
   index_js: /js/main.js
+  utlis: /js/utlis.js
   search: /js/search.js
   lazyload: /js/lazyLoad.js
-  jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
   fortawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
   pixi: https://cdnjs.cloudflare.com/ajax/libs/pixi.js/2.2.5/pixi.js
 
   # pjax
-  pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.js
-  # 图片展示
-  fancybox_css: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
-  fancybox_js: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
+  pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.min.js
   # 分享
   share_css: https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css
   share_js: https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js
   
   # yml转json
   js_yaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
-  # clipboard
-  clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js
   # math
   mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 

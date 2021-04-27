@@ -59,5 +59,21 @@ header
                     -o-transition all .5s
                     -ms-transition all .5s
                     transition all .5s
-    
+
+@media screen and (max-width 600px)
+    .author-info 
+        div
+            padding 1.3rem 1.5rem 0
+            float none
+            width auto
+            margin 0 auto
+            float none
+        hr
+            border 2px dashed $scrollbar
+            margin 2rem auto
+    .card-content .description,.card-content .description .social-icon
+        float none
+        text-align center
+    header
+        padding-bottom 0
 

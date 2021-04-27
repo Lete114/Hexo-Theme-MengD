@@ -23,22 +23,16 @@ var repo = theme.link.repo_pr
 <%}%>
 </div>
 <script>
-    setInterval(function(){
-        if(document.body.clientWidth < 800){
-            $('img#up').remove();
-        }
-    },0)
-
     <%if(issues.enable){%>
     // 声明变量
     var arr = [];
-
     /*请求源数据*/
-    $.get({
+    ajax({
         url: "https://gitee.com/api/v5/repos/<%-issues.owner%>/<%-issues.repo%>/issues?state=open&sort=created&direction=desc&page=1&per_page=100",
         dataType: "json",
         async:false,
         success: function(data){
+            data = JSON.parse(data)
             for (let i in data) {
                 var json = new Object();
                 json.name = filter("name",data[i]["body"])
@@ -51,7 +45,25 @@ var repo = theme.link.repo_pr
                 }
                 arr.push(json);
             }
-            links(JSON.stringify(arr));
+            
+            // 分组
+            let map = {}
+            for (let i = 0; i < arr.length; i++) {
+                let ai = arr[i]
+                if (!map[ai.tags]) {
+                    map[ai.tags] = [ai]
+                } else {
+                    map[ai.tags].push(ai)
+                }
+            }
+            let res = []
+            Object.keys(map).forEach(key => {
+                res.push({
+                    tags: key,
+                    links: map[key],
+                })
+            })
+            insert_links(res);
         }
     })
 
@@ -67,83 +79,82 @@ var repo = theme.link.repo_pr
     }
 
     /*插入数据*/
-    function links(data){
-        <% if(issues.show_position=="before"){%>
-        // 添加在开头
-        $("#link").prepend('<div class="link-list"></div>')
-        $("#link").prepend('<div class="link-subtitle"><%-issues.subtitle%></div>')
-        $("#link").prepend('<h2><%-issues.title%></h2>')
-        <%}else{%>
-        // 添加在结尾
-        $("#link").append('<h2><%-issues.title%></h2>')
-        $("#link").append('<div class="link-subtitle"><%-issues.subtitle%></div>')
-        $("#link").append('<div class="link-list"></div>')
-        <%}%>
-        data = JSON.parse(data)
+    function insert_links(data){
         for (let i in data) {
-            // 只有仓库拥有者添加了标签的才显示友链
-            if(data[i].tags!=null){
             <% if(issues.show_position=="before"){%>
-                $(".link-list:first").prepend(
+            // 添加在开头
+            var idLink = document.querySelector("#link")
+            idLink.insertAdjacentHTML('afterbegin','<div class="link-list"></div>')
+            idLink.insertAdjacentHTML('afterbegin','<div class="link-subtitle"><%-issues.subtitle%></div>')
+            idLink.insertAdjacentHTML('afterbegin','<h2>'+data[i].tags+'</h2>')
             <%}else{%>
-                $(".link-list:last").prepend(
+            // 添加在结尾
+            var idLink = document.querySelector("#link")
+            idLink.insertAdjacentHTML('beforeend','<h2>'+data[i].tags+'</h2>')
+            idLink.insertAdjacentHTML('beforeend','<div class="link-subtitle"><%-issues.subtitle%></div>')
+            idLink.insertAdjacentHTML('beforeend','<div class="link-list"></div>')
             <%}%>
-                `<div class="link-list-item">
-                    <a target="_blank" rel="noopener" href="${data[i].link}">
-                        <img src="${data[i].avatar}" alt="${data[i].descr}">
-                        <span class="link-item-name">${data[i].name}</span>
-                        <span class="link-item-desc">${data[i].descr}</span>
-                    </a>
-                </div>`)
+            var links = data[i].links
+            for (let i in links) {
+                var name = links[i].name,
+                    link = links[i].link,
+                    avatar = links[i].avatar,
+                    descr = links[i].descr;
+                // 只有仓库拥有者添加了标签的才显示友链
+                if(links[i].tags!=null){
+                    var itemLink = '<div class="link-list-item"><a target="_blank" rel="noopener" href="'+link+'"><img src="'+avatar+'" alt="'+descr+'"><span class="link-item-name">'+name+'</span><span class="link-item-desc">'+descr+'</span></a></div>'
+                    <% if(issues.show_position=="before"){%>
+                        document.querySelector(".link-list").insertAdjacentHTML('afterbegin',itemLink)
+                    <%}else{%>
+                        document.querySelector(".link-list:last-child").insertAdjacentHTML('afterbegin',itemLink)
+                    <%}%>
+                }
             }
         }
+        
+        
     }
     <%}%>
 
     <%if(repo.enable){%>
     /*通过仓库pr修改link.yml方式*/
-    $.get({
+    ajax({
         url: "<%-repo.yml_url%>",
         async:false,
         success: function(data){
-            $.getScript("<%-theme.CDN.js_yaml%>",function(){
+            getScript("<%-theme.CDN.js_yaml%>",function(){
                 data = JSON.stringify(jsyaml.load(data))
                 data = JSON.parse([data]);
                 <%if(repo.show_position=="before"){%>
-                $("#link").prepend('<span id="gitee-link-before"></span>')
+                document.querySelector("#link").insertAdjacentHTML('afterbegin','<span id="gitee-link-before"></span>')
                 <%}%>
                 for (let i in data) {
                     var desc = data[i].class_desc == null?'':data[i].class_desc;
                     var title = data[i].class_name;
                     <%if(repo.show_position=="before"){%>
                         // 添加在开头
-                        $("#gitee-link-before").append('<h2>'+title+'</h2>')
-                        $("#gitee-link-before").append('<div class="link-subtitle">'+desc+'</div>')
-                        $("#gitee-link-before").append('<div class="link-list link-list-gitee"></div>')
+                        var idLink = document.querySelector("#gitee-link-before")
+                        idLink.insertAdjacentHTML('beforeend','<h2>'+title+'</h2>')
+                        idLink.insertAdjacentHTML('beforeend','<div class="link-subtitle">'+desc+'</div>')
+                        idLink.insertAdjacentHTML('beforeend','<div class="link-list link-list-gitee"></div>')
                     <%}else{%>
                         // 添加在结尾
-                        $("#link").append('<h2>'+title+'</h2>')
-                        $("#link").append('<div class="link-subtitle">'+desc+'</div>')
-                        $("#link").append('<div class="link-list"></div>')
+                        var idLink = document.querySelector("#link")
+                        idLink.insertAdjacentHTML('beforeend','<h2>'+title+'</h2>')
+                        idLink.insertAdjacentHTML('beforeend','<div class="link-subtitle">'+desc+'</div>')
+                        idLink.insertAdjacentHTML('beforeend','<div class="link-list"></div>')
                     <%}%>
                     for (let j in data[i].link_list) {
                         var name = data[i].link_list[j].name;
                         var link = data[i].link_list[j].link;
                         var avatar = data[i].link_list[j].avatar;
                         var descr = data[i].link_list[j].descr;
-
+                        var itemLink = '<div class="link-list-item"><a target="_blank" rel="noopener" href="'+link+'"><img src="'+avatar+'" alt="'+descr+'"><span class="link-item-name">'+name+'</span><span class="link-item-desc">'+descr+'</span></a></div>'
                         <% if(repo.show_position=="before"){%>
-                            $("#gitee-link-before .link-list:last").append(
+                            document.querySelector("#gitee-link-before .link-list:last-child").insertAdjacentHTML('beforeend',itemLink)
                         <%}else{%>
-                            $(".link-list:last").append(
+                            document.querySelector(".link-list:last-child").insertAdjacentHTML('beforeend',itemLink)
                         <%}%>
-                        `<div class="link-list-item">
-                            <a target="_blank" rel="noopener" href="${link}">
-                                <img src="${avatar}" alt="${descr}">
-                                <span class="link-item-name">${name}</span>
-                                <span class="link-item-desc">${descr}</span>
-                            </a>
-                        </div>`)
                     }
                 }
             }) 

@@ -1,4 +1,4 @@
-/* 内容文章 */
+/* 主体内容 */
 
 main
     margin 0 20px
@@ -98,13 +98,13 @@ main.content
         p
             line-height 1.7em
     .table-wrap
-        overflow-x: scroll;
+        overflow-x scroll
         table
-            display: table;
-            width: 100%;
-            border-spacing: 0;
-            border-collapse: collapse;
-            empty-cells: show;
+            display table
+            width 100%
+            border-spacing 0
+            border-collapse collapse
+            empty-cells show
             thead 
                 background rgba(153,169,191,.1)
             th,td 
@@ -112,8 +112,109 @@ main.content
                 border 1px solid #eee
                 vertical-align middle
 
+main.content 
+    .page-title
+        text-align center
+        padding-bottom 30px
+        .page-description
+            font-size 16px
+            padding 0 15%
+            display block
+    .tag-content
+        text-align center
+        padding-bottom 50px
+        a    
+            display inline-block
+            padding 0 .4rem
 
 
+main.content
+    .clipboard
+        right 16px
+        top 8px
+        cursor pointer
+        border-radius 3px
+        color $highlight-foreground
+        position relative
+        float right
+        padding 2px
+        :hover
+            color $main
+    code
+        padding .1rem .2rem
+        background rgba(27,31,35,.05)
+        color #f47466
+        border-radius 3px
+        word-wrap break-word
+        word-break break-word
+        overflow-wrap break-word
+    ol,ul
+        margin-top 0.4rem
+        li
+            position relative
+            margin 0.3rem 0
+            padding-left 0.3rem
+            p
+                margin 0
+                line-height unset
+    blockquote 
+        margin 1rem 0
+        padding .1rem .8rem
+        border-left .2rem solid $main
+        background-color rgba(73,177,245,0.1)
+        color #6a737d
+    blockquote.pullquote.left
+        max-width 45%
+        float left
+        margin .5em .5em 0 0
+    blockquote.pullquote.right
+        max-width 45%
+        float right
+        margin .5em 0 0 .5em
+    kbd
+        margin 0 3px
+        padding 2px 4px
+        font-size 90%
+        color #fff
+        background-color #666
+        border-radius 3px
+        -webkit-box-shadow inset 0 -1px 0 rgb(0 0 0 / 25%)
+        box-shadow inset 0 -1px 0 rgb(0 0 0 / 25%)
+    .video-container
+        position relative
+        overflow hidden
+        margin-bottom 0.8rem
+        padding-top 56.25%
+        height 0
+        iframe
+            position absolute
+            top 0
+            left 0
+            margin-top 0
+            width 100%
+            height 100%
+@media screen and (max-width 800px)
+    main.content
+        display inline
+        .post-item
+            .post-title h2
+                font-size 1.1em
+    .post-copyright
+        margin 0 20px 
+    main.content .pagination
+        padding-bottom 60px
+    .highlight-wrap .highlight
+        td .line
+            font-size .8em
 
-
+@media screen and (max-width 600px)
+    main.content 
+        .pagination 
+            .page-pre
+                text-align center
+                width 100%
+                line-height 40px
+            .page-next
+                text-align center
+                width 100%
 

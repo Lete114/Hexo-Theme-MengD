@@ -11,6 +11,63 @@
             cacheBust: false
         });
 
+        <%if(theme.pjax){%>
+        // 清除时间
+        var timer = null;
+        // 执行进度条
+        function ProgressStart(){
+            // 设置初始进度
+            var progress = 10;
+            // 创建进度条 及 css样式
+            var div = document.createElement('div');
+            div.className = "progress";
+            document.body.prepend(div);
+            // 定义随机数最大值最小值
+            var max=10,mini=3;
+            var result=max-mini;
+            // 清除
+            clearInterval(timer);
+            // 0.5秒内累加进度
+            timer = setInterval(function(){
+                // 随机数
+                var num = parseInt(Math.random()*result);
+                var randomResult = num+mini;
+                // 累加
+                progress+=randomResult
+                document.getElementsByClassName("progress")[0].style.width = progress+"%";
+                // 当进度达到95%时停止
+                if(progress>95)progress=95
+            },500)
+        }
+        // 加载进度条加载完毕
+        function ProgressFinish(){
+            clearInterval(timer);
+            // 页面加载完毕后进度100% 并在0.7秒后删除
+            var progress = document.getElementsByClassName("progress");
+            progress[0].style.width = "100%";
+            timer = setTimeout(function () {
+            progress[0].parentNode.removeChild(progress[0])
+            }, 700);
+        }
+        // 手机端
+        function Mobile(){
+            //获取元素
+            var mobileNav = document.getElementById("mobileNav")
+            var local_search = document.getElementById("local-search") 
+            var html = document.querySelector("html")
+            var mask = document.getElementById("mask")
+
+            // 手机端导航栏跳转关闭
+            mobileNav.style.opacity=0
+            mobileNav.classList.remove("open")
+            mask.classList.remove("mask")
+            // 解除手机端页面跳转无法滚动
+            html.style.overflow="auto"
+            // 手机端搜索框关闭
+            local_search.style.display="none"
+        }
+        <%}%>
+
         // 开始 PJAX 执行的函数
 		document.addEventListener('pjax:send', function () {
             // 执行进度条
@@ -23,18 +80,20 @@
             ProgressFinish()
             // 手机端
             Mobile()
-            // 代码块复制
-            CopyContent()
-            // Fancybox
-            FancyboxFn()
             // 深色模式
             DarkMode()
+            // 代码块复制
+            CodeCopy()
             // 代码块折叠
             CodeBlock()
             // tableWrap
             TableWrap()
-            
-            
+            // 滚动事件
+            scroll()
+            // 右侧隐藏域
+            rightsideShow()
+            // 图片懒加载
+            imgLazyLoad("body img[data-img]","data-img")
             
             document.querySelectorAll('script[data-pjax]').forEach(item => {
                 const newScript = document.createElement('script')
@@ -46,8 +105,8 @@
         });
 
         // Pjax请求错误时，跳转到404页面
-        document.addEventListener('pjax:error', (e) => {
-            if (e.request.status === 404) {
+        document.addEventListener('pjax:error', (err) => {
+            if (err.request.status === 404) {
                 pjax.loadUrl('/404.html')
             }
         })
