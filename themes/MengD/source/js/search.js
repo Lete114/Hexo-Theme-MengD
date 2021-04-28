@@ -108,38 +108,39 @@ searchFunc($config.search.path, 'local-search-input', 'local-search-result')
 document.querySelectorAll(".search-btn").forEach(function(item){
     item.onclick=function(){
         search_mask.className="mask"
-        if(local_search.style.opacity==""){
-            local_search.style.display=""
-            local_search.style.opacity=1
+        if(local_search.style.display=="none"){
+            local_search.style.display="block"
             html.style.overflow="hidden";
             local_search.classList.remove("search-animation-min")
             local_search.classList.add("search-animation-max")
+            document.getElementById("local-search-input").focus()
         }
     }
 })
 
 // 关闭搜索框
 document.querySelector(".search-close-button").onclick=function(){
-    local_search.style.opacity=0
     local_search.classList.remove("search-animation-max")
     local_search.classList.add("search-animation-min")
     search_mask.classList.remove("mask")
     html.style.overflow="auto";
     setTimeout(function(){
         local_search.style.display="none"
-        local_search.style.opacity=""
     },500)
 }
 
+
 // 关闭所有正在打开的弹窗
 search_mask.onclick=function(){
-    local_search.style.opacity=0
     local_search.classList.remove("search-animation-max")
     local_search.classList.add("search-animation-min")
     html.style.overflow="auto";
     search_mask.className=""
     setTimeout(function(){
         local_search.style.display="none"
-        local_search.style.opacity=""
     },500)
 }
+
+window.addEventListener('pjax:complete', function () {
+    local_search.style.display === 'none' ? search_mask.className="":""
+})
