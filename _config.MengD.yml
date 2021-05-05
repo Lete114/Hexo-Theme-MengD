@@ -173,11 +173,16 @@ footer:
     url: https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral
     
 
-
-# 百度统计
+# 统计(分析)
 analytics:
   baidu: 8e216044fbe6b71b6fefc197c2508ed1
   google: 
+
+# 域名验证
+verify:
+    - <meta name="google-site-verification" content="uPApgr9zH7JO36gqOf48_UpfbFRRJ6zCf4cQd-s80eA" />
+    - <meta name="baidu-site-verification" content="code-mMhZO15Nzu" />
+  # 例如：- <meta name="google-site-verification" content="uPApgr9zH7JO36gqOf48_UpfbFRRJ6zCf4cQd-s80eA" />
 
 # 自定义引入外部css、js
 import:
