@@ -92,8 +92,11 @@
             scroll()
             // 右侧隐藏域
             rightsideShow()
-            // 图片懒加载
-            imgLazyLoad("body img[data-img]","data-img")
+            <%if(theme.lazyload.enable){%>
+                // 图片懒加载
+                ImgLazyLoad("body img[data-img]","data-img")
+            <%}%>
+            
             
             document.querySelectorAll('script[data-pjax]').forEach(item => {
                 const newScript = document.createElement('script')
