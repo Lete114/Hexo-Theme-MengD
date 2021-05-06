@@ -79,20 +79,3 @@ function ajax(obj) {
         }
     }
 }
-/**
- * 获取指定代码块的基本信息
- * @scrollTop 滚动条纵坐标位置
- * @scrollLeft 滚动条横坐标位置
- * @param {*} node 元素(标签)
- * @returns 当前元素(标签) top|right|bottom|left 距离顶部的距离
- * 
- * nodePos: top|bottom 当前元素在可视区域的上方时获取到的是负数，反之正数
- * nodePos: right|left 当前元素距离视区域left的距离，right视区域距离
- * 
- */
-function getNodePosition(node) {
-    var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft,
-        scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    var nodePos = node.getBoundingClientRect(); //获取元素(标签)的参数信息
-    return {top:nodePos.top + scrollTop, right:nodePos.right + scrollLeft, bottom:nodePos.bottom + scrollTop, left:nodePos.left + scrollLeft }
-}

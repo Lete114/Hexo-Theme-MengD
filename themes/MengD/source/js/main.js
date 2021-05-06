@@ -96,17 +96,19 @@ function DarkMode(){
         }
     }
 }
-if($config.CodeBlock.enable){
-    // 代码块折叠
-    CodeBlock()
-    function CodeBlock(){
+
+
+// 代码块折叠
+CodeBlock()
+function CodeBlock() {
+    if ($config.CodeBlock.enable) {
         var CodeBlock = document.querySelectorAll("figure.highlight")
         // 定义高度
         var height = $config.CodeBlock.height
         // 获取当前页面的所有的代码块 循环判断符合条件的折叠
-        for(var i = 0;i<CodeBlock.length;i++){
-            if(CodeBlock[i].clientHeight>height){
-                CodeBlock[i].style="max-height: "+height+"px"
+        for (var i = 0; i < CodeBlock.length; i++) {
+            if (CodeBlock[i].clientHeight > height) {
+                CodeBlock[i].style = "max-height: " + height + "px"
                 /**
                  * 插入html元素
                  * beforeBegin：插入到标签开始前
@@ -118,23 +120,23 @@ if($config.CodeBlock.enable){
             }
         }
         // 展开
-        document.querySelectorAll(".show-btn").forEach(function(item){
-            item.onclick=function(){
+        document.querySelectorAll(".show-btn").forEach(function (item) {
+            item.onclick = function () {
                 var child = item.childNodes[0] // 获取子节点
-                if(child.className=="fas fa-angle-down"){
+                if (child.className == "fas fa-angle-down") {
                     child.classList.remove("fa-angle-down")
                     child.classList.add("fa-angle-up")
-                    item.parentNode.style="" //清除父节点的样式
-                    item.previousElementSibling.style="margin-bottom: 20px" // 设置上一个节点样式
-                }else{
+                    item.parentNode.style = "" //清除父节点的样式
+                    item.previousElementSibling.style = "margin-bottom: 20px" // 设置上一个节点样式
+                } else {
                     child.classList.remove("fa-angle-up")
                     child.classList.add("fa-angle-down")
-                    item.parentNode.style="max-height: "+height+"px"
-                    item.previousElementSibling.style=""
+                    item.parentNode.style = "max-height: " + height + "px"
+                    item.previousElementSibling.style = ""
                     var CodeBlockBottom = getNodePosition(item).bottom // 当前代码块底部距离顶部距离
-                        CodeBlockHeight = $config.CodeBlock.height,
+                    CodeBlockHeight = $config.CodeBlock.height,
                         CodeBlockScrollTop = $config.CodeBlock.scrollTop;
-                        window.scrollTo(0,CodeBlockBottom-CodeBlockHeight-CodeBlockScrollTop)
+                    window.scrollTo(0, CodeBlockBottom - CodeBlockHeight - CodeBlockScrollTop)
                 }
             }
         })
