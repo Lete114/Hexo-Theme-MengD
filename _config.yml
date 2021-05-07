@@ -89,7 +89,8 @@ theme_color:
 ## 自定义侧边栏按钮
 ## 使用 || 分割
 rightside:
-  - harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon #渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
+  # 建议你手动解除注释，打开深色模式
+  #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon #渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
   
 
 # 通过issues申请友情链接(目前只支持gitee)

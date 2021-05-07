@@ -6,8 +6,12 @@
             <div class="post-description">
                 <p style="-webkit-line-clamp: <%- theme.post_content.line %>">
                     <%
-                        var content = strip_html(post.content)
+                    var content = null;
+                    if(post.description) content = post.description
+                    else{
+                        content = strip_html(post.content)
                         content = strip_html(content.substring(0, theme.post_content.length))
+                    }
                     %>
                     <%- content %>
                 </p>
