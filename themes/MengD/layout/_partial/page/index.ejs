@@ -1,0 +1,24 @@
+<% var type=page.type; var title=page.title%>
+<% if (type=="tags" ) { %>
+        <div class="page_title">
+            <%= title %> - <%= site.tags.length %>
+        </div>
+<%- partial('tags') %> 
+<% }else if(type=="categories" ){ %>
+    <div class="page_title">
+        <%= title %> - <%= site.categories.length %>
+    </div>
+<%- partial('categories') %> 
+<% }else if(type=="link" ){ %>
+    <div class="page_title">
+        <%= title %>
+    </div>
+<%- partial('link') %>
+<div class="content"><%- page.content %></div>
+<% }else { %>
+    <div class="page_title">
+        <%= title %>
+    </div>
+    <div class="content"><%- page.content %></div>
+<% } %>
+<%# console.log(page); %> 

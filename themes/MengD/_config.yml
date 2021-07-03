@@ -1,75 +1,28 @@
-#--------------------------------------------------------
-# Hexo-MengD(萌典)
-# 项目地址：https://github.com/lete114/hexo-theme-MengD
-# 主题文档：https://mengd.lete114.top/
-# 一个简约优雅，及美观漂亮的Hexo主题
-#--------------------------------------------------------
 
 # 导航栏菜单
-navbar: true # 悬浮导航栏
-# menu:
-#   首页: /
-#   标签: /tags
-#   分类: /categories
-#   归档: /archives
-#   友情链接: /link
-#   关于我: /about
-  
-# 基本设置(会覆盖hexo的配置)
-title: Hexo-Theme-MengD(萌典) #Lete乐特's Blog
-author: MengD(萌典)
-mail: lete@lete114.top
-favicon: /img/favicon.png
-avatar: /img/logo.gif
-language: zh-CN # 如果需要更换全局语言，请到hexo配置文件内设置(此处设置无效)
-keywords: 
-description: 一个简约优雅，及美观漂亮的主题!!
-body_width: 800px # 页面主体大小
-cover: true # 是否开启主页文章cover(首图) 
-# 是否开启版权(文章内可以设置copyright: false 属性单独关闭某个文章的版权)
-copyright: true  
-page_count: 5 # 首页显示的文章数
+menu:
+  # 首页: /
+  # 找文章: 
+  #   - 标签 || /tags
+  #   - 分类 || /categories
+  #   - 归档 || /archives
+  # 友情链接: /link
+  # 关于我: /about
 
-# 需安装插件: npm install hexo-generator-search --save
-search: 
-  enable: true
-  path: /search.xml
-  field: post
-  
-# https://github.com/lete114/hexo-minify
-# 需要更全面的压缩请安装插件: npm install hexo-minify --save
-minify:
-  js: false
-  css: true 
-  html: false
+main_size: 24% # 文章显示大小
+favicon: /img/favicon.png 
+page_count: 5 # 首页展示文章数
+MathJax: false # 数学公式
+darkmode: true # 深色模式
+pjax: true # pjax
+tags: false
 
-## 404页面
-error_404:
-  enable: true
-  background: '#00c4b6'
-
-# 自动截取
-post_content:
-  line: 3 # 显示多少行后出现省略号(...)
-  length: 500 # 截取多少字 
-
-# 图片懒加载
-lazyload:
-  enable: true
-  loadimg: /img/load.gif
-
-## 代码块样式
-highlight_theme: mac # default / darker / pale night / light / ocean / mac / mac light
-CodeBlock: # 是否开启代码块折叠
-  enable: true
-  height: 400 # 代码块高度超过400折叠 单位px
-  scrollTop: 200 # 展开后,再次(手动点击)点击折叠滚动到代码块开始的距离 单位px
-
-
-# 图标
-social:
-  # fab fa-github: https://github.com/lete114
-  # fa fa-envelope: mailto:lete@lete114.top
+## 主题颜色
+theme_color:  
+  main: '#e58a8a' # 主色
+  fan: '#00c4b6' # 小风车
+  body_a: '#00c4b6' # 全局a标签颜色
+  title: '#ff7242' # 博主昵称
 
 # 有趣的标题切换
 amusing_title:
@@ -77,58 +30,63 @@ amusing_title:
   leave_title: '(つェ⊂) 我藏好了哦~ '
   return_title: '(*´∇｀*) 被你发现啦~ '
 
-## 主题颜色
-theme_color:  
-  main: '#e58a8a' # 主色
-  fan: '#00c4b6' # 小风车
-  progress: '#06c5d8' # toc进度条颜色
-  scrollbar: '#e58a8a' # 滚动条颜色
-  body-a: '#00c4b6' # 全局a标签颜色
-  author-name: '#ff7242' # 博主昵称
+# 自动截取
+index_description:
+  line: '3' # 显示多少行后出现省略号(...)
+  length: '500' # 截取多少字 
+
+# 图片懒加载
+lazyload:
+  enable: false
+  loadimg: /img/load.gif
+
+# 需安装插件: npm install hexo-generator-search --save
+search:
+  enable: false
+  path: /search.xml
+  field: post
+  source: /js/search.js
+
+# 代码块高亮主题
+highlight_theme: mac # default / darker / pale night / light / ocean / mac / mac light
+code_block_expand: # 是否开启代码块折叠
+  enable: false
+  height: 400 # 代码块高度超过400折叠 单位px
+  scrollTop: 200 # 展开后,再次(手动点击)点击折叠滚动到代码块开始的距离 单位px
+
+# https://github.com/lete114/hexo-minify
+# 需要更全面的压缩请安装插件: npm install hexo-minify --save
+minify:
+  js: true
+  css: true 
+  html: true
 
 ## 自定义侧边栏按钮
 ## 使用 || 分割
+## setting: 点击设置按钮后显示   show: 直接显示
+## 拥有3个属性：a标签属性|a标签描述|按钮图标
+## #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon
 rightside:
-  # 建议你手动解除注释，打开深色模式
-  #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon #渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
-  
+  settings: 
+    #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
+  show: 
+    #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
 
-# 通过issues申请友情链接(目前只支持gitee)
-link:
-  issues:
-    enable: false # 是否开启
-    subtitle: Gitee友链 # 副标题
-    owner: lete114 # 仓库拥有者
-    repo: link # 仓库昵称
-    show_position: later # 显示的位置  前(before) / 后(later)
-  repo_pr:  
-    enable: true # 是否开启
-    yml_url: https://cdn.jsdelivr.net/gh/lete114/CDN@latest/link.yml # 友链yml文件
-    show_position: later # 显示的位置  前(before) / 后(later)
-
-## share分享
-## https://github.com/overtrue/share.js/
-share:
-  sites:
-    # - facebook
-    # - qq
-    # - weibo
-    # - wechat
-    # - twitter
+# 文章版权
+copyright: 
+  enable: true
+  author: Lete乐特
+  mail: lete@lete114.top
+  licenses: CC BY-NC-SA 4.0||https://creativecommons.org/licenses/by-nc-sa/4.0/ ## 文中||为分隔符，左侧为描述，右侧为版权许可
+  description: 本博客所有文章除特别声明外，均采用||许可协议。转载请注明来自
+  title: Lete乐特's Blog
 
 ## 打赏
+## 其中||为分割、左侧为昵称|右侧为二维码
 reward:
   enable: true
-  alipay: https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/zfb.png
-  wechat: https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/wzf.png
-
-## pjax
-## https://github.com/MoOx/pjax
-pjax: true
-
-## MathJax
-## https://github.com/mathjax/MathJax
-MathJax: false
+  left: alipay||https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/zfb.png
+  right: wechat||https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/wzf.png
 
 # 评论
 ## 注意大小写
@@ -137,7 +95,7 @@ comments: waline # twikoo / waline / valine
 # valine
 ## https://valine.js.org/
 valine:
-  source: https://cdn.jsdelivr.net/gh/lete114/CDN2/js/Valine-Lete3.2.min.js ## 原版: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js
+  source: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js ##Lete乐特的简单修改： https://cdn.jsdelivr.net/gh/lete114/CDN2/js/Valine-Lete3.2.min.js 
   appid: qvkfxxxxxxxxxxxxxxxxxxxxxbMMI # 你的 leancloud app id 
   appkey: WOURxxxxxxxxxxxxxxxxxWJrog # 你的 leancloud app key 
   master: 2a776xxxxxxxxxxxxxxxxxd7f4442e2 # (原版valine不支持)你的邮箱md5加密(百度搜索md5在线加密)
@@ -205,51 +163,23 @@ hpp_talk:
   start: 0 # 从第几条开始
   option: 
 
-# toc目录
-toc:
+## 404页面
+error_404:
   enable: true
-  scrollbar: true ## 是否隐藏toc滚动条
+  background: '#00c4b6'
 
-# 页脚
-footer:
-  since: 2020
-  custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！  
-  icp:
-    enable: false
-    text: 
-    icon: /img/icp.png
-    url: https://beian.miit.gov.cn/
-  cdn:
-    enable: false
-    text: 提供加速服务
-    icon: https://cdn.jsdelivr.net/gh/lete114/CDN/upyun/05.png
-    url: https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral
-
-## 滚动顶部 / 滚动底部 按钮
-updown:
-  enable: false
-  # left: # A默认显示 B鼠标悬浮 如果没有第二张图片 设置A/B一样 否则错误
-  #   - /img/leimuA.png
-  #   - /img/leimuB.png
-  # rgiht: 
-  #   - /img/lamuA.png
-  #   - /img/lamuB.png
-
-
-# 统计(分析)
-analytics:
-  baidu: 
-  google: 
-# 域名验证
-verify:
-  # 例如：- <meta name="google-site-verification" content="uPApgr9zH7JO36gqOf48_UpfbFRRJ6zCf4cQd-s80eA" />
-
-# 设置字体
-font:
-  # 全局字体
-  html: '"PingFang SC","Microsoft YaHei",Helvetica,Arial,Menlo,Monaco,monospace,sans-serif'
-  # 代码块字体
-  code: '"PingFang SC","Microsoft YaHei",Helvetica,Arial,Menlo,Monaco,monospace,sans-serif'
+# 通过issues申请友情链接(目前只支持gitee)
+link:
+  issues:
+    enable: false # 是否开启
+    subtitle: Gitee友链 # 副标题
+    owner: lete114 # 仓库拥有者
+    repo: link # 仓库昵称
+    show_position: later # 显示的位置  前(before) / 后(later)
+  repo_pr:  
+    enable: true # 是否开启
+    yml_url: https://cdn.jsdelivr.net/gh/lete114/CDN@latest/link.yml # 友链yml文件
+    show_position: later # 显示的位置  前(before) / 后(later)
 
 # 自定义引入外部css、js
 import:
@@ -264,28 +194,44 @@ import:
   # - '<style>body{color: red}</style>' ## 注意由于css的‘{}’是关键符号所以需要(单/双)引号''
   # - <script>alert(1)</script>
 
+# 页脚
+footer:
+  since: 2020
+  custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！  
+  icp:
+    enable: false
+    text: 
+    icon: /img/icp.png
+    url: https://beian.miit.gov.cn/
+
+# 统计(分析)
+analytics:
+  baidu: 
+  google: 
+
+# 设置字体
+font:
+  # 全局字体
+  html: 'Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif'
+  # 代码块字体
+  code: 'Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif'
+
 # 主题的css与js引入
 ## 无特殊要求请勿更改  
 CDN:
-  index_css: /css/index.css
-  index_js: /js/main.js
+  main_js: /js/main.js
+  main_css: /css/main.css
   utlis: /js/utlis.js
-  search: /js/search.js
-  lazyload: /js/lazyLoad.js
-  fortawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
-  pixi: https://cdnjs.cloudflare.com/ajax/libs/pixi.js/2.2.5/pixi.js
-
+  # lazyload
+  lazyload: /js/lazyload.js
   # pjax
   pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.min.js
   # 分享
   share_css: https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css
   share_js: https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js
-  
+  # fortawesome
+  fortawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
   # yml转json
   js_yaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
   # math
   mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
-
-
-

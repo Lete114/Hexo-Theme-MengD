@@ -1,105 +1,36 @@
-@import 'var'
-@import '_highlight/*'
-@import '_partial/*'
-@import '_partial/third-party/*'
+// Home 首页
 
-*
-    margin  0
-
-html
-    overflow-x hidden
-    scroll-behavior smooth
-    font-family: convert(hexo-config("font.html"))
-body
-    background-color #eaeaea
-    color #333333
-    font-size 14px
-    figure.highlight pre 
-        font-family: convert(hexo-config("font.code"))
-    .progress
-        position fixed
-        top 0px
-        left 0px
-        width 10%
-        height 2px
-        z-index 103
-        background-color $main
-        transition width 0.4s ease 0s
-    a
-        text-decoration none
-        color $body-a
-        transition: all .5s linear;
-    a:hover
-        transition: all .2s linear;
-        color $main !important
-    .mask
-        width 100%
-        height 100%
-        position fixed
-        top 0px
-        z-index 102
-        background rgba(0, 0, 0, .4)
-    hr
-        border 2px dashed $scrollbar
-        margin 2rem auto
+#post_list
+    .post_item
+        margin: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+        .post_title
+            color: var(--post_title);
+            font-size: 18px;
+            margin-bottom: 4px
+            font-weight: 700;
+            line-height: 1.5;
+            display: inline-block
+            text-decoration: none
+        .post_description
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: $line;
+            font-size: 13px;
+            line-height: 24px;
+            word-wrap: break-word;
+            word-break: break-all;
+            overflow: hidden;
+        .post_meta_wrap
+            margin:10px 0
+            color: #999;
+            a
+                text-decoration: none
+                color: #999;
+    .cover
+        margin: .8rem auto;
+        display: block;
+        max-width: 100%;
 
 
-#body-main.body-main
-    display -webkit-box
-    display -moz-box
-    display -webkit-flex
-    display -ms-flexbox
-    display box
-    display flex
-    margin 0 auto
-    max-width 1200px
-@media screen and (max-width 1200px)
-    #body-main.body-main
-        max-width 1200px
-@media screen and (max-width 1190px)
-    #body-main.body-main
-        max-width 1100px
-@media screen and (max-width 1100px)
-    #body-main.body-main
-        max-width 1000px
-@media screen and (max-width 850px)
-    #body-wrap
-        margin 60px 20px !important
-@media screen and (max-width 800px)
-    #body-wrap
-        width 95% !important
-        margin 60px auto !important
-@media screen and (max-width 600px)
-    body
-        font-size 14px
 
-#body-wrap
-    background-color #fff
-    width convert(hexo-config('body_width'))
-    margin 60px auto
-    border-radius 10px
-
-
-::selection 
-    background $body-a
-    color #fff
-
-/* 滚动条 */
-
-::-webkit-scrollbar 
-    width 10px
-    height 10px
-
-
-::-webkit-scrollbar-thumb 
-    background-color $scrollbar
-    background-image -webkit-linear-gradient( 45deg, rgba(255, 255, 255, .4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent)
-    border-radius 2em
-
-::-webkit-scrollbar-corner 
-    background-color transparent
-
-
-::-moz-selection 
-    color #fff
-    background-color $scrollbar

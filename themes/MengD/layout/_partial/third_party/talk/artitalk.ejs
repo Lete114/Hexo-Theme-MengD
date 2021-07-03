@@ -1,0 +1,21 @@
+<% var option = theme.artitalk.option ? JSON.stringify(theme.artitalk.option) : false %>
+<div class="main">
+    <div id="page-title" class="page-title">
+        <h2><%= theme.artitalk.title %></h2>
+    </div>
+    <div id="artitalk_main"></div>
+    <script>
+        getScript("<%-theme.artitalk.source%>",function(){
+            let initData = {
+                appId: '<%-theme.artitalk.appid%>',
+                appKey: '<%-theme.artitalk.appkey%>',
+                atEmoji: <%-JSON.stringify(theme.artitalk.atEmoji)%>,
+            }
+            var option = <%-option%>;
+            if(option){
+                initData = Object.assign(initData, option)
+            }
+            new Artitalk(initData)
+        })
+    </script>
+</div>

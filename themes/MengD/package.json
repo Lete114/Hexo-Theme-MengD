@@ -1,7 +1,7 @@
 {
   "name": "hexo-theme-mengd",
   "version": "1.6.6",
-  "description": "A simple, elegant, and beautiful Hexo theme",
+  "description": "A simple and concise Hexo theme",
   "main": "package.json",
   "scripts": {},
   "keywords": [
@@ -11,7 +11,8 @@
     "pjax",
     "lete114",
     "hexo-theme-mengd",
-    "hexo-minify"
+    "hexo-minify",
+    "hexo-seo-autopush"
   ],
   "repository": {
     "type": "git",

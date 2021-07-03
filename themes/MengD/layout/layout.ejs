@@ -1,102 +1,29 @@
 <!DOCTYPE html>
-<html lang="<%-theme.language || config.language%>">
+<html>
+
 <head>
-    <%- partial('_partial/head') %>
-    <%- partial('_partial/import_head') %>   
+    <%- partial('_global/head') %>
 </head>
-<body id="body"><%- partial('_partial/import_top') %>
-    <script>
-        var $config = {
-            navbar: <%-theme.navbar%>,
-            search:{
-                path: "<%-theme.search.path%>"
-            },
-            lazyload:{
-                enable: <%-theme.lazyload.enable%>,
-            },
-            CodeBlock:{
-                enable: <%-theme.CodeBlock.enable%>,
-                height: "<%-theme.CodeBlock.height%>",
-                scrollTop: "<%-theme.CodeBlock.scrollTop%>"
-            },
-            CDN:{
-                search: "<%-theme.CDN.search%>",
-            }
-        }
-        
-        // // 注入main.js
-        const main = document.createElement('script')
-        main.src = '<%-theme.CDN.index_js%>'
-        document.head.appendChild(main)
 
-        // 注入fortawesome.css
-        const link = document.createElement('link')
-        link.href = '<%-theme.CDN.fortawesome%>'
-        link.rel = 'stylesheet'
-        document.head.appendChild(link)
-
-        <% if (theme.amusing_title && theme.amusing_title.enable) { %>
-        var originTitle = document.title;
-        var titleTime;
-        document.addEventListener("visibilitychange", function () {
-            if (document.hidden) {
-                document.title = "<%- theme.amusing_title.leave_title %>" + originTitle;
-                clearTimeout(titleTime);
-            } else {
-                document.title = "<%- theme.amusing_title.return_title %>" + originTitle;
-                titleTime = setTimeout(function () {
-                    document.title = originTitle;
-                }, 2000);
-            }
-        });
-        <% } %>
-    </script>
-    <%- partial('_partial/navbar') %>
-    <div id="mask"></div>
-    <%- partial('_partial/third-party/analytics') %>  
-    <div class="body-main" id="body-main">
-        <div id="body-wrap">
-            <%- partial('_partial/nav') %>
-            <%- partial('_partial/header') %>
-            <main class="content">
-                <%- body %>
-            </main>
+<body>
+        <%# 非404页面 %> 
+        <div id="mask" onclick="close_all()"></div>
+        <%-partial('_global/import_top')%> 
+        <%- partial('_global/config') %>
+        <%- partial('_partial/third_party/analytics') %>
+        <div id="body_wrap">
+            <%- partial('_global/nav') %>
+                <main class="main">
+                    <%- body %>
+                </main>
+            <%- partial('_partial/rightside') %>
+            <%- partial('_global/search') %>
         </div>
-        <%if(theme.toc.enable){%>
-        <%if(page.layout=="post"){%>
-            <%if(toc(page.content,{list_number: false})!=""){%>
-            <div id="toc">
-                <div id="toc-title">
-                    <h4><%-_p("article.toc")%>
-                        <span id="num">0%</span>
-                    </h4>
-                    <progress id="progress" value="0" max="100"></progress>
-                </div>
-                <div id="toc-list">
-                    <%- toc(page.content,{list_number: false}) %>
-                </div>
-            </div>
-            <%}else{%>
-                <div id="toc" style="display: none;"></div>
-            <%}%>
-        <%}else{%>
-            <div id="toc" style="display: none;"></div>
-        <%}%>
-        <%}%>
-    </div>
-    <%- partial('_partial/footer') %>
-    <%- partial('_partial/third-party/search/local-search') %>
-    <%- partial('_partial/import_bottom') %>
-    <%- partial('_partial/third-party/pjax') %>
-    <%if(theme.updown.enable){%>
-    <div id="updown">
-        <a href="#footer">
-            <img src="<%-theme.updown.left[0]%>" onmouseout='this.src="<%-theme.updown.left[0]%>";' onmouseover='this.src="<%-theme.updown.left[1]%>";'>
-        </a>
-        <a href="#body">
-            <img src="<%-theme.updown.rgiht[0]%>" onmouseout='this.src="<%-theme.updown.rgiht[0]%>";' onmouseover='this.src="<%-theme.updown.rgiht[1]%>";'>
-        </a>
-    </div>
-    <%}%>
+        <%- partial('_global/footer') %>
+        <script src="<%-theme.CDN.main_js%>"></script>
+        <%- partial('_global/import_bottom')%>
+        <%- partial('_partial/third_party/pjax') %>
+
 </body>
+
 </html>

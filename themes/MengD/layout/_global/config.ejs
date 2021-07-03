@@ -1,0 +1,20 @@
+<% 
+
+var code_block_expand = theme.code_block_expand
+
+%> 
+
+<script>
+    var $config = {
+        <%if(theme.search.enable){%>
+        search_file: "<%=url_for(theme.search.path)%>",
+        <%}%>
+        <%if(code_block_expand.enable){%>
+        code_block_expand: {
+            enable: <%=code_block_expand.enable%>,
+            height: <%=code_block_expand.height%>,
+            scrollTop: <%=code_block_expand.scrollTop%>
+        }
+        <%}%>
+    }
+</script>

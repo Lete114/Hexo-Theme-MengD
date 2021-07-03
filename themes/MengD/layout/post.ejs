@@ -1,1 +1,163 @@
-<%- partial('_partial/article', {index: false, post: page}) %>
+
+<%var title = page.title==""?__('post.title'):page.title%> 
+<article class="post">
+  <div class="post_info">
+    <div class="post_title">
+      <h1><%= title %></h1>
+    </div>
+    <div class="post_meta">
+      <div class="post_date">
+        <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          <%- __('post.created') %>
+            <%- date(page.date, "YYYY-MM-DD" ) %> |
+        </span>
+        
+        <i class="fas fa-history fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          <%- __('post.updated') %>
+            <%- date(page.update, "YYYY-MM-DD" ) %>
+        </span>
+      </div>
+      <div class="post-meta-wordcount">
+        <i class="far fa-file-word fa-fw post-meta-icon"></i>
+        <span class="post-meta-label"><%- __('post.wordcount') %>:</span>
+        <span class="word-count"><%= wordcount(page.content) %> | </span>
+        <i class="far fa-clock fa-fw post-meta-icon"></i>
+        <span class="post-meta-label"><%- __('post.min2read') %>:</span>
+        <span><%= min2read(page.content) %><%- __('post.min2read_unit') %></span>
+        <%if(page.comments){%>
+        | <i class="far fa-eye fa-fw post-meta-icon"></i>
+        <span id="<%- url_for(page.path) %>" class="leancloud_visitors">
+            <span class="post-meta-label"><%- __('post.visitors') %>:</span>
+            <span class="leancloud-visitors-count" id="twikoo_visitors">0</span>
+        </span>
+        <%}%>
+      </div>
+    </div>
+  </div>
+  <div class="post_content">
+    <%- page.content %>
+  </div>
+  <%# 版权 %> 
+  <% 
+  var url = `${config.url}/${page.path}` // 文章地址
+  var licenses = theme.copyright.licenses.split("||") // 版权许可
+  var title = theme.copyright.title||config.title // 网站标题
+  var mail = theme.copyright.mail // 作者邮箱
+  var description = theme.copyright.description.split("||")
+  var author = theme.copyright.author||config.author // 作者
+  %> 
+<% if (theme.copyright.enable){ %>
+  <% if (page.copyright==null||page.copyright){ %>
+  <div class="post_copyright">
+    <div class="post_copyright_icon"></div>
+      <div class="post_copyright_author">
+          <span class="post_copyright_meta"><%-__('copyright.author')%>: </span>
+            <span class="post_copyright_info">
+              <a href="mailto:<%- mail %>" ><%- author%></a>
+            </span>
+      </div>
+      <div class="post_copyright_type">
+          <span class="post_copyright_meta"><%-__('copyright.article_url')%>: </span>
+            <span class="post_copyright_info">
+              <a href="<%= url %>" ><%= url %></a>
+            </span>
+      </div><div class="post_copyright_notice">
+          <span class="post_copyright_meta"><%-__('copyright.notice')%>: </span>
+            <span class="post_copyright_info"><%-description[0]%>
+              <a href="<%= licenses[1] %> " target="_blank" >
+                  <%= licenses[0] %> </a> <%-description[1]%>
+              <a href="<%= url %>" target="_blank" ><%-title%></a>
+              ！</span>
+      </div>
+  </div>
+  <% } %>
+<% } %>
+
+<%# 标签  %> 
+<%if(theme.tags){%>
+  <% if(page.tags.length!=0){ %>
+    <div class="post_tag">
+        <span>
+            <i class="fa fa-tag"></i>
+            <% page.tags.forEach(function(tag, i){ %> 
+            <a href="<%= tag.path %>"><span><%-tag.name%></span></a>
+                <%if(page.tags.length-1 > i){%>
+                    <i class="fas fa-angle-right"></i>
+                <%} %>
+            <% }) %>
+        </span>
+    </div>
+  <% } %>
+<%}%>
+
+
+<%# 打赏 %> 
+<% 
+
+var left = theme.reward.left==null?null:theme.reward.left.split("||")
+var right = theme.reward.right==null?null:theme.reward.right.split("||")
+
+
+ %> 
+<%if(theme.reward.enable){%>
+  <%if(page.reward==null || page.reward){%>
+  <div class="post_reward">
+      <div class="reward_button" <%-config.language=='en'?'style="font-size: 14px;"':""%>>
+           <%-__("reward")%>
+           <div class="reward_main">
+              <ul class="reward_all">
+                <% if (left) { %>
+                  <li class="reward_item"><a href="<%-left[1]%>"
+                          target="_blank">
+                          <img class="post_qr_code_img" src="<%-left[1]%>"></a>
+                      <div class="post_qr_code_desc"><%-left[0]%></div>
+                  </li>
+                  <% } %>
+                  <% if (right) { %>
+                  <li class="reward_item"><a href="<%-right[1]%>"
+                          target="_blank">
+                          <img class="post_qr_code_img" src="<%-right[1]%>"></a>
+                      <div class="post_qr_code_desc"><%-right[0]%></div>
+                  </li>
+                  <% } %>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <%}%>
+  <%}%>
+  <%# 上下一篇文章 %> 
+  <div class="pagination">
+    <% if (page.prev){ %>
+    <a href="<%- url_for(page.prev.path) %>" class="page_pre">
+        <i class="fas fa-arrow-alt-circle-left"></i>
+        上一篇
+    </a>
+    <% } %>
+    <% if (page.next){ %>
+    <a href="<%- url_for(page.next.path) %>" class="page_next">
+        下一篇
+        <i class="fas fa-arrow-alt-circle-right"></i>
+    </a>
+    <% } %>
+</div>
+</article>
+<%- partial('_partial/third_party/comment/index') %>
+<%# 是否是文章 %> 
+<% var is_toc = toc(page.content,{list_number: false})==""?false:true;  %> 
+<%if(is_toc&&is_post()){%>
+  <div id="toc">
+    <div class="toc_title">
+      <div>
+        <%-__("post.toc")%>
+          <span class="num">0%</span>
+      </div>
+      <progress class="progress" value="0" max="100"></progress>
+    </div>
+    <div class="toc_list">
+      <%- toc(page.content,{list_number: false}) %>
+    </div>
+  </div>
+<%}%>

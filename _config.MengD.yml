@@ -1,161 +1,138 @@
-#--------------------------------------------------------
-# Hexo-MengD(萌典)
-# 项目地址：https://github.com/lete114/hexo-theme-MengD
-# 主题文档：https://mengd.lete114.top/
-# 一个简约优雅，及美丽漂亮的主题
-#--------------------------------------------------------
 
+#--------------------------------------------------------
+# Hexo-Theme-MengD(萌典)
+# 项目地址：https://github.com/lete114/hexo-theme-MengD
+# 主题文档：https://mengd.js.org
+# 一个简洁、轻量的Hexo主题
+#--------------------------------------------------------
 
 # 导航栏菜单
 menu:
-  首页: /
-  友情链接: /link
-  
-# 基本设置(会覆盖hexo的配置)
-title: Hexo-Theme-MengD(萌典) #Lete乐特's Blog
-author: MengD(萌典)
-mail: lete@lete114.top
-favicon: https://cdn.jsdelivr.net/gh/lete114/CDN/MengD/logo32.png
-avatar: https://cdn.jsdelivr.net/gh/lete114/CDN/MengD/WindMill128.gif
-language: zh-CN
-keywords: 
-description: 一个简约优雅，及美丽漂亮的主题!!
-upjiang: false # 是否显示up酱(回到顶部)
-cover: true # 是否开启主页文章cover(首图) 
-# 是否开启版权(文章内可以设置copyright: false 属性单独关闭某个文章的版权)
-copyright: true  
-page_count: 5 # 首页显示的文章数
+   首页: /
+   友情链接: /link
 
-# 需安装插件: npm install hexo-generator-search --save
-search: 
-  enable: true
-  path: /search.xml
-  field: post
-
-# 资源压缩，默认只内置css压缩
-# 需安装插件: npm install hexo-minify --save
-minify:
-  js: true
-  css: true 
-  html: true
-
-## 404页面
-error_404:
-  enable: true # 是否开启404页面
-  text: 404！页面君找不到这个网页！！ # 自定义内容
-  sec: 10 # 多少秒后返回首页
-  background: https://cdn.jsdelivr.net/gh/lete114/CDN2/img/wei_er_li_te/3.jpg # 404页面背景颜色，默认白色
-
-# 自动截取
-post_content:
-  line: 3 # 显示多少行后出现省略号(...)
-  length: 500 # 截取多少字 
-
-## 代码块样式
-highlight_theme: mac # default / darker / pale night / light / ocean / mac / mac light
-
-# 图标
-social:
-  fab fa-github: https://github.com/lete114
-  fa fa-envelope: mailto:lete@lete114.top
+main_size: 24% # 文章显示大小
+favicon: /img/favicon.png 
+page_count: 5 # 首页展示文章数
+MathJax: false # 数学公式
+darkmode: true # 深色模式
+pjax: true # pjax
 
 ## 主题颜色
 theme_color:  
   main: '#e58a8a' # 主色
   fan: '#00c4b6' # 小风车
-  progress: '#06c5d8' # toc进度条颜色
-  scrollbar: '#e58a8a' # 滚动条颜色
-  body-a: '#00c4b6' # 全局a标签颜色
-  author-name: '#ff7242' # 博主昵称
+  body_a: '#00c4b6' # 全局a标签颜色
+  title: '#ff7242' # 博主昵称
 
-# 通过issues申请友情链接(目前只支持gitee)
-link:
-  issues:
-    enable: false # 是否开启
-    title: Gitee友链 # 主标题
-    subtitle: Gitee友链 # 副标题
-    owner: lete114 # 仓库拥有者
-    repo: link # 仓库昵称
-    show_position: later # 显示的位置  前(before) / 后(later)
-  repo_pr:  
-    enable: true # 是否开启
-    yml_url: https://cdn.jsdelivr.net/gh/lete114/CDN@latest/link.yml # 友链yml文件
-    show_position: later # 显示的位置  前(before) / 后(later)
+# 有趣的标题切换
+amusing_title:
+  enable: true
+  leave_title: '(つェ⊂) 我藏好了哦~ '
+  return_title: '(*´∇｀*) 被你发现啦~ '
 
-## share分享
-## https://github.com/overtrue/share.js/
-share:
-  sites:
-    - facebook
-    - qq
-    - weibo
-    - wechat
-    - twitter
+# 自动截取
+index_description:
+  line: '3' # 显示多少行后出现省略号(...)
+  length: '500' # 截取多少字 
+
+# 图片懒加载
+lazyload:
+  enable: true
+  loadimg: /img/load.gif
+
+# 需安装插件: npm install hexo-generator-search --save
+search:
+  enable: true
+  path: /search.xml
+  field: post
+  source: /js/search.js
+
+# 代码块高亮主题
+highlight_theme: mac # default / darker / pale night / light / ocean / mac / mac light
+code_block_expand: # 是否开启代码块折叠
+  enable: true
+  height: 400 # 代码块高度超过400折叠 单位px
+  scrollTop: 200 # 展开后,再次(手动点击)点击折叠滚动到代码块开始的距离 单位px
+
+# https://github.com/lete114/hexo-minify
+# 需要更全面的压缩请安装插件: npm install hexo-minify --save
+minify:
+  js: true
+  css: true 
+  html: true
+
+## 自定义侧边栏按钮
+## 使用 || 分割
+## setting: 点击设置按钮后显示   show: 直接显示
+## 拥有3个属性：a标签属性|a标签描述|按钮图标
+## #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon
+rightside:
+  settings: 
+    #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
+  show: 
+    #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
+
+# 文章版权
+copyright: 
+  enable: true
+  author: MengD(萌典)
+  mail: lete@lete114.top
+  licenses: CC BY-NC-SA 4.0||https://creativecommons.org/licenses/by-nc-sa/4.0/ ## 文中||为分隔符，左侧为描述，右侧为版权许可
+  description: 本博客所有文章除特别声明外，均采用||许可协议。转载请注明来自
+  title: Hexo-Theme-MengD(萌典)
 
 ## 打赏
+## 其中||为分割、左侧为昵称|右侧为二维码
 reward:
   enable: true
-  alipay: https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/zfb.png
-  wechat: https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/wzf.png
-
-## pjax
-## https://github.com/MoOx/pjax
-pjax: true
-
-## MathJax
-## https://github.com/mathjax/MathJax
-MathJax: false
+  left: alipay||https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/zfb.png
+  right: wechat||https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/wzf.png
 
 # 评论
 ## 注意大小写
-comment: valine # twikoo / waline / valine
-
-
-# valine
-## https://valine.js.org/
-valine:
-  appid: ttusWwR5N4AHiIj4B8z2Dyzr-MdYXbMMI # 你的 leancloud app id 
-  appkey: KTjd8pkw7qFCMMcJMcJCfl5c # 你的 leancloud app key 
-  master: 2a7765642415437fa16a54cd7f4442e2 # (原版valine不支持)你的邮箱md5加密(百度搜索md5在线加密)
-  friends: ed5bb69dfxxxxxxxxxxxxxxe6893b,d24719e3bxxxxxxxxxxxxxxbac991457 # (原版valine不支持)你的小伙伴的md5邮箱加密
-  placeholder: 快来评论吧!! #评论框占位符
-  avatar: '' # gravatar style https://valine.js.org/#/avatar
-  meta: ['nick','mail','link'] # 评论者相关属性
-  pageSize: 5 # comment list page size
-  lang: zh-CN # i18n: zh-CN/zh-TW/en/ja
-  emojiCDN:    # emoji CDN
-  emojiMaps:  # 自定义表情包
-  enableQQ: true  # enable the Nickname box to automatically get QQ Nickname and QQ Avatar
-  option: # 自定义添加 https://valine.js.org/configuration.html
-
-# waline
-## https://waline.js.org
-waline:
-  serverURL: https://waline.vercel.app/ #https://waline.lete114.top/ # 服务端地址
-  placeholder: 快来评论吧!! #评论框占位符
-  avatar: '' # gravatar style https://valine.js.org/#/avatar
-  meta: ['nick','mail','link'] # 评论者相关属性
-  pageSize: 5 # comment list page size
-  lang: zh-CN # i18n: zh-CN/zh-TW/en/ja
-  requiredFields: ['nick','mail','link'] # 评论人必填项
-  emojiCDN:    # emoji CDN
-  emojiMaps:  # 自定义表情包
-  option: # 自定义添加 https://waline.js.org/client/basic.html
+comments: twikoo # twikoo / waline / valine
 
 # twikoo
 ## https://twikoo.js.org/
 twikoo:
-  envId: env-jxscvzag # 你的环境id
+  envId: lete114-5g871u472d39809e #env-jxscvzag # 你的环境id
   region: ap-shanghai # 环境地域，ap-shanghai / ap-guangzhou
   path: window.location.pathname  # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
   option: 
 
 
 
-# toc目录
-toc:
+## 404页面
+error_404:
   enable: true
-  scrollbar: true ## 是否隐藏toc滚动条
+  background: '#00c4b6'
+
+# 通过issues申请友情链接(目前只支持gitee)
+link:
+  issues:
+    enable: false # 是否开启
+    subtitle: Gitee友链 # 副标题
+    owner: lete114 # 仓库拥有者
+    repo: link # 仓库昵称
+    show_position: later # 显示的位置  前(before) / 后(later)
+  repo_pr:  
+    enable: true # 是否开启
+    yml_url: https://cdn.jsdelivr.net/gh/lete114/links@latest/MengD/link.yml # 友链yml文件
+    show_position: later # 显示的位置  前(before) / 后(later)
+
+# 自定义引入外部css、js
+import:
+  head: # 引入到</head>之前
+    - 
+  top: # 引入到<body>之后
+    - 
+  bottom: # 引入到</body>之前
+    - 
+  # 例如： 
+  # - <link rel="stylesheet" href="/css/index.css">
+  # - '<style>body{color: red}</style>' ## 注意由于css的‘{}’是关键符号所以需要(单/双)引号''
+  # - <script>alert(1)</script>
 
 # 页脚
 footer:
@@ -163,65 +140,38 @@ footer:
   custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！  
   icp:
     enable: false
-    text: 黔 ICP 备 20006055 号
+    text: 
     icon: /img/icp.png
-    url: http://www.beian.miit.gov.cn/
-  cdn:
-    enable: false
-    text: 提供加速服务
-    icon: https://cdn.jsdelivr.net/gh/lete114/CDN/upyun/05.png
-    url: https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral
-    
+    url: https://beian.miit.gov.cn/
 
 # 统计(分析)
 analytics:
   baidu: 8e216044fbe6b71b6fefc197c2508ed1
   google: 
 
-# 域名验证
-verify:
-    - <meta name="google-site-verification" content="uPApgr9zH7JO36gqOf48_UpfbFRRJ6zCf4cQd-s80eA" />
-    - <meta name="baidu-site-verification" content="code-mMhZO15Nzu" />
-  # 例如：- <meta name="google-site-verification" content="uPApgr9zH7JO36gqOf48_UpfbFRRJ6zCf4cQd-s80eA" />
-
-# 自定义引入外部css、js
-import:
-  head: 
-    - <meta name="baidu-site-verification" content="code-1RkL0ppriC" />
-  botton:
-    - 
-  # 例如： 
-  # - <link rel="stylesheet" href="/css/index.css">
-  # - <link rel="stylesheet" href="/css/index.css">
-  # - '<style>body{color: red}</style>' ## 注意由于css的‘{}’是关键符号所以需要(单/双)引号''
-  # - <script>alert(1)</script>
+# 设置字体
+font:
+  # 全局字体
+  html: 'Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif'
+  # 代码块字体
+  code: 'Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif'
 
 # 主题的css与js引入
 ## 无特殊要求请勿更改  
 CDN:
-  index_css: /css/index.css
-  index_js: /js/main.js
-  article_css: /css/article.css
-  search: /js/search.js
-  upj: https://cdn.jsdelivr.net/gh/lete114/CDN/Use/up.gif
-
+  main_js: /js/main.js
+  main_css: /css/main.css
+  utlis: /js/utlis.js
+  # lazyload
+  lazyload: /js/lazyload.js
   # pjax
-  pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.js
-  # 图片展示
-  fancybox_css: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
-  fancybox_js: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
+  pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.min.js
   # 分享
-  share_css: https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css
-  share_js: https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js
-  # 评论
-  valine: https://cdn.jsdelivr.net/gh/lete114/CDN2/js/Valine-Lete3.2.js ## 原版: //unpkg.com/valine/dist/Valine.min.js
-  waline: //cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js
-  twikoo: https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js
+  share_css: https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css
+  share_js: https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js
+  # fortawesome
+  fortawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
   # yml转json
   js_yaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
-  # clipboard
-  clipboard: https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js
-
-
-
-
+  # math
+  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

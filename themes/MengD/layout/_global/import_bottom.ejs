@@ -1,0 +1,26 @@
+
+<% if (theme.amusing_title && theme.amusing_title.enable) { %>
+<%# 此处并未适配pjax，原因是无意义 %> 
+<script>
+    var originTitle = document.title;
+    var titleTime;
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+            document.title = "<%- theme.amusing_title.leave_title %>" + originTitle;
+            clearTimeout(titleTime);
+        } else {
+            document.title = "<%- theme.amusing_title.return_title %>" + originTitle;
+            titleTime = setTimeout(function () {
+                document.title = originTitle;
+            }, 2000);
+        }
+    });
+</script>
+<% } %>
+<%if(theme.lazyload.enable){%>
+<script src="<%-theme.CDN.lazyload%>"></script>
+<%}%>
+<%- partial('../_partial/third_party/math/MathJax') %>
+<% theme.import.bottom.forEach(function(bottom, i){ %>
+    <%-bottom%>
+<% }) %>

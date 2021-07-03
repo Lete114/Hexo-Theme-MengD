@@ -1,0 +1,157 @@
+// 全局
+
+*{
+    margin: 0
+}
+
+html[data-theme="dark"] 
+    img,#rightside
+        -webkit-filter: brightness(.8);
+        filter: brightness(.8);
+
+html
+    scroll-behavior: smooth;
+body
+    background-color: var(--body_bg)
+    font-size: 12px;
+    color: var(--text_color)
+    overflow-x: hidden;
+    font-family: $font_html
+    a
+        text-decoration: none;
+        color: $body_a
+        transition: all .5s;
+    .mask 
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 102;
+        background: rgba(0,0,0,.4);
+    .pjax_progress
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 10%;
+        height: 2px;
+        z-index: 103;
+        background-color: #e58a8a;
+        transition: width .4s ease 0s
+    
+#body_wrap
+    margin-top: 70px
+    width: 100%;
+    .main
+        border-radius: 10px
+        padding: 30px
+        background: var(--main_bg);
+        margin: 60px $main_size 0
+
+.table_wrap
+    overflow-x scroll
+    table
+        display table
+        width 100%
+        border-spacing 0
+        border-collapse collapse
+        empty-cells show
+        thead 
+            background rgba(153,169,191,.1)
+        th,td 
+            padding .3rem .6rem
+            border 1px solid #eee
+            vertical-align middle
+
+.post_content
+    h1::before,h2::before,h3::before,h4::before,h5::before,h6::before
+        color: $fan
+        margin-right: 10px;
+        display: inline-block;
+        content: '\f863';    
+        -webkit-animation: IH 1s linear infinite;
+        animation: IH 1s linear infinite;
+        font-family: 'Font Awesome 5 Free';
+figure.highlight
+    border-radius 10px
+    margin-bottom: 20px
+    font-family: $font_code
+
+kbd
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #666;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 -1px 0 #000;
+    box-shadow: inset 0 -1px 0 #000;
+code
+    padding: .1rem .2rem;
+    background: rgba(27,31,35,0.05);
+    color: #f47466;
+    border-radius: 3px;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+blockquote
+    margin: 4px 0;
+    padding: .6rem .8rem;
+    border-left: .2rem solid #e58a8a;
+    background-color: rgba(73,177,245,0.1);
+    color: var(--blockquote_color);
+.pullquote.left
+    max-width: 45%;
+    float: left;
+    margin: .5em .5em 0 0;
+.pullquote.right
+    max-width: 45%;
+    float: right;
+    margin: .5em 0 0 .5em;
+    border-right: .2rem solid #e58a8a;
+    border-left: none
+.video-container
+    position: relative;
+    overflow: hidden;
+    margin-bottom: .8rem;
+    padding-top: 56.25%;
+    height: 0;
+    iframe
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 0;
+        width: 100%;
+        height: 100%;
+
+
+@media screen and (max-width 800px)
+    #body_wrap .main
+        margin: 60px 4%;
+        padding: 10px;
+
+@import 'search'
+@import 'nav'
+@import '../_highlight/code_block'
+@import 'comment'
+@import 'footer'
+@import 'dark'
+@import 'animation'
+
+
+/* 滚动条 */
+::-webkit-scrollbar 
+    width 10px
+    height 10px
+
+
+::-webkit-scrollbar-thumb 
+    background-color var(--main)
+    background-image -webkit-linear-gradient( 45deg, rgba(255, 255, 255, .4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent)
+    border-radius 2em
+
+::-webkit-scrollbar-corner 
+    background-color transparent
+
+
+::-moz-selection 
+    color #fff
+    background-color var(--main)

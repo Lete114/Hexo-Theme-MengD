@@ -1,0 +1,48 @@
+<%if(theme.analytics.baidu){%>
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?<%-theme.analytics.baidu%>";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+  <%}%>
+
+<%if(theme.analytics.google){%>
+<script>
+  const script = document.createElement('script')
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=<%-theme.analytics.google%>'
+  script.async = true
+  document.head.appendChild(script)
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '<%-theme.analytics.google%>');
+</script>
+<%}%>
+
+<%if(theme.pjax){%>
+  <%if(theme.analytics.baidu&&theme.analytics.google){%>
+  <script>
+    document.addEventListener('pjax:complete', function () {
+      <%if(theme.analytics.baidu){%>
+      <%#百度统计 Pjax%>
+      if(typeof _hmt !== "undefined" && typeof _hmt.push === "function") {
+        _hmt.push(['_trackPageview',window.location.pathname]);
+      }
+      <%}%>
+      <%if(theme.analytics.google){%>
+      <%#谷歌统计 Pjax%>
+      if(typeof ga === "function") {
+        ga('send', 'pageview', window.location.href);
+      }
+      if(typeof gtag === "function"){
+        gtag('event', 'pageview', {page_location: window.location.href});
+      }
+      <%}%>
+    })
+  </script>
+  <%}%>
+<%}%>

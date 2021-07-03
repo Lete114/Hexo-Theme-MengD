@@ -1,11 +1,10 @@
 ---
 title: 友情链接
 date: 2021-01-08 11:27:22
-type: links
+type: link
 comment: false
 ---
 
-<hr>
 
 ## 我们欢迎你
 

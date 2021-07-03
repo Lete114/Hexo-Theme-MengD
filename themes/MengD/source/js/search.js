@@ -1,13 +1,23 @@
-var local_search = document.getElementById("local-search");
+var local_search = document.getElementById("local_search");
 var html = document.querySelector("html")
-var search_mask = document.getElementById("search-mask")
+var mask = document.getElementById("mask")
+var is_load = false // 处理资源是否被加载
 
-var searchFunc = function (path, search_id, content_id) {
+/**
+ * 本地搜索
+ * 来源于hexo-butterfly
+ * 由Lete乐特进行小型改动
+ * @param {*} path 文件路径
+ * @param {*} search_id 搜索输入框
+ * @param {*} content_id 搜索结果展示
+ */
+var search = function (path, search_id, content_id) {
+    is_load = true
     fetch(path)
         .then(res => res.text())
         .then(str => new window.DOMParser().parseFromString(str, 'text/xml'))
         .then(function (data) {
-            const datas = [...data.querySelectorAll('entry')].map(function (item) {
+            var datas = [...data.querySelectorAll('entry')].map(function (item) {
                 return {
                     title: item.querySelector('title').textContent,
                     content: item.querySelector('content').textContent,
@@ -17,7 +27,7 @@ var searchFunc = function (path, search_id, content_id) {
             var $input = document.getElementById(search_id);
             var $resultContent = document.getElementById(content_id);
             $input.addEventListener('input', function () {
-                var str = '<ul class=\"search-result-list\">';
+                var str = '<ul class=\"search_result_list\">';
                 var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
                 $resultContent.innerHTML = "";
                 if (this.value.trim().length <= 0) return;
@@ -59,11 +69,11 @@ var searchFunc = function (path, search_id, content_id) {
                             // highlight all keywords
                             keywords.forEach(function (keyword) {
                                 var regS = new RegExp(keyword, "gi");
-                                match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
-                                data_title = data_title.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                                match_content = match_content.replace(regS, "<span class=\"search_keyword\">" + keyword + "</span>");
+                                data_title = data_title.replace(regS, "<span class=\"search_keyword\">" + keyword + "</span>");
                             });
-                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-                            str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            str += "<li><a href='" + data_url + "' class='search_result_title'>" + data_title + "</a>";
+                            str += "<p class=\"search_result\">" + match_content + "...</p>"
                         }
                         str += "</li>";
                     }
@@ -72,49 +82,34 @@ var searchFunc = function (path, search_id, content_id) {
                 $resultContent.innerHTML = str;
                 window.pjax && window.pjax.refresh($resultContent)
             });
-            // })
         })
 }
-searchFunc($config.search.path, 'local-search-input', 'local-search-result')
 
 
 // 显示搜索框
-document.querySelectorAll(".search-btn").forEach(function (item) {
-    item.onclick = function () {
-        search_mask.className = "mask"
-        if (local_search.style.display == "none") {
-            local_search.style.display = "block"
-            html.style.overflow = "hidden";
-            local_search.classList.remove("search-animation-min")
-            local_search.classList.add("search-animation-max")
-            document.getElementById("local-search-input").focus()
-        }
+document.getElementsByClassName('search_btn')[0].onclick = function () {
+    if (!is_load) search($config.search_file, 'local_search_input', 'local_search_result')
+    mask.className = "mask"
+    if (!local_search.style.display) {
+        local_search.style.display = "block"
+        html.style.overflow = "hidden";
+        local_search.classList.remove("search_animation_min")
+        local_search.classList.add("search_animation_max")
+        document.getElementById("local_search_input").focus()
     }
-})
-
-// 关闭搜索框
-document.querySelector(".search-close-button").onclick = function () {
-    local_search.classList.remove("search-animation-max")
-    local_search.classList.add("search-animation-min")
-    search_mask.classList.remove("mask")
-    html.style.overflow = "auto";
-    setTimeout(function () {
-        local_search.style.display = "none"
-    }, 500)
 }
 
-
-// 关闭所有正在打开的弹窗
-search_mask.onclick = function () {
-    local_search.classList.remove("search-animation-max")
-    local_search.classList.add("search-animation-min")
+// 关闭搜索框
+document.querySelector(".search_close_button").onclick = function () {
+    local_search.classList.remove("search_animation_max")
+    local_search.classList.add("search_animation_min")
+    mask.classList.remove("mask")
     html.style.overflow = "auto";
-    search_mask.className = ""
     setTimeout(function () {
-        local_search.style.display = "none"
+        local_search.style.display = ""
     }, 500)
 }
 
 window.addEventListener('pjax:complete', function () {
-    local_search.style.display === 'none' ? search_mask.className = "" : ""
+    local_search.style.display === 'none' ? mask.className = "" : ""
 })

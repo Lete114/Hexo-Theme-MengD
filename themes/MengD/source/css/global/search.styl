@@ -1,0 +1,158 @@
+/**
+ * 本地搜索
+ * 来源于hexo-butterfly
+ * 由Lete乐特进行小型改动
+ */
+
+if hexo-config('search.enable')
+    // 关键词
+    .search_keyword 
+        color #f47466
+        font-weight 700
+    // 搜索结果列表
+    #local_search .search_result_list 
+        overflow-y auto
+        max-height 10.5rem
+        overflow-x:hidden
+        padding 0 10px
+    #local_search .search_result
+        margin .3rem 0 .4rem
+        word-break break-all
+        line-height 1.7
+        font-size 14px
+    .search_result_list li
+        list-style none
+        a
+            font-weight 600
+            font-size 14px
+    // 关闭按钮
+    .search_close_button 
+        position absolute
+        top .8rem
+        right 1rem
+        color #858585
+        font-size 1rem
+        line-height 1
+        cursor pointer
+        -webkit-transition color .2s ease-in-out
+        -moz-transition color .2s ease-in-out
+        -o-transition color .2s ease-in-out
+        -ms-transition color .2s ease-in-out
+        transition color .2s ease-in-out
+    // 搜索框
+    #local_search
+        display: none;
+        border-radius 10px
+        position fixed
+        top 5rem
+        left 50%
+        z-index 1001
+        margin-left -15rem
+        padding 1rem
+        width 30rem
+        background var(--main_bg)
+        -webkit-box-sizing border-box
+        -moz-box-sizing border-box
+        box-sizing border-box
+        hr 
+            margin 1rem auto 
+    // 本地搜索
+    #local_search_title 
+        padding 0 0 .7rem
+        color var(--main)
+        font-size 1rem
+        text-align center
+        line-height 1
+    // 搜索框
+    #local_search input 
+        padding .25rem .7rem
+        width 100%
+        outline 0
+        border 2px solid var(--main)
+        border-radius 2rem
+        background transparent;
+        color var(--text_color)
+        font-size 14px
+        -webkit-box-sizing border-box
+        -moz-box-sizing border-box
+        box-sizing border-box
+    #local_search hr
+        border: 2px dashed var(--main);
+        margin: 2rem auto;
+    @media screen and (min-width 800px)
+        #navbar_wrap .search_btn
+            display: inline-block
+
+    @media screen and (max-width 800px)
+        #local_search .search_result_list
+            padding-bottom 2rem
+            max-height 75vh!important
+        #local_search
+            border-radius 0
+            top 0
+            left 0
+            margin 0
+            width 100%
+            height 100%
+
+
+// 动画
+.search_animation_max
+    -webkit-animation search_animation_max 0.5s
+    -moz-animation search_animation_max 0.5s
+    -o-animation search_animation_max 0.5s
+    -ms-animation search_animation_max 0.5s
+    animation search_animation_max 0.5s
+.search_animation_min
+    -webkit-animation search_animation_min 0.5s
+    -moz-animation search_animation_min 0.5s
+    -o-animation search_animation_min 0.5s
+    -ms-animation search_animation_min 0.5s
+    animation search_animation_min 0.5s
+
+// 放大
+@keyframes search_animation_max{
+
+    0% {
+        opacity 0
+        -webkit-transform scale(0.7)
+        -moz-transform scale(0.7)
+        -o-transform scale(0.7)
+        -ms-transform scale(0.7)
+        transform scale(0.7)
+    }
+    100% {
+        opacity 1
+        -ms-filter none
+        filter none
+        -webkit-transform scale(1)
+        -moz-transform scale(1)
+        -o-transform scale(1)
+        -ms-transform scale(1)
+        transform scale(1)
+    }
+}
+// 缩小
+@keyframes search_animation_min{
+
+    0% {
+        opacity 1
+        -ms-filter none
+        filter none
+        -webkit-transform scale(1)
+        -moz-transform scale(1)
+        -o-transform scale(1)
+        -ms-transform scale(1)
+        transform scale(1)
+        
+    }
+    100% {
+        opacity 0
+        -webkit-transform scale(0.7)
+        -moz-transform scale(0.7)
+        -o-transform scale(0.7)
+        -ms-transform scale(0.7)
+        transform scale(0.7)
+    }
+
+}

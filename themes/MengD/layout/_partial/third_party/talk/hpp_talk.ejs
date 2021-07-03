@@ -1,0 +1,24 @@
+<% var option = theme.hpp_talk.option ? JSON.stringify(theme.hpp_talk.option) : false %>
+<div class="main">
+    <div id="page-title" class="page-title">
+        <h2><%= theme.hpp_talk.title %></h2>
+    </div>
+    
+    <link rel="stylesheet" href="<%-theme.hpp_talk.source_css%>" /> 
+    <div id="hpp_talk"></div>
+    <script>
+        getScript("<%-theme.hpp_talk.source_js%>",function(){
+            let initData = {
+                id:"hpp_talk",
+                domain: "<%-theme.hpp_talk.domain%>",
+                limit: <%-theme.hpp_talk.limit%>,
+                start: <%-theme.hpp_talk.start%>
+            }
+            var option = <%-option%>;
+            if(option){
+                initData = Object.assign(initData, option)
+            }
+            new hpp_talk(initData)
+        })
+    </script>
+</div>

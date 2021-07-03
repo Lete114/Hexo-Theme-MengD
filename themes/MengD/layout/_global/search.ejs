@@ -1,0 +1,11 @@
+<% if (theme.search.enable) { %>
+    <div id="local_search">
+        <div id="local_search_title"><%- __('search.title') %> </div>
+        <input id="local_search_input" autocomplete="off" placeholder="<%- __('search.input') %>"
+            type="text">
+        <hr>
+        <div id="local_search_result"></div>
+        <span class="search_close_button"><i class="fas fa-times"></i></span>
+    </div>
+    <script src="<%- theme.search.source %>"></script>
+<% } %>
