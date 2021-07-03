@@ -1,0 +1,115 @@
+.navbar
+    transition: all .2s linear 0s;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    #navbar_wrap{
+        padding: 0 30px;
+        margin: 0 10%
+        background-color: var(--navbar_bg);
+        border-radius: 10px    
+        -webkit-box-shadow: 0 5px 6px -5px #444
+        box-shadow: 0 5px 6px -5px #444
+    }
+    .blog_name
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: $title
+        display: inline-block;
+        padding: 18px 0;
+        text-decoration: none;
+    ul
+        float right
+        top -30px
+        padding-left: 0;    
+        padding: 10px 0;
+    li
+        position relative
+        list-style none
+        float left
+        a
+            font-weight 700
+            display block
+            cursor pointer
+            white-space nowrap
+            padding 10px
+            font-size .9rem
+    ul li:hover .menu_child
+        background-color var(--navbar_bg)
+        position absolute !important
+        right 0
+        display inline-block !important
+        margin-top 66px
+        padding 0
+        border-radius 6px
+        width max-content
+        -webkit-box-shadow 0 5px 20px -4px rgba(0,0,0,.5)
+        box-shadow 0 5px 20px -4px rgba(0,0,0,.5)
+
+#navbar_wrap i
+    float: right
+    padding: 24px 4px 0;
+    display: none
+
+.menu_child
+    display none
+    li
+        float none
+.navbar
+    a
+        font-weight: 700;
+        display: block;
+        cursor: pointer;
+        white-space: nowrap;
+        padding: 18px 10px;
+        font-size: .9rem;
+        text-decoration: none
+        color: #00c4b6;
+// 手机端
+.open_mobile
+    -webkit-transform translate3d(-100%, 0, 0)
+    -moz-transform translate3d(-100%, 0, 0)
+    -o-transform translate3d(-100%, 0, 0)
+    -ms-transform translate3d(-100%, 0, 0)
+    transform translate3d(-100%, 0, 0)
+#mobile_nav
+    background: var(--main_bg)
+    position: fixed;
+    right: -250px;
+    top: 0;
+    z-index: 103;
+    overflow: hidden auto;
+    width: 250px;
+    height: 100%;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -ms-transition: all .5s;
+    transition: all .5s;
+#mobile_nav ul
+    padding-inline-start: unset;
+    li 
+        display: block;
+        list-style: none;
+        text-align: center;
+        line-height: 2;
+        a
+            font-weight: 700;
+            display: block;
+            cursor: pointer;
+            white-space: nowrap;
+            padding: 10px;
+            font-size: .9rem;
+            
+@media screen and (max-width 900px)
+    .navbar #navbar_wrap .menu
+        display: none
+    .navbar #navbar_wrap
+        margin: 0
+    #navbar_wrap i
+        display: inline-block
+@media screen and (min-width 900px)
+    #navbar_wrap i.search-btn
+        display: inline-block;

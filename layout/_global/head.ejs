@@ -1,0 +1,46 @@
+<% 
+var title = config.title
+if (page.title)title = page.title+' | '+config.title
+
+// 关键字
+var keywords 
+if(page.keywords)keywords = Array.isArray(page.keywords) ? (page.keywords).join(',') : page.keywords // 文章关键字
+else if(page.tags) keywords = page.tags.data.map((tag)=>{ return tag.name}).join(',') // 文章标签
+else keywords = Array.isArray(config.keywords) ? (config.keywords).join(',') : config.keywords // 网站关键字
+
+// 描述
+var description
+if(is_home()) description=config.description
+else if(page.description)description = page.description
+else {
+    let content = strip_html(page.content)
+    content = content.substring(0, 300)
+    description = content.replace(/[\n]|[\r\n]/g,"")
+}
+// url
+var url = config.url+ url_for(path)
+%> 
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<title><%- title %></title>
+<link href="<%-theme.favicon%>" rel="shortcut icon">
+<meta name="author" content="<%- config.author %> ">
+<meta name="copyright" content="<%- config.author %>">
+<meta name="keywords" content="<%- keywords %>">
+<meta name="description" content="<%- description %>" />
+<meta property="site_name" content="<%- config.title %> " />
+<meta property="og:type" content="website">
+<meta property="og:url" content="<%- url %>">
+<meta property="og:title" content="<%- title  %>" />
+<meta property="og:site_name" content="<%-config.title %>" />
+<meta property="og:description" content="<%= description%>" />
+<meta property="og:locale" content="<%-config.language%>">
+<meta property="article:author" content="<%-config.author %> ">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link href="<%- config.url %>" rel="prefetch">
+<link href="//cdn.jsdelivr.net" rel="preconnect" crossorigin>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="<%- theme.CDN.main_css %> " rel="stylesheet">
+<%-partial('import_head')%> 

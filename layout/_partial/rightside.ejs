@@ -1,35 +1,50 @@
 <section id="rightside">
-    <%if(theme.rightside!=null){%>
-    <div id="rightside-btn">
-        <%for(var i in theme.rightside){%>
-        <%var item = theme.rightside[i].split("||")%>
+    <%if(theme.rightside.settings){%>
+    <%# 当设置了settings属性才会显示 %> 
+    <div class="rightside_btn">
+        <%theme.rightside.settings.forEach(items => {%>
+        <%var item = items.split("||")%>
         <a <%-item[0]%> title="<%-item[1]%>">
             <i class="<%-item[2]%>"></i>
         </a>
-        <%}%>
+        <%});%>
     </div>
     <%}%>
-    <div id="rightside-item">
-        <%if(theme.rightside!=null){%>
-            <a href="javascript:(0)" id="settings" title="<%-_p('rightside.settings')%>">
-                <i class="fas fa-cog fa-spin"></i>
+    <div class="rightside_item">
+        <%if(theme.rightside.show){%>
+            <%theme.rightside.show.forEach(items => {%>
+            <%var item = items.split("||")%>
+            <a <%-item[0]%> title="<%-item[1]%>">
+                <i class="<%-item[2]%>"></i>
+            </a>
+            <%});%>
+        <%}%>
+        <%if(theme.rightside.settings){%>
+        <%# 当设置了settings属性才会显示 %> 
+        <a href="javascript:(0)" id="settings" title="<%-__('rightside.settings')%>">
+            <i class="fas fa-cog fa-spin"></i>
+        </a>
+        <%}%>
+        <%# 是否是文章 %> 
+        <% var toc = toc(page.content,{list_number: false})==""?false:true;%> 
+        <%if(toc&&is_post()){%>
+            <a id="open_toc" title="<%-__('post.toc')%>">
+                <i class="fas fa-list-ul"></i>
             </a>
         <%}%>
-        <%if(toc(page.content,{list_number: false})!=""){%>
-            <%if(is_post()){%>
-                <a class="rightside-toc" title="<%-_p('article.toc')%>">
-                    <i class="fas fa-list-ul"></i>
-                </a>
-            <%}%>
-        <%}%>
-        <%if(theme.comments!=null||page.comments==null){%>
-            <%if(page.comments){%>
-            <a href="#<%-_p('rightside.direct_comments')%>" title="<%-_p('rightside.direct_comments')%>">
+        <% if(theme.darkmode){ %> 
+        <%# 是否开启深色模式 %> 
+        <a href="javascript:(0)" id="darkmode" title="<%- __('rightside.dark') %> ">
+            <i class="fas fa-moon"></i>
+        </a>
+        <% } %> 
+        <% if(theme.comments&&page.comments){ %>
+        <%# 是否开启深色模式 %>
+            <a href="#<%-__('rightside.direct_comments')%>" title="<%-__('rightside.direct_comments')%>">
                 <i class="fas fa-comments"></i>
             </a>
-            <%}%>
-        <%}%>
-        <a href="#" title="<%-_p('rightside.back_to_top')%>">
+        <% } %>
+        <a href="#" title="<%-__('rightside.back_to_top')%>">
             <i class="fas fa-arrow-up"></i>
         </a>
     </div>

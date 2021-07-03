@@ -1,0 +1,34 @@
+<% 
+var now = new Date().getFullYear(); // 年限
+var since = theme.footer.since === now ? theme.footer.since : (theme.footer.since + " - " + now)
+
+var icp_enable = theme.footer.icp.enable  // 是否开启ICP
+var icp_icon = theme.footer.icp.icon // ICP图标
+var icp_url = theme.footer.icp.url // ICP地址
+var icp_text = theme.footer.icp.text // ICP备案号
+var custom_text = theme.footer.custom_text || config.subtitle // 自定义内容
+%> 
+
+<footer class="footer" id="footer">
+    <div class="copyright">
+      &copy; <%- since %>
+        <i class="fas fa-fan"></i>
+        <%= config.author %>
+    </div>
+    <div class="framework-info">
+        <span><%-__("footer.framework")%> </span>
+        <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="footer-separator">|</span>
+        <span><%-__("footer.theme")%> </span>
+        <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+    </div>
+    <%if(icp_enable){%>
+    <div class="third-party">
+        <span class="icp">
+            <img src="<%= icp_icon%>" alt="ICP">
+            <a id="icp" href="<%= icp_url%>" target="_blank"><%= icp_text%></a>
+        </span>
+    </div>
+    <%}%>
+    <div class="custom-text"><%- custom_text%></div>
+</footer>

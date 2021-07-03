@@ -1,0 +1,16 @@
+<%if(theme.comments&&page.comments){%>
+    <div class="comment_head" id="<%-__('rightside.direct_comments')%>">
+        <hr>
+        <div class="comment_headline">
+            <i class="fas fa-comments fa-fw"></i>
+            <span><%-__('comments')%></span>
+        </div>
+        <%if(theme.comments=="valine"){%>
+            <%- partial('valine') %>
+        <%}else if(theme.comments=="waline"){%>
+            <%- partial('waline') %>
+        <%}else if(theme.comments=="twikoo"){%>
+            <%- partial('twikoo') %>
+        <%}%>
+    </div>
+<%}%>

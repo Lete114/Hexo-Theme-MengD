@@ -1,7 +1,7 @@
 $highlight_theme = hexo-config('highlight_theme')
 
 if $highlight_theme == 'default'
-  $highlight-wrap = #222d32
+  $code_block = #222d32
   $highlight-background = #263238
   $highlight-current-line = #efefef
   $highlight-selection = #80CBC420
@@ -27,7 +27,7 @@ if $highlight_theme == 'default'
   $highlight-scrollbar = darken($highlight-background, 6)
 
 if $highlight_theme == 'darker' || ($highlight_theme == 'mac')
-  $highlight-wrap = #1c1c1c
+  $code_block = #1c1c1c
   $highlight-background = #212121
   $highlight-current-line = #282a2e
   $highlight-selection = #61616150
@@ -54,7 +54,7 @@ if $highlight_theme == 'darker' || ($highlight_theme == 'mac')
   $highlight-scrollbar = darken($highlight-background, 6)
 
 if $highlight_theme == 'pale night'
-  $highlight-wrap = #252938
+  $code_block = #252938
   $highlight-background = #292D3E
   $highlight-current-line = #393939
   $highlight-selection = #717CB450
@@ -80,7 +80,7 @@ if $highlight_theme == 'pale night'
   $highlight-scrollbar = darken($highlight-background, 6)
 
 if $highlight_theme == 'ocean'
-  $highlight-wrap = #0b0d14
+  $code_block = #0b0d14
   $highlight-background = #0F111A
   $highlight-current-line = #000000
   $highlight-selection = #717CB450
@@ -106,7 +106,7 @@ if $highlight_theme == 'ocean'
   $highlight-scrollbar = darken($highlight-background, 5)
 
 if $highlight_theme == 'light' || ($highlight_theme == 'mac light')
-  $highlight-wrap = #e6ebf1
+  $code_block = #e6ebf1
   $highlight-background = #F6F8FA
   $highlight-current-line = #00346e
   $highlight-selection = #80CBC440
@@ -133,7 +133,7 @@ if $highlight_theme == 'light' || ($highlight_theme == 'mac light')
   $highlight-scrollbar = darken($highlight-background, 8)
 
 if $highlight_theme == false
-  $highlight-wrap = #e6ebf1
+  $code_block = #e6ebf1
   $highlight-background = #F6F8FA
   $highlight-foreground = #90A4AE
   $highlight-selection = #80CBC440
