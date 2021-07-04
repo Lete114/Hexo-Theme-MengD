@@ -1,0 +1,22 @@
+<header>
+    <div class="header_author">
+        <!-- <div> -->
+            <a href="<%= config.root %>" class="author">
+                <img src="<%=  theme.avatar %>" alt="<%= theme.author || config.author %>" class="author_avatar">
+                <div class="author_name">
+                    <%= config.author %>
+                </div>
+            </a>
+        <!-- </div> -->
+    </div>
+    <div class="header_description">
+        <p>
+            <%= theme.description || config.description %>
+        </p>
+        <div class="header_icon">
+            <% for (social in theme.social) { %>
+                <a href="<%- url_for(theme.social[social]) %>"><i class="<%= social %>"></i></a>
+                <% } %>
+        </div>
+    </div>
+</header>
