@@ -11,6 +11,11 @@ menu:
    首页: /
    友情链接: /link
 
+# 图标
+social:
+  fab fa-github: https://github.com/lete114
+  fa fa-envelope: mailto:lete@lete114.top
+
 main_size: 24% # 文章显示大小
 favicon: /img/favicon.png 
 page_count: 5 # 首页展示文章数

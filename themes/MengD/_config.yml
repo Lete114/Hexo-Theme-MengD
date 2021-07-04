@@ -1,4 +1,11 @@
 
+#--------------------------------------------------------
+# Hexo-MengD(萌典)
+# 项目地址：https://github.com/lete114/hexo-theme-MengD
+# 主题文档：https://mengd.js.org
+# 一个简洁、轻量的Hexo主题
+#--------------------------------------------------------
+
 # 导航栏菜单
 menu:
   # 首页: /
@@ -9,8 +16,14 @@ menu:
   # 友情链接: /link
   # 关于我: /about
 
+# 图标
+social:
+  # fab fa-github: https://github.com/lete114
+  # fa fa-envelope: mailto:lete@lete114.top
+
 main_size: 24% # 文章显示大小
 favicon: /img/favicon.png 
+avatar: https://cdn.jsdelivr.net/gh/lete114/CDN/MengD/WindMill128.gif
 page_count: 5 # 首页展示文章数
 MathJax: false # 数学公式
 darkmode: true # 深色模式
@@ -37,12 +50,12 @@ index_description:
 
 # 图片懒加载
 lazyload:
-  enable: false
+  enable: true
   loadimg: /img/load.gif
 
 # 需安装插件: npm install hexo-generator-search --save
 search:
-  enable: false
+  enable: true
   path: /search.xml
   field: post
   source: /js/search.js
@@ -178,7 +191,7 @@ link:
     show_position: later # 显示的位置  前(before) / 后(later)
   repo_pr:  
     enable: true # 是否开启
-    yml_url: https://cdn.jsdelivr.net/gh/lete114/CDN@latest/link.yml # 友链yml文件
+    yml_url: https://cdn.jsdelivr.net/gh/lete114/links@latest/MengD/link.yml # 友链yml文件
     show_position: later # 显示的位置  前(before) / 后(later)
 
 # 自定义引入外部css、js
