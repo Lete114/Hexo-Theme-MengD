@@ -13,7 +13,7 @@ html
     scroll-behavior: smooth;
 body
     background-color: var(--body_bg)
-    font-size: 12px;
+    font-size: 14px;
     color: var(--text_color)
     overflow-x: hidden;
     font-family: $font_html
@@ -21,6 +21,8 @@ body
         text-decoration: none;
         color: $body_a
         transition: all .5s;
+    p
+        margin: revert
     .mask 
         width: 100%;
         height: 100%;
@@ -108,6 +110,8 @@ blockquote
     border-left: .2rem solid #e58a8a;
     background-color: rgba(73,177,245,0.1);
     color: var(--blockquote_color);
+    p
+        margin: 0
 .pullquote.left
     max-width: 45%;
     float: left;

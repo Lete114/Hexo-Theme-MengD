@@ -22,7 +22,9 @@
                 <%- description %>
             </div>
             <% if (post.cover) { %>
-                <img src="<%- post.cover %>" alt="<%- title %>" class="cover">
+                <div class="cover_wrap">
+                    <img src="<%- post.cover %>" alt="<%- title %>" class="cover">
+                </div>
             <% } %>
             <div class="post_meta_wrap">
                 <span class="post_meta_date">

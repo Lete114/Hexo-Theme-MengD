@@ -28,7 +28,7 @@ page_count: 5 # 首页展示文章数
 MathJax: false # 数学公式
 darkmode: true # 深色模式
 pjax: true # pjax
-tags: false
+tags: false # 文章内是否显示标签
 
 ## 主题颜色
 theme_color:  
@@ -70,9 +70,9 @@ code_block_expand: # 是否开启代码块折叠
 # https://github.com/lete114/hexo-minify
 # 需要更全面的压缩请安装插件: npm install hexo-minify --save
 minify:
-  js: true
+  js: false
   css: true 
-  html: true
+  html: false
 
 ## 自定义侧边栏按钮
 ## 使用 || 分割
