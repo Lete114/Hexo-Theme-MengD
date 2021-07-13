@@ -38,8 +38,8 @@ amusing_title:
 
 # 自动截取
 index_description:
-  line: '3' # 显示多少行后出现省略号(...)
-  length: '500' # 截取多少字 
+  line: 3 # 显示多少行后出现省略号(...)
+  length: 500 # 截取多少字 
 
 # 图片懒加载
 lazyload:
