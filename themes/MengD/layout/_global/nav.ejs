@@ -1,10 +1,10 @@
 <nav class="navbar">
     <div id="navbar_wrap">
         <a href="<%- url_for(config.root) %>" class="blog_name"><%= config.title %></a>
-        <i class="fas fa-bars open_nav"></i>
         <% if (theme.search.enable) { %>
             <i class="fas fa-search search_btn" ></i>
         <% } %>
+        <i class="fas fa-bars open_nav"></i>
         <ul class="menu">
           <% for (name in theme.menu) { %>
                   <% if(!Array.isArray(theme.menu[name])){ %>

@@ -1,7 +1,11 @@
-$fan = convert(hexo-config('theme_color.fan'))
-$body_a=convert(hexo-config('theme_color.body_a'))
-$title = convert(hexo-config('theme_color.title'))
-$main_size = convert(hexo-config('main_size'))
-$line = convert(hexo-config('index_description.line'))
-$font_html = convert(hexo-config('font.html'))
-$font_code = convert(hexo-config('font.code'))
+
+$fan = convert(hexo-config('theme_color.fan')) // 风车颜色
+$body_a=convert(hexo-config('theme_color.body_a')) // 全局a标签颜色
+$title = convert(hexo-config('theme_color.title')) // 昵称
+$main_size = hexo-config('main_size') // 主体内容大小
+$main_size = $main_size+'%'
+$line = hexo-config('index_description.line') // 首页文章描述长度
+$font_html = convert(hexo-config('font.html')) // 全局字体
+$font_code = convert(hexo-config('font.code')) // 代码块字体
+
+

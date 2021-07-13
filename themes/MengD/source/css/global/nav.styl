@@ -4,8 +4,11 @@
     z-index: 99;
     top: 0;
     width: 100%;
-    height: 60px;
     #navbar_wrap{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 64px;
         padding: 0 30px;
         margin: 0 10%
         background-color: var(--navbar_bg);
@@ -18,13 +21,9 @@
         font-size: 1.1rem;
         color: $title
         display: inline-block;
-        padding: 18px 0;
         text-decoration: none;
     ul
-        float right
-        top -30px
-        padding-left: 0;    
-        padding: 10px 0;
+        margin-left: auto;
     li
         position relative
         list-style none
@@ -48,10 +47,14 @@
         -webkit-box-shadow 0 5px 20px -4px rgba(0,0,0,.5)
         box-shadow 0 5px 20px -4px rgba(0,0,0,.5)
 
-#navbar_wrap i
-    float: right
-    padding: 24px 4px 0;
-    display: none
+#navbar_wrap
+    .open_nav
+        margin-left: 10px;
+        display: none;
+    i
+        order: 1;
+        font-size: 13px
+
 
 .menu_child
     display none
@@ -108,8 +111,8 @@
         display: none
     .navbar #navbar_wrap
         margin: 0
-    #navbar_wrap i
-        display: inline-block
-@media screen and (min-width 900px)
-    #navbar_wrap i.search-btn
-        display: inline-block;
+    #navbar_wrap 
+        .open_nav
+            display: inline-block
+            if !hexo-config('search.enable') // 当未开启搜索时设置样式
+                margin-left: auto;

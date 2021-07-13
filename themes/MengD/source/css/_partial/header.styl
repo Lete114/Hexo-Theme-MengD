@@ -1,6 +1,6 @@
 /* 头信息 */
 header
-    padding-bottom 20px
+    padding: 10px 0;
     background-size cover
     display: flex;
     justify-content: space-between;
@@ -32,10 +32,11 @@ header
 
 
 .header_description 
-    margin 5% 0
-    font-size .9rem
+    margin-top: 20px;
     color var(--text_color)
     text-align: right;
+    p
+        margin: unset;
     .header_icon 
         float right
         a 
@@ -56,9 +57,11 @@ header
                 -ms-transition all .5s
                 transition all .5s
 
-@media screen and (max-width 800px)
+@media screen and (max-width 900px)
     header
-        display: inline;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
         .author
             display: block;
             text-align: center;
