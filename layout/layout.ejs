@@ -6,24 +6,26 @@
 </head>
 
 <body>
-        <%# 非404页面 %> 
-        <div id="mask" onclick="close_all()"></div>
-        <%-partial('_global/import_top')%> 
-        <%- partial('_global/config') %>
-        <%- partial('_partial/third_party/analytics') %>
-        <div id="body_wrap">
-            <%- partial('_global/nav') %>
+    <%-partial('_global/import_top')%> 
+    <%- partial('_global/config') %>
+    <%- partial('_partial/third_party/analytics') %>
+    <div id="body_wrap">
+        <%- partial('_global/nav') %>
+        <dev id="main_wrap">
                 <main class="main">
-                    <%- body %>
+                        <%- body %>
                 </main>
-            <%- partial('_partial/rightside') %>
-            <%- partial('_global/search') %>
-        </div>
+        </dev>
+        <%- partial('_partial/rightside') %>
         <%- partial('_global/footer') %>
+    </div>
+    <div id="mask" onclick="close_all()"></div>
+    <%- partial('_global/search') %>
+    <div class="script">
         <script src="<%-theme.CDN.main_js%>"></script>
         <%- partial('_global/import_bottom')%>
         <%- partial('_partial/third_party/pjax') %>
-
+    </div>
 </body>
 
 </html>

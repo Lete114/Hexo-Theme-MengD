@@ -21,7 +21,7 @@ social:
   # fab fa-github: https://github.com/lete114
   # fa fa-envelope: mailto:lete@lete114.top
 
-main_size: 24% # 文章显示大小
+main_size: 50 # 文章显示大小(单位：百分比)
 favicon: /img/favicon.png 
 avatar: https://cdn.jsdelivr.net/gh/lete114/CDN/MengD/WindMill128.gif
 page_count: 5 # 首页展示文章数
@@ -45,8 +45,8 @@ amusing_title:
 
 # 自动截取
 index_description:
-  line: '3' # 显示多少行后出现省略号(...)
-  length: '500' # 截取多少字 
+  line: 3 # 显示多少行后出现省略号(...)
+  length: 500 # 截取多少字 
 
 # 图片懒加载
 lazyload:
