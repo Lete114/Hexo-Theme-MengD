@@ -11,7 +11,7 @@ function add_code_block() {
         var ele = `<div class="code_block" lang="${lang}">
             <span class="clipboard"><i class="fa fa-clipboard"></i></span>
         </div>`
-        item.insertAdjacentHTML('afterBegin', ele)
+        item.insertAdjacentHTML('afterbegin', ele)
     })
 }
 
@@ -51,7 +51,6 @@ function code_block_expand() {
                 child.classList.remove("fa-angle-down")
                 child.classList.add("fa-angle-up")
                 item.parentNode.style = "" //清除父节点的样式
-                item.previousElementSibling.style = "margin-bottom: 20px" // 设置上一个节点样式
             } else {
                 child.classList.remove("fa-angle-up")
                 child.classList.add("fa-angle-down")
