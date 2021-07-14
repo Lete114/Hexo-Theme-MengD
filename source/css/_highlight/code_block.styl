@@ -4,19 +4,20 @@
 @import 'code_frame'
 
 .show-btn
-    position: absolute;
+    position: sticky;
     cursor: pointer;
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 2.875rem;
+    height: 2rem;
     text-align: center;
     color: #fff;
     background-image: linear-gradient(transparent 0,$highlight-background 80%);
     z-index: 1;
     i
-        margin-top: 1rem
+        display: flex;
         animation: UpDown .8s infinite alternate;
+        justify-content: center;
 
 @keyframes UpDown{
     from{transform:translate(0,0)}
