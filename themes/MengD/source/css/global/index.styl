@@ -4,11 +4,6 @@
     margin: 0
 }
 
-html[data-theme="dark"] 
-    img,#rightside
-        -webkit-filter: brightness(.8);
-        filter: brightness(.8);
-
 html
     scroll-behavior: smooth;
 body
@@ -51,8 +46,11 @@ body
     
 #body_wrap
     margin-top: 70px
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
     #main_wrap
+        flex: 1;
         display: flex
         justify-content: center;
     .main
