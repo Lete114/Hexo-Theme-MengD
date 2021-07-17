@@ -13,6 +13,10 @@
     --blockquote_color: #6a737d
 
 if hexo-config('darkmode')
+    html[data-theme="dark"] 
+        img,#rightside
+            -webkit-filter: brightness(.8);
+            filter: brightness(.8);
     html[data-theme="dark"]
         --body_bg: #333841
         --text_color: rgba(255,255,255,0.6)
