@@ -23,7 +23,7 @@ social:
 
 main_size: 50 # 文章显示大小(单位：百分比)
 favicon: /img/favicon.png 
-avatar: https://cdn.jsdelivr.net/gh/lete114/CDN/MengD/WindMill128.gif
+avatar: /img/logo.gif
 page_count: 5 # 首页展示文章数
 MathJax: false # 数学公式
 darkmode: true # 深色模式
@@ -98,8 +98,8 @@ copyright:
 ## 其中||为分割、左侧为昵称|右侧为二维码
 reward:
   enable: true
-  left: alipay||https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/zfb.png
-  right: wechat||https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/wzf.png
+  left: alipay||https://blog.lete114.top/img/Reward/zhifubao.png
+  right: wechat||https://blog.lete114.top/img/Reward/weixin.png
 
 # 评论
 ## 注意大小写
@@ -108,7 +108,7 @@ comments: waline # twikoo / waline / valine
 # valine
 ## https://valine.js.org/
 valine:
-  source: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js ##Lete乐特的简单修改： https://cdn.jsdelivr.net/gh/lete114/CDN2/js/Valine-Lete3.2.min.js 
+  source: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js 
   appid: qvkfxxxxxxxxxxxxxxxxxxxxxbMMI # 你的 leancloud app id 
   appkey: WOURxxxxxxxxxxxxxxxxxWJrog # 你的 leancloud app key 
   master: 2a776xxxxxxxxxxxxxxxxxd7f4442e2 # (原版valine不支持)你的邮箱md5加密(百度搜索md5在线加密)
@@ -191,7 +191,7 @@ link:
     show_position: later # 显示的位置  前(before) / 后(later)
   repo_pr:  
     enable: true # 是否开启
-    yml_url: https://cdn.jsdelivr.net/gh/lete114/links@latest/MengD/link.yml # 友链yml文件
+    yml_url: https://links.lete114.top/MengD/link.yml # 友链yml文件
     show_position: later # 显示的位置  前(before) / 后(later)
 
 # 自定义引入外部css、js
