@@ -94,13 +94,6 @@ copyright:
   description: 本博客所有文章除特别声明外，均采用||许可协议。转载请注明来自
   title: Lete乐特's Blog
 
-## 打赏
-## 其中||为分割、左侧为昵称|右侧为二维码
-reward:
-  enable: true
-  left: alipay||https://blog.lete114.top/img/Reward/zhifubao.png
-  right: wechat||https://blog.lete114.top/img/Reward/weixin.png
-
 # 评论
 ## 注意大小写
 comments: waline # twikoo / waline / valine
