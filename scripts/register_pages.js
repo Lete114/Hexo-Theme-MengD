@@ -17,7 +17,7 @@ hexo.extend.generator.register('404', () => {
     let body = `
     <meta charset="UTF-8">
     <title>页面没有找到 | ${config.title}</title>
-    <meta http-equiv="Refresh" content="5;url=${ url_for(config.url) }" />
+    <meta http-equiv="Refresh" content="50;url=${ url_for(config.url) }" />
     <style>
         body {
             background: ${theme.error_404.background};
@@ -31,7 +31,7 @@ hexo.extend.generator.register('404', () => {
             height: auto;
         }
     </style>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/pixi.js/2.2.5/pixi.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/pixi.js@2.2.5/bin/pixi.js'></script>
     <body>
     <script id="rendered-js">
         (function () {

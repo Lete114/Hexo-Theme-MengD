@@ -1,6 +1,7 @@
+<%# 全局页面都会需要用到这个模板 %>
+<%# partial()方法可以导入其他ejs文件 %>  
 <!DOCTYPE html>
 <html>
-
 <head>
     <%- partial('_global/head') %>
 </head>
@@ -13,7 +14,8 @@
         <%- partial('_global/nav') %>
         <div id="main_wrap">
                 <main class="main">
-                        <%- body %>
+                    <%# 写的文章内容都将会显示到这里 %> 
+                    <%- body %>
                 </main>
         </div>
         <%- partial('_partial/rightside') %>
