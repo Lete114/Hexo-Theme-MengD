@@ -58,6 +58,8 @@ body
         padding: 30px
         background: var(--main_bg);
         width: $main_size
+        a:hover
+            color: var(--main)
 
 .table_wrap
     overflow-x scroll
@@ -77,7 +79,7 @@ body
 .post_content
     h1::before,h2::before,h3::before,h4::before,h5::before,h6::before
         color: $fan
-        margin-right: 10px;
+        margin-right: 4px;
         display: inline-block;
         content: '\f863';    
         -webkit-animation: IH 1s linear infinite;
@@ -100,6 +102,7 @@ code
     word-break: break-word;
     overflow-wrap: break-word;
 blockquote
+    border-radius: 4px;
     margin: 4px 0;
     padding: .6rem .8rem;
     border-left: .2rem solid #e58a8a;

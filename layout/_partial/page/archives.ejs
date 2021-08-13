@@ -7,7 +7,7 @@ var lastMonth;
 <div class="archive_article_info">
 <% page.posts.sort('date', 'desc').each(function(post) { %>
     <% 
-        var title = post.title==""?__('post.title'):post.title
+        var title = post.title||__('post.title')
         var currentYear = post.date.year(); 
         var currentMonth = post.date.format('MM-DD');
     %>

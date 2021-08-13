@@ -2,8 +2,8 @@
 <%- partial('_partial/header') %>
 <div id="post_list">
     <% page.posts.each(function (post) { %>
-        <%var title = post.title==""?__('post.title'):post.title%> 
         <div class="post_item">
+            <% var title = post.title ||__('post.title') %> 
             <a class="post_title" href="<%- url_for(post.path) %>" title="<%- title %> ">
                 <%- title %>
             </a>
