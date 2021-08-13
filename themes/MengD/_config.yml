@@ -232,9 +232,6 @@ CDN:
   lazyload: /js/lazyload.js
   # pjax
   pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.min.js
-  # 分享
-  share_css: https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css
-  share_js: https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js
   # fortawesome
   fortawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
   # yml转json

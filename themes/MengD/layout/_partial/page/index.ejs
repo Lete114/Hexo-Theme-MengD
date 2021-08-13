@@ -1,3 +1,4 @@
+<%# 判断主题内置页面 %> 
 <% var type=page.type; var title=page.title%>
 <% if (type=="tags" ) { %>
         <div class="page_title">
@@ -16,9 +17,9 @@
 <%- partial('link') %>
 <div class="content"><%- page.content %></div>
 <% }else { %>
+    <%# 如果全部不符合主题内置页面，则是用户执行：hexo new page xxx 的自定义页面 %> 
     <div class="page_title">
         <%= title %>
     </div>
     <div class="content"><%- page.content %></div>
 <% } %>
-<%# console.log(page); %> 
