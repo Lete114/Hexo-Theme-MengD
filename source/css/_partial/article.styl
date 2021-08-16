@@ -129,10 +129,9 @@ if hexo-config('copyright.enable')
     width: 100%;
     display: flex;
     align-items: baseline;
-    justify-content: space-between;
     a
         width: 100%
-        margin: 0 4px;
+        margin: 5px 4px;
         padding: 8px
         border-radius: 4px;
         background: var(--color-block)
@@ -151,3 +150,10 @@ if hexo-config('copyright.enable')
         word-break: break-all;
         color: #777
 
+@media screen and (max-width: 760px)
+    .pagination_post
+        flex-direction: column;
+        align-items: center;
+        width: calc(100% - 20px);
+        margin: 0 10px;
+        box-sizing: border-box;
