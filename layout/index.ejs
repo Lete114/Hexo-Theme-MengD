@@ -23,7 +23,8 @@
                 <%- title %>
             </a>
             <div class="post_description">
-                <%- post.description ? post.description : truncate(strip_html(post.content), {length: theme.index_description.length }) %>
+                <% post.content= post.content.replace(/<td class=\"gutter\"><pre>(.*?)<\/pre><\/td>/gim,'') %> 
+                <%- post.description ? post.description : truncate(strip_html(post.content), {length: theme.description.length }) %>
             </div>
             <% if (post.cover) { %>
                 <div class="cover_wrap">
