@@ -44,7 +44,7 @@ amusing_title:
   return_title: '(*´∇｀*) 被你发现啦~ '
 
 # 自动截取
-index_description:
+description:
   line: 3 # 显示多少行后出现省略号(...)
   length: 500 # 截取多少字 
 
@@ -104,8 +104,6 @@ valine:
   source: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js 
   appid: qvkfxxxxxxxxxxxxxxxxxxxxxbMMI # 你的 leancloud app id 
   appkey: WOURxxxxxxxxxxxxxxxxxWJrog # 你的 leancloud app key 
-  master: 2a776xxxxxxxxxxxxxxxxxd7f4442e2 # (原版valine不支持)你的邮箱md5加密(百度搜索md5在线加密)
-  friends: ed5bb69dfxxxxxxxxxxxxxxe6893b,d24719e3bxxxxxxxxxxxxxxbac991457 # (原版valine不支持)你的小伙伴的md5邮箱加密
   placeholder: 快来评论吧!! #评论框占位符
   avatar: '' # gravatar style https://valine.js.org/#/avatar
   meta: ['nick','mail','link'] # 评论者相关属性
