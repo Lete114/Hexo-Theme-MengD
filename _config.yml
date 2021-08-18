@@ -1,4 +1,4 @@
-
+---
 #--------------------------------------------------------
 # Hexo-MengD(萌典)
 # 项目地址：https://github.com/lete114/hexo-theme-MengD
@@ -9,7 +9,7 @@
 # 导航栏菜单
 menu:
   # 首页: /
-  # 找文章: 
+  # 找文章:
   #   - 标签 || /tags
   #   - 分类 || /categories
   #   - 归档 || /archives
@@ -22,7 +22,7 @@ social:
   # fa fa-envelope: mailto:lete@lete114.top
 
 main_size: 50 # 文章显示大小(单位：百分比)
-favicon: /img/favicon.png 
+favicon: /img/favicon.png
 avatar: /img/logo.gif
 page_count: 5 # 首页展示文章数
 MathJax: false # 数学公式
@@ -31,7 +31,7 @@ pjax: true # pjax
 tags: false # 文章内是否显示标签
 
 ## 主题颜色
-theme_color:  
+theme_color:
   main: '#e58a8a' # 主色
   fan: '#00c4b6' # 小风车
   body_a: '#00c4b6' # 全局a标签颜色
@@ -46,7 +46,7 @@ amusing_title:
 # 自动截取
 description:
   line: 3 # 显示多少行后出现省略号(...)
-  length: 500 # 截取多少字 
+  length: 500 # 截取多少字
 
 # 图片懒加载
 lazyload:
@@ -71,7 +71,7 @@ code_block_expand: # 是否开启代码块折叠
 # 需要更全面的压缩请安装插件: npm install hexo-minify --save
 minify:
   js: false
-  css: true 
+  css: true
   html: false
 
 ## 自定义侧边栏按钮
@@ -80,13 +80,13 @@ minify:
 ## 拥有3个属性：a标签属性|a标签描述|按钮图标
 ## #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon
 rightside:
-  settings: 
+  settings:
     #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
-  show: 
+  show:
     #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
 
 # 文章版权
-copyright: 
+copyright:
   enable: true
   author: Lete乐特
   mail: lete@lete114.top
@@ -101,17 +101,17 @@ comments: waline # twikoo / waline / valine
 # valine
 ## https://valine.js.org/
 valine:
-  source: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js 
-  appid: qvkfxxxxxxxxxxxxxxxxxxxxxbMMI # 你的 leancloud app id 
-  appkey: WOURxxxxxxxxxxxxxxxxxWJrog # 你的 leancloud app key 
+  source: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js
+  appid: qvkfxxxxxxxxxxxxxxxxxxxxxbMMI # 你的 leancloud app id
+  appkey: WOURxxxxxxxxxxxxxxxxxWJrog # 你的 leancloud app key
   placeholder: 快来评论吧!! #评论框占位符
   avatar: '' # gravatar style https://valine.js.org/#/avatar
-  meta: ['nick','mail','link'] # 评论者相关属性
+  meta: ['nick', 'mail', 'link'] # 评论者相关属性
   pageSize: 5 # comment list page size
   lang: zh-CN # i18n: zh-CN/zh-TW/en/ja
-  emojiCDN:    # emoji CDN
-  emojiMaps:  # 自定义表情包
-  enableQQ: true  # enable the Nickname box to automatically get QQ Nickname and QQ Avatar
+  emojiCDN: # emoji CDN
+  emojiMaps: # 自定义表情包
+  enableQQ: true # enable the Nickname box to automatically get QQ Nickname and QQ Avatar
   option: # 自定义添加 https://valine.js.org/configuration.html
 
 # waline
@@ -121,12 +121,12 @@ waline:
   serverURL: https://waline.vercel.app/ # 服务端地址
   placeholder: 快来评论吧!! #评论框占位符
   avatar: '' # gravatar style https://valine.js.org/#/avatar
-  meta: ['nick','mail','link'] # 评论者相关属性
+  meta: ['nick', 'mail', 'link'] # 评论者相关属性
   pageSize: 5 # comment list page size
   lang: zh-CN # i18n: zh-CN/zh-TW/en/ja
-  requiredFields: ['nick','mail','link'] # 评论人必填项
-  emojiCDN:    # emoji CDN
-  emojiMaps:  # 自定义表情包
+  requiredFields: ['nick', 'mail', 'link'] # 评论人必填项
+  emojiCDN: # emoji CDN
+  emojiMaps: # 自定义表情包
   option: # 自定义添加 https://waline.js.org/client/basic.html
 
 # twikoo
@@ -135,8 +135,8 @@ twikoo:
   source: https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js
   envId: xxxxxxxx # 你的环境id
   region: ap-shanghai # 环境地域，ap-shanghai / ap-guangzhou
-  path: window.location.pathname  # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-  option: 
+  path: window.location.pathname # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
+  option:
 
 ## 说说
 
@@ -150,9 +150,9 @@ artitalk:
   appid: WhOxxxxxxxxxxxxxMMI #  LeanCloud appId
   appkey: M9Pxxxxxxxxxxxxxxx3Kvs # LeanCloud appKey
   serverURL: # 如果你是国内版 LeanCloud 用户，此项必填
-  lang:  # 语言设置 默认中文 zh / en / es
+  lang: # 语言设置 默认中文 zh / en / es
   atEmoji: # 自定义表情包
-  option:  
+  option:
 
 # HPP_talk
 ## https://hexoplusplus.js.org/
@@ -165,7 +165,7 @@ hpp_talk:
   domain: blog.lete114.workers.dev # 您的HexoPlusPlus域名
   limit: 10 # 单次获取的最多条数
   start: 0 # 从第几条开始
-  option: 
+  option:
 
 ## 404页面
 error_404:
@@ -180,7 +180,7 @@ link:
     owner: lete114 # 仓库拥有者
     repo: link # 仓库昵称
     show_position: later # 显示的位置  前(before) / 后(later)
-  repo_pr:  
+  repo_pr:
     enable: true # 是否开启
     yml_url: https://links.lete114.top/MengD/link.yml # 友链yml文件
     show_position: later # 显示的位置  前(before) / 后(later)
@@ -188,12 +188,12 @@ link:
 # 自定义引入外部css、js
 import:
   head: # 引入到</head>之前
-    - 
+    -
   top: # 引入到<body>之后
-    - 
+    -
   bottom: # 引入到</body>之前
-    - 
-  # 例如： 
+    -
+  # 例如：
   # - <link rel="stylesheet" href="/css/index.css">
   # - '<style>body{color: red}</style>' ## 注意由于css的‘{}’是关键符号所以需要(单/双)引号''
   # - <script>alert(1)</script>
@@ -201,17 +201,17 @@ import:
 # 页脚
 footer:
   since: 2020
-  custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！  
+  custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！
   icp:
     enable: false
-    text: 
+    text:
     icon: /img/icp.png
     url: https://beian.miit.gov.cn/
 
 # 统计(分析)
 analytics:
-  baidu: 
-  google: 
+  baidu:
+  google:
 
 # 设置字体
 font:
@@ -221,7 +221,7 @@ font:
   code: 'Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif'
 
 # 主题的css与js引入
-## 无特殊要求请勿更改  
+## 无特殊要求请勿更改
 CDN:
   main_js: /js/main.js
   main_css: /css/main.css

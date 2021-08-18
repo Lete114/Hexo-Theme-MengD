@@ -1,23 +1,21 @@
-
 /**
- * 
+ *
  * Create New Pages
  * Hexo-Theme-MengD
- * 
+ *
  */
-
 
 const url_for = require('hexo-util').url_for.bind(hexo)
 
 // 404页面
 hexo.extend.generator.register('404', () => {
-    let theme = hexo.theme.config
-    let config = hexo.config
-    if (!theme.error_404.enable) return
-    let body = `
+  let theme = hexo.theme.config
+  let config = hexo.config
+  if (!theme.error_404.enable) return
+  let body = `
     <meta charset="UTF-8">
     <title>页面没有找到 | ${config.title}</title>
-    <meta http-equiv="Refresh" content="50;url=${ url_for(config.url) }" />
+    <meta http-equiv="Refresh" content="50;url=${url_for(config.url)}" />
     <style>
         body {
             background: ${theme.error_404.background};
@@ -237,23 +235,22 @@ hexo.extend.generator.register('404', () => {
     </script>
     </body>
     `
-    return {
-        path: '404.html',
-        data: body,
-        layout: false,
-    }
-
+  return {
+    path: '404.html',
+    data: body,
+    layout: false
+  }
 })
 
 // artitalk页面
 hexo.extend.generator.register('artitalk', () => {
-    let theme = hexo.theme.config
-    if (!theme.artitalk.enable) return
-    let title = theme.artitalk.title // 标题
-    // 判断是否使用了option选项
-    let option = theme.artitalk.option ? `initData = Object.assign(initData, ${JSON.stringify(theme.artitalk.option)})` : ''
-    // 内容
-    let content = `
+  let theme = hexo.theme.config
+  if (!theme.artitalk.enable) return
+  let title = theme.artitalk.title // 标题
+  // 判断是否使用了option选项
+  let option = theme.artitalk.option ? `initData = Object.assign(initData, ${JSON.stringify(theme.artitalk.option)})` : ''
+  // 内容
+  let content = `
         <div id="artitalk_main"></div>
         <script>
             getScript("${theme.artitalk.source}",function(){
@@ -267,24 +264,23 @@ hexo.extend.generator.register('artitalk', () => {
             })
         </script>
         `
-    return {
-        path: theme.artitalk.path,
-        data: { type: 'artitalk', content, title },
-        comments: false,
-        layout: ["page"]
-    }
-
+  return {
+    path: theme.artitalk.path,
+    data: { type: 'artitalk', content, title },
+    comments: false,
+    layout: ['page']
+  }
 })
 
 // HPP_talk页面
 hexo.extend.generator.register('hpp_talk', () => {
-    let theme = hexo.theme.config
-    if (!theme.hpp_talk.enable) return
-    let title = theme.hpp_talk.title // 标题
-    // 判断是否使用了option选项
-    let option = theme.hpp_talk.option ? `initData = Object.assign(initData, ${JSON.stringify(theme.hpp_talk.option)})` : ''
-    // 内容
-    let content = `
+  let theme = hexo.theme.config
+  if (!theme.hpp_talk.enable) return
+  let title = theme.hpp_talk.title // 标题
+  // 判断是否使用了option选项
+  let option = theme.hpp_talk.option ? `initData = Object.assign(initData, ${JSON.stringify(theme.hpp_talk.option)})` : ''
+  // 内容
+  let content = `
     <div id="hpp_talk"></div>
     <link rel="stylesheet" href="${theme.hpp_talk.source_css}" /> 
     <script>
@@ -300,10 +296,10 @@ hexo.extend.generator.register('hpp_talk', () => {
         })
     </script>
     `
-    return {
-        path: theme.hpp_talk.path,
-        data: { type: 'hpp_talk', content, title },
-        comments: false,
-        layout: ["page"]
-    }
+  return {
+    path: theme.hpp_talk.path,
+    data: { type: 'hpp_talk', content, title },
+    comments: false,
+    layout: ['page']
+  }
 })

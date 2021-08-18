@@ -7,8 +7,6 @@
     <a href="https://github.com/lete114/hexo-theme-MengD/blob/master/LICENSE"><img src="https://img.shields.io/github/license/lete114/hexo-theme-MengD?color=FF5531" alt="MIT License"></a>
 </p>
 
-
-
 ## Hexo-Theme-MengD
 
 - 主题文档: [https://mengd.js.org](https://mengd.js.org/)
@@ -22,21 +20,22 @@
 安装
 
 稳定[推荐]
-``` powershell
+
+```powershell
 git clone -b master https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 ```
 
 开发
-``` powershell
+
+```powershell
 git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 ```
 
 打开根目录下的`_config.yml`修改`theme: MengD`
 
-
 ## 功能特性
 
-- [x] Pjax平滑切换页面
+- [x] Pjax 平滑切换页面
 - [x] 代码高亮: default / darker / pale night / light / ocean / mac / mac light
 - [x] i18n : zh-CN、en
 - [x] 多款评论插件: valine、waline、twikoo
@@ -48,8 +47,8 @@ git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 - [x] 站内搜索
 - [x] 资源压缩
 - [x] 图片懒加载
-- [x] 3种友链呈现方式
-- [x] 内置精美的404页面
+- [x] 3 种友链呈现方式
+- [x] 内置精美的 404 页面
 - [x] 优化网站加载
 - [x] 配置自由度高
 
@@ -58,4 +57,3 @@ git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 <a href="https://github.com/lete114/hexo-theme-MengD/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=lete114/hexo-theme-MengD" />
 </a>
-

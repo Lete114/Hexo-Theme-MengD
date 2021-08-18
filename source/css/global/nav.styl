@@ -1,40 +1,45 @@
 .navbar
-    transition: all .2s linear 0s;
-    position: fixed;
-    z-index: 99;
-    top: 0;
-    width: 100%;
-    #navbar_wrap{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 64px;
-        padding: 0 30px;
-        margin: 0 10%
-        background-color: var(--navbar_bg);
-        border-radius: 10px    
-        -webkit-box-shadow: 0 5px 6px -5px #444
-        box-shadow: 0 5px 6px -5px #444
-    }
+    transition all 0.2s linear 0s
+    position fixed
+    z-index 99
+    top 0
+    width 100%
+
+    #navbar_wrap
+        display flex
+        justify-content center
+        align-items center
+        height 64px
+        padding 0 30px
+        margin 0 10%
+        background-color var(--navbar_bg)
+        border-radius 10px
+        -webkit-box-shadow 0 5px 6px -5px #444
+        box-shadow 0 5px 6px -5px #444
+
     .blog_name
-        font-weight: 700;
-        font-size: 1.1rem;
-        color: $title
-        display: inline-block;
-        text-decoration: none;
+        font-weight 700
+        font-size 1.06rem
+        color $title
+        display inline-block
+        text-decoration none
+
     ul
-        margin-left: auto;
+        margin-left auto
+
     li
         position relative
         list-style none
         float left
+
         a
             font-weight 700
             display block
             cursor pointer
             white-space nowrap
             padding 10px
-            font-size .9rem
+            font-size 0.8rem
+
     ul li:hover .menu_child
         background-color var(--navbar_bg)
         position absolute
@@ -43,32 +48,35 @@
         padding 0
         border-radius 6px
         width max-content
-        -webkit-box-shadow 0 5px 20px -4px rgba(0,0,0,.5)
-        box-shadow 0 5px 20px -4px rgba(0,0,0,.5)
+        -webkit-box-shadow 0 5px 20px -4px rgba(0, 0, 0, 0.5)
+        box-shadow 0 5px 20px -4px rgba(0, 0, 0, 0.5)
 
 #navbar_wrap
     .open_nav
-        margin-left: 10px;
-        display: none;
-    i
-        order: 1;
-        font-size: 13px
+        margin-left 10px
+        display none
 
+    i
+        order 1
+        font-size 0.8rem
 
 .menu_child
     display none
+
     li
         float none
+
 .navbar
     a
-        font-weight: 700;
-        display: block;
-        cursor: pointer;
-        white-space: nowrap;
-        padding: 18px 10px;
-        font-size: .9rem;
-        text-decoration: none
-        color: #00c4b6;
+        font-weight 700
+        display block
+        cursor pointer
+        white-space nowrap
+        padding 18px 10px
+        font-size 0.9rem
+        text-decoration none
+        color #00c4b6
+
 // 手机端
 .open_mobile
     -webkit-transform translate3d(-100%, 0, 0)
@@ -76,42 +84,49 @@
     -o-transform translate3d(-100%, 0, 0)
     -ms-transform translate3d(-100%, 0, 0)
     transform translate3d(-100%, 0, 0)
+
 #mobile_nav
-    background: var(--main_bg)
-    position: fixed;
-    right: -250px;
-    top: 0;
-    z-index: 103;
-    overflow: hidden auto;
-    width: 250px;
-    height: 100%;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    -o-transition: all .5s;
-    -ms-transition: all .5s;
-    transition: all .5s;
+    background var(--main_bg)
+    position fixed
+    right -250px
+    top 0
+    z-index 103
+    overflow hidden auto
+    width 250px
+    height 100%
+    -webkit-transition all 0.5s
+    -moz-transition all 0.5s
+    -o-transition all 0.5s
+    -ms-transition all 0.5s
+    transition all 0.5s
+
 #mobile_nav ul
-    padding-inline-start: unset;
-    li 
-        display: block;
-        list-style: none;
-        text-align: center;
-        line-height: 2;
+    padding-inline-start unset
+
+    li
+        display block
+        list-style none
+        text-align center
+        line-height 2
+
         a
-            font-weight: 700;
-            display: block;
-            cursor: pointer;
-            white-space: nowrap;
-            padding: 10px;
-            font-size: .9rem;
-            
+            font-weight 700
+            display block
+            cursor pointer
+            white-space nowrap
+            padding 10px
+            font-size 0.9rem
+
 @media screen and (max-width 900px)
     .navbar #navbar_wrap .menu
-        display: none
+        display none
+
     .navbar #navbar_wrap
-        margin: 0
-    #navbar_wrap 
+        margin 0
+
+    #navbar_wrap
         .open_nav
-            display: inline-block
-            if !hexo-config('search.enable') // 当未开启搜索时设置样式
-                margin-left: auto;
+            display inline-block
+
+            if (!hexo-config('search.enable'))
+                margin-left auto // 当未开启搜索时设置样式
