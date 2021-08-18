@@ -2,108 +2,126 @@
 
 // 文章头信息
 .post_info
-    text-align: center
-    padding: 20px 0
+    text-align center
+    padding 20px 0
+
     .post_title
-        padding-bottom: 4px
+        padding-bottom 4px
+
+    .post_meta
+        font-size 0.6rem
+
     .post_meta>div
-        padding: 2px 0
+        padding 2px 0
 
 // 文章信息
 .post_content
-    line-height: 1.8;
-    padding-bottom: 50px;
-    img 
-        margin: 0 auto .8rem;
-        display: block;
-        max-width: 100%;
-        border-radius: 10px;
-    ul,ol
-        padding-inline-start: 24px;
-    
-    
+    line-height 1.8
+    font-size 0.8rem
+    padding-bottom 50px
+    word-wrap break-word
+    overflow-wrap break-word
+
+    img
+        margin 0 auto 0.8rem
+        display block
+        max-width 100%
+        border-radius 10px
+
+    ul, ol
+        padding-inline-start 24px
+
 // 目录
 #toc
-    background: var(--main_bg)
-    position: fixed;
-    left: -250px;
-    top: 0;
-    z-index: 103;
-    width: 250px;
-    height: 100%;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    -o-transition: all .5s;
-    -ms-transition: all .5s;
-    transition: all .5s;
+    background var(--main_bg)
+    position fixed
+    left -250px
+    top 0
+    z-index 103
+    width 250px
+    height 100%
+    -webkit-transition all 0.5s
+    -moz-transition all 0.5s
+    -o-transition all 0.5s
+    -ms-transition all 0.5s
+    transition all 0.5s
+
     .toc_title
-        text-align: center;
-        padding: 30px;
+        text-align center
+        padding 30px
+
         div
-            font-size: 14px
-            font-weight: bold;
+            font-size 0.9rem
+            font-weight bold
+
     .progress
-        width: 100%;
-        height: 10px;
-        background: #ededed;
-        border-radius: 10px;
+        width 100%
+        height 10px
+        background #ededed
+        border-radius 10px
+
     .toc_list
-        overflow: hidden auto;
-        height: 100%;
+        overflow hidden auto
+        height 100%
+
         li
-            list-style: none;
-            line-height: 30px;
+            list-style none
+            line-height 30px
+
             .toc-child
-                padding-left: 1rem;
-    .toc,.toc_list>li
-        padding: 0;
-        margin-left: 20px;
+                padding-left 1rem
+
+    .toc, .toc_list>li
+        padding 0
+        margin-left 20px
 
 // 打开目录
 .open_toc
-    -webkit-transform: translate3d(100%, 0, 0);
-    -moz-transform: translate3d(100%, 0, 0);
-    -o-transform: translate3d(100%, 0, 0);
-    -ms-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
+    -webkit-transform translate3d(100%, 0, 0)
+    -moz-transform translate3d(100%, 0, 0)
+    -o-transform translate3d(100%, 0, 0)
+    -ms-transform translate3d(100%, 0, 0)
+    transform translate3d(100%, 0, 0)
 
 // 目录滚动条
-#progress 
-    width 60% 
-    height 10px 
-    background #ededed 
-    border-radius 10px 
+#progress
+    width 60%
+    height 10px
+    background #ededed
+    border-radius 10px
 
-progress::-webkit-progress-bar 
-    background #ededed 
-    border-radius 8px 
+progress::-webkit-progress-bar
+    background #ededed
+    border-radius 8px
 
-progress::-webkit-progress-value 
+progress::-webkit-progress-value
     background var(--main)
-    border-radius 8px 
+    border-radius 8px
 
-/*版权框*/
-if hexo-config('copyright.enable')
-    .post_copyright  
-        margin: 20px 0;
+/* 版权框 */
+if (hexo-config('copyright.enable'))
+    .post_copyright
+        margin 20px 0
         position relative
-        padding .5rem .8rem
-        -webkit-transition box-shadow .3s ease-in-out
-        -moz-transition box-shadow .3s ease-in-out
-        -o-transition box-shadow .3s ease-in-out
-        -ms-transition box-shadow .3s ease-in-out
-        transition box-shadow .3s ease-in-out
-        box-shadow 0 0px 2px 0px rgba(0, 0, 0, .4)
+        padding 0.5rem 0.8rem
+        -webkit-transition box-shadow 0.3s ease-in-out
+        -moz-transition box-shadow 0.3s ease-in-out
+        -o-transition box-shadow 0.3s ease-in-out
+        -ms-transition box-shadow 0.3s ease-in-out
+        transition box-shadow 0.3s ease-in-out
+        box-shadow 0 0px 2px 0px rgba(0, 0, 0, 0.4)
         border-radius 10px
         border-left 3px solid var(--main)
         border-right 3px solid var(--main)
+
         div
             line-height 28px
-            word-break:break-all
+            word-break break-all
+
         .post_copyright_icon:before
             position absolute
-            top .1rem
-            right .6rem
+            top 0.1rem
+            right 0.6rem
             color var(--main)
             content '\f1f9'
             font-size 1rem
@@ -114,46 +132,49 @@ if hexo-config('copyright.enable')
             font-family 'Font Awesome 5 Free'
             text-rendering auto
             -webkit-font-smoothing antialiased
+
         .post_copyright_meta
             color var(--main)
             font-weight 700
 
 // 文章标签
 .post_tag
-    text-align: center;
-    padding-bottom: 20px;
-
+    text-align center
+    padding-bottom 20px
 
 // 上下一篇文章
 .pagination_post
-    width: 100%;
-    display: flex;
-    align-items: baseline;
+    display flex
+    align-items baseline
+
     a
-        width: 100%
-        margin: 5px 4px;
-        padding: 8px
-        border-radius: 4px;
-        background: var(--color-block)
+        width 100%
+        margin 5px 4px
+        padding 8px
+        border-radius 4px
+        background var(--color-block)
+
         i
             width 1rem
-    .next_title
-        text-align: right;
-    .prev_title
-        text-align: left;
-    .prev_title,.next_title
-        line-height: 1.4em;
-        width: 100%
-        font-weight: 700;
-        margin-bottom: 6px
-    .prev_desc,.next_desc
-        word-break: break-all;
-        color: #777
 
-@media screen and (max-width: 760px)
+    .next_title
+        text-align right
+
+    .prev_title
+        text-align left
+
+    .prev_title, .next_title
+        line-height 1.4em
+        width 100%
+        font-weight 700
+        margin-bottom 6px
+
+    .prev_desc, .next_desc
+        word-break break-all
+        color #777
+
+@media screen and (max-width 760px)
     .pagination_post
-        flex-direction: column;
-        align-items: center;
-        width: calc(100% - 20px);
-        margin: 0 10px;
-        box-sizing: border-box;
+        flex-direction column
+        align-items center
+        margin 0 10px

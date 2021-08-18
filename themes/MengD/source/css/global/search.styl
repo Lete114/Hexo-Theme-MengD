@@ -3,45 +3,50 @@
  * 来源于hexo-butterfly
  * 由Lete乐特进行小型改动
  */
-
-if hexo-config('search.enable')
+if (hexo-config('search.enable'))
     // 关键词
-    .search_keyword 
+    .search_keyword
         color #f47466
         font-weight 700
+
     // 搜索结果列表
-    #local_search .search_result_list 
+    #local_search .search_result_list
         overflow-y auto
         max-height 200px
-        overflow-x:hidden
+        overflow-x hidden
         padding 0 10px
+
     #local_search .search_result
-        margin .3rem 0 .4rem
+        margin 0.3rem 0 0.4rem
         word-break break-all
         line-height 1.7
-        font-size 14px
+        font-size 0.8rem
+
     .search_result_list li
         list-style none
+
         a
             font-weight 600
-            font-size 14px
+            font-size 0.8rem
+
     // 关闭按钮
-    .search_close_button 
+    .search_close_button
         position absolute
-        top .8rem
+        top 0.8rem
         right 1rem
         color #858585
         font-size 1rem
         line-height 1
         cursor pointer
-        -webkit-transition color .2s ease-in-out
-        -moz-transition color .2s ease-in-out
-        -o-transition color .2s ease-in-out
-        -ms-transition color .2s ease-in-out
-        transition color .2s ease-in-out
+        -webkit-transition color 0.2s ease-in-out
+        -moz-transition color 0.2s ease-in-out
+        -o-transition color 0.2s ease-in-out
+        -ms-transition color 0.2s ease-in-out
+        transition color 0.2s ease-in-out
+
     // 搜索框
     #local_search
-        display: none;
+        display none
         border-radius 10px
         position fixed
         top 5rem
@@ -54,34 +59,40 @@ if hexo-config('search.enable')
         -webkit-box-sizing border-box
         -moz-box-sizing border-box
         box-sizing border-box
-        hr 
-            margin 1rem auto 
+
+        hr
+            margin 1rem auto
+
     // 本地搜索
-    #local_search_title 
-        padding 0 0 .7rem
+    #local_search_title
+        padding 0 0 0.7rem
         color var(--main)
         font-size 1rem
         text-align center
         line-height 1
+
     // 搜索框
-    #local_search input 
-        padding .25rem .7rem
+    #local_search input
+        padding 0.25rem 0.7rem
         width 100%
         outline 0
         border 2px solid var(--main)
         border-radius 2rem
-        background transparent;
+        background transparent
         color var(--text_color)
-        font-size 14px
+        font-size 0.8rem
         -webkit-box-sizing border-box
         -moz-box-sizing border-box
         box-sizing border-box
+
     #local_search hr
-        border: 2px dashed var(--main);
-        margin: 2rem auto;
+        border 2px dashed var(--main)
+        margin 2rem auto
+
     @media screen and (max-width 900px)
         #local_search .search_result_list
-            max-height 72vh
+            max-height 78vh
+
         #local_search
             border-radius 0
             top 0
@@ -89,10 +100,10 @@ if hexo-config('search.enable')
             margin 0
             width 100%
             height 100%
-        #navbar_wrap 
-            .search_btn
-                margin-left: auto;
 
+        #navbar_wrap
+            .search_btn
+                margin-left auto
 
     // 动画
     .search_animation_max
@@ -101,6 +112,7 @@ if hexo-config('search.enable')
         -o-animation search_animation_max 0.5s
         -ms-animation search_animation_max 0.5s
         animation search_animation_max 0.5s
+
     .search_animation_min
         -webkit-animation search_animation_min 0.5s
         -moz-animation search_animation_min 0.5s
@@ -109,17 +121,16 @@ if hexo-config('search.enable')
         animation search_animation_min 0.5s
 
     // 放大
-    @keyframes search_animation_max{
-
-        0% {
+    @keyframes search_animation_max
+        0%
             opacity 0
             -webkit-transform scale(0.7)
             -moz-transform scale(0.7)
             -o-transform scale(0.7)
             -ms-transform scale(0.7)
             transform scale(0.7)
-        }
-        100% {
+
+        100%
             opacity 1
             -ms-filter none
             filter none
@@ -128,12 +139,10 @@ if hexo-config('search.enable')
             -o-transform scale(1)
             -ms-transform scale(1)
             transform scale(1)
-        }
-    }
+
     // 缩小
-    @keyframes search_animation_min{
-
-        0% {
+    @keyframes search_animation_min
+        0%
             opacity 1
             -ms-filter none
             filter none
@@ -142,15 +151,11 @@ if hexo-config('search.enable')
             -o-transform scale(1)
             -ms-transform scale(1)
             transform scale(1)
-            
-        }
-        100% {
+
+        100%
             opacity 0
             -webkit-transform scale(0.7)
             -moz-transform scale(0.7)
             -o-transform scale(0.7)
             -ms-transform scale(0.7)
             transform scale(0.7)
-        }
-
-    }

@@ -1,30 +1,15 @@
 // 评论
 $comment = hexo-config('comments')
 
-if $comment
+if ($comment)
     .comment_head
         .comment_headline
-            margin-bottom: 1.6rem;
-            display: inline-block;
-            vertical-align: middle;
-            font-weight: 700;
-            font-size: 20px;
+            margin-bottom 1.6rem
+            display inline-block
+            vertical-align middle
+            font-weight 700
+            font-size 1.2rem
+
         hr
-            border: 2px dashed var(--main);
-            margin: 2rem auto;
-
-if $comment=='waline'&& hexo-config('darkmode')
-    html[data-theme="dark"]
-        --waline-bgcolor: var(--main_bg)
-        --waline-border-color: #777
-        --waline-text-color: var(--text_color)
-        --waline-bgcolor-light: var(--main_bg)
-        --waline-info-bgcolor: #333;
-    @media (prefers-color-scheme: dark) // 由于无法覆盖掉waline的:root所有只能使用!important
-        :root
-            --waline-bgcolor: var(--main_bg) !important
-            --waline-border-color: #777 !important
-            --waline-text-color: var(--text_color) !important
-            --waline-bgcolor-light: var(--main_bg) !important
-            --waline-info-bgcolor: #333; !important
-
+            border 2px dashed var(--main)
+            margin 2rem auto

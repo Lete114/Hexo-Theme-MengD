@@ -1,6 +1,6 @@
 $highlight_theme = hexo-config('highlight_theme')
 
-if $highlight_theme == 'default'
+if ($highlight_theme == 'default')
   $code_block = #222d32
   $highlight-background = #263238
   $highlight-current-line = #efefef
@@ -17,16 +17,16 @@ if $highlight_theme == 'default'
   $highlight-deletion = #BF42BF
   $highlight-addition = #105EDE
   $highlight-gutter = {
-    color: alpha($highlight-foreground, .5),
+    color: alpha($highlight-foreground, 0.5),
     bg-color: $highlight-background
   }
   $highlight-tools = {
-    color: alpha($highlight-foreground, .8),
+    color: alpha($highlight-foreground, 0.8),
     bg-color: darken($highlight-background, 2)
   }
   $highlight-scrollbar = darken($highlight-background, 6)
 
-if $highlight_theme == 'darker' || ($highlight_theme == 'mac')
+if ($highlight_theme == 'darker' || ($highlight_theme == 'mac'))
   $code_block = #1c1c1c
   $highlight-background = #212121
   $highlight-current-line = #282a2e
@@ -42,18 +42,18 @@ if $highlight_theme == 'darker' || ($highlight_theme == 'mac')
   $highlight-purple = #C792EA
   $highlight-deletion = #BF42BF
   $highlight-addition = #105EDE
-  $highlight-mac-border = rgba(0, 0, 0, .4)
+  $highlight-mac-border = rgba(0, 0, 0, 0.4)
   $highlight-gutter = {
-    color: alpha($highlight-foreground, .5),
+    color: alpha($highlight-foreground, 0.5),
     bg-color: $highlight-background
   }
   $highlight-tools = {
-    color: alpha($highlight-foreground, .8),
+    color: alpha($highlight-foreground, 0.8),
     bg-color: darken($highlight-background, 2)
   }
   $highlight-scrollbar = darken($highlight-background, 6)
 
-if $highlight_theme == 'pale night'
+if ($highlight_theme == 'pale night')
   $code_block = #252938
   $highlight-background = #292D3E
   $highlight-current-line = #393939
@@ -70,7 +70,7 @@ if $highlight_theme == 'pale night'
   $highlight-deletion = #BF42BF
   $highlight-addition = #105EDE
   $highlight-gutter = {
-    color: alpha($highlight-foreground, .5),
+    color: alpha($highlight-foreground, 0.5),
     bg-color: $highlight-background
   }
   $highlight-tools = {
@@ -79,13 +79,13 @@ if $highlight_theme == 'pale night'
   }
   $highlight-scrollbar = darken($highlight-background, 6)
 
-if $highlight_theme == 'ocean'
+if ($highlight_theme == 'ocean')
   $code_block = #0b0d14
   $highlight-background = #0F111A
   $highlight-current-line = #000000
   $highlight-selection = #717CB450
   $highlight-foreground = #8F93A2
-  $highlight-comment = rgba(101, 115, 126, .8)
+  $highlight-comment = rgba(101, 115, 126, 0.8)
   $highlight-red = #FF5370
   $highlight-orange = #F78C6C
   $highlight-yellow = #FFCB6B
@@ -96,7 +96,7 @@ if $highlight_theme == 'ocean'
   $highlight-deletion = #BF42BF
   $highlight-addition = #105EDE
   $highlight-gutter = {
-    color: alpha($highlight-foreground, .5),
+    color: alpha($highlight-foreground, 0.5),
     bg-color: $highlight-background
   }
   $highlight-tools = {
@@ -105,13 +105,13 @@ if $highlight_theme == 'ocean'
   }
   $highlight-scrollbar = darken($highlight-background, 5)
 
-if $highlight_theme == 'light' || ($highlight_theme == 'mac light')
+if ($highlight_theme == 'light' || ($highlight_theme == 'mac light'))
   $code_block = #e6ebf1
   $highlight-background = #F6F8FA
   $highlight-current-line = #00346e
   $highlight-selection = #80CBC440
   $highlight-foreground = #90A4AE
-  $highlight-comment = rgba(149, 165, 166, .8)
+  $highlight-comment = rgba(149, 165, 166, 0.8)
   $highlight-red = #E53935
   $highlight-orange = #F76D47
   $highlight-yellow = #FFB62C
@@ -121,9 +121,9 @@ if $highlight_theme == 'light' || ($highlight_theme == 'mac light')
   $highlight-purple = #7C4DFF
   $highlight-deletion = #BF42BF
   $highlight-addition = #105EDE
-  $highlight-mac-border = rgba(144, 164, 174, .4)
+  $highlight-mac-border = rgba(144, 164, 174, 0.4)
   $highlight-gutter = {
-    color: alpha($highlight-foreground, .5),
+    color: alpha($highlight-foreground, 0.5),
     bg-color: $highlight-background
   }
   $highlight-tools = {
@@ -132,13 +132,13 @@ if $highlight_theme == 'light' || ($highlight_theme == 'mac light')
   }
   $highlight-scrollbar = darken($highlight-background, 8)
 
-if $highlight_theme == false
+if ($highlight_theme == false)
   $code_block = #e6ebf1
   $highlight-background = #F6F8FA
   $highlight-foreground = #90A4AE
   $highlight-selection = #80CBC440
   $highlight-gutter = {
-    color: alpha($highlight-foreground, .5),
+    color: alpha($highlight-foreground, 0.5),
     bg-color: $highlight-background
   }
   $highlight-tools = {

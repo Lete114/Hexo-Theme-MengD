@@ -1,4 +1,3 @@
-
 post:
   title: No Title
   created: Created
@@ -12,7 +11,6 @@ post:
 search:
   title: Local Search
   input: Search the article
-  
 
 rightside:
   direct_comments: Direct comments

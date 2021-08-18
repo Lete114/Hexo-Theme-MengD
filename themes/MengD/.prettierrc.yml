@@ -1,0 +1,9 @@
+# .prettierrc or .prettierrc.yaml
+trailingComma: none # 对象或数组最后是否添加逗号 es5|none|all
+tabWidth: 2 # 缩进
+printWidth: 160 # 多少个字符后换行
+semi: false # 结尾处是否添加分号
+singleQuote: true # 是否使用单引号
+# always：(x) => x
+# avoid：x => x
+arrowParens: always # 箭头函数在只有一个参数时

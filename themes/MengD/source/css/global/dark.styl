@@ -1,31 +1,31 @@
 
-
 :root
-    --main: convert(hexo-config('theme_color.main'))
-    --body_bg: #eaeaea
-    --text_color: #333
-    --main_bg: #fff
-    --navbar_bg: #fff
-    --title_color: #2f2f2f
-    --link_bg: #f8f9fa
-    --code_bg: $highlight-background
-    --code_wrap_bg: $code_block
-    --blockquote_color: #6a737d
-    --color-block: #f9f9f9
+    --main convert(hexo-config('theme_color.main'))
+    --body_bg #eaeaea
+    --text_color #333
+    --main_bg #fff
+    --navbar_bg #fff
+    --title_color #2f2f2f
+    --link_bg #f8f9fa
+    --code_bg $highlight-background
+    --code_wrap_bg $code_block
+    --blockquote_color #6a737d
+    --color-block #f9f9f9
 
-if hexo-config('darkmode')
-    :root[theme="dark"]
-        --body_bg: #333841
-        --text_color: rgba(255,255,255,0.6)
-        --main_bg: #282c34
-        --navbar_bg: #282c34
-        --title_color: rgba(255,255,255,0.9)
-        --link_bg: #333841
-        --code_bg: #333841
-        --code_wrap_bg: #444851
-        --blockquote_color: var(--text_color)
-        --color-block: #363941;
-    :root[theme="dark"] 
-        img,#rightside
-            -webkit-filter: brightness(.8);
-            filter: brightness(.8);
+if (hexo-config('darkmode'))
+    :root[theme='dark']
+        --body_bg #333841
+        --text_color rgba(255, 255, 255, 0.6)
+        --main_bg #282c34
+        --navbar_bg #282c34
+        --title_color rgba(255, 255, 255, 0.9)
+        --link_bg #333841
+        --code_bg #333841
+        --code_wrap_bg #444851
+        --blockquote_color var(--text_color)
+        --color-block #363941
+
+    :root[theme='dark']
+        img, #rightside
+            -webkit-filter brightness(0.8)
+            filter brightness(0.8)

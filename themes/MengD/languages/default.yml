@@ -1,4 +1,3 @@
-
 post:
   title: 无标题
   created: 发表于
@@ -13,7 +12,6 @@ post:
 search:
   title: 本地搜索
   input: 搜索文章
-  
 
 rightside:
   direct_comments: 直达评论
