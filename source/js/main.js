@@ -22,6 +22,18 @@ function table_wrap() {
   })
 }
 
+// fancybox
+function fancyboxFn() {
+  getScript($config.CDN.fancybox_js, function () {
+    Fancybox.bind('[data-img]')
+    var link = document.createElement('link')
+    link.rel='stylesheet'
+    link.type='text/css'
+    link.href=$config.CDN.fancybox_css
+    document.head.appendChild(link)
+  })
+}
+
 // 代码块折叠
 function code_block_expand() {
   if (!$config.code_block_expand || !$config.code_block_expand.enable) return
@@ -224,6 +236,7 @@ function code_copy() {
 function exe_all_fn() {
   add_code_block() // 添加代码框
   table_wrap() // 添加table外围
+  fancyboxFn() // 图片灯箱
   code_block_expand() // 代码块折叠
   open_mobile() // 打开手机端导航栏
   show_toc() // 打开目录

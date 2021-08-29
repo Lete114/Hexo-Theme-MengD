@@ -6,6 +6,10 @@ var code_block_expand = theme.code_block_expand
 
 <script>
     var $config = {
+        CDN:{
+            fancybox_js: "<%=theme.CDN.fancybox_js%>",
+            fancybox_css: "<%=theme.CDN.fancybox_css%>"
+        },
         <%if(theme.search.enable){%>
         search_file: "<%=url_for(theme.search.path)%>",
         <%}%>

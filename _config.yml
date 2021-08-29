@@ -230,6 +230,9 @@ CDN:
   lazyload: /js/lazyload.js
   # pjax
   pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.min.js
+  # fancybox
+  fancybox_js: https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js
+  fancybox_css: https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css
   # fortawesome
   fortawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
   # yml转json
