@@ -15,7 +15,7 @@ hexo.extend.generator.register('404', () => {
   let body = `
     <meta charset="UTF-8">
     <title>页面没有找到 | ${config.title}</title>
-    <meta http-equiv="Refresh" content="50;url=${url_for(config.url)}" />
+    <meta http-equiv="Refresh" content="5;url=${url_for(config.url)}" />
     <style>
         body {
             background: ${theme.error_404.background};
