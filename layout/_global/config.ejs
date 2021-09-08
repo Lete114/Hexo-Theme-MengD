@@ -1,23 +1,23 @@
 <% 
 
-var code_block_expand = theme.code_block_expand
+var codeBlockExpand = theme.codeBlockExpand
 
 %> 
 
 <script>
     var $config = {
         CDN:{
-            fancybox_js: "<%=theme.CDN.fancybox_js%>",
-            fancybox_css: "<%=theme.CDN.fancybox_css%>"
+            fancyboxJs: "<%=theme.CDN.fancyboxJs%>",
+            fancyboxCss: "<%=theme.CDN.fancyboxCss%>"
         },
         <%if(theme.search.enable){%>
-        search_file: "<%=url_for(theme.search.path)%>",
+        searchFile: "<%=url_for(theme.search.path)%>",
         <%}%>
-        <%if(code_block_expand.enable){%>
-        code_block_expand: {
-            enable: <%=code_block_expand.enable%>,
-            height: <%=code_block_expand.height%>,
-            scrollTop: <%=code_block_expand.scrollTop%>
+        <%if(codeBlockExpand.enable){%>
+        codeBlockExpand: {
+            enable: <%=codeBlockExpand.enable%>,
+            height: <%=codeBlockExpand.height%>,
+            scrollTop: <%=codeBlockExpand.scrollTop%>
         }
         <%}%>
     }

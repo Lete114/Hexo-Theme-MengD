@@ -6,12 +6,12 @@
 %> 
 
 <article class="post">
-  <div class="post_info">
-    <div class="post_title">
+  <div class="post-info">
+    <div class="post-title">
       <h1><%= page.title ||__('post.title')%></h1>
     </div>
-    <div class="post_meta">
-      <div class="post_date">
+    <div class="post-meta">
+      <div class="post-date">
         <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
         <span class="post-meta-label">
           <%- __('post.created') %>
@@ -41,7 +41,7 @@
       </div>
     </div>
   </div>
-  <div class="post_content">
+  <div class="post-content">
     <%- page.content %>
   </div>
   <%# 版权 %> 
@@ -55,22 +55,22 @@
   %> 
 <% if (theme.copyright.enable){ %>
   <% if (page.copyright==null||page.copyright){ %>
-  <div class="post_copyright">
-    <div class="post_copyright_icon"></div>
-      <div class="post_copyright_author">
-          <span class="post_copyright_meta"><%-__('copyright.author')%>: </span>
-            <span class="post_copyright_info">
+  <div class="post-copyright">
+    <div class="post-copyright-icon"></div>
+      <div class="post-copyright-author">
+          <span class="post-copyright-meta"><%-__('copyright.author')%>: </span>
+            <span class="post-copyright-info">
               <a href="mailto:<%- mail %>" ><%- author%></a>
             </span>
       </div>
-      <div class="post_copyright_type">
-          <span class="post_copyright_meta"><%-__('copyright.article_url')%>: </span>
-            <span class="post_copyright_info">
+      <div class="post-copyright-type">
+          <span class="post-copyright-meta"><%-__('copyright.article_url')%>: </span>
+            <span class="post-copyright-info">
               <a href="<%= url %>" ><%= url %></a>
             </span>
-      </div><div class="post_copyright_notice">
-          <span class="post_copyright_meta"><%-__('copyright.notice')%>: </span>
-            <span class="post_copyright_info"><%-description[0]%>
+      </div><div class="post-copyright-notice">
+          <span class="post-copyright-meta"><%-__('copyright.notice')%>: </span>
+            <span class="post-copyright-info"><%-description[0]%>
               <a href="<%= licenses[1] %> " target="_blank" >
                   <%= licenses[0] %> </a> <%-description[1]%>
               <a href="<%= url %>" target="_blank" ><%-title%></a>
@@ -83,7 +83,7 @@
 <%# 标签  %> 
 <%if(theme.tags){%>
   <% if(page.tags.length!=0){ %>
-    <div class="post_tag">
+    <div class="post-tag">
         <span>
             <i class="fa fa-tag"></i>
             <% page.tags.forEach(function(tag, i){ %> 
@@ -99,34 +99,34 @@
 
 
 <%# 上下一篇文章 %>
-<div class="pagination_post">
+<div class="pagination-post">
     <% if (page.prev){ %>
     <a href="<%- url_for(page.prev.path) %>">
-      <div class="prev_title"><i class="fas fa-chevron-left"></i><%=page.prev.title||__('post.title')%></div>
-      <div class="prev_desc"><%- truncate(strip_html(page.prev.content), {length: 100}) %></div>
+      <div class="prev-title"><i class="fas fa-chevron-left"></i><%=page.prev.title||__('post.title')%></div>
+      <div class="prev-desc"><%- truncate(strip_html(page.prev.content), {length: 100}) %></div>
     </a>
     <% } %>
     <% if (page.next){ %>
     <a href="<%- url_for(page.next.path) %>">
-      <div class="next_title"><%=page.next.title||__('post.title')%><i class="fas fa-chevron-right"></i></div>
-      <div class="next_desc"><%- truncate(strip_html(page.next.content), {length: 100}) %></div>
+      <div class="next-title"><%=page.next.title||__('post.title')%><i class="fas fa-chevron-right"></i></div>
+      <div class="next-desc"><%- truncate(strip_html(page.next.content), {length: 100}) %></div>
     </a>
     <% } %>
 </div>
 </article>
 <%- partial('_partial/third_party/comment/index') %>
 <%# 是否是文章 %> 
-<% var is_toc = toc(page.content,{list_number: false})==""?false:true;  %> 
-<%if(is_toc&&is_post()){%>
+<% var isToc = toc(page.content,{list_number: false})==""?false:true;  %> 
+<%if(isToc&&is_post()){%>
   <div id="toc">
-    <div class="toc_title">
+    <div class="toc-title">
       <div>
         <%-__("post.toc")%>
           <span class="num">0%</span>
       </div>
       <progress class="progress" value="0" max="100"></progress>
     </div>
-    <div class="toc_list">
+    <div class="toc-list">
       <%- toc(page.content,{list_number: false}) %>
     </div>
   </div>

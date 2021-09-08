@@ -1,18 +1,18 @@
-<% var option = theme.hpp_talk.option ? JSON.stringify(theme.hpp_talk.option) : false %>
+<% var option = theme.hppTalk.option ? JSON.stringify(theme.hppTalk.option) : false %>
 <div class="main">
     <div id="page-title" class="page-title">
-        <h2><%= theme.hpp_talk.title %></h2>
+        <h2><%= theme.hppTalk.title %></h2>
     </div>
     
-    <link rel="stylesheet" href="<%-theme.hpp_talk.source_css%>" /> 
-    <div id="hpp_talk"></div>
+    <link rel="stylesheet" href="<%-theme.hppTalk.sourceCss%>" /> 
+    <div id="hpptalk"></div>
     <script>
-        getScript("<%-theme.hpp_talk.source_js%>",function(){
+        getScript("<%-theme.hppTalk.sourceJs%>",function(){
             let initData = {
-                id:"hpp_talk",
-                domain: "<%-theme.hpp_talk.domain%>",
-                limit: <%-theme.hpp_talk.limit%>,
-                start: <%-theme.hpp_talk.start%>
+                id:"hpptalk",
+                domain: "<%-theme.hppTalk.domain%>",
+                limit: <%-theme.hppTalk.limit%>,
+                start: <%-theme.hppTalk.start%>
             }
             var option = <%-option%>;
             if(option){

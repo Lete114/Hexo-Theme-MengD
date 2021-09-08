@@ -5,24 +5,24 @@
  */
 if (hexo-config('search.enable'))
     // 关键词
-    .search_keyword
+    .search-keyword
         color #f47466
         font-weight 700
 
     // 搜索结果列表
-    #local_search .search_result_list
+    #local-search .search-result-list
         overflow-y auto
         max-height 200px
         overflow-x hidden
         padding 0 10px
 
-    #local_search .search_result
+    #local-search .search-result
         margin 0.3rem 0 0.4rem
         word-break break-all
         line-height 1.7
         font-size 0.8rem
 
-    .search_result_list li
+    .search-result-list li
         list-style none
 
         a
@@ -30,7 +30,7 @@ if (hexo-config('search.enable'))
             font-size 0.8rem
 
     // 关闭按钮
-    .search_close_button
+    .search-close-button
         position absolute
         top 0.8rem
         right 1rem
@@ -45,7 +45,7 @@ if (hexo-config('search.enable'))
         transition color 0.2s ease-in-out
 
     // 搜索框
-    #local_search
+    #local-search
         display none
         border-radius 10px
         position fixed
@@ -55,7 +55,7 @@ if (hexo-config('search.enable'))
         margin-left -15rem
         padding 1rem
         width 30rem
-        background var(--main_bg)
+        background var(--main-bg)
         -webkit-box-sizing border-box
         -moz-box-sizing border-box
         box-sizing border-box
@@ -64,7 +64,7 @@ if (hexo-config('search.enable'))
             margin 1rem auto
 
     // 本地搜索
-    #local_search_title
+    #local-search-title
         padding 0 0 0.7rem
         color var(--main)
         font-size 1rem
@@ -72,28 +72,28 @@ if (hexo-config('search.enable'))
         line-height 1
 
     // 搜索框
-    #local_search input
+    #local-search input
         padding 0.25rem 0.7rem
         width 100%
         outline 0
         border 2px solid var(--main)
         border-radius 2rem
         background transparent
-        color var(--text_color)
+        color var(--text-color)
         font-size 0.8rem
         -webkit-box-sizing border-box
         -moz-box-sizing border-box
         box-sizing border-box
 
-    #local_search hr
+    #local-search hr
         border 2px dashed var(--main)
         margin 2rem auto
 
     @media screen and (max-width 900px)
-        #local_search .search_result_list
+        #local-search .search-result-list
             max-height 78vh
 
-        #local_search
+        #local-search
             border-radius 0
             top 0
             left 0
@@ -101,27 +101,27 @@ if (hexo-config('search.enable'))
             width 100%
             height 100%
 
-        #navbar_wrap
-            .search_btn
+        #navbar-wrap
+            .search-btn
                 margin-left auto
 
     // 动画
-    .search_animation_max
-        -webkit-animation search_animation_max 0.5s
-        -moz-animation search_animation_max 0.5s
-        -o-animation search_animation_max 0.5s
-        -ms-animation search_animation_max 0.5s
-        animation search_animation_max 0.5s
+    .search-animation-max
+        -webkit-animation search-animation-max 0.5s
+        -moz-animation search-animation-max 0.5s
+        -o-animation search-animation-max 0.5s
+        -ms-animation search-animation-max 0.5s
+        animation search-animation-max 0.5s
 
-    .search_animation_min
-        -webkit-animation search_animation_min 0.5s
-        -moz-animation search_animation_min 0.5s
-        -o-animation search_animation_min 0.5s
-        -ms-animation search_animation_min 0.5s
-        animation search_animation_min 0.5s
+    .search-animation-min
+        -webkit-animation search-animation-min 0.5s
+        -moz-animation search-animation-min 0.5s
+        -o-animation search-animation-min 0.5s
+        -ms-animation search-animation-min 0.5s
+        animation search-animation-min 0.5s
 
     // 放大
-    @keyframes search_animation_max
+    @keyframes search-animation-max
         0%
             opacity 0
             -webkit-transform scale(0.7)
@@ -141,7 +141,7 @@ if (hexo-config('search.enable'))
             transform scale(1)
 
     // 缩小
-    @keyframes search_animation_min
+    @keyframes search-animation-min
         0%
             opacity 1
             -ms-filter none

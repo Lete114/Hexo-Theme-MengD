@@ -1,13 +1,13 @@
 @require 'theme'
 
 /* 代码框 */
-.code_block .highlight
+.code-block .highlight
   margin-top 36px
 
 figure.highlight .gutter pre
   padding-right 0.5rem
   padding-left 0.5rem
-  background-color var(--code_bg)
+  background-color var(--code-bg)
   color $highlight-foreground
   text-align right
   font-family consolas, Menlo, 'PingFang SC', 'Microsoft YaHei', sans-serif !important
@@ -15,7 +15,7 @@ figure.highlight .gutter pre
 figure.highlight
   overflow-y hidden
   padding 0
-  background var(--code_bg)
+  background var(--code-bg)
   color #eff
   line-height 1.6
   position relative
@@ -25,9 +25,9 @@ figure.highlight
   border-radius 10px
   margin-bottom 20px
   margin-top 10px
-  font-family $font_code
+  font-family $fontCode
 
-.code_block
+.code-block
   height 38px
   position sticky
   overflow hidden
@@ -37,7 +37,7 @@ figure.highlight
     content attr(lang)
     height 38px
     line-height 38px
-    background var(--code_wrap_bg)
+    background var(--code-wrap-bg)
     color $highlight-foreground
     font-size 1rem
     position absolute
@@ -47,12 +47,12 @@ figure.highlight
     font-weight bold
     padding 0px 16px
 
-    if (hexo-config('highlight_theme') == mac || hexo-config('highlight_theme') == 'mac light')
+    if (hexo-config('highlightTheme') == mac || hexo-config('highlightTheme') == 'mac light')
       padding 0px 70px
       text-indent 15px
       float left
 
-  if (hexo-config('highlight_theme') == mac || hexo-config('highlight_theme') == 'mac light')
+  if (hexo-config('highlightTheme') == mac || hexo-config('highlightTheme') == 'mac light')
     &::after
       content ' '
       position absolute

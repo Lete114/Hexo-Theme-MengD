@@ -2,11 +2,11 @@
 var now = new Date().getFullYear(); // 年限
 var since = theme.footer.since === now ? theme.footer.since : (theme.footer.since + " - " + now)
 
-var icp_enable = theme.footer.icp.enable  // 是否开启ICP
-var icp_icon = theme.footer.icp.icon // ICP图标
-var icp_url = theme.footer.icp.url // ICP地址
-var icp_text = theme.footer.icp.text // ICP备案号
-var custom_text = theme.footer.custom_text || config.subtitle // 自定义内容
+var icpEnable = theme.footer.icp.enable  // 是否开启ICP
+var icpIcon = theme.footer.icp.icon // ICP图标
+var icpUrl = theme.footer.icp.url // ICP地址
+var icpText = theme.footer.icp.text // ICP备案号
+var customText = theme.footer.customText || config.subtitle // 自定义内容
 %> 
 
 <footer class="footer" id="footer">
@@ -22,13 +22,13 @@ var custom_text = theme.footer.custom_text || config.subtitle // 自定义内容
         <span><%-__("footer.theme")%> </span>
         <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
     </div>
-    <%if(icp_enable){%>
+    <%if(icpEnable){%>
     <div class="third-party">
         <span class="icp">
-            <img src="<%= icp_icon%>" alt="ICP">
-            <a id="icp" href="<%= icp_url%>" target="_blank"><%= icp_text%></a>
+            <img src="<%= icpIcon%>" alt="ICP">
+            <a id="icp" href="<%= icpUrl%>" target="_blank"><%= icpText%></a>
         </span>
     </div>
     <%}%>
-    <div class="custom-text"><%- custom_text%></div>
+    <div class="custom-text"><%- customText%></div>
 </footer>

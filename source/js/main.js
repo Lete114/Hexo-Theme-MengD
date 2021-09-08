@@ -1,13 +1,14 @@
 var html = document.getElementsByTagName('html')[0]
 var mask = document.getElementById('mask')
+var mobileNav = document.getElementById('mobile-nav')
 
 // 代码框
-function add_code_block() {
-  var code_block = document.querySelectorAll('figure.highlight')
-  code_block.forEach(function (item) {
+function addCodeBlock() {
+  var codeBlock = document.querySelectorAll('figure.highlight')
+  codeBlock.forEach(function (item) {
     var lang = item.classList[1]
     lang = lang == 'plaintext' ? 'code' : lang
-    var ele = `<div class='code_block' lang='${lang}'>
+    var ele = `<div class='code-block' lang='${lang}'>
             <span class='clipboard'><i class='fa fa-clipboard'></i></span>
         </div>`
     item.insertAdjacentHTML('afterbegin', ele)
@@ -15,32 +16,32 @@ function add_code_block() {
 }
 
 // table wrap
-function table_wrap() {
-  var table = document.querySelectorAll('.post_content>table,.content>table')
+function tableWrap() {
+  var table = document.querySelectorAll('.post-content>table,.content>table')
   table.forEach(function (item) {
-    wrap(item, 'div', null, 'table_wrap')
+    wrap(item, 'div', null, 'table-wrap')
   })
 }
 
 // fancybox
 function fancyboxFn() {
-  getScript($config.CDN.fancybox_js, function () {
-    const imgAll = document.querySelectorAll('.post_content img')
+  getScript($config.CDN.fancyboxJs, function () {
+    const imgAll = document.querySelectorAll('.post-content img')
     imgAll.forEach((ele) => ele.setAttribute('data-fancybox', ''))
     var link = document.createElement('link')
     link.rel = 'stylesheet'
     link.type = 'text/css'
-    link.href = $config.CDN.fancybox_css
+    link.href = $config.CDN.fancyboxCss
     document.head.appendChild(link)
   })
 }
 
 // 代码块折叠
-function code_block_expand() {
-  if (!$config.code_block_expand || !$config.code_block_expand.enable) return
+function codeBlockExpand() {
+  if (!$config.codeBlock3xpand || !$config.codeBlock3xpand.enable) return
   var CodeBlock = document.querySelectorAll('figure.highlight')
   // 定义高度
-  var height = $config.code_block_expand.height
+  var height = $config.codeBlock3xpand.height
   // 获取当前页面的所有的代码块 循环判断符合条件的折叠
   for (var i = 0; i < CodeBlock.length; i++) {
     if (CodeBlock[i].clientHeight > height) {
@@ -70,10 +71,10 @@ function code_block_expand() {
         item.previousElementSibling.style = ''
         // 获取当前页面滚动条纵坐标的位置
         scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-        var node_bottom = item.getBoundingClientRect().bottom // 获取当前元素底部距离可见部分的距离
-        var CodeBlockBottom = node_bottom + scrollTop, // 当前代码块底部距离顶部距离
-          CodeBlockHeight = $config.code_block_expand.height, // 获取代码块超过多少数值折叠代码块
-          CodeBlockScrollTop = $config.code_block_expand.scrollTop // 获取代码块关闭折叠后滚动返回代码块顶部的距离
+        var nodeBottom = item.getBoundingClientRect().bottom // 获取当前元素底部距离可见部分的距离
+        var CodeBlockBottom = nodeBottom + scrollTop, // 当前代码块底部距离顶部距离
+          CodeBlockHeight = $config.codeBlockExpand.height, // 获取代码块超过多少数值折叠代码块
+          CodeBlockScrollTop = $config.codeBlockExpand.scrollTop // 获取代码块关闭折叠后滚动返回代码块顶部的距离
         window.scrollTo(0, CodeBlockBottom - CodeBlockHeight - CodeBlockScrollTop)
       }
     }
@@ -81,63 +82,63 @@ function code_block_expand() {
 }
 
 // 打开侧边导航栏
-function open_mobile() {
-  var mobile_nav = document.getElementById('mobile_nav')
-  var open_nav = document.getElementsByClassName('open_nav')[0]
-  open_nav.onclick = function () {
-    var is_open = mobile_nav.classList.contains('open_mobile')
-    if (!is_open) {
-      mobile_nav.className = 'open_mobile'
+function openMobile() {
+  var openNav = document.getElementsByClassName('open-nav')[0]
+  openNav.onclick = function () {
+    var isOpen = mobileNav.classList.contains('open-mobile')
+    if (!isOpen) {
+      mobileNav.className = 'open-mobile'
       mask.className = 'mask'
     }
   }
 }
 
 // 打开目录
-function show_toc() {
-  var open_toc = document.getElementById('open_toc')
+function showToc() {
+  var openToc = document.getElementById('open-toc')
   var toc = document.getElementById('toc')
   if (!toc) return
-  open_toc.onclick = function () {
-    var is_open = toc.classList.contains('open_toc')
-    if (!is_open) {
-      toc.classList.add('open_toc')
+  openToc.onclick = function () {
+    var isOpen = toc.classList.contains('open-toc')
+    if (!isOpen) {
+      toc.classList.add('open-toc')
       mask.className = 'mask'
-    } else toc.classList.remove('open_toc')
+    } else toc.classList.remove('open-toc')
   }
 }
 
 // 显示右侧栏隐藏域
-function rightside_show() {
+function rightsideShow() {
   var settings = document.getElementById('settings')
   if (!settings) return
   settings.onclick = function () {
-    var btn = document.getElementsByClassName('rightside_btn')[0]
-    var is_show = btn.classList.contains('rightside_show')
-    if (!is_show) btn.classList.add('rightside_show')
-    else btn.classList.remove('rightside_show')
+    var btn = document.getElementsByClassName('rightside-btn')[0]
+    var righStr = 'rightside-show'
+    var isShow = btn.classList.contains(righStr)
+    if (!isShow) btn.classList.add(righStr)
+    else btn.classList.remove(righStr)
   }
 }
 
 // 关闭所有正在打开的弹窗(搜索框、侧边栏)
-function close_all() {
+function closeAll() {
   // 搜索框缩放样式
-  var local_search = document.getElementById('local_search')
-  if (local_search) {
-    local_search.classList.remove('search_animation_max')
-    local_search.classList.add('search_animation_min')
+  var localSearch = document.getElementById('local-search')
+  if (localSearch) {
+    localSearch.classList.remove('search-animation-max')
+    localSearch.classList.add('search-animation-min')
     setTimeout(function () {
       // 延迟0.5秒隐藏
-      local_search.style.display = ''
+      localSearch.style.display = ''
     }, 500)
   }
   html.style.overflow = 'auto' // 解除滚动条禁止滚动
   // 目录
-  var toc = document.querySelector('.open_toc')
-  if (toc) toc.classList.remove('open_toc')
+  var toc = document.querySelector('.open-toc')
+  if (toc) toc.classList.remove('open-toc')
   // 侧边栏
-  mobile_nav.classList.remove('open_mobile')
-  mobile_nav.style.opacity = ''
+  mobileNav.classList.remove('open-mobile')
+  mobileNav.style.opacity = ''
   mask.className = '' // 关闭遮罩
 }
 
@@ -196,7 +197,7 @@ function scroll() {
     }
 
     // toc目录百分比
-    var article = document.querySelector('.post_content')
+    var article = document.querySelector('.post-content')
     var num = document.querySelector('.num')
     if (article && num) {
       var headerHeight = article.offsetTop
@@ -214,7 +215,7 @@ function scroll() {
 }
 
 // 代码块复制
-function code_copy() {
+function codeCopy() {
   document.querySelectorAll('figure.highlight').forEach(function (item) {
     // 获取所有代码块
     // firstChild: 获取代码块中的第一个子元素
@@ -234,19 +235,19 @@ function code_copy() {
 }
 
 // 执行所有函数
-function exe_all_fn() {
-  add_code_block() // 添加代码框
-  table_wrap() // 添加table外围
+function exeAllFn() {
+  addCodeBlock() // 添加代码框
+  tableWrap() // 添加table外围
   fancyboxFn() // 图片灯箱
-  code_block_expand() // 代码块折叠
-  open_mobile() // 打开手机端导航栏
-  show_toc() // 打开目录
-  rightside_show() // 显示侧边栏隐藏部分
-  close_all() // 关闭所有弹窗
+  codeBlockExpand() // 代码块折叠
+  openMobile() // 打开手机端导航栏
+  showToc() // 打开目录
+  rightsideShow() // 显示侧边栏隐藏部分
+  closeAll() // 关闭所有弹窗
   DarkMode() // 深色模式
   scroll() // 滚动事件
-  code_copy() // 代码块复杂
+  codeCopy() // 代码块复杂
 }
 ;(function () {
-  exe_all_fn()
+  exeAllFn()
 })()

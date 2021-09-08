@@ -6,15 +6,15 @@ html
     scroll-behavior smooth
 
 body
-    background-color var(--body_bg)
+    background-color var(--body-bg)
     font-size 0.8rem
-    color var(--text_color)
+    color var(--text-color)
     overflow-x hidden
-    font-family $font_html
+    font-family $fontHtml
 
     a
         text-decoration none
-        color $body_a
+        color $bodyA
         transition all 0.5s
 
     p
@@ -28,7 +28,7 @@ body
         z-index 102
         background rgba(0, 0, 0, 0.4)
 
-    .pjax_progress
+    .pjax-progress
         position fixed
         top 0
         left 0
@@ -48,13 +48,13 @@ body
         float right
         padding 2px
 
-#body_wrap
+#body-wrap
     margin-top 70px
     display flex
     flex-direction column
     min-height 90vh
 
-    #main_wrap
+    #main-wrap
         flex 1
         display flex
         justify-content center
@@ -63,15 +63,15 @@ body
         position relative
         border-radius 10px
         padding 10px 30px 30px
-        background var(--main_bg)
-        width $main_size
+        background var(--main-bg)
+        width $main-size
         min-width 50%
         max-width 80%
 
         a:hover
             color var(--main)
 
-.table_wrap
+.table-wrap
     overflow-x scroll
 
     table
@@ -89,7 +89,7 @@ body
             border 1px solid #eee
             vertical-align middle
 
-.post_content
+.post-content
     h1::before, h2::before, h3::before, h4::before, h5::before, h6::before
         color $fan
         margin-right 4px
@@ -123,7 +123,7 @@ blockquote
     padding 0.6rem 0.8rem
     border-left 0.2rem solid #e58a8a
     background-color rgba(73, 177, 245, 0.1)
-    color var(--blockquote_color)
+    color var(--blockquote-color)
 
     p
         margin 0
@@ -156,7 +156,7 @@ blockquote
         height 100%
 
 @media screen and (max-width 900px)
-    #body_wrap
+    #body-wrap
         .main
             padding 10px
             padding-bottom 30px
@@ -166,7 +166,7 @@ blockquote
             min-width auto
             max-width none
 
-        #main_wrap
+        #main-wrap
             align-items revert
 
 @import 'search'

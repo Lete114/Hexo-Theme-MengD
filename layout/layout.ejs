@@ -10,9 +10,9 @@
     <%-partial('_global/import_top')%> 
     <%- partial('_global/config') %>
     <%- partial('_partial/third_party/analytics') %>
-    <div id="body_wrap">
+    <div id="body-wrap">
         <%- partial('_global/nav') %>
-        <div id="main_wrap">
+        <div id="main-wrap">
                 <main class="main">
                     <%# 写的文章内容都将会显示到这里 %> 
                     <%- body %>
@@ -21,10 +21,10 @@
         <%- partial('_partial/rightside') %>
         <%- partial('_global/footer') %>
     </div>
-    <div id="mask" onclick="close_all()"></div>
+    <div id="mask" onclick="closeAll()"></div>
     <%- partial('_global/search') %>
     <div class="script">
-        <script src="<%-theme.CDN.main_js%>"></script>
+        <script src="<%-theme.CDN.mainJs%>"></script>
         <%- partial('_global/import_bottom')%>
         <%- partial('_partial/third_party/pjax') %>
     </div>
