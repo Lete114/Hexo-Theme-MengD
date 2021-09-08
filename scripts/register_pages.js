@@ -251,7 +251,7 @@ hexo.extend.generator.register('artitalk', () => {
   let option = theme.artitalk.option ? `initData = Object.assign(initData, ${JSON.stringify(theme.artitalk.option)})` : ''
   // 内容
   let content = `
-        <div id="artitalk-main"></div>
+        <div id="artitalk_main"></div>
         <script>
             getScript("${theme.artitalk.source}",function(){
                 let initData = {

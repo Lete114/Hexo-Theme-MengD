@@ -1,4 +1,3 @@
----
 #--------------------------------------------------------
 # Hexo-MengD(萌典)
 # 项目地址：https://github.com/lete114/hexo-theme-MengD
@@ -179,11 +178,11 @@ link:
     subtitle: Gitee友链 # 副标题
     owner: lete114 # 仓库拥有者
     repo: link # 仓库昵称
-    show_position: later # 显示的位置  前(before) / 后(later)
-  repo_pr:
+    showPosition: later # 显示的位置  前(before) / 后(later)
+  repoPr:
     enable: true # 是否开启
-    yml_url: https://links.lete114.top/MengD/link.yml # 友链yml文件
-    show_position: later # 显示的位置  前(before) / 后(later)
+    ymlUrl: https://links.lete114.top/MengD/link.yml # 友链yml文件
+    showPosition: later # 显示的位置  前(before) / 后(later)
 
 # 自定义引入外部css、js
 import:

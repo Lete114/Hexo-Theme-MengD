@@ -1,7 +1,7 @@
 <%
 var link = site.data.link
 var issues = theme.link.issues
-var repo = theme.link.repo_pr
+var repo = theme.link.repoPr
 %>
 
 <div class="link" id="link">
@@ -63,7 +63,7 @@ var repo = theme.link.repo_pr
                     links: map[key],
                 })
             })
-            insert_links(res);
+            insertLinks(res);
         }
     })
 
@@ -79,9 +79,9 @@ var repo = theme.link.repo_pr
     }
 
     /*插入数据*/
-    function insert_links(data){
+    function insertLinks(data){
         for (let i in data) {
-            <% if(issues.show_position=="before"){%>
+            <% if(issues.showPosition=="before"){%>
             // 添加在开头
             var idLink = document.querySelector("#link")
             idLink.insertAdjacentHTML('afterbegin','<div class="link-list"></div>')
@@ -103,7 +103,7 @@ var repo = theme.link.repo_pr
                 // 只有仓库拥有者添加了标签的才显示友链
                 if(links[i].tags!=null){
                     var itemLink = '<div class="link-list-item"><a target="_blank" rel="noopener" href="'+link+'"><img src="'+avatar+'" alt="'+descr+'"><span class="link-item-name">'+name+'</span><span class="link-item-desc">'+descr+'</span></a></div>'
-                    <% if(issues.show_position=="before"){%>
+                    <% if(issues.showPosition=="before"){%>
                         document.querySelector(".link-list").insertAdjacentHTML('afterbegin',itemLink)
                     <%}else{%>
                         document.querySelector(".link-list:last-child").insertAdjacentHTML('afterbegin',itemLink)
@@ -119,19 +119,19 @@ var repo = theme.link.repo_pr
     <%if(repo.enable){%>
     /*通过仓库pr修改link.yml方式*/
     ajax({
-        url: "<%-repo.yml_url%>",
+        url: "<%-repo.ymlUrl%>",
         async:false,
         success: function(data){
-            getScript("<%-theme.CDN.js_yaml%>",function(){
+            getScript("<%-theme.CDN.jsYaml%>",function(){
                 data = JSON.stringify(jsyaml.load(data))
                 data = JSON.parse([data]);
-                <%if(repo.show_position=="before"){%>
+                <%if(repo.showPosition=="before"){%>
                 document.querySelector("#link").insertAdjacentHTML('afterbegin','<span id="gitee-link-before"></span>')
                 <%}%>
                 for (let i in data) {
                     var desc = data[i].class_desc == null?'':data[i].class_desc;
                     var title = data[i].class_name;
-                    <%if(repo.show_position=="before"){%>
+                    <%if(repo.showPosition=="before"){%>
                         // 添加在开头
                         var idLink = document.querySelector("#gitee-link-before")
                         idLink.insertAdjacentHTML('beforeend','<h2>'+title+'</h2>')
@@ -150,7 +150,7 @@ var repo = theme.link.repo_pr
                         var avatar = data[i].link_list[j].avatar;
                         var descr = data[i].link_list[j].descr;
                         var itemLink = '<div class="link-list-item"><a target="_blank" rel="noopener" href="'+link+'"><img src="'+avatar+'" alt="'+descr+'"><span class="link-item-name">'+name+'</span><span class="link-item-desc">'+descr+'</span></a></div>'
-                        <% if(repo.show_position=="before"){%>
+                        <% if(repo.showPosition=="before"){%>
                             document.querySelector("#gitee-link-before .link-list:last-child").insertAdjacentHTML('beforeend',itemLink)
                         <%}else{%>
                             document.querySelector(".link-list:last-child").insertAdjacentHTML('beforeend',itemLink)
