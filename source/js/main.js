@@ -25,11 +25,12 @@ function table_wrap() {
 // fancybox
 function fancyboxFn() {
   getScript($config.CDN.fancybox_js, function () {
-    Fancybox.bind('[data-img]')
+    const imgAll = document.querySelectorAll('.post_content img')
+    imgAll.forEach((ele) => ele.setAttribute('data-fancybox', ''))
     var link = document.createElement('link')
-    link.rel='stylesheet'
-    link.type='text/css'
-    link.href=$config.CDN.fancybox_css
+    link.rel = 'stylesheet'
+    link.type = 'text/css'
+    link.href = $config.CDN.fancybox_css
     document.head.appendChild(link)
   })
 }
