@@ -196,6 +196,15 @@ function scroll() {
       windowTop = scrollTop
     }
 
+    var rightside = document.querySelector('#rightside')
+    if (scrollTop > 100) rightside.style = 'opacity:1;visibility:visible'
+    else {
+      rightside.style.opacity = 0
+      setTimeout(function () {
+        rightside.style.visibility = 'hidden'
+      }, 500)
+    }
+
     // toc目录百分比
     var article = document.querySelector('.post-content')
     var num = document.querySelector('.num')
