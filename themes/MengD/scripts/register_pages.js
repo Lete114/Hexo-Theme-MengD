@@ -11,14 +11,14 @@ const url_for = require('hexo-util').url_for.bind(hexo)
 hexo.extend.generator.register('404', () => {
   let theme = hexo.theme.config
   let config = hexo.config
-  if (!theme.error_404.enable) return
+  if (!theme.error404.enable) return
   let body = `
     <meta charset="UTF-8">
     <title>页面没有找到 | ${config.title}</title>
     <meta http-equiv="Refresh" content="5;url=${url_for(config.url)}" />
     <style>
         body {
-            background: ${theme.error_404.background};
+            background: ${theme.error404.background};
         }
         #not_found {
             position: fixed;
@@ -272,24 +272,24 @@ hexo.extend.generator.register('artitalk', () => {
   }
 })
 
-// HPP_talk页面
-hexo.extend.generator.register('hpp_talk', () => {
+// HPPTalk页面
+hexo.extend.generator.register('hppTalk', () => {
   let theme = hexo.theme.config
-  if (!theme.hpp_talk.enable) return
-  let title = theme.hpp_talk.title // 标题
+  if (!theme.hppTalk.enable) return
+  let title = theme.hppTalk.title // 标题
   // 判断是否使用了option选项
-  let option = theme.hpp_talk.option ? `initData = Object.assign(initData, ${JSON.stringify(theme.hpp_talk.option)})` : ''
+  let option = theme.hppTalk.option ? `initData = Object.assign(initData, ${JSON.stringify(theme.hppTalk.option)})` : ''
   // 内容
   let content = `
-    <div id="hpp_talk"></div>
-    <link rel="stylesheet" href="${theme.hpp_talk.source_css}" /> 
+    <div id="hppTalk"></div>
+    <link rel="stylesheet" href="${theme.hppTalk.sourceCss}" /> 
     <script>
-        getScript("${theme.hpp_talk.source_js}",function(){
+        getScript("${theme.hppTalk.sourceJs}",function(){
             let initData = {
-                id:"hpp_talk",
-                domain: "${theme.hpp_talk.domain}",
-                limit: ${theme.hpp_talk.limit},
-                start: ${theme.hpp_talk.start}
+                id:"hppTalk",
+                domain: "${theme.hppTalk.domain}",
+                limit: ${theme.hppTalk.limit},
+                start: ${theme.hppTalk.start}
             }
             ${option}
             new hpp_talk(initData)
@@ -297,8 +297,8 @@ hexo.extend.generator.register('hpp_talk', () => {
     </script>
     `
   return {
-    path: theme.hpp_talk.path,
-    data: { type: 'hpp_talk', content, title },
+    path: theme.hppTalk.path,
+    data: { type: 'hppTalk', content, title },
     comments: false,
     layout: ['page']
   }

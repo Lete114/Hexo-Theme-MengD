@@ -19,7 +19,7 @@
             var progress = 10;
             // 创建进度条 及 css样式
             var div = document.createElement('div');
-            div.className = "pjax_progress";
+            div.className = "pjax-progress";
             document.body.prepend(div);
             // 定义随机数最大值最小值
             var max=10,mini=3;
@@ -33,7 +33,7 @@
                 var randomResult = num+mini;
                 // 累加
                 progress+=randomResult
-                document.getElementsByClassName("pjax_progress")[0].style.width = progress+"%";
+                document.getElementsByClassName("pjax-progress")[0].style.width = progress+"%";
                 // 当进度达到95%时停止
                 if(progress>95)progress=95
             },500)
@@ -42,7 +42,7 @@
         function ProgressFinish(){
             clearInterval(timer);
             // 页面加载完毕后进度100% 并在0.7秒后删除
-            var progress = document.getElementsByClassName("pjax_progress");
+            var progress = document.getElementsByClassName("pjax-progress");
             progress[0].style.width = "100%";
             timer = setTimeout(function () {
             progress[0].parentNode.removeChild(progress[0])
@@ -60,7 +60,7 @@
             // 加载进度条加载完毕
             ProgressFinish()
             // 执行所有方法
-            exe_all_fn()
+            exeAllFn()
 
             <%if(theme.lazyload.enable){%>
                 // 图片懒加载

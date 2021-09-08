@@ -5,19 +5,19 @@
     top 0
     width 100%
 
-    #navbar_wrap
+    #navbar-wrap
         display flex
+        margin: 0 10%;
         justify-content center
         align-items center
         height 64px
         padding 0 30px
-        margin 0 10%
-        background-color var(--navbar_bg)
+        background-color var(--navbar-bg)
         border-radius 10px
         -webkit-box-shadow 0 5px 6px -5px #444
         box-shadow 0 5px 6px -5px #444
 
-    .blog_name
+    .blog-name
         font-weight 700
         font-size 1.06rem
         color $title
@@ -40,8 +40,8 @@
             padding 10px
             font-size 0.8rem
 
-    ul li:hover .menu_child
-        background-color var(--navbar_bg)
+    ul li:hover .menu-child
+        background-color var(--navbar-bg)
         position absolute
         right 0
         display inline-block
@@ -51,8 +51,8 @@
         -webkit-box-shadow 0 5px 20px -4px rgba(0, 0, 0, 0.5)
         box-shadow 0 5px 20px -4px rgba(0, 0, 0, 0.5)
 
-#navbar_wrap
-    .open_nav
+#navbar-wrap
+    .open-nav
         margin-left 10px
         display none
 
@@ -60,7 +60,7 @@
         order 1
         font-size 0.8rem
 
-.menu_child
+.menu-child
     display none
 
     li
@@ -78,15 +78,15 @@
         color #00c4b6
 
 // 手机端
-.open_mobile
+.open-mobile
     -webkit-transform translate3d(-100%, 0, 0)
     -moz-transform translate3d(-100%, 0, 0)
     -o-transform translate3d(-100%, 0, 0)
     -ms-transform translate3d(-100%, 0, 0)
     transform translate3d(-100%, 0, 0)
 
-#mobile_nav
-    background var(--main_bg)
+#mobile-nav
+    background var(--main-bg)
     position fixed
     right -250px
     top 0
@@ -100,7 +100,7 @@
     -ms-transition all 0.5s
     transition all 0.5s
 
-#mobile_nav ul
+#mobile-nav ul
     padding-inline-start unset
 
     li
@@ -118,14 +118,14 @@
             font-size 0.9rem
 
 @media screen and (max-width 900px)
-    .navbar #navbar_wrap .menu
+    .navbar #navbar-wrap .menu
         display none
 
-    .navbar #navbar_wrap
+    .navbar #navbar-wrap
         margin 0
 
-    #navbar_wrap
-        .open_nav
+    #navbar-wrap
+        .open-nav
             display inline-block
 
             if (!hexo-config('search.enable'))

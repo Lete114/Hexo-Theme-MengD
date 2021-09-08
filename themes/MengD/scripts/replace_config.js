@@ -13,7 +13,7 @@ hexo.on('generateBefore', function () {
   config.stylus = { compress: theme.minify.css }
 
   /* 首页显示的文章数 */
-  config.index_generator.per_page = theme.page_count
+  config.index_generator.per_page = theme.pageCount
 
   /* 本地搜索设置 */
   config.search = theme.search

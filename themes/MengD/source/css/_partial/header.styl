@@ -17,32 +17,33 @@ header
     -ms-transition all 0.5s
     transition all 0.5s
 
-.header_author
-    .author_avatar
+.header-author
+    .author-avatar
         width 100px
         height 100px
-        border-radius 50%
+        object-fit cover
+        border-radius 6px
 
-    .author_name
+    .author-name
         float none
         font-weight 700
         font-size 1.3rem
         color $title
         padding-top 10px
 
-.header_description
+.header-description
     margin-top 20px
-    color var(--text_color)
+    color var(--text-color)
     text-align right
 
     p
         margin unset
 
-    .header_icon
+    .header-icon
         float right
 
         a i
-            color var(--text_color)
+            color var(--text-color)
             font-size 0.9rem
             margin-right 10px
             margin-top 10px
@@ -69,9 +70,9 @@ header
             display block
             text-align center
 
-        .header_description
+        .header-description
             text-align center
 
-        .header_description>.header_icon
+        .header-description>.header-icon
             text-align center
             float none

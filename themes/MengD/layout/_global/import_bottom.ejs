@@ -1,15 +1,15 @@
 
-<% if (theme.amusing_title && theme.amusing_title.enable) { %>
+<% if (theme.amusingTitle && theme.amusingTitle.enable) { %>
 <%# 此处并未适配pjax，原因是无意义 %> 
 <script>
     var originTitle = document.title;
     var titleTime;
     document.addEventListener("visibilitychange", function () {
         if (document.hidden) {
-            document.title = "<%- theme.amusing_title.leave_title %>" + originTitle;
+            document.title = "<%- theme.amusingTitle.leaveTitle %>" + originTitle;
             clearTimeout(titleTime);
         } else {
-            document.title = "<%- theme.amusing_title.return_title %>" + originTitle;
+            document.title = "<%- theme.amusingTitle.returnTitle %>" + originTitle;
             titleTime = setTimeout(function () {
                 document.title = originTitle;
             }, 2000);

@@ -1,21 +1,21 @@
 // 文章
 
 // 文章头信息
-.post_info
+.post-info
     text-align center
     padding 20px 0
 
-    .post_title
+    .post-title
         padding-bottom 4px
 
-    .post_meta
+    .post-meta
         font-size 0.6rem
 
-    .post_meta>div
+    .post-meta>div
         padding 2px 0
 
 // 文章信息
-.post_content
+.post-content
     line-height 1.8
     font-size 0.8rem
     padding-bottom 50px
@@ -33,7 +33,7 @@
 
 // 目录
 #toc
-    background var(--main_bg)
+    background var(--main-bg)
     position fixed
     left -250px
     top 0
@@ -46,7 +46,7 @@
     -ms-transition all 0.5s
     transition all 0.5s
 
-    .toc_title
+    .toc-title
         text-align center
         padding 30px
 
@@ -60,7 +60,7 @@
         background #ededed
         border-radius 10px
 
-    .toc_list
+    .toc-list
         overflow hidden auto
         height 100%
 
@@ -71,12 +71,12 @@
             .toc-child
                 padding-left 1rem
 
-    .toc, .toc_list>li
+    .toc, .toc-list>li
         padding 0
         margin-left 20px
 
 // 打开目录
-.open_toc
+.open-toc
     -webkit-transform translate3d(100%, 0, 0)
     -moz-transform translate3d(100%, 0, 0)
     -o-transform translate3d(100%, 0, 0)
@@ -100,7 +100,7 @@ progress::-webkit-progress-value
 
 /* 版权框 */
 if (hexo-config('copyright.enable'))
-    .post_copyright
+    .post-copyright
         margin 20px 0
         position relative
         padding 0.5rem 0.8rem
@@ -118,7 +118,7 @@ if (hexo-config('copyright.enable'))
             line-height 28px
             word-break break-all
 
-        .post_copyright_icon:before
+        .post-copyright-icon:before
             position absolute
             top 0.1rem
             right 0.6rem
@@ -133,17 +133,17 @@ if (hexo-config('copyright.enable'))
             text-rendering auto
             -webkit-font-smoothing antialiased
 
-        .post_copyright_meta
+        .post-copyright-meta
             color var(--main)
             font-weight 700
 
 // 文章标签
-.post_tag
+.post-tag
     text-align center
     padding-bottom 20px
 
 // 上下一篇文章
-.pagination_post
+.pagination-post
     display flex
     align-items baseline
 
@@ -157,24 +157,24 @@ if (hexo-config('copyright.enable'))
         i
             width 1rem
 
-    .next_title
+    .next-title
         text-align right
 
-    .prev_title
+    .prev-title
         text-align left
 
-    .prev_title, .next_title
+    .prev-title, .next-title
         line-height 1.4em
         width 100%
         font-weight 700
         margin-bottom 6px
 
-    .prev_desc, .next_desc
+    .prev-desc, .next-desc
         word-break break-all
         color #777
 
 @media screen and (max-width 760px)
-    .pagination_post
+    .pagination-post
         flex-direction column
         align-items center
         margin 0 10px

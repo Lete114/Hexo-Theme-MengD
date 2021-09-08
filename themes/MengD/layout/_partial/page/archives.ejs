@@ -3,8 +3,8 @@
 var lastYear;
 var lastMonth;
 %>
-<div class="article_count"><%- __('article-count') %>  - <%= site.posts.length %></div>
-<div class="archive_article_info">
+<div class="article-count"><%- __('articleCount') %>  - <%= site.posts.length %></div>
+<div class="archive-article-info">
 <% page.posts.sort('date', 'desc').each(function(post) { %>
     <% 
         var title = post.title||__('post.title')
@@ -13,13 +13,13 @@ var lastMonth;
     %>
     <% if (lastYear != currentYear) { %>
         <% lastYear = currentYear; %>
-        <h4 class="archive_year"><%= currentYear %></h4>
+        <h4 class="archive-year"><%= currentYear %></h4>
     <% } %>
-        <div class="article_item">
+        <div class="article-item">
             
-            <a class="article_title_item" href="<%- url_for(post.path) %>" title="<%=title %>"><%= title %></a>
+            <a class="article-title-item" href="<%- url_for(post.path) %>" title="<%=title %>"><%= title %></a>
         
-            <time class="post_created_date">
+            <time class="post-created-date">
                 <i class="far fa-calendar-alt"></i>
                  <%= currentMonth %>
             </time>

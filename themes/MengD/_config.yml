@@ -1,4 +1,3 @@
----
 #--------------------------------------------------------
 # Hexo-MengD(萌典)
 # 项目地址：https://github.com/lete114/hexo-theme-MengD
@@ -21,27 +20,27 @@ social:
   # fab fa-github: https://github.com/lete114
   # fa fa-envelope: mailto:lete@lete114.top
 
-main_size: 50 # 文章显示大小(单位：百分比)
+mainSize: 50 # 文章显示大小(单位：百分比，最低50% 最高80%)
 favicon: /img/favicon.png
 avatar: /img/logo.gif
-page_count: 5 # 首页展示文章数
+pageCount: 5 # 首页展示文章数
 MathJax: false # 数学公式
 darkmode: true # 深色模式
 pjax: true # pjax
 tags: false # 文章内是否显示标签
 
 ## 主题颜色
-theme_color:
+themeColor:
   main: '#e58a8a' # 主色
   fan: '#00c4b6' # 小风车
-  body_a: '#00c4b6' # 全局a标签颜色
+  bodyA: '#00c4b6' # 全局a标签颜色
   title: '#ff7242' # 博主昵称
 
 # 有趣的标题切换
-amusing_title:
+amusingTitle:
   enable: true
-  leave_title: '(つェ⊂) 我藏好了哦~ '
-  return_title: '(*´∇｀*) 被你发现啦~ '
+  leaveTitle: '(つェ⊂) 我藏好了哦~ '
+  returnTitle: '(*´∇｀*) 被你发现啦~ '
 
 # 自动截取
 description:
@@ -61,8 +60,8 @@ search:
   source: /js/search.js
 
 # 代码块高亮主题
-highlight_theme: mac # default / darker / pale night / light / ocean / mac / mac light
-code_block_expand: # 是否开启代码块折叠
+highlightTheme: mac # default / darker / pale night / light / ocean / mac / mac light
+codeBlockExpand: # 是否开启代码块折叠
   enable: true
   height: 400 # 代码块高度超过400折叠 单位px
   scrollTop: 200 # 展开后,再次(手动点击)点击折叠滚动到代码块开始的距离 单位px
@@ -154,21 +153,21 @@ artitalk:
   atEmoji: # 自定义表情包
   option:
 
-# HPP_talk
+# HPPTalk
 ## https://hexoplusplus.js.org/
-hpp_talk:
+hppTalk:
   enable: false # 是否开启
-  source_css: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@9bf1085/talk.css
-  source_js: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@9bf1085/talk_user.js
-  title: HPP_talk # 标题
-  path: hpp_talk/index.html # 路径
+  sourceCss: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@9bf1085/talk.css
+  sourceJs: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@9bf1085/talk_user.js
+  title: HPPTalk # 标题
+  path: hppTalk/index.html # 路径
   domain: blog.lete114.workers.dev # 您的HexoPlusPlus域名
   limit: 10 # 单次获取的最多条数
   start: 0 # 从第几条开始
   option:
 
 ## 404页面
-error_404:
+error404:
   enable: true
   background: '#00c4b6'
 
@@ -179,11 +178,11 @@ link:
     subtitle: Gitee友链 # 副标题
     owner: lete114 # 仓库拥有者
     repo: link # 仓库昵称
-    show_position: later # 显示的位置  前(before) / 后(later)
-  repo_pr:
+    showPosition: later # 显示的位置  前(before) / 后(later)
+  repoPr:
     enable: true # 是否开启
-    yml_url: https://links.lete114.top/MengD/link.yml # 友链yml文件
-    show_position: later # 显示的位置  前(before) / 后(later)
+    ymlUrl: https://links.lete114.top/MengD/link.yml # 友链yml文件
+    showPosition: later # 显示的位置  前(before) / 后(later)
 
 # 自定义引入外部css、js
 import:
@@ -201,7 +200,7 @@ import:
 # 页脚
 footer:
   since: 2020
-  custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！
+  customText: 我相信我可以，但我一直在路上，所以我有无限的可能！！
   icp:
     enable: false
     text:
@@ -223,19 +222,19 @@ font:
 # 主题的css与js引入
 ## 无特殊要求请勿更改
 CDN:
-  main_js: /js/main.js
-  main_css: /css/main.css
+  mainJs: /js/main.js
+  mainCss: /css/main.css
   utlis: /js/utlis.js
   # lazyload
   lazyload: /js/lazyload.js
   # pjax
   pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.min.js
   # fancybox
-  fancybox_js: https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js
-  fancybox_css: https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css
+  fancyboxJs: https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js
+  fancyboxCss: https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css
   # fortawesome
   fortawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
   # yml转json
-  js_yaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
+  jsYaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
   # math
   mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

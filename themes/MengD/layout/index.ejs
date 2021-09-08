@@ -6,7 +6,7 @@
 
 %>
 <%- partial('_partial/header') %>
-<div id="post_list">
+<div id="post-list">
     <%# 
         page变量是怎么来的？
             至于这个变量是怎么来的，这里说不清楚(因为每个页面的page都不一样)
@@ -17,22 +17,17 @@
             默认情况下是显示10篇最新的文章(你可以在hexo的配置文件里找到index_generator-->per_page)
      %> 
     <% page.posts.each(function (post) { %>
-        <div class="post_item">
+        <div class="post-item">
             <% var title = post.title ||__('post.title') %> 
-            <a class="post_title" href="<%- url_for(post.path) %>" title="<%- title %> ">
+            <a class="post-title" href="<%- url_for(post.path) %>" title="<%- title %> ">
                 <%- title %>
             </a>
-            <div class="post_description">
+            <div class="post-description">
                 <% post.content= post.content.replace(/<td class=\"gutter\"><pre>(.*?)<\/pre><\/td>/gim,'') %> 
                 <%- post.description ? post.description : truncate(strip_html(post.content), {length: theme.description.length }) %>
             </div>
-            <% if (post.cover) { %>
-                <div class="cover_wrap">
-                    <img src="<%- post.cover %>" alt="<%- title %>" class="cover">
-                </div>
-            <% } %>
-            <div class="post_meta_wrap">
-                <span class="post_meta_date">
+            <div class="post-meta-wrap">
+                <span class="post-meta-date">
                     <i class="far fa-calendar-alt"></i>
                     <span><%- __('post.created') %>  </span>
                     <span>
@@ -40,7 +35,7 @@
                     </span>
                 </span>
                 <% if(post.categories.length!=0){ %>
-                <span class="post_categorie">
+                <span class="post-categorie">
                     <i class="fas fa-folder-open"></i>
                     <% post.categories.forEach(function(categories, i){ %>
                         <a href="<%= url_for(categories.path) %>">
@@ -54,7 +49,7 @@
                 <%} %>
 
                 <% if(post.tags.length!=0){ %>
-                    <span class="post_tag">
+                    <span class="post-tag">
                     <i class="fa fa-tag"></i>
                     <% post.tags.forEach(function(tag, i){ %>
                     <a href="<%= url_for(tag.path) %>">

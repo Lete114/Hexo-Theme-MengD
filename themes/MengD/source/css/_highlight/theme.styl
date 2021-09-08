@@ -1,7 +1,7 @@
-$highlight_theme = hexo-config('highlight_theme')
+$highlightTheme = hexo-config('highlightTheme')
 
-if ($highlight_theme == 'default')
-  $code_block = #222d32
+if ($highlightTheme == 'default')
+  $codeBlock = #222d32
   $highlight-background = #263238
   $highlight-current-line = #efefef
   $highlight-selection = #80CBC420
@@ -26,8 +26,8 @@ if ($highlight_theme == 'default')
   }
   $highlight-scrollbar = darken($highlight-background, 6)
 
-if ($highlight_theme == 'darker' || ($highlight_theme == 'mac'))
-  $code_block = #1c1c1c
+if ($highlightTheme == 'darker' || ($highlightTheme == 'mac'))
+  $codeBlock = #1c1c1c
   $highlight-background = #212121
   $highlight-current-line = #282a2e
   $highlight-selection = #61616150
@@ -53,8 +53,8 @@ if ($highlight_theme == 'darker' || ($highlight_theme == 'mac'))
   }
   $highlight-scrollbar = darken($highlight-background, 6)
 
-if ($highlight_theme == 'pale night')
-  $code_block = #252938
+if ($highlightTheme == 'pale night')
+  $codeBlock = #252938
   $highlight-background = #292D3E
   $highlight-current-line = #393939
   $highlight-selection = #717CB450
@@ -79,8 +79,8 @@ if ($highlight_theme == 'pale night')
   }
   $highlight-scrollbar = darken($highlight-background, 6)
 
-if ($highlight_theme == 'ocean')
-  $code_block = #0b0d14
+if ($highlightTheme == 'ocean')
+  $codeBlock = #0b0d14
   $highlight-background = #0F111A
   $highlight-current-line = #000000
   $highlight-selection = #717CB450
@@ -105,8 +105,8 @@ if ($highlight_theme == 'ocean')
   }
   $highlight-scrollbar = darken($highlight-background, 5)
 
-if ($highlight_theme == 'light' || ($highlight_theme == 'mac light'))
-  $code_block = #e6ebf1
+if ($highlightTheme == 'light' || ($highlightTheme == 'mac light'))
+  $codeBlock = #e6ebf1
   $highlight-background = #F6F8FA
   $highlight-current-line = #00346e
   $highlight-selection = #80CBC440
@@ -132,8 +132,8 @@ if ($highlight_theme == 'light' || ($highlight_theme == 'mac light'))
   }
   $highlight-scrollbar = darken($highlight-background, 8)
 
-if ($highlight_theme == false)
-  $code_block = #e6ebf1
+if ($highlightTheme == false)
+  $codeBlock = #e6ebf1
   $highlight-background = #F6F8FA
   $highlight-foreground = #90A4AE
   $highlight-selection = #80CBC440

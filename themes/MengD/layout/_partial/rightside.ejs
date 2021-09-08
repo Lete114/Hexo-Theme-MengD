@@ -1,7 +1,7 @@
 <section id="rightside">
     <%if(theme.rightside.settings){%>
     <%# 当设置了settings属性才会显示 %> 
-    <div class="rightside_btn">
+    <div class="rightside-btn">
         <%theme.rightside.settings.forEach(items => {%>
         <%var item = items.split("||")%>
         <a <%-item[0]%> title="<%-item[1]%>">
@@ -10,7 +10,7 @@
         <%});%>
     </div>
     <%}%>
-    <div class="rightside_item">
+    <div class="rightside-item">
         <%if(theme.rightside.show){%>
             <%theme.rightside.show.forEach(items => {%>
             <%var item = items.split("||")%>
@@ -28,7 +28,7 @@
         <%# 是否是文章 %> 
         <% var toc = toc(page.content,{list_number: false})==""?false:true;%> 
         <%if(toc&&is_post()){%>
-            <a id="open_toc" title="<%-__('post.toc')%>">
+            <a id="open-toc" title="<%-__('post.toc')%>">
                 <i class="fas fa-list-ul"></i>
             </a>
         <%}%>
@@ -40,11 +40,11 @@
         <% } %> 
         <% if(theme.comments&&page.comments){ %>
         <%# 是否开启深色模式 %>
-            <a href="#<%-__('rightside.direct_comments')%>" title="<%-__('rightside.direct_comments')%>">
+            <a href="#<%-__('rightside.directComments')%>" title="<%-__('rightside.directComments')%>">
                 <i class="fas fa-comments"></i>
             </a>
         <% } %>
-        <a href="#" title="<%-__('rightside.back_to_top')%>">
+        <a href="#" title="<%-__('rightside.backToTop')%>">
             <i class="fas fa-arrow-up"></i>
         </a>
     </div>
