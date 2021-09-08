@@ -20,7 +20,7 @@ social:
   # fab fa-github: https://github.com/lete114
   # fa fa-envelope: mailto:lete@lete114.top
 
-mainSize: 80 # 文章显示大小(单位：百分比，最低50% 最高80%)
+mainSize: 50 # 文章显示大小(单位：百分比，最低50% 最高80%)
 favicon: /img/favicon.png
 avatar: /img/logo.gif
 pageCount: 5 # 首页展示文章数

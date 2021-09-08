@@ -26,11 +26,6 @@
                 <% post.content= post.content.replace(/<td class=\"gutter\"><pre>(.*?)<\/pre><\/td>/gim,'') %> 
                 <%- post.description ? post.description : truncate(strip_html(post.content), {length: theme.description.length }) %>
             </div>
-            <% if (post.cover) { %>
-                <div class="cover-wrap">
-                    <img src="<%- post.cover %>" alt="<%- title %>" class="cover">
-                </div>
-            <% } %>
             <div class="post-meta-wrap">
                 <span class="post-meta-date">
                     <i class="far fa-calendar-alt"></i>
