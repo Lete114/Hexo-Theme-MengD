@@ -30,7 +30,7 @@
         <span class="word-count"><%= wordcount(page.content) %> | </span>
         <i class="far fa-clock fa-fw post-meta-icon"></i>
         <span class="post-meta-label"><%- __('post.min2read') %>:</span>
-        <span><%= min2read(page.content) %><%- __('post.min2read_unit') %></span>
+        <span><%= min2read(page.content) %><%- __('post.min2readUnit') %></span>
         <%if(page.comments){%>
         | <i class="far fa-eye fa-fw post-meta-icon"></i>
         <span id="<%- url_for(page.path) %>" class="leancloud_visitors">
@@ -64,7 +64,7 @@
             </span>
       </div>
       <div class="post-copyright-type">
-          <span class="post-copyright-meta"><%-__('copyright.article_url')%>: </span>
+          <span class="post-copyright-meta"><%-__('copyright.articleUrl')%>: </span>
             <span class="post-copyright-info">
               <a href="<%= url %>" ><%= url %></a>
             </span>

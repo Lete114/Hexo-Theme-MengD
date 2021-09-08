@@ -4,24 +4,23 @@ post:
   updated: 更新于
   wordcount: 总字数
   min2read: 阅读时长
-  min2read_unit: 分钟
+  min2readUnit: 分钟
   visitors: 阅读量
   toc: 目录
-  comments: 评论
 
 search:
   title: 本地搜索
   input: 搜索文章
 
 rightside:
-  direct_comments: 直达评论
-  back_to_top: 回到顶部
+  directComments: 直达评论
+  backToTop: 回到顶部
   settings: 设置
   dark: 深色/浅色
 
 copyright:
   author: 文章作者
-  article_url: 文章链接
+  articleUrl: 文章链接
   notice: 版权声明
 
 comments: 评论
@@ -30,4 +29,4 @@ footer:
   framework: 框架
   theme: 主题
 
-article-count: 文章总览
+articleCount: 文章总览

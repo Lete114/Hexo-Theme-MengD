@@ -4,7 +4,7 @@ post:
   updated: Updated
   wordcount: Word Count
   min2read: Reading time
-  min2read_unit: min
+  min2readUnit: min
   visitors: Visitors
   toc: Catalog
 
@@ -13,18 +13,20 @@ search:
   input: Search the article
 
 rightside:
-  direct_comments: Direct comments
-  back_to_top: Back To Top
+  directComments: Direct comments
+  backToTop: Back To Top
   settings: Settings
   dark: Dark/Light
 
 copyright:
   author: Authorship
-  article_url: Article Links
+  articleUrl: Article Links
   notice: Copyright
+
+comments: Comments
 
 footer:
   framework: Framework
   theme: Theme
 
-article-count: Article Overview
+articleCount: Article Overview
