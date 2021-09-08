@@ -65,6 +65,8 @@ body
         padding 10px 30px 30px
         background var(--main_bg)
         width $main_size
+        min-width 50%
+        max-width 80%
 
         a:hover
             color var(--main)
@@ -158,9 +160,11 @@ blockquote
         .main
             padding 10px
             padding-bottom 30px
-            margin: 0 10px;
-            width: calc(100% - 20px)
-            box-sizing border-box;
+            margin 0 10px
+            width calc(100% - 20px)
+            box-sizing border-box
+            min-width auto
+            max-width none
 
         #main_wrap
             align-items revert
