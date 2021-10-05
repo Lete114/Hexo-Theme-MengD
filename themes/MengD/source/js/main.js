@@ -38,10 +38,10 @@ function fancyboxFn() {
 
 // 代码块折叠
 function codeBlockExpand() {
-  if (!$config.codeBlock3xpand || !$config.codeBlock3xpand.enable) return
+  if (!$config.codeBlockExpand || !$config.codeBlockExpand.enable) return
   var CodeBlock = document.querySelectorAll('figure.highlight')
   // 定义高度
-  var height = $config.codeBlock3xpand.height
+  var height = $config.codeBlockExpand.height
   // 获取当前页面的所有的代码块 循环判断符合条件的折叠
   for (var i = 0; i < CodeBlock.length; i++) {
     if (CodeBlock[i].clientHeight > height) {
