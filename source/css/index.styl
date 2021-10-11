@@ -59,16 +59,14 @@
             color #999
 
 @media (max-width 768px)
-    .post-item
+    #post-list .post-item 
         flex-direction column-reverse
-
-    .post-meta-wrap
-        margin-top 10px
-        position unset
-
-    .post-item-cover
-        max-width 100%
-        height 230px
-        margin-bottom 10px
+        .post-meta-wrap
+            margin-top 10px
+            position: unset;
+        .post-item-cover
+            height: 230px;
+            max-width 100%
+            margin-bottom 10px
 
 @import '_partial/header'
