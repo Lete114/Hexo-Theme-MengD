@@ -7,7 +7,7 @@ html
 
 body
     background-color var(--body-bg)
-    font-size 0.8rem
+    font-size 0.875rem /* 14/16 */
     color var(--text-color)
     overflow-x hidden
     font-family $fontHtml
@@ -49,14 +49,14 @@ body
         padding 2px
 
 #body-wrap
-    margin-top 70px
     display flex
-    flex-direction column
-    min-height 90vh
+    width var(--body-width)
+    margin 0 auto
+    flex-flow column
 
     #main-wrap
-        flex 1
         display flex
+        padding-top 4px
         justify-content center
 
     .main
@@ -65,8 +65,8 @@ body
         padding 10px 30px 30px
         background var(--main-bg)
         width $mainSize
-        min-width 50%
-        max-width 80%
+        min-width 70%
+        max-width 90%
 
         a:hover
             color var(--main)
@@ -154,6 +154,17 @@ blockquote
         margin-top 0
         width 100%
         height 100%
+
+@media (max-width 768px)
+    #body-wrap
+        width 100%
+    
+    #post-list .post-item 
+        .post-meta-wrap
+            position: unset;
+        .post-item-cover
+            height: 230px;
+        
 
 @media screen and (max-width 900px)
     #body-wrap
