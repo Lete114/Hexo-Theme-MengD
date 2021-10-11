@@ -1,38 +1,35 @@
-<nav class="navbar">
-    <div id="navbar-wrap">
-        <a href="<%- url_for(config.root) %>" class="blog-name"><%= config.title %></a>
-        <% if (theme.search.enable) { %>
-            <i class="fas fa-search search-btn" ></i>
-        <% } %>
-        <i class="fas fa-bars open-nav"></i>
-        <ul class="menu">
-          <% for (name in theme.menu) { %>
-                  <% if(!Array.isArray(theme.menu[name])){ %>
-                  <li><a href="<%- url_for(theme.menu[name]) %>"><%= name %></a></li>
-                  <% }else{%>
-                  <li>
-                      <a class="menu-child-hover" href="javascript:void(0);"><%-name%></a>
-                      <ul class="menu-child">
-                      <% for (child in theme.menu[name]) {%>
-                          <li><a href='<%-url_for(theme.menu[name][child].split("||")[1].trim())%>'><%-theme.menu[name][child].split("||")[0].trim()%></a></li>
-                      <% } %>
-                      </ul>
-                  </li>
-                  <% } %>
-              <% } %>
-        </ul>
-    </div>
-</nav>
-<div id="mobile-nav">
-    <ul>
-    <% for (name in theme.menu) { %>
-        <% if(!Array.isArray(theme.menu[name])){ %>
+<nav id="nav-wrap">
+  <div class="navbar">
+    <div class="bar">
+      <a href="<%- url_for(config.root) %>" class="title"><%= config.title %></a>
+
+      <% if (theme.search.enable) { %>
+      <i class="fas fa-search search-btn"></i>
+      <% } %>
+      <ul class="menu">
+        <% for (name in theme.menu) { %> <% if(!Array.isArray(theme.menu[name])){ %>
         <li><a href="<%- url_for(theme.menu[name]) %>"><%= name %></a></li>
         <% }else{%>
-        <% for (child in theme.menu[name]) {%>
+        <li>
+          <a class="menu-child-hover" href="javascript:void(0);"><%-name%></a>
+          <ul class="menu-child">
+            <% for (child in theme.menu[name]) {%>
             <li><a href='<%-url_for(theme.menu[name][child].split("||")[1].trim())%>'><%-theme.menu[name][child].split("||")[0].trim()%></a></li>
-        <% } %>
-        <% } %>
-    <% } %>
-    </ul>
+            <% } %>
+          </ul>
+        </li>
+        <% } %> <% } %>
+      </ul>
+      <i class="fas fa-bars open-nav"></i>
+    </div>
+  </div>
+</nav>
+<div id="mobile-nav">
+  <ul>
+    <% for (name in theme.menu) { %> <% if(!Array.isArray(theme.menu[name])){ %>
+    <li><a href="<%- url_for(theme.menu[name]) %>"><%= name %></a></li>
+    <% }else{%> <% for (child in theme.menu[name]) {%>
+    <li><a href='<%-url_for(theme.menu[name][child].split("||")[1].trim())%>'><%-theme.menu[name][child].split("||")[0].trim()%></a></li>
+    <% } %> <% } %> <% } %>
+  </ul>
 </div>

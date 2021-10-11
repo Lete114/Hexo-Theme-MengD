@@ -7,3 +7,24 @@ $mainSize = $mainSize + '%'
 $line = hexo-config('description.line') // 首页文章描述长度
 $fontHtml = convert(hexo-config('font.html')) // 全局字体
 $fontCode = convert(hexo-config('font.code')) // 代码块字体
+
+
+@media (max-width 768px)
+  :root
+    --body-width 100vw
+
+@media (min-width 768px)
+  :root
+    --body-width 750px
+
+@media (min-width 992px)
+  :root
+    --body-width 970px
+
+@media (min-width 1200px)
+  :root
+    --body-width 1170px
+
+@media (min-width 1800px)
+  :root
+    --body-width 1300px

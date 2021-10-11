@@ -149,6 +149,7 @@ function DarkMode() {
   var darkBtn = document.getElementById('darkmode')
   var darkIco = document.querySelector('#darkmode i')
 
+  
   if (localStorage.isDark === 'true') {
     html.setAttribute('theme', 'dark')
     darkIco.classList.remove('fa-moon')

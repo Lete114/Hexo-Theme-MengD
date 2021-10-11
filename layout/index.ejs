@@ -1,67 +1,59 @@
-<%# 
-
-博客首页需要用到的布局: 
-    这里的样式将会填充到layou.ejs的body里
-    这里的body指的是<main class="main">标签下的body，并非html的body标签
-
-%>
 <%- partial('_partial/header') %>
 <div id="post-list">
-    <%# 
-        page变量是怎么来的？
-            至于这个变量是怎么来的，这里说不清楚(因为每个页面的page都不一样)
-            你可以访问：https://hexo.io/zh-cn/docs/variables.html 了解更多
-
-        page: 可以获取当前页面的所用内容(这是hexo提供的)
-            page.posts里就是所有的文章内容
-            默认情况下是显示10篇最新的文章(你可以在hexo的配置文件里找到index_generator-->per_page)
-     %> 
     <% page.posts.each(function (post) { %>
         <div class="post-item">
-            <% var title = post.title ||__('post.title') %> 
-            <a class="post-title" href="<%- url_for(post.path) %>" title="<%- title %> ">
-                <%- title %>
-            </a>
-            <div class="post-description">
-                <% post.content= post.content.replace(/<td class=\"gutter\"><pre>(.*?)<\/pre><\/td>/gim,'') %> 
-                <%- post.description ? post.description : truncate(strip_html(post.content), {length: theme.description.length }) %>
-            </div>
-            <div class="post-meta-wrap">
-                <span class="post-meta-date">
-                    <i class="far fa-calendar-alt"></i>
-                    <span><%- __('post.created') %>  </span>
-                    <span>
-                        <%- date(post.date, "YYYY-MM-DD" ) %>
+            <div class="post-item-info"><% var title = post.title ||__('post.title') %> 
+                <a class="post-title" href="<%- url_for(post.path) %>" title="<%- title %> ">
+                    <%- title %>
+                </a>
+                <div class="post-description">
+                    <% post.content= post.content.replace(/<td class=\"gutter\"><pre>(.*?)<\/pre><\/td>/gim,'') %> 
+                    <%- post.description ? post.description : truncate(strip_html(post.content), {length: theme.description.length }) %>
+                </div>
+                <div class="post-meta-wrap">
+                    <span class="post-meta-date">
+                        <i class="far fa-calendar-alt"></i>
+                        <span><%- __('post.created') %>  </span>
+                        <span>
+                            <%- date(post.date, "YYYY-MM-DD" ) %>
+                        </span>
                     </span>
-                </span>
-                <% if(post.categories.length!=0){ %>
-                <span class="post-categorie">
-                    <i class="fas fa-folder-open"></i>
-                    <% post.categories.forEach(function(categories, i){ %>
-                        <a href="<%= url_for(categories.path) %>">
-                            <%-categories.name%>
+                    <% if(post.categories.length!=0){ %>
+                    <span class="post-categorie">
+                        <i class="fas fa-folder-open"></i>
+                        <% post.categories.forEach(function(categories, i){ %>
+                            <a href="<%= url_for(categories.path) %>">
+                                <%-categories.name%>
+                            </a>
+                            <%if(post.categories.length-1> i){%>
+                                <i class="fas fa-angle-right"></i>
+                            <%} %>
+                        <% }) %>
+                    </span>
+                    <%} %>
+    
+                    <% if(post.tags.length!=0){ %>
+                        <span class="post-tag">
+                        <i class="fa fa-tag"></i>
+                        <% post.tags.forEach(function(tag, i){ %>
+                        <a href="<%= url_for(tag.path) %>">
+                            <%-tag.name%>
                         </a>
-                        <%if(post.categories.length-1> i){%>
+                        <%if(post.tags.length-1> i){%>
                             <i class="fas fa-angle-right"></i>
-                        <%} %>
-                    <% }) %>
-                </span>
-                <%} %>
-
-                <% if(post.tags.length!=0){ %>
-                    <span class="post-tag">
-                    <i class="fa fa-tag"></i>
-                    <% post.tags.forEach(function(tag, i){ %>
-                    <a href="<%= url_for(tag.path) %>">
-                        <%-tag.name%>
-                    </a>
-                    <%if(post.tags.length-1> i){%>
-                        <i class="fas fa-angle-right"></i>
-                        <%} %>
-                    <% }) %>
-                </span>
-                <%} %>
+                            <%} %>
+                        <% }) %>
+                    </span>
+                    <%} %>
+                </div>
             </div>
+            <%if(post.cover){%>
+            <div class="post-item-cover">
+                <a class="post-title" href="<%- url_for(post.path) %>" title="<%- title %> ">
+                    <img src="<%- url_for(post.cover) %>" alt="">
+                </a>
+            </div>
+            <% } %>
         </div>
         <% }) %>
         <%- partial('_partial/pagination') %>
