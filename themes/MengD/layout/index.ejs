@@ -2,6 +2,13 @@
 <div id="post-list">
     <% page.posts.each(function (post) { %>
         <div class="post-item">
+            <%if(post.cover){%>
+            <div class="post-item-cover">
+                <a class="post-title" href="<%- url_for(post.path) %>" title="<%- title %> ">
+                    <img src="<%- url_for(post.cover) %>" alt="">
+                </a>
+            </div>
+            <% } %>
             <div class="post-item-info"><% var title = post.title ||__('post.title') %> 
                 <a class="post-title" href="<%- url_for(post.path) %>" title="<%- title %> ">
                     <%- title %>
@@ -47,13 +54,7 @@
                     <%} %>
                 </div>
             </div>
-            <%if(post.cover){%>
-            <div class="post-item-cover">
-                <a class="post-title" href="<%- url_for(post.path) %>" title="<%- title %> ">
-                    <img src="<%- url_for(post.cover) %>" alt="">
-                </a>
-            </div>
-            <% } %>
+            
         </div>
         <% }) %>
         <%- partial('_partial/pagination') %>

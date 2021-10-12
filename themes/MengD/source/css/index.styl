@@ -13,6 +13,7 @@
         padding-right 10px
 
     .post-item-cover
+        order 1
         width 100%
         max-width 40%
         height 140px
@@ -58,17 +59,24 @@
             text-decoration none
             color #999
 
+    .post-item-cover + .post-item-info
+        position relative
+
+        .post-meta-wrap
+            position absolute
+            bottom 0px
+
 @media (max-width 768px)
-    .post-item
+    #post-list .post-item
         flex-direction column-reverse
 
-    .post-meta-wrap
-        margin-top 10px
-        position unset
+        .post-meta-wrap
+            margin-top 10px
+            position unset
 
-    .post-item-cover
-        max-width 100%
-        height 230px
-        margin-bottom 10px
+        .post-item-cover
+            height 230px
+            max-width 100%
+            margin-bottom 10px
 
 @import '_partial/header'
