@@ -129,7 +129,7 @@ link:
 # 自定义引入外部css、js
 import:
   head: # 引入到</head>之前
-    - 
+    - <meta name="google-site-verification" content="uPApgr9zH7JO36gqOf48_UpfbFRRJ6zCf4cQd-s80eA" />
   top: # 引入到<body>之后
     - 
   bottom: # 引入到</body>之前
