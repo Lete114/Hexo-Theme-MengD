@@ -11,15 +11,15 @@ var customText = theme.footer.customText || config.subtitle // 自定义内容
 
 <footer class="footer" id="footer">
     <div class="copyright">
-      &copy; <%- since %>
+      &copy; <%= since %>
         <i class="fas fa-fan"></i>
         <%= config.author %>
     </div>
     <div class="framework-info">
-        <span><%-__("footer.framework")%> </span>
+        <span><%=__("footer.framework")%> </span>
         <a href="https://hexo.io" target="_blank">Hexo</a>
         <span class="footer-separator">|</span>
-        <span><%-__("footer.theme")%> </span>
+        <span><%=__("footer.theme")%> </span>
         <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
     </div>
     <%if(icpEnable){%>
@@ -30,5 +30,5 @@ var customText = theme.footer.customText || config.subtitle // 自定义内容
         </span>
     </div>
     <%}%>
-    <div class="custom-text"><%- customText%></div>
+    <div class="custom-text"><%= customText%></div>
 </footer>

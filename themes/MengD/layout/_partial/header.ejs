@@ -13,7 +13,7 @@
         </p>
         <div class="header-icon">
             <% for (social in theme.social) { %>
-                <a href="<%- url_for(theme.social[social]) %>"><i class="<%= social %>"></i></a>
+                <a href="<%= url_for(theme.social[social]) %>"><i class="<%= social %>"></i></a>
             <% } %>
         </div>
     </div>

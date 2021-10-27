@@ -4,9 +4,9 @@ var lastYear;
 var lastMonth;
 %>
 <% if (page.category) { %>
-<div class="article-count"><%-page.category%> - <%= page.posts.length %></div>
+<div class="article-count"><%= page.category %> - <%= page.posts.length %></div>
 <% } else if(page.tag){%>
-<div class="article-count"><%-page.tag%> - <%= page.posts.length %></div>
+<div class="article-count"><%= page.tag %> - <%= page.posts.length %></div>
 <% } %> 
 <div class="archive-article-info">
 <% page.posts.sort('date', 'desc').each(function(post) { %>
@@ -18,7 +18,7 @@ var lastMonth;
     <% } %>
         <div class="article-item">
             
-            <a class="article-title-item" href="<%- url_for(post.path) %>" title="<%= post.title %>"><%= post.title %></a>
+            <a class="article-title-item" href="<%= url_for(post.path) %>" title="<%= post.title %>"><%= post.title %></a>
         
             <time class="post-created-date">
                 <i class="far fa-calendar-alt"></i>

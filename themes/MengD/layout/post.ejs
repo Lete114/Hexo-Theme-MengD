@@ -14,27 +14,27 @@
       <div class="post-date">
         <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
         <span class="post-meta-label">
-          <%- __('post.created') %>
-            <%- date(page.date, "YYYY-MM-DD" ) %> |
+          <%= __('post.created') %>
+            <%= date(page.date, "YYYY-MM-DD" ) %> |
         </span>
         
         <i class="fas fa-history fa-fw post-meta-icon"></i>
         <span class="post-meta-label">
-          <%- __('post.updated') %>
-            <%- date(page.update, "YYYY-MM-DD" ) %>
+          <%= __('post.updated') %>
+            <%= date(page.update, "YYYY-MM-DD" ) %>
         </span>
       </div>
       <div class="post-meta-wordcount">
         <i class="far fa-file-word fa-fw post-meta-icon"></i>
-        <span class="post-meta-label"><%- __('post.wordcount') %>:</span>
+        <span class="post-meta-label"><%= __('post.wordcount') %>:</span>
         <span class="word-count"><%= wordcount(page.content) %> | </span>
         <i class="far fa-clock fa-fw post-meta-icon"></i>
-        <span class="post-meta-label"><%- __('post.min2read') %>:</span>
-        <span><%= min2read(page.content) %><%- __('post.min2readUnit') %></span>
+        <span class="post-meta-label"><%= __('post.min2read') %>:</span>
+        <span><%= min2read(page.content) %><%= __('post.min2readUnit') %></span>
         <%if(page.comments){%>
         | <i class="far fa-eye fa-fw post-meta-icon"></i>
-        <span id="<%- url_for(page.path) %>" class="leancloud_visitors">
-            <span class="post-meta-label"><%- __('post.visitors') %>:</span>
+        <span id="<%= url_for(page.path) %>" class="leancloud_visitors">
+            <span class="post-meta-label"><%= __('post.visitors') %>:</span>
             <span class="leancloud-visitors-count" id="twikoo_visitors">0</span>
         </span>
         <%}%>
@@ -58,22 +58,22 @@
   <div class="post-copyright">
     <div class="post-copyright-icon"></div>
       <div class="post-copyright-author">
-          <span class="post-copyright-meta"><%-__('copyright.author')%>: </span>
+          <span class="post-copyright-meta"><%= __('copyright.author') %>: </span>
             <span class="post-copyright-info">
-              <a href="mailto:<%- mail %>" ><%- author%></a>
+              <a href="mailto:<%= mail %>" ><%= author%></a>
             </span>
       </div>
       <div class="post-copyright-type">
-          <span class="post-copyright-meta"><%-__('copyright.articleUrl')%>: </span>
+          <span class="post-copyright-meta"><%=__('copyright.articleUrl')%>: </span>
             <span class="post-copyright-info">
               <a href="<%= url %>" ><%= url %></a>
             </span>
       </div><div class="post-copyright-notice">
-          <span class="post-copyright-meta"><%-__('copyright.notice')%>: </span>
-            <span class="post-copyright-info"><%-description[0]%>
+          <span class="post-copyright-meta"><%= __('copyright.notice') %>: </span>
+            <span class="post-copyright-info"><%= description[0] %>
               <a href="<%= licenses[1] %> " target="_blank" >
-                  <%= licenses[0] %> </a> <%-description[1]%>
-              <a href="<%= url %>" target="_blank" ><%-title%></a>
+                  <%= licenses[0] %> </a> <%= description[1] %>
+              <a href="<%= url %>" target="_blank" ><%= title %></a>
               ！</span>
       </div>
   </div>
@@ -87,7 +87,7 @@
         <span>
             <i class="fa fa-tag"></i>
             <% page.tags.forEach(function(tag, i){ %> 
-            <a href="<%= tag.path %>"><span><%-tag.name%></span></a>
+            <a href="<%= tag.path %>"><span><%= tag.name %></span></a>
                 <%if(page.tags.length-1 > i){%>
                     <i class="fas fa-angle-right"></i>
                 <%} %>
@@ -101,15 +101,15 @@
 <%# 上下一篇文章 %>
 <div class="pagination-post">
     <% if (page.prev){ %>
-    <a href="<%- url_for(page.prev.path) %>">
+    <a href="<%= url_for(page.prev.path) %>">
       <div class="prev-title"><i class="fas fa-chevron-left"></i><%=page.prev.title||__('post.title')%></div>
-      <div class="prev-desc"><%- truncate(strip_html(page.prev.content), {length: 100}) %></div>
+      <div class="prev-desc"><%= truncate(strip_html(page.prev.content), {length: 100}) %></div>
     </a>
     <% } %>
     <% if (page.next){ %>
-    <a href="<%- url_for(page.next.path) %>">
+    <a href="<%= url_for(page.next.path) %>">
       <div class="next-title"><%=page.next.title||__('post.title')%><i class="fas fa-chevron-right"></i></div>
-      <div class="next-desc"><%- truncate(strip_html(page.next.content), {length: 100}) %></div>
+      <div class="next-desc"><%= truncate(strip_html(page.next.content), {length: 100}) %></div>
     </a>
     <% } %>
 </div>
@@ -121,7 +121,7 @@
   <div id="toc">
     <div class="toc-title">
       <div>
-        <%-__("post.toc")%>
+        <%= __("post.toc")%>
           <span class="num">0%</span>
       </div>
       <progress class="progress" value="0" max="100"></progress>

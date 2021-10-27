@@ -6,10 +6,10 @@
     var titleTime;
     document.addEventListener("visibilitychange", function () {
         if (document.hidden) {
-            document.title = "<%- theme.amusingTitle.leaveTitle %>" + originTitle;
+            document.title = "<%= theme.amusingTitle.leaveTitle %>" + originTitle;
             clearTimeout(titleTime);
         } else {
-            document.title = "<%- theme.amusingTitle.returnTitle %>" + originTitle;
+            document.title = "<%= theme.amusingTitle.returnTitle %>" + originTitle;
             titleTime = setTimeout(function () {
                 document.title = originTitle;
             }, 2000);
@@ -18,8 +18,8 @@
 </script>
 <% } %>
 <%if(theme.lazyload.enable){%>
-<script src="<%-theme.CDN.lazyload%>"></script>
+<script src="<%= theme.CDN.lazyload %>"></script>
 <%}%>
 <% theme.import.bottom.forEach(function(bottom, i){ %>
-    <%-bottom%>
+    <%= bottom %>
 <% }) %>

@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <%-partial('_global/import_top')%> 
+    <%- partial('_global/import_top') %> 
     <%- partial('_global/config') %>
     <%- partial('_partial/third_party/analytics') %>
     <div id="body-wrap">
@@ -24,8 +24,8 @@
     <div id="mask" onclick="closeAll()"></div>
     <%- partial('_global/search') %>
     <div class="script">
-        <script src="<%-theme.CDN.mainJs%>"></script>
-        <%- partial('_global/import_bottom')%>
+        <script src="<%= theme.CDN.mainJs %>"></script>
+        <%- partial('_global/import_bottom') %>
         <%- partial('_partial/third_party/pjax') %>
     </div>
 </body>

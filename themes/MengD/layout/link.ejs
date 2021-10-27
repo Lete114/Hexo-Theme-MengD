@@ -7,15 +7,15 @@ var repo = theme.link.repoPr
 <div class="link" id="link">
 <% for(var i in link){ %>
 
-    <h2 class="link-title"><%-link[i].class_name%></h2>
-    <div class="link-subtitle"><%-link[i].class_desc%></div>
+    <h2 class="link-title"><%= link[i].class_name %></h2>
+    <div class="link-subtitle"><%= link[i].class_desc %></div>
     <div class="link-list">
     <%for(var link_list in link[i].link_list){%>
         <div class="link-list-item">
-            <a href="<%-link[i].link_list[link_list].link%>">
-                <img src="<%-link[i].link_list[link_list].avatar%>" alt="<%-link[i].link_list[link_list].descr%>">
-                <span class="link-item-name"><%-link[i].link_list[link_list].name%></span>
-                <span class="link-item-desc"><%-link[i].link_list[link_list].descr%></span>
+            <a href="<%= link[i].link_list[link_list].link %>">
+                <img src="<%= link[i].link_list[link_list].avatar %>" alt="<%= link[i].link_list[link_list].descr %>">
+                <span class="link-item-name"><%= link[i].link_list[link_list].name %></span>
+                <span class="link-item-desc"><%= link[i].link_list[link_list].descr %></span>
             </a>
         </div>
     <%}%>
@@ -28,7 +28,7 @@ var repo = theme.link.repoPr
     var arr = [];
     /*请求源数据*/
     ajax({
-        url: "https://gitee.com/api/v5/repos/<%-issues.owner%>/<%-issues.repo%>/issues?state=open&sort=created&direction=desc&page=1&per_page=100",
+        url: "https://gitee.com/api/v5/repos/<%= issues.owner %>/<%= issues.repo %>/issues?state=open&sort=created&direction=desc&page=1&per_page=100",
         dataType: "json",
         async:false,
         success: function(data){
@@ -85,13 +85,13 @@ var repo = theme.link.repoPr
             // 添加在开头
             var idLink = document.querySelector("#link")
             idLink.insertAdjacentHTML('afterbegin','<div class="link-list"></div>')
-            idLink.insertAdjacentHTML('afterbegin','<div class="link-subtitle"><%-issues.subtitle%></div>')
+            idLink.insertAdjacentHTML('afterbegin','<div class="link-subtitle"><%= issues.subtitle %></div>')
             idLink.insertAdjacentHTML('afterbegin','<h2>'+data[i].tags+'</h2>')
             <%}else{%>
             // 添加在结尾
             var idLink = document.querySelector("#link")
             idLink.insertAdjacentHTML('beforeend','<h2>'+data[i].tags+'</h2>')
-            idLink.insertAdjacentHTML('beforeend','<div class="link-subtitle"><%-issues.subtitle%></div>')
+            idLink.insertAdjacentHTML('beforeend','<div class="link-subtitle"><%= issues.subtitle %></div>')
             idLink.insertAdjacentHTML('beforeend','<div class="link-list"></div>')
             <%}%>
             var links = data[i].links
@@ -119,10 +119,10 @@ var repo = theme.link.repoPr
     <%if(repo.enable){%>
     /*通过仓库pr修改link.yml方式*/
     ajax({
-        url: "<%-repo.ymlUrl%>",
+        url: "<%= repo.ymlUrl %>",
         async:false,
         success: function(data){
-            getScript("<%-theme.CDN.jsYaml%>",function(){
+            getScript("<%= theme.CDN.jsYaml %>",function(){
                 data = JSON.stringify(jsyaml.load(data))
                 data = JSON.parse([data]);
                 <%if(repo.showPosition=="before"){%>
