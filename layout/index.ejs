@@ -4,25 +4,37 @@
         <div class="post-item">
             <%if(post.cover){%>
             <div class="post-item-cover">
-                <a class="post-title" href="<%- url_for(post.path) %>" title="<%- title %> ">
-                    <img src="<%- url_for(post.cover) %>" alt="">
+                <a class="post-title" href="<%= url_for(post.path) %>" title="<%= title %> ">
+                    <img src="<%= url_for(post.cover) %>" alt="">
                 </a>
             </div>
             <% } %>
             <div class="post-item-info"><% var title = post.title ||__('post.title') %> 
-                <a class="post-title" href="<%- url_for(post.path) %>" title="<%- title %> ">
-                    <%- title %>
+                <a class="post-title" href="<%= url_for(post.path) %>" title="<%= title %> ">
+                    <%= title %>
                 </a>
                 <div class="post-description">
-                    <% post.content= post.content.replace(/<td class=\"gutter\"><pre>(.*?)<\/pre><\/td>/gim,'') %> 
-                    <%- post.description ? post.description : truncate(strip_html(post.content), {length: theme.description.length }) %>
+                    <% 
+                        var description
+                        if (post.description) description = post.description
+                        else{
+                            // 先移除多余得空格和换行符，以及代码块的行号
+                            description = post.content.replace(/<td class=\"gutter\"><pre>(.*?)<\/pre><\/td>/gim,'')
+                            description = description.replace(/[\n]|[\r\n]|[\s]/gim,'')
+                            // 然后移除html标签
+                            description = strip_html(description)
+                            // 最后分割，获取指定内容
+                            description = truncate(description,{length: theme.description.length })
+                        }
+                        %> 
+                    <%= description %>
                 </div>
                 <div class="post-meta-wrap">
                     <span class="post-meta-date">
                         <i class="far fa-calendar-alt"></i>
-                        <span><%- __('post.created') %>  </span>
+                        <span><%= __('post.created') %>  </span>
                         <span>
-                            <%- date(post.date, "YYYY-MM-DD" ) %>
+                            <%= date(post.date, "YYYY-MM-DD" ) %>
                         </span>
                     </span>
                     <% if(post.categories.length!=0){ %>
@@ -30,7 +42,7 @@
                         <i class="fas fa-folder-open"></i>
                         <% post.categories.forEach(function(categories, i){ %>
                             <a href="<%= url_for(categories.path) %>">
-                                <%-categories.name%>
+                                <%= categories.name %>
                             </a>
                             <%if(post.categories.length-1> i){%>
                                 <i class="fas fa-angle-right"></i>
@@ -44,7 +56,7 @@
                         <i class="fa fa-tag"></i>
                         <% post.tags.forEach(function(tag, i){ %>
                         <a href="<%= url_for(tag.path) %>">
-                            <%-tag.name%>
+                            <%= tag.name %>
                         </a>
                         <%if(post.tags.length-1> i){%>
                             <i class="fas fa-angle-right"></i>

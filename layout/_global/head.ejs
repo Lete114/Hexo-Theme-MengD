@@ -10,13 +10,20 @@ else keywords = Array.isArray(config.keywords) ? (config.keywords).join(',') : c
 
 // 描述
 var description
-if(is_home()) description=config.description
+if(is_home()) description=config.description 
 else if(page.description)description = page.description
 else {
-    let content = strip_html(page.content)
-    content = content.substring(0, 300)
-    description = content.replace(/[\n]|[\r\n]/g,"")
+    // 先移除多余得空格和换行符，以及代码块的行号
+    description = page.content.replace(/<td class=\"gutter\"><pre>(.*?)<\/pre><\/td>/gim,'')
+    description = description.replace(/[\n]|[\r\n]|[\s]/gim,'')
+    // 然后移除html标签
+    description = strip_html(description)
+    // 最后分割，获取指定内容
+    description = truncate(description,{length: theme.description.length })
+
 }
+
+
 // url
 var url = config.url+ url_for(path)
 %> 
@@ -24,23 +31,23 @@ var url = config.url+ url_for(path)
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
-<title><%- title %></title>
-<link href="<%-theme.favicon%>" rel="shortcut icon">
-<meta name="author" content="<%- config.author %> ">
-<meta name="copyright" content="<%- config.author %>">
-<meta name="keywords" content="<%- keywords %>">
-<meta name="description" content="<%- description %>" />
-<meta property="site_name" content="<%- config.title %> " />
+<title><%= title %></title>
+<link href="<%= theme.favicon%>" rel="shortcut icon">
+<meta name="author" content="<%= config.author %> ">
+<meta name="copyright" content="<%= config.author %>">
+<meta name="keywords" content="<%= keywords %>">
+<meta name="description" content="<%= strip_html(description) %>" />
+<meta property="site_name" content="<%= config.title %> " />
 <meta property="og:type" content="website">
-<meta property="og:url" content="<%- url %>">
-<meta property="og:title" content="<%- title  %>" />
-<meta property="og:site_name" content="<%-config.title %>" />
+<meta property="og:url" content="<%= url %>">
+<meta property="og:title" content="<%= title  %>" />
+<meta property="og:site_name" content="<%= config.title %>" />
 <meta property="og:description" content="<%= description%>" />
-<meta property="og:locale" content="<%-config.language%>">
-<meta property="article:author" content="<%-config.author %> ">
+<meta property="og:locale" content="<%= config.language%>">
+<meta property="article:author" content="<%= config.author %> ">
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-<link href="<%- config.url %>" rel="prefetch">
+<link href="<%= config.url %>" rel="prefetch">
 <link href="//cdn.jsdelivr.net" rel="preconnect" crossorigin>
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link href="<%- theme.CDN.mainCss %> " rel="stylesheet">
+<link href="<%= theme.CDN.mainCss %> " rel="stylesheet">
 <%-partial('import_head')%> 
