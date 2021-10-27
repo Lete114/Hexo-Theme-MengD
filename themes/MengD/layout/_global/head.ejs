@@ -13,8 +13,10 @@ var description
 if(is_home()) description=config.description 
 else if(page.description)description = page.description
 else {
+    // 如果当前页面没有内容的话则使用配置文件的description 
+    description = page.content || config.description 
     // 先移除多余得空格和换行符，以及代码块的行号
-    description = page.content.replace(/<td class=\"gutter\"><pre>(.*?)<\/pre><\/td>/gim,'')
+    description = description.replace(/<td class=\"gutter\"><pre>(.*?)<\/pre><\/td>/gim,'')
     description = description.replace(/[\n]|[\r\n]|[\s]/gim,'')
     // 然后移除html标签
     description = strip_html(description)
