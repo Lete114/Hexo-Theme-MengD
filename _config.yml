@@ -24,7 +24,6 @@ mainSize: 70 # 文章显示大小(单位：百分比，最低50% 最高90%)
 favicon: /img/favicon.png
 avatar: /img/logo.gif
 pageCount: 5 # 首页展示文章数
-MathJax: false # 数学公式
 darkmode: true # 深色模式
 pjax: true # pjax
 tags: false # 文章内是否显示标签
@@ -236,5 +235,3 @@ CDN:
   fortawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
   # yml转json
   jsYaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
-  # math
-  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
