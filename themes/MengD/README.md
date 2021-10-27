@@ -42,7 +42,6 @@ git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 - [x] 网站统计
 - [x] 深色模式
 - [x] 响应式多设备自适应
-- [x] MathJax
 - [x] talk : artitalk、hpp_talk
 - [x] 站内搜索
 - [x] 资源压缩
