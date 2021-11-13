@@ -1,6 +1,6 @@
 ---
 title: Tag Plugins
-abbrlink: e2e5eeac
+abbrlink: Tag-Plugins
 date: 2013-12-25 00:14:39
 tags:
 ---

@@ -46,19 +46,19 @@ if (hexo-config('search.enable'))
 
     // 搜索框
     #local-search
-        display none
-        border-radius 10px
-        position fixed
         top 5rem
         left 50%
-        z-index 1001
-        margin-left -15rem
-        padding 1rem
+        z-index 1
         width 30rem
+        display none
+        padding 1rem
+        margin-left -15rem
+        position fixed
+        border-radius 10px
         background var(--main-bg)
+        box-sizing border-box
         -webkit-box-sizing border-box
         -moz-box-sizing border-box
-        box-sizing border-box
 
         hr
             margin 1rem auto

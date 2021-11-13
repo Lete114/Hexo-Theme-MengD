@@ -1,7 +1,7 @@
 ---
 title: Link Post
 link: 'http://www.google.com/'
-abbrlink: b28ca4a7
+abbrlink: Link-Post
 date: 2013-12-24 23:30:04
 ---
 

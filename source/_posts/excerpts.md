@@ -1,6 +1,6 @@
 ---
 title: Excerpts
-abbrlink: 13f29456
+abbrlink: Excerpts
 date: 2013-12-25 00:23:23
 tags:
 ---

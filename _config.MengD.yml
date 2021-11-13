@@ -8,20 +8,25 @@
 
 # 导航栏菜单
 menu:
-   首页: /
-   友情链接: /link
+  首页: /
+  找文章: 
+    - 标签 || /tags
+    - 分类 || /categories
+    - 归档 || /archives
+  友情链接: /link
 
 # 图标
 social:
   fab fa-github: https://github.com/lete114
   fa fa-envelope: mailto:lete@lete114.top
 
-main_size: 50 # 文章显示大小
-favicon: /img/favicon.png 
-page_count: 5 # 首页展示文章数
-MathJax: false # 数学公式
+mainSize: 70 # 文章显示大小(单位：百分比，最低50% 最高90%)
+favicon: /img/favicon.png
+avatar: /img/logo.gif
+pageCount: 5 # 首页展示文章数
 darkmode: true # 深色模式
 pjax: true # pjax
+tags: false # 文章内是否显示标签
 
 ## 主题颜色
 theme_color:  
@@ -82,17 +87,10 @@ rightside:
 copyright: 
   enable: true
   author: MengD(萌典)
-  mail: lete@lete114.top
+  mail: me@imlete.cn
   licenses: CC BY-NC-SA 4.0||https://creativecommons.org/licenses/by-nc-sa/4.0/ ## 文中||为分隔符，左侧为描述，右侧为版权许可
   description: 本博客所有文章除特别声明外，均采用||许可协议。转载请注明来自
   title: Hexo-Theme-MengD(萌典)
-
-## 打赏
-## 其中||为分割、左侧为昵称|右侧为二维码
-reward:
-  enable: true
-  left: alipay||https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/zfb.png
-  right: wechat||https://cdn.jsdelivr.net/gh/lete114/CDN@2.0/Use/wzf.png
 
 # 评论
 ## 注意大小写
@@ -107,11 +105,6 @@ twikoo:
   option: 
 
 
-
-## 404页面
-error_404:
-  enable: true
-  background: '#00c4b6'
 
 # 通过issues申请友情链接(目前只支持gitee)
 link:

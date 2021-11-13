@@ -1,5 +1,4 @@
-<%# 全局页面都会需要用到这个模板 %>
-<%# partial()方法可以导入其他ejs文件 %>  
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,12 +11,16 @@
     <%- partial('_partial/third_party/analytics') %>
     <div id="body-wrap">
         <%- partial('_global/nav') %>
-        <div id="main-wrap">
-                <main class="main">
-                    <%# 写的文章内容都将会显示到这里 %> 
-                    <%- body %>
-                </main>
-        </div>
+
+        <%
+        var propertyName= is_home()?'id':'class' 
+        var propertyValue= 'main'
+        var property = `${propertyName}=${propertyValue}`
+        
+        %> 
+        <main <%= property %>>
+            <%- body %>
+        </main>
         <%- partial('_partial/rightside') %>
         <%- partial('_global/footer') %>
     </div>

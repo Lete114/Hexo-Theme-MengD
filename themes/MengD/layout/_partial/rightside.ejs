@@ -25,9 +25,15 @@
             <i class="fas fa-cog fa-spin"></i>
         </a>
         <%}%>
-        <%# 是否是文章 %> 
-        <% var toc = toc(page.content,{list_number: false})==""?false:true;%> 
-        <%if(toc&&is_post()){%>
+        <%# 打开目录按钮 %> 
+        <% 
+            var enableToc=theme.toc.enable ; 
+            var isExistToc = page.hasOwnProperty("toc") // page中是否有toc属性
+            var pageToc = true
+            if(isExistToc) pageToc = page.toc
+            var isToc = is_post() && pageToc && toc(page.content) 
+        %>
+        <%if(enableToc&&isToc){%>
             <a id="open-toc" title="<%-__('post.toc')%>">
                 <i class="fas fa-list-ul"></i>
             </a>

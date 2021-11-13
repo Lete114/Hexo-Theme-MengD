@@ -3,7 +3,7 @@ title: Markdown Style test
 tags:
   - Foo
   - Bar
-abbrlink: '89757140'
+abbrlink: Markdown-Style-test
 date: 2018-07-24 23:31:06
 ---
 

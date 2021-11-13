@@ -8,6 +8,21 @@ $line = hexo-config('description.line') // 首页文章描述长度
 $fontHtml = convert(hexo-config('font.html')) // 全局字体
 $fontCode = convert(hexo-config('font.code')) // 代码块字体
 
+// toc
+$tocArea = convert(hexo-config('toc.area')) // 目录显示区域
+$tocStyle = convert(hexo-config('toc.style')) // 目录显示样式
+
+$tocHidden = $tocStyle == 'hidden'
+$tocVisible = $tocStyle == 'visible'
+
+// Hidden 样式
+$tocHiddenLeft = $tocHidden && $tocArea == 'left'
+$tocHiddenRight = $tocHidden && $tocArea == 'right'
+
+// Visible 样式
+$tocVisibleLeft = $tocVisible && $tocArea == 'left'
+$tocVisibleRight = $tocVisible && $tocArea == 'right'
+
 @media (max-width 768px)
   :root
     --body-width 100vw

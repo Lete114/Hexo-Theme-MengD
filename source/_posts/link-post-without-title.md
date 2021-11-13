@@ -1,6 +1,6 @@
 ---
 link: 'http://www.google.com/'
-abbrlink: 1f63b7d1
+abbrlink: link-post-without-title
 date: 2013-12-24 23:44:13
 ---
 

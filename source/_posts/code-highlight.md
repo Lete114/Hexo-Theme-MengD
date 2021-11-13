@@ -1,6 +1,6 @@
 ---
 title: Code Highlight Style test
-abbrlink: 9db656e5
+abbrlink: Code-Highlight-Style-test
 date: 2019-07-25 16:43:00
 tags:
 ---

@@ -1,6 +1,6 @@
 ---
 title: Images
-abbrlink: e7b3bb5c
+abbrlink: Images
 date: 2013-12-26 22:46:49
 ---
 

@@ -4,7 +4,7 @@ categories:
   - Foo
   - Bar
   - Baz
-abbrlink: 75ae45b8
+abbrlink: Categories
 date: 2013-12-24 23:30:09
 ---
 

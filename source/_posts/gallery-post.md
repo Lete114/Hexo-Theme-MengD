@@ -5,7 +5,7 @@ photos:
   - /assets/wallpaper-2311325.jpg
   - /assets/wallpaper-878514.jpg
   - 'http://placehold.it/350x150.jpg'
-abbrlink: a1447d9
+abbrlink: Gallery-Post
 date: 2013-12-25 00:16:18
 ---
 
