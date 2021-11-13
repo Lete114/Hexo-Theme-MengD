@@ -31,7 +31,7 @@
             var isExistToc = page.hasOwnProperty("toc") // page中是否有toc属性
             var pageToc = true
             if(isExistToc) pageToc = page.toc
-            var isToc=is_post()&&pageToc&&toc(page.content) 
+            var isToc = is_post() && pageToc && toc(page.content) 
         %>
         <%if(enableToc&&isToc){%>
             <a id="open-toc" title="<%-__('post.toc')%>">

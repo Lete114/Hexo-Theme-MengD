@@ -24,7 +24,7 @@ body
         height 100%
         position fixed
         top 0
-        z-index 102
+        z-index 1
         background rgba(0, 0, 0, 0.4)
 
     .pjax-progress
@@ -53,19 +53,17 @@ body
     margin 0 auto
     flex-flow column
 
-    #main-wrap
-        display flex
-        padding-top 4px
-        justify-content center
-
     .main
-        position relative
-        border-radius 10px
-        padding 10px 30px 30px
-        background var(--main-bg)
-        width $mainSize
-        min-width 70%
-        max-width 90%
+        display flex
+        margin-top 10px
+        justify-content center
+        
+    #main
+        display flex
+        margin-top 10px
+        justify-content center
+        flex-direction column
+        align-items center
 
         a:hover
             color var(--main)
@@ -159,18 +157,14 @@ blockquote
         width 100%
 
 @media screen and (max-width 900px)
-    #body-wrap
-        .main
-            padding 10px
-            padding-bottom 30px
-            margin 0 10px
-            width calc(100% - 20px)
-            box-sizing border-box
-            min-width auto
-            max-width none
-
-        #main-wrap
-            align-items revert
+    #header,#post-list,#post,#page
+        padding 10px
+        padding-bottom 30px
+        margin 0 10px
+        width calc(100% - 20px)
+        box-sizing border-box
+        min-width auto
+        max-width none
 
 @import 'search'
 @import 'nav'

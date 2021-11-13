@@ -11,11 +11,16 @@
     <%- partial('_partial/third_party/analytics') %>
     <div id="body-wrap">
         <%- partial('_global/nav') %>
-        <div id="main-wrap">
-                <main class="main">
-                    <%- body %>
-                </main>
-        </div>
+
+        <%
+        var propertyName= is_home()?'id':'class' 
+        var propertyValue= 'main'
+        var property = `${propertyName}=${propertyValue}`
+        
+        %> 
+        <main <%= property %>>
+            <%- body %>
+        </main>
         <%- partial('_partial/rightside') %>
         <%- partial('_global/footer') %>
     </div>

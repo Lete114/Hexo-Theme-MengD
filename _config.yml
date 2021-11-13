@@ -30,9 +30,11 @@ darkmode: true # 深色模式
 pjax: true # pjax
 tags: false # 文章内是否显示标签
 
+# 目录
 toc:
   enable: true
   area: left # 左边: left  右边: right
+  style: visible # 可见: visible 隐藏: hidden
 
 ## 主题颜色
 themeColor:

@@ -96,14 +96,19 @@ function openMobile() {
 // 打开目录
 function showToc() {
   var openToc = document.getElementById('open-toc')
-  var toc = document.getElementById('toc')
-  if (!toc) return
+  var toc = document.getElementById('toc-wrap')
+  if (!openToc || !toc) return
   openToc.onclick = function () {
-    var isOpen = toc.classList.contains('open-toc')
+    var isOpen = toc.classList.contains('show-toc')
+
+    
     if (!isOpen) {
-      toc.classList.add('open-toc')
+      toc.classList.add('show-toc')
+      if ($config.tocStyle == 'visible') {
+        return
+      }
       mask.className = 'mask'
-    } else toc.classList.remove('open-toc')
+    } else toc.classList.remove('show-toc')
   }
 }
 
@@ -134,8 +139,8 @@ function closeAll() {
   }
   html.style.overflow = 'auto' // 解除滚动条禁止滚动
   // 目录
-  var toc = document.querySelector('.open-toc')
-  if (toc) toc.classList.remove('open-toc')
+  var toc = document.querySelector('.show-toc')
+  if (toc) toc.classList.remove('show-toc')
   // 侧边栏
   mobileNav.classList.remove('open-mobile')
   mobileNav.style.opacity = ''
@@ -149,7 +154,6 @@ function DarkMode() {
   var darkBtn = document.getElementById('darkmode')
   var darkIco = document.querySelector('#darkmode i')
 
-  
   if (localStorage.isDark === 'true') {
     html.setAttribute('theme', 'dark')
     darkIco.classList.remove('fa-moon')
