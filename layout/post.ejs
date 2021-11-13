@@ -1,9 +1,4 @@
-<%# 
 
-这里是文章页
-即你从首页点击某篇文章进入文章查看文章完整内容的页面
-
-%> 
 
 <article class="post">
   <div class="post-info">
@@ -116,8 +111,14 @@
 </article>
 <%- partial('_partial/third_party/comment/index') %>
 <%# 是否是文章 %> 
-<% var isToc = toc(page.content,{list_number: false})==""?false:true;  %> 
-<%if(isToc&&is_post()){%>
+<% 
+  var enableToc=theme.toc.enable ; 
+  var isExistToc = page.hasOwnProperty("toc") // page中是否有toc属性
+  var pageToc = true
+  if(isExistToc) pageToc = page.toc
+  var isToc=is_post()&&pageToc&&toc(page.content) 
+%>
+<%if(enableToc&&isToc){%>
   <div id="toc">
     <div class="toc-title">
       <div>
@@ -130,4 +131,4 @@
       <%- toc(page.content,{list_number: false}) %>
     </div>
   </div>
-<%}%>
+  <%}%>
