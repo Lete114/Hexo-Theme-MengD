@@ -28,29 +28,33 @@ else {
 }
 
 // 图片
-var image = page.cover||theme.avatar
+var image = page.cover || theme.avatar
+image = full_url_for(image)
 
-// url
-var url = config.url+ url_for(path)
+// icon
+var icon = full_url_for(theme.favicon || config.favicon)
+
 %> 
 
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 <title><%= title %></title>
-<link href="<%= theme.favicon%>" rel="shortcut icon">
 <meta name="author" content="<%= config.author %>">
 <meta name="copyright" content="<%= config.author %>">
 
-<%- favicon_tag(theme.favicon || config.favicon) %> 
+<%- favicon_tag(icon) %> 
 
 <% if (keywords) { %>
     <meta name="keywords" content="<%= keywords %>">
 <% } %>
 
 <% if (theme.open_graph.enable) { %>
-    <%- open_graph(theme.open_graph.options||{}) %>
+    <%  var options = Object.assign({image}, theme.open_graph.options||{}) %> 
+    <%- open_graph(options) %>
 <% }else { %>
+    <meta name="image" content="<%= image %>">
+    <meta property="url" content="<%= full_url_for(path) %>">
     <meta name="description" content="<%= description %>">
 <% } %> 
 
