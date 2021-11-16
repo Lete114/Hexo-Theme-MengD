@@ -9,10 +9,6 @@
 # 导航栏菜单
 menu:
   首页: /
-  找文章: 
-    - 标签 || /tags
-    - 分类 || /categories
-    - 归档 || /archives
   友情链接: /link
 
 # 图标
@@ -20,7 +16,7 @@ social:
   fab fa-github: https://github.com/lete114
   fa fa-envelope: mailto:lete@lete114.top
 
-mainSize: 70 # 文章显示大小(单位：百分比，最低50% 最高90%)
+mainSize: 70 # 文章显示大小(单位：百分比，最低70% 最高90%)
 favicon: /img/favicon.png
 avatar: /img/logo.gif
 pageCount: 5 # 首页展示文章数

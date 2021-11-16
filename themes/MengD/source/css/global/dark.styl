@@ -1,6 +1,6 @@
 
 :root
-    --main convert(hexo-config('themeColor.main'))
+    --main $main
     --body-bg #eaeaea
     --text-color #333
     --main-bg #fff
@@ -12,6 +12,7 @@
     --blockquote-color #6a737d
     --color-block #f9f9f9
     --adorn #f0f0f0
+    --error-text-color #333
 
 if (hexo-config('darkmode'))
     :root[theme='dark']
@@ -26,6 +27,7 @@ if (hexo-config('darkmode'))
         --blockquote-color var(--text-color)
         --color-block #363941
         --adorn #646e80
+        --error-text-color #fff
 
     :root[theme='dark']
         img, #rightside

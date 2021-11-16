@@ -8,6 +8,11 @@ post:
   visitors: 阅读量
   toc: 目录
 
+page:
+  tag: 标签云
+  categories: 分类
+  error: 返回首页
+
 search:
   title: 本地搜索
   input: 搜索文章

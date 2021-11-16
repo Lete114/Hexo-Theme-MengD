@@ -1,0 +1,8 @@
+<% var title =  __('page.tag') +' - '+ page.tags.length %> 
+<%# 创建标签云 %> 
+<div id="page">
+    <div class="page-title"><%= title %></div>
+    <div class="tag-content">
+        <%- cloud_tags({source: site.tags, minfontsize: 1.2, maxfontsize: 1.6, limit: 0, unit: 'em' }) %>
+    </div>
+</div>
