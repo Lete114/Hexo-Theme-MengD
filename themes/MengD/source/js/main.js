@@ -193,11 +193,11 @@ function scroll() {
     var navbar = document.querySelector('.navbar')
     var toc = document.getElementById('toc')
     if (scrollTop > windowTop) {
-      toc.style.top = ''
+      if (toc) toc.style.top = ''
       navbar.style.transform = 'translateY(-60px)'
       windowTop = scrollTop
     } else {
-      toc.style.top = '70px'
+      if (toc) toc.style.top = '70px'
       navbar.style.transform = ''
       windowTop = scrollTop
     }
