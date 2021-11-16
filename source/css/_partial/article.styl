@@ -45,7 +45,8 @@ if $tocVisibleLeft
 #toc-wrap
 
     if $tocVisible
-        width 100%
+        width 25%
+        max-width 30%
 
         if $tocVisibleRight
             padding-left 10px
@@ -55,9 +56,11 @@ if $tocVisibleLeft
         if $tocVisible
             #toc
                 top 10px
+                padding 30px
                 position sticky
                 border-radius 10px
                 background var(--main-bg)
+                transition all .5s
             
     if $tocHidden
         top 0
@@ -79,8 +82,8 @@ if $tocVisibleLeft
             right -250px
 
     .toc-title 
+        padding-bottom 30px
         text-align center
-        padding 30px
 
         div 
             font-size 0.9rem
@@ -110,7 +113,6 @@ if $tocVisibleLeft
 
     .toc, .toc-list>li 
         padding 0
-        margin-left 20px
 
 // 打开目录
 .show-toc

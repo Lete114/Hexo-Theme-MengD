@@ -129,8 +129,9 @@
         <progress class="progress" value="0" max="100"></progress>
       </div>
       <div class="toc-list">
-        <%- toc(page.content,{list_number: false}) %>
+        <% var options = theme.toc.options||{} %> 
+        <%- toc(page.content,options) %>
       </div>
     </div>
-</div>
-  <%}%>
+  </div>
+<%}%>

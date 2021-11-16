@@ -1,1 +1,13 @@
-<%- partial('_partial/page/archives') %>
+<% 
+
+var title = __('articleCount') +' - '+page.posts.length
+if (page.tag) title = page.tag
+if (page.category) title = page.category
+
+%> 
+
+<div id="page">
+    <div class="page-title"><%= title %></div>
+    <%- partial('archives-sort') %>
+    <%- partial('_partial/pagination') %>
+</div>

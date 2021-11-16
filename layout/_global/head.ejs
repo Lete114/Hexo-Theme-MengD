@@ -3,10 +3,10 @@ var title = config.title
 if (page.title)title = page.title+' | '+config.title
 
 // 关键字
-var keywords = '' 
+var keywords
 if(page.keywords)keywords = Array.isArray(page.keywords) ? (page.keywords).join(',') : page.keywords // 文章关键字
 else if(page.tags) keywords = page.tags.data.map((tag)=>{ return tag.name}).join(',') // 文章标签
-else keywords = Array.isArray(config.keywords) ? config.keywords.join(',') : config.keywords
+else keywords = Array.isArray(config.keywords) ? (config.keywords).join(',') : config.keywords
 keywords = keywords || config.keywords
 
 
@@ -41,21 +41,22 @@ var url = config.url+ url_for(path)
 <link href="<%= theme.favicon%>" rel="shortcut icon">
 <meta name="author" content="<%= config.author %>">
 <meta name="copyright" content="<%= config.author %>">
-<meta name="keywords" content="<%= keywords %>">
-<meta name="description" content="<%= strip_html(description) %>" />
-<meta property="site_name" content="<%= config.title %>" />
-<meta property="og:type" content="website">
-<meta property="og:url" content="<%= url %>">
-<meta property="og:title" content="<%= title  %>"/>
-<meta property="og:site_name" content="<%= config.title %>" />
-<meta property="og:description" content="<%= description%>" />
-<meta property="og:image" content="<%= image %>">
-<meta property="og:locale" content="<%= config.language%>">
-<meta property="article:author" content="<%= config.author %>">
-<meta property="article:tag" content="<%= page.tags || keywords %>">
+
+<%- favicon_tag(theme.favicon || config.favicon) %> 
+
+<% if (keywords) { %>
+    <meta name="keywords" content="<%= keywords %>">
+<% } %>
+
+<% if (theme.open_graph.enable) { %>
+    <%- open_graph(theme.open_graph.options||{}) %>
+<% }else { %>
+    <meta name="description" content="<%= description %>">
+<% } %> 
+
 <meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link href="//cdn.jsdelivr.net" rel="preconnect">
 <link href="<%= config.url %>" rel="prefetch">
-<link href="//cdn.jsdelivr.net" rel="preconnect" crossorigin>
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="<%= theme.CDN.fortawesome %> " rel="stylesheet">
 <link href="<%= theme.CDN.mainCss %> " rel="stylesheet">
 <%-partial('import_head')%> 
