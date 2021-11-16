@@ -32,7 +32,7 @@ tags: false # 文章内是否显示标签
 
 # 自动注册页面
 pages:
-  tags: false
+  tags: true
   categories: true
   error: ## 404页面
     enable: true
