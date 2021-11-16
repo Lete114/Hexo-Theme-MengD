@@ -236,13 +236,14 @@ if (hexo-config('copyright.enable'))
             opacity 1
             right 30px
         #toc-wrap
+            opacity 0
             position fixed
             right -100%
             bottom 80px
             z-index 1
             max-height calc(100% - 100px)
             width 300px
-            opacity 0
+            max-width: inherit;
             transition initial
             -webkit-transition initial
             -moz-transition initial
