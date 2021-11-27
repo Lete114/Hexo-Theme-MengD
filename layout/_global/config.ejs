@@ -11,7 +11,7 @@ var codeBlockExpand = theme.codeBlockExpand
             fancyboxJs: "<%=theme.CDN.fancyboxJs%>",
             fancyboxCss: "<%=theme.CDN.fancyboxCss%>"
         },
-        <%if(theme.search){%>
+        <%if(theme.search&&config.search){%>
         searchFile: "<%=url_for(config.search.path)%>",
         <%}%>
         <%if(codeBlockExpand.enable){%>
