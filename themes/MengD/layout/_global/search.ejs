@@ -1,4 +1,4 @@
-<% if (theme.search) { %>
+<% if (theme.search&&config.search) { %>
     <div id="local-search">
         <div id="local-search-title"><%= __('search.title') %> </div>
         <input id="local-search-input" autocomplete="off" placeholder="<%= __('search.input') %>"

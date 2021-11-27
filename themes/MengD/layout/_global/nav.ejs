@@ -3,7 +3,7 @@
     <div class="bar">
       <a href="<%= url_for() %>" class="title"><%= config.title %></a>
 
-      <% if (theme.search.enable) { %>
+      <% if (theme.search&&config.search) { %>
       <i class="fas fa-search search-btn"></i>
       <% } %>
       <ul class="menu">

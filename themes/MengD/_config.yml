@@ -74,7 +74,7 @@ lazyload:
   loadimg: /img/load.gif
 
 # 需安装插件: npm install hexo-generator-search --save
-search: true
+search: false
 
 # 代码块高亮主题
 highlightTheme: mac # default / darker / pale night / light / ocean / mac / mac light
