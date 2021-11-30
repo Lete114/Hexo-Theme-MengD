@@ -143,12 +143,11 @@ analytics:
   baidu: 8e216044fbe6b71b6fefc197c2508ed1
   google: 
 
-# 设置字体
 font:
   # 全局字体
-  html: 'Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif'
+  html: consolas,Menlo,'PingFang SC','Microsoft YaHei',sans-serif
   # 代码块字体
-  code: 'Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif'
+  code: consolas,Menlo,'PingFang SC','Microsoft YaHei',sans-serif
 
 # 主题的css与js引入
 ## 无特殊要求请勿更改  

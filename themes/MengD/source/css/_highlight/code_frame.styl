@@ -1,16 +1,13 @@
 @require 'theme'
 
 /* 代码框 */
-.code-block .highlight
-  margin-top 36px
 
-figure.highlight .gutter pre
+figure.highlight pre
   padding-right 0.5rem
   padding-left 0.5rem
   background-color var(--code-bg)
   color $highlight-foreground
-  text-align right
-  font-family consolas, Menlo, 'PingFang SC', 'Microsoft YaHei', sans-serif !important
+  font-family $fontCode
 
 figure.highlight
   overflow-y hidden
@@ -25,7 +22,6 @@ figure.highlight
   border-radius 10px
   margin-bottom 20px
   margin-top 10px
-  font-family $fontCode
 
 .code-block
   height 38px
