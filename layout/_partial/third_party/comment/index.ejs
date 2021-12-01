@@ -5,7 +5,9 @@
             <i class="fas fa-comments fa-fw"></i>
             <span><%-__('comments')%></span>
         </div>
-        <%if(theme.comments=="valine"){%>
+        <%if(theme.comments=="discuss"){%>
+            <%- partial('discuss') %>
+        <%}else if(theme.comments=="valine"){%>
             <%- partial('valine') %>
         <%}else if(theme.comments=="waline"){%>
             <%- partial('waline') %>

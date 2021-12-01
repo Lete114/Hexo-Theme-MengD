@@ -1,0 +1,20 @@
+<% var option=theme.discuss.option ? JSON.stringify(theme.discuss.option) : false %>
+<div id="dcomment"></div>
+<script>
+  function LoadDiscuss() {
+    getScript('<%- theme.discuss.source %>', function () {
+    let initData = {
+      el: '#dcomment',
+      master: '<%- theme.discuss.master %>',
+      placeholder: '<%- theme.discuss.placeholder %>',
+      serverURLs: '<%- theme.discuss.serverURLs %>',
+      path: <%- theme.discuss.path %>,
+      emotMaps: <%- JSON.stringify(theme.discuss.emotMaps) %>
+    }
+    var option = <%- option %>;
+    if (option) initData = Object.assign(initData, option)
+    Discuss(initData)
+    })
+  }
+  LoadDiscuss()
+</script>
