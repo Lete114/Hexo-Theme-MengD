@@ -87,12 +87,12 @@ codeBlockExpand: # 是否开启代码块折叠
 ## 使用 || 分割
 ## setting: 点击设置按钮后显示   show: 直接显示
 ## 拥有3个属性：a标签属性|a标签描述|按钮图标
-## #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon
+## #- harf="javascript:"id="darkmode"||深色/浅色||fas fa-moon
 rightside:
   settings:
-    #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
+    #- harf="javascript:"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
   show:
-    #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
+    #- harf="javascript:"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
 
 # 文章版权
 copyright:
