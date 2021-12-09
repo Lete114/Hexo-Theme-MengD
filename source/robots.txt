@@ -8,26 +8,3 @@ Disallow: /js/
 Disallow: /css/
 Disallow: /*.js
 Disallow: /*.css
-
-Sitemap: https://blog.lete114.top/sitemap.xml
-Sitemap: https://blog.lete114.top/baidusitemap.xml
-Sitemap: https://www.lete114.top/sitemap.xml
-Sitemap: https://www.lete114.top/baidusitemap.xml
-Sitemap: https://lete114.github.io/sitemap.xml
-Sitemap: https://lete114.github.io/baidusitemap.xml
-Sitemap: https://lete114.gitee.io/sitemap.xml
-Sitemap: https://lete114.gitee.io/baidusitemap.xml
-Sitemap: https://lete114.now.sh/sitemap.xml
-Sitemap: https://lete114.now.sh/baidusitemap.xml
-
-
-Sitemap: http://blog.lete114.top/sitemap.xml
-Sitemap: http://blog.lete114.top/baidusitemap.xml
-Sitemap: http://www.lete114.top/sitemap.xml
-Sitemap: http://www.lete114.top/baidusitemap.xml
-Sitemap: http://lete114.github.io/sitemap.xml
-Sitemap: http://lete114.github.io/baidusitemap.xml
-Sitemap: http://lete114.gitee.io/sitemap.xml
-Sitemap: http://lete114.gitee.io/baidusitemap.xml
-Sitemap: http://lete114.now.sh/sitemap.xml
-Sitemap: http://lete114.now.sh/baidusitemap.xml

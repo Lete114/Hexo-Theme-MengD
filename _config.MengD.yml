@@ -93,7 +93,7 @@ copyright:
 comments: discuss # twikoo / waline / valine
 
 discuss:
-  source: https://cdn.jsdelivr.net/npm/discuss/dist/Discuss.js
+  source: https://cdn.jsdelivr.net/npm/discuss@latest/dist/Discuss.js
   master: 博主
   placeholder: 快来评论呀
   serverURLs: https://discuss-mengd.imlete.cn
