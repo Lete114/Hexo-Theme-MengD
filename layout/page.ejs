@@ -1,2 +1,15 @@
-<%- partial("_partial/page/index") %>
-<%- partial('_partial/third_party/comment/index') %>
+<% 
+
+var type=page.type; 
+var title=page.title;
+
+%> 
+
+<div id="page">
+    <div class="page-title"><%= title %></div>
+    <% if(type=="link" ){ %>
+        <%- partial('link') %>
+    <% } %>
+    <div class="content"><%- page.content %></div>
+    <%- partial('_partial/third_party/comment/index') %>
+</div>

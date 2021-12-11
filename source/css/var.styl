@@ -1,4 +1,5 @@
 
+$main = convert(hexo-config('themeColor.main')) // 风车颜色
 $fan = convert(hexo-config('themeColor.fan')) // 风车颜色
 $bodyA = convert(hexo-config('themeColor.bodyA')) // 全局a标签颜色
 $title = convert(hexo-config('themeColor.title')) // 昵称
@@ -7,6 +8,21 @@ $mainSize = $mainSize + '%'
 $line = hexo-config('description.line') // 首页文章描述长度
 $fontHtml = convert(hexo-config('font.html')) // 全局字体
 $fontCode = convert(hexo-config('font.code')) // 代码块字体
+
+// toc
+$tocArea = convert(hexo-config('toc.area')) // 目录显示区域
+$tocStyle = convert(hexo-config('toc.style')) // 目录显示样式
+
+$tocHidden = $tocStyle == 'hidden'
+$tocVisible = $tocStyle == 'visible'
+
+// Hidden 样式
+$tocHiddenLeft = $tocHidden && $tocArea == 'left'
+$tocHiddenRight = $tocHidden && $tocArea == 'right'
+
+// Visible 样式
+$tocVisibleLeft = $tocVisible && $tocArea == 'left'
+$tocVisibleRight = $tocVisible && $tocArea == 'right'
 
 @media (max-width 768px)
   :root

@@ -1,7 +1,22 @@
 #nav-wrap
-    z-index 1
     height 60px
     position relative
+
+.navbar
+    z-index 1
+    height inherit
+    position fixed
+    transition all 0.4s
+    
+    ul li:hover .menu-child
+        display flex
+        background-color var(--navbar-bg)
+        position absolute
+        padding 0
+        border-radius 6px
+        -webkit-box-shadow 0 5px 20px -4px rgb(0 0 0 / 50%)
+        box-shadow 0 5px 20px -4px rgb(0 0 0 / 50%)
+        flex-direction column
 
     li
         position relative
@@ -15,21 +30,6 @@
             white-space nowrap
             padding 10px
             font-size 0.8rem
-
-    ul li:hover .menu-child
-        display flex
-        background-color var(--navbar-bg)
-        position absolute
-        padding 0
-        border-radius 6px
-        -webkit-box-shadow 0 5px 20px -4px rgb(0 0 0 / 50%)
-        box-shadow 0 5px 20px -4px rgb(0 0 0 / 50%)
-        flex-direction column
-
-.navbar
-    height inherit
-    position fixed
-    transition all 0.2s
 
     .bar
         display flex
@@ -83,19 +83,19 @@
     transform translate3d(-100%, 0, 0)
 
 #mobile-nav
-    background var(--main-bg)
-    position fixed
     right -250px
     top 0
-    z-index 103
-    overflow hidden auto
+    position fixed
     width 250px
     height 100%
+    z-index 103
+    overflow hidden auto
+    background var(--main-bg)
+    transition all 0.5s
     -webkit-transition all 0.5s
     -moz-transition all 0.5s
     -o-transition all 0.5s
     -ms-transition all 0.5s
-    transition all 0.5s
 
 #mobile-nav ul
     padding-inline-start unset
@@ -127,5 +127,5 @@
         .open-nav
             display inline-block
 
-            if (!hexo-config('search.enable'))
+            if (!hexo-config('search'))
                 margin-left auto // 当未开启搜索时设置样式

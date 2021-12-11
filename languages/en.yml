@@ -1,5 +1,5 @@
 post:
-  title: No Title
+  title: Not Title
   created: Created
   updated: Updated
   wordcount: Word Count
@@ -7,6 +7,11 @@ post:
   min2readUnit: min
   visitors: Visitors
   toc: Catalog
+
+page:
+  tag: TagCloud
+  categories: Categories
+  error: BackHome
 
 search:
   title: Local Search

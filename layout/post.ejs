@@ -1,11 +1,6 @@
-<%# 
 
-这里是文章页
-即你从首页点击某篇文章进入文章查看文章完整内容的页面
 
-%> 
-
-<article class="post">
+<article id="post">
   <div class="post-info">
     <div class="post-title">
       <h1><%= page.title ||__('post.title')%></h1>
@@ -113,21 +108,30 @@
     </a>
     <% } %>
 </div>
-</article>
 <%- partial('_partial/third_party/comment/index') %>
+</article>
 <%# 是否是文章 %> 
-<% var isToc = toc(page.content,{list_number: false})==""?false:true;  %> 
-<%if(isToc&&is_post()){%>
-  <div id="toc">
-    <div class="toc-title">
-      <div>
-        <%= __("post.toc")%>
-          <span class="num">0%</span>
+<% 
+  var enableToc=theme.toc.enable ; 
+  var isExistToc = page.hasOwnProperty("toc") // page中是否有toc属性
+  var pageToc = true
+  if(isExistToc) pageToc = page.toc
+  var isToc=is_post()&&pageToc&&toc(page.content) 
+%>
+<%if(enableToc&&isToc){%>
+  <div id="toc-wrap">
+    <div id="toc">
+      <div class="toc-title">
+        <div>
+          <%= __("post.toc")%>
+            <span class="num">0%</span>
+        </div>
+        <progress class="progress" value="0" max="100"></progress>
       </div>
-      <progress class="progress" value="0" max="100"></progress>
-    </div>
-    <div class="toc-list">
-      <%- toc(page.content,{list_number: false}) %>
+      <div class="toc-list">
+        <% var options = theme.toc.options||{} %> 
+        <%- toc(page.content,options) %>
+      </div>
     </div>
   </div>
 <%}%>

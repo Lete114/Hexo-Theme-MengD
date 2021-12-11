@@ -22,7 +22,7 @@ social:
   # fab fa-github: https://github.com/lete114
   # fa fa-envelope: mailto:lete@lete114.top
 
-mainSize: 70 # 文章显示大小(单位：百分比，最低50% 最高90%)
+mainSize: 70 # 文章显示大小(单位：百分比，最低60% 最高90%)
 favicon: /img/favicon.png
 avatar: /img/logo.gif
 pageCount: 5 # 首页展示文章数
@@ -30,12 +30,32 @@ darkmode: true # 深色模式
 pjax: true # pjax
 tags: false # 文章内是否显示标签
 
+# 自动注册页面
+pages:
+  tags: true
+  categories: true
+  error: ## 404页面
+    enable: true
+    text: 404 Not Found
+
+# 目录
+toc:
+  enable: true
+  area: left # 左边: left  右边: right
+  style: visible # 可见: visible 隐藏: hidden
+  options: # 详细配置: https://hexo.io/zh-cn/docs/helpers#toc
+    list_number: false
+
 ## 主题颜色
 themeColor:
   main: '#e58a8a' # 主色
   fan: '#00c4b6' # 小风车
   bodyA: '#00c4b6' # 全局a标签颜色
   title: '#ff7242' # 博主昵称
+
+open_graph:
+  enable: true
+  options: # 详细配置: https://hexo.io/zh-cn/docs/helpers#open-graph
 
 # 有趣的标题切换
 amusingTitle:
@@ -54,11 +74,7 @@ lazyload:
   loadimg: /img/load.gif
 
 # 需安装插件: npm install hexo-generator-search --save
-search:
-  enable: true
-  path: /search.xml
-  field: post
-  source: /js/search.js
+search: false
 
 # 代码块高亮主题
 highlightTheme: mac # default / darker / pale night / light / ocean / mac / mac light
@@ -67,31 +83,79 @@ codeBlockExpand: # 是否开启代码块折叠
   height: 400 # 代码块高度超过400折叠 单位px
   scrollTop: 200 # 展开后,再次(手动点击)点击折叠滚动到代码块开始的距离 单位px
 
-
-
 ## 自定义侧边栏按钮
 ## 使用 || 分割
 ## setting: 点击设置按钮后显示   show: 直接显示
 ## 拥有3个属性：a标签属性|a标签描述|按钮图标
-## #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon
+## #- harf="javascript:"id="darkmode"||深色/浅色||fas fa-moon
 rightside:
   settings:
-    #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
+    #- harf="javascript:"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
   show:
-    #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
+    #- harf="javascript:"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
 
 # 文章版权
 copyright:
   enable: true
-  author: Lete乐特
-  mail: lete@lete114.top
+  author: MengD(萌典)
+  mail: me@imlete.cn
   licenses: CC BY-NC-SA 4.0||https://creativecommons.org/licenses/by-nc-sa/4.0/ ## 文中||为分隔符，左侧为描述，右侧为版权许可
   description: 本博客所有文章除特别声明外，均采用||许可协议。转载请注明来自
-  title: Lete乐特's Blog
+  title: Hexo-Theme-MengD(萌典)
 
 # 评论
 ## 注意大小写
-comments: waline # twikoo / waline / valine
+comments: discuss # twikoo / waline / valine
+
+# Discuss
+## https://discuss.js.org
+discuss:
+  source: https://cdn.jsdelivr.net/npm/discuss@latest/dist/Discuss.js
+  master: 博主
+  placeholder: 快来评论呀
+  serverURLs: https://discuss-demo.imlete.cn
+  path: location.pathname
+  emotMaps: {
+    OwO: {
+      type: 'text', items: {
+        '喵星人': '( =•ω•= )m',
+        'hi': 'Hi~ o(*￣▽￣*)ブ',
+        '啊啊': 'w(ﾟДﾟ)w',
+        '擦眼泪': ' (ノへ￣、)',
+        '不屑': ' (￣_,￣ )',
+        '好耶': 'ヽ(✿ﾟ▽ﾟ)ノ',
+        '棒': ' (๑•̀ㅂ•́)و✧',
+        '抽': '(￣ε(#￣)☆╰╮o(￣皿￣///)',
+        '亲': '（づ￣3￣）づ╭❤～',
+        '汗': 'Σ( ° △ °|||)︴',
+        '笨': '(～￣(OO)￣)ブ',
+        '擦': '凸(艹皿艹 )',
+        '啵啵': '(* ￣3)(ε￣ *)',
+        '挖鼻屎': '(*￣rǒ￣)',
+        '嗷': '┗|｀O′|┛ 嗷~~',
+        '飞': '︿(￣︶￣)︿',
+        '好滴': '(u‿ฺu✿ฺ)',
+        '啦啦': '♪(^∇^*)',
+        '拍桌': 'o(*≧▽≦)ツ┏━┓',
+        '惊喜': '╰(*°▽°*)╯',
+        '嘟嘴': '（○｀ 3′○）',
+        '愣住': '(°ー°〃)',
+        '哼哼': 'o(￣ヘ￣o＃)',
+        '崩溃': 'o(≧口≦)o',
+        '不是我': 'ㄟ( ▔, ▔ )ㄏ',
+        '呃呃呃': '(⊙﹏⊙)',
+        '切': '(ˉ▽￣～) 切~~',
+        '拜拜': 'ヾ(￣▽￣)Bye~Bye~',
+        '斜眼': '( ﹁ ﹁ ) ~→',
+        '美味': 'Ψ(￣∀￣)Ψ',
+        '闪': '',
+        '✧(≖ ◡ ≖✿)': '',
+        '淡定': '',
+        '━(￣ー￣*|||━━': '',
+        '太可怕了': 'ヽ(*。>Д<)o゜'
+      }
+    },
+  }
 
 # valine
 ## https://valine.js.org/
@@ -162,11 +226,6 @@ hppTalk:
   start: 0 # 从第几条开始
   option:
 
-## 404页面
-error404:
-  enable: true
-  background: '#00c4b6'
-
 # 通过issues申请友情链接(目前只支持gitee)
 link:
   issues:
@@ -211,9 +270,9 @@ analytics:
 # 设置字体
 font:
   # 全局字体
-  html: 'Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif'
+  html: consolas,Menlo,'PingFang SC','Microsoft YaHei',sans-serif
   # 代码块字体
-  code: 'Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif'
+  code: consolas,Menlo,'PingFang SC','Microsoft YaHei',sans-serif
 
 # 主题的css与js引入
 ## 无特殊要求请勿更改
@@ -221,6 +280,7 @@ CDN:
   mainJs: /js/main.js
   mainCss: /css/main.css
   utlis: /js/utlis.js
+  search: /js/search.js
   # lazyload
   lazyload: /js/lazyload.js
   # pjax

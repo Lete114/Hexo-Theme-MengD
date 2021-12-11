@@ -6,12 +6,13 @@ var codeBlockExpand = theme.codeBlockExpand
 
 <script>
     var $config = {
+        tocStyle: "<%=theme.toc.style%>",
         CDN:{
             fancyboxJs: "<%=theme.CDN.fancyboxJs%>",
             fancyboxCss: "<%=theme.CDN.fancyboxCss%>"
         },
-        <%if(theme.search.enable){%>
-        searchFile: "<%=url_for(theme.search.path)%>",
+        <%if(theme.search&&config.search){%>
+        searchFile: "<%=url_for(config.search.path)%>",
         <%}%>
         <%if(codeBlockExpand.enable){%>
         codeBlockExpand: {

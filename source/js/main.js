@@ -1,6 +1,6 @@
-var html = document.getElementsByTagName('html')[0]
-var mask = document.getElementById('mask')
-var mobileNav = document.getElementById('mobile-nav')
+var html
+var mask
+var mobileNav
 
 // 代码框
 function addCodeBlock() {
@@ -83,7 +83,8 @@ function codeBlockExpand() {
 
 // 打开侧边导航栏
 function openMobile() {
-  var openNav = document.getElementsByClassName('open-nav')[0]
+  var openNav = document.querySelector('.open-nav')
+  if (!openNav) return
   openNav.onclick = function () {
     var isOpen = mobileNav.classList.contains('open-mobile')
     if (!isOpen) {
@@ -96,14 +97,18 @@ function openMobile() {
 // 打开目录
 function showToc() {
   var openToc = document.getElementById('open-toc')
-  var toc = document.getElementById('toc')
-  if (!toc) return
+  var toc = document.getElementById('toc-wrap')
+  if (!openToc || !toc) return
   openToc.onclick = function () {
-    var isOpen = toc.classList.contains('open-toc')
+    var isOpen = toc.classList.contains('show-toc')
+
     if (!isOpen) {
-      toc.classList.add('open-toc')
+      toc.classList.add('show-toc')
+      if ($config.tocStyle == 'visible') {
+        return
+      }
       mask.className = 'mask'
-    } else toc.classList.remove('open-toc')
+    } else toc.classList.remove('show-toc')
   }
 }
 
@@ -134,8 +139,8 @@ function closeAll() {
   }
   html.style.overflow = 'auto' // 解除滚动条禁止滚动
   // 目录
-  var toc = document.querySelector('.open-toc')
-  if (toc) toc.classList.remove('open-toc')
+  var toc = document.querySelector('.show-toc')
+  if (toc) toc.classList.remove('show-toc')
   // 侧边栏
   mobileNav.classList.remove('open-mobile')
   mobileNav.style.opacity = ''
@@ -149,7 +154,6 @@ function DarkMode() {
   var darkBtn = document.getElementById('darkmode')
   var darkIco = document.querySelector('#darkmode i')
 
-  
   if (localStorage.isDark === 'true') {
     html.setAttribute('theme', 'dark')
     darkIco.classList.remove('fa-moon')
@@ -187,12 +191,13 @@ function scroll() {
 
     // 头部导航栏
     var navbar = document.querySelector('.navbar')
+    var toc = document.getElementById('toc')
     if (scrollTop > windowTop) {
-      navbar.style.opacity = 0
+      if (toc) toc.style.top = ''
       navbar.style.transform = 'translateY(-60px)'
       windowTop = scrollTop
     } else {
-      navbar.style.opacity = 1
+      if (toc) toc.style.top = '70px'
       navbar.style.transform = ''
       windowTop = scrollTop
     }
@@ -246,6 +251,9 @@ function codeCopy() {
 
 // 执行所有函数
 function exeAllFn() {
+  html = document.getElementsByTagName('html')[0]
+  mask = document.getElementById('mask')
+  mobileNav = document.getElementById('mobile-nav')
   addCodeBlock() // 添加代码框
   tableWrap() // 添加table外围
   fancyboxFn() // 图片灯箱
@@ -258,6 +266,4 @@ function exeAllFn() {
   scroll() // 滚动事件
   codeCopy() // 代码块复杂
 }
-;(function () {
-  exeAllFn()
-})()
+window.onload = exeAllFn()

@@ -1,9 +1,9 @@
 <nav id="nav-wrap">
   <div class="navbar">
     <div class="bar">
-      <a href="<%= url_for(config.root) %>" class="title"><%= config.title %></a>
+      <a href="<%= url_for() %>" class="title"><%= config.title %></a>
 
-      <% if (theme.search.enable) { %>
+      <% if (theme.search&&config.search) { %>
       <i class="fas fa-search search-btn"></i>
       <% } %>
       <ul class="menu">
@@ -23,13 +23,14 @@
       <i class="fas fa-bars open-nav"></i>
     </div>
   </div>
+  <div id="mobile-nav">
+    <ul>
+      <% for (name in theme.menu) { %> <% if(!Array.isArray(theme.menu[name])){ %>
+      <li><a href="<%= url_for(theme.menu[name]) %>"><%= name %></a></li>
+      <% }else{%> <% for (child in theme.menu[name]) {%>
+      <li><a href='<%= url_for(theme.menu[name][child].split("||")[1].trim()) %>'><%= theme.menu[name][child].split("||")[0].trim() %></a></li>
+      <% } %> <% } %> <% } %>
+    </ul>
+  </div>
 </nav>
-<div id="mobile-nav">
-  <ul>
-    <% for (name in theme.menu) { %> <% if(!Array.isArray(theme.menu[name])){ %>
-    <li><a href="<%= url_for(theme.menu[name]) %>"><%= name %></a></li>
-    <% }else{%> <% for (child in theme.menu[name]) {%>
-    <li><a href='<%= url_for(theme.menu[name][child].split("||")[1].trim()) %>'><%= theme.menu[name][child].split("||")[0].trim() %></a></li>
-    <% } %> <% } %> <% } %>
-  </ul>
-</div>
+
