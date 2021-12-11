@@ -26,13 +26,7 @@
         <i class="far fa-clock fa-fw post-meta-icon"></i>
         <span class="post-meta-label"><%= __('post.min2read') %>:</span>
         <span><%= min2read(page.content) %><%= __('post.min2readUnit') %></span>
-        <%if(page.comments){%>
-        | <i class="far fa-eye fa-fw post-meta-icon"></i>
-        <span id="<%= url_for(page.path) %>" class="leancloud_visitors">
-            <span class="post-meta-label"><%= __('post.visitors') %>:</span>
-            <span class="leancloud-visitors-count" id="twikoo_visitors">0</span>
-        </span>
-        <%}%>
+        <%- partial('_partial/third_party/comment/visitors') %>
       </div>
     </div>
   </div>
