@@ -1,0 +1,18 @@
+<%if(theme.comments&&page.comments){%>
+    | <i class="far fa-eye fa-fw post-meta-icon"></i>
+    <%if(theme.comments=="discuss"){%>
+        <span class="post-meta-label"><%= __('post.visitors') %>:</span>
+        <span id="Discuss-Visitors">0</span>
+    <%}else if(theme.comments=="valine"){%>
+        <span id="<%= url_for(page.path) %>" class="leancloud_visitors" data-flag-title="<%= page.title %>">
+        <span class="post-meta-label"><%= __('post.visitors') %>:</span>
+        <span class="leancloud-visitors-count">0</span>
+        </span>
+    <%}else if(theme.comments=="waline"){%>
+        <span class="post-meta-label"><%= __('post.visitors') %>:</span>
+        <span id="<%= url_for(page.path) %>" class="waline-visitor-count">0</span>
+    <%}else if(theme.comments=="twikoo"){%>
+        <span class="post-meta-label"><%= __('post.visitors') %>:</span>
+        <span id="twikoo_visitors">0</span>
+    <%}%>
+<%}%>
