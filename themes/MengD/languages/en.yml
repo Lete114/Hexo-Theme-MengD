@@ -24,6 +24,7 @@ rightside:
   dark: Dark/Light
 
 sidebar:
+  log: It is detected that you have sidebar enabled, but no sidebar configuration information is set
   recent: 
     headline: Recent Posts
   siteInfo: 
