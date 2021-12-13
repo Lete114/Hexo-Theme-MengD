@@ -1,6 +1,7 @@
-<%- partial('_partial/header') %>
 <div id="post-list">
+    <%- partial('_partial/header') %>
     <% page.posts.each(function (post) { %>
+        <% var title = post.title || __('post.title') %> 
         <div class="post-item">
             <%if(post.cover){%>
             <div class="post-item-cover">
@@ -9,7 +10,7 @@
                 </a>
             </div>
             <% } %>
-            <div class="post-item-info"><% var title = post.title ||__('post.title') %> 
+            <div class="post-item-info">
                 <a class="post-title" href="<%= url_for(post.path) %>" title="<%= title %> ">
                     <%= title %>
                 </a>
@@ -71,3 +72,5 @@
         <% }) %>
         <%- partial('_partial/pagination') %>
 </div>
+
+<%- partial('_partial/sidebar') %>
