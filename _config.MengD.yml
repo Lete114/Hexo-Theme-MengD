@@ -78,6 +78,13 @@ rightside:
   show: 
     #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
 
+# 侧边栏
+# 详细: https://mengd.js.org/article/config.html#自定义侧边栏
+sidebar: 
+  enable: true # 是否开启
+  sticky: true # 固定显示
+  area: left # 左边: left  右边: right
+
 # 文章版权
 copyright: 
   enable: true
