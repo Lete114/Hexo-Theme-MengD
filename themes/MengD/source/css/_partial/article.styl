@@ -34,11 +34,6 @@
         padding-inline-start 24px
 
 
-// 当目录在左边时调换文章内容和目录位置
-if $tocVisibleLeft
-    #post
-        order 1
-        
 
 // 目录
 $tocArea = convert(hexo-config('toc.area')) // 目录显示区域
@@ -55,15 +50,21 @@ $tocHiddenRight = $tocHidden && $tocArea == 'right'
 $tocVisibleLeft = $tocVisible && $tocArea == 'left'
 $tocVisibleRight = $tocVisible && $tocArea == 'right'
 
+
+// 当目录在左边时调换文章内容和目录位置
+if $tocVisibleLeft
+    #post
+        order 1
+
 #toc-wrap
 
     if $tocVisible
         width 25%
         max-width 30%
 
-        if $tocVisibleRight
+        if !$tocVisibleLeft
             padding-left 10px
-        if $tocVisibleLeft
+        if !$tocVisibleRight
             padding-right 10px
         
         if $tocVisible
