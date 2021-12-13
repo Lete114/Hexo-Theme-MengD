@@ -1,0 +1,17 @@
+## 自定义侧边栏内容
+recent: 
+  enable: true            # 是否显示最新文章
+  sort: date              # 可选参数: date or updated 根据`发布时间`排序,还是`更新时间`排序
+  limit: 5                # 显示多少篇 默认: 5
+siteInfo:
+  enable: true            # 是否显示侧边栏网站统计
+  postCounter: true       # 文章数
+  runtime: 2021-1-1     # 网站运行时间
+  words: true             # 总字数
+custom:
+  - posit: before         # 在默认的侧边栏的 前(before) / 后(later) 追加自定义卡片
+    headline: 公告        # 标题
+    class: announcement   # 公告栏class属性
+    content: |            # 使用`|`可以写多行
+      MengD主题已支持<a href="https://discuss.js.org" target="_blank">Discuss</a>评论系统啦~~~
+

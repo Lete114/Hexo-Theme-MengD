@@ -23,6 +23,16 @@ rightside:
   settings: 设置
   dark: 深色/浅色
 
+sidebar:
+  recent: 
+    headline: 最新文章
+  siteInfo: 
+    headline: 网站信息
+    postCounter: 文章数
+    runtime: 已运行
+    runtime_day: 天
+    words: 本站累积字数
+
 copyright:
   author: 文章作者
   articleUrl: 文章链接

@@ -23,6 +23,16 @@ rightside:
   settings: Settings
   dark: Dark/Light
 
+sidebar:
+  recent: 
+    headline: Recent Posts
+  siteInfo: 
+    headline: Website Info
+    postCounter: Article Number
+    runtime: Run Time
+    runtime_day: Day
+    words: Total Count
+
 copyright:
   author: Authorship
   articleUrl: Article Links

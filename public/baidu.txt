@@ -1,6 +1,6 @@
+https://mengd.js.org/article/config.html
 https://mengd.js.org/article/ChangeLog.html
 https://mengd.js.org/article/Quick-start.html
-https://mengd.js.org/article/config.html
 https://mengd.js.org/article/Videos.html
 https://mengd.js.org/article/Tags.html
 https://mengd.js.org/article/Tag-Plugins.html

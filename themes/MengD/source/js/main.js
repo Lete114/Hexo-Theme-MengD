@@ -2,6 +2,13 @@ var html
 var mask
 var mobileNav
 
+function RunTime() {
+  const dom = document.querySelector('.runtime')
+  if (!dom) return
+  let date = dom.getAttribute('publish-date')
+  date = (Date.now() - new Date(date).getTime()) / 86400000
+  dom.innerText = parseInt(date) || 1
+}
 // 代码框
 function addCodeBlock() {
   var codeBlock = document.querySelectorAll('figure.highlight')
@@ -192,12 +199,15 @@ function scroll() {
     // 头部导航栏
     var navbar = document.querySelector('.navbar')
     var toc = document.getElementById('toc')
+    var sidebarSticky = document.getElementById('sidebar-sticky')
     if (scrollTop > windowTop) {
       if (toc) toc.style.top = ''
+      if (sidebarSticky) sidebarSticky.style.top = ''
       navbar.style.transform = 'translateY(-60px)'
       windowTop = scrollTop
     } else {
       if (toc) toc.style.top = '70px'
+      if (sidebarSticky) sidebarSticky.style.top = '70px'
       navbar.style.transform = ''
       windowTop = scrollTop
     }
@@ -254,6 +264,7 @@ function exeAllFn() {
   html = document.getElementsByTagName('html')[0]
   mask = document.getElementById('mask')
   mobileNav = document.getElementById('mobile-nav')
+  RunTime() // 网站运行时间
   addCodeBlock() // 添加代码框
   tableWrap() // 添加table外围
   fancyboxFn() // 图片灯箱
