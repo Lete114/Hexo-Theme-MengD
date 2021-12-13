@@ -24,6 +24,7 @@ rightside:
   dark: 深色/浅色
 
 sidebar:
+  log: 检测到您开启了sidebar，但是未设置sidebar配置信息
   recent: 
     headline: 最新文章
   siteInfo: 
