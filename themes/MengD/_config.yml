@@ -97,7 +97,7 @@ rightside:
 # 侧边栏
 # 详细: https://mengd.js.org/article/config.html#自定义侧边栏
 sidebar: 
-  enable: true # 是否开启
+  enable: false # 是否开启
   sticky: true # 固定显示
   area: left # 左边: left  右边: right
 
