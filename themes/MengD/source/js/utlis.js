@@ -41,6 +41,58 @@ function getScript(url, callback) {
 }
 
 /**
+ *
+ * 封装ajax请求
+ * @param {Object} obj 请求参数
+ * @returns {Promise}
+ */
+
+function request(obj) {
+  return new Promise((resolve, reject) => {
+    // 默认为get请求
+    obj.type = obj.type || 'get'
+    //设置是否异步，默认为true
+    obj.async = obj.async || true
+    //设置数据的默认值
+    obj.data = obj.data || {}
+    var xhr
+    if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
+    //非ie
+    else xhr = new ActiveXObject('Microsoft.XMLHTTP') //ie
+
+    //区分get和post
+    if (obj.type == 'post') {
+      xhr.open(obj.type, obj.url, obj.async)
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+      xhr.send(JSON.stringify(obj.data))
+    } else {
+      const condition = Object.keys(obj.data).length
+      if (condition) {
+        let url = ''
+        obj.url += /\?$/.test(obj.url) ? '' : '?'
+        for (const key in obj.data) {
+          url += `&${key}=${obj.data[key]}`
+        }
+        obj.url += url.substring(1, url.length)
+      }
+      xhr.open(obj.type, obj.url, obj.async)
+      xhr.send()
+    }
+
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) resolve(xhr.responseText)
+        else {
+          // 由于 async/await 不能捕获 reject 所以使用 resolve
+          // 如果执意要用 reject 那么就得用try/catch来捕获 reject
+          resolve({ status: xhr.status, msg: '请求错误' })
+        }
+      }
+    }
+  })
+}
+
+/**
  * 封装ajax请求
  * @param {*} obj 请求参数
  */
@@ -52,29 +104,29 @@ function ajax(obj) {
   //设置数据的默认值
   obj.data = obj.data || null
 
-  if (window.XMLHttpRequest) var ajax = new XMLHttpRequest()
+  if (window.XMLHttpRequest) var xhr = new XMLHttpRequest()
   //非ie
-  else var ajax = new ActiveXObject('Microsoft.XMLHTTP') //ie
+  else var xhr = new ActiveXObject('Microsoft.XMLHTTP') //ie
 
   //区分get和post
   if (obj.type == 'post') {
-    ajax.open(obj.type, obj.url, obj.async)
-    ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-    ajax.send(obj.data)
+    xhr.open(obj.type, obj.url, obj.async)
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    xhr.send(obj.data)
   } else {
-    ajax.open(obj.type, obj.url, obj.async)
-    ajax.send()
+    xhr.open(obj.type, obj.url, obj.async)
+    xhr.send()
   }
 
-  ajax.onreadystatechange = function () {
-    if (ajax.readyState == 4) {
-      if ((ajax.status >= 200 && ajax.status < 300) || ajax.status == 304) {
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+      if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
         if (obj.success) {
-          obj.success(ajax.responseText)
+          obj.success(xhr.responseText)
         }
       } else {
         if (obj.error) {
-          obj.error(ajax.status)
+          obj.error(xhr.status)
         }
       }
     }
