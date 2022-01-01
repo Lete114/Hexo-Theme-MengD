@@ -7,7 +7,8 @@ post:
   min2readUnit: 分钟
   visitors: 阅读量
   toc: 目录
-  
+  stick: 置顶
+
 page:
   tag: 标签云
   categories: 分类
@@ -25,9 +26,9 @@ rightside:
 
 sidebar:
   log: 检测到您开启了sidebar，但是未设置sidebar配置信息
-  recent: 
+  recent:
     headline: 最新文章
-  siteInfo: 
+  siteInfo:
     headline: 网站信息
     postCounter: 文章数
     runtime: 已运行

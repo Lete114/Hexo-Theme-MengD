@@ -7,6 +7,7 @@ post:
   min2readUnit: 分钟
   visitors: 阅读量
   toc: 目录
+  stick: 置顶
 
 page:
   tag: 标签云

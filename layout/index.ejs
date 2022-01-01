@@ -12,7 +12,8 @@
             <% } %>
             <div class="post-item-info">
                 <a class="post-title" href="<%= url_for(post.path) %>" title="<%= title %> ">
-                    <%= title %>
+                    <% if (post.sticky) { %>
+                        <span class="stick">置顶</span><% } %><%= title %>
                 </a>
                 <div class="post-description">
                     <% 
