@@ -1,5 +1,4 @@
 <style>
-
     #footer {
         display: none;
     }
@@ -9,7 +8,7 @@
         align-items: center;
     }
 
-    #error-warp{
+    #error-warp {
         width: 400px;
         height: 400px;
         border-radius: 10px;
@@ -52,7 +51,7 @@
         animation: noise-after 1.5s ease-out infinite;
     }
 
-    .back-home{
+    .back-home {
         display: inline-block;
         border-radius: 10px;
         margin-top: .5rem;
@@ -61,8 +60,12 @@
         color: #fff;
     }
 
+    .back-home:hover {
+        color: #fff !important;
+    }
+
     @media screen and (max-width: 900px) {
-        #error-warp{
+        #error-warp {
             width: 80%;
         }
     }
@@ -120,6 +123,10 @@
     }
 </style>
 <div id="error-warp">
-    <div id="error" content="<%= theme.pages.error.text %>"><%= theme.pages.error.text %></div>
-    <a href="<%= url_for() %>" class="back-home"><%= __('page.error') %></a>
+    <div id="error" content="<%= theme.pages.error.text %>">
+        <%= theme.pages.error.text %>
+    </div>
+    <a href="<%= url_for() %>" class="back-home">
+        <%= __('page.error') %>
+    </a>
 </div>

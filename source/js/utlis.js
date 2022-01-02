@@ -14,6 +14,33 @@ function wrap(selectNode, eleType, id = '', cn = '') {
 }
 
 /**
+ * 根据元素id获取dom
+ * @param {String} id 元素id属性值
+ * @returns {Document}
+ */
+function $id(id) {
+  return document.getElementById(id)
+}
+
+/**
+ * 根据元素属性获取dom
+ * @param {String} flag 元素标识符
+ * @returns {Document}
+ */
+function $query(flag) {
+  return document.querySelector(flag)
+}
+
+/**
+ * 根据元素属性获取dom
+ * @param {String} flag 元素标识符
+ * @returns {Array and Document}
+ */
+function $queryAll(flag) {
+  return document.querySelectorAll(flag)
+}
+
+/**
  * 动态添加JavaScript
  * @param {*} url 资源地址
  * @param {*} callback 回调方法
@@ -52,30 +79,26 @@ function ajax(obj) {
   //设置数据的默认值
   obj.data = obj.data || null
 
-  if (window.XMLHttpRequest) var ajax = new XMLHttpRequest()
+  if (window.XMLHttpRequest) var xhr = new XMLHttpRequest()
   //非ie
-  else var ajax = new ActiveXObject('Microsoft.XMLHTTP') //ie
+  else var xhr = new ActiveXObject('Microsoft.XMLHTTP') //ie
 
   //区分get和post
   if (obj.type == 'post') {
-    ajax.open(obj.type, obj.url, obj.async)
-    ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-    ajax.send(obj.data)
+    xhr.open(obj.type, obj.url, obj.async)
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    xhr.send(obj.data)
   } else {
-    ajax.open(obj.type, obj.url, obj.async)
-    ajax.send()
+    xhr.open(obj.type, obj.url, obj.async)
+    xhr.send()
   }
 
-  ajax.onreadystatechange = function () {
-    if (ajax.readyState == 4) {
-      if ((ajax.status >= 200 && ajax.status < 300) || ajax.status == 304) {
-        if (obj.success) {
-          obj.success(ajax.responseText)
-        }
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+      if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+        if (obj.success) obj.success(xhr.responseText)
       } else {
-        if (obj.error) {
-          obj.error(ajax.status)
-        }
+        if (obj.error) obj.error(xhr.status)
       }
     }
   }

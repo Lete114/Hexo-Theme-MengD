@@ -45,24 +45,19 @@ body
         position relative
         float right
         padding 2px
+    img
+        max-width 100%
 
 #body-wrap
     display flex
     width var(--body-width)
     margin 0 auto
     flex-flow column
-
-    .main
-        display flex
-        margin-top 10px
-        justify-content center
         
     #main
         display flex
         margin-top 10px
         justify-content center
-        flex-direction column
-        align-items center
 
         a:hover
             color var(--main)
@@ -156,7 +151,7 @@ blockquote
         width 100%
 
 @media screen and (max-width 900px)
-    #header,#post-list,#post,#page
+    #post-list,#post,#page
         padding 10px
         padding-bottom 30px
         margin 0 10px
@@ -167,6 +162,7 @@ blockquote
 
 @import 'search'
 @import 'nav'
+@import '../_partial/sidebar'
 @import '../_highlight/code_block'
 @import 'comment'
 @import 'footer'

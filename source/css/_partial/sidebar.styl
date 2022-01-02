@@ -1,0 +1,66 @@
+$area = hexo-config('sidebar.area')
+$areaLeft = $area == 'left'
+$areaRight = $area == 'right'
+
+
+if hexo-config('sidebar.enable')
+    #post-list
+        width 100%
+
+    if $areaLeft
+        #post-list
+            order 1
+    #sidebar
+        width 25%
+        max-width 30%
+        if !$areaLeft
+            padding-left 10px
+        if !$areaRight
+            padding-right 10px
+        
+        if hexo-config('sidebar.sticky')
+            #sidebar-sticky
+                top 10px
+                position sticky
+                transition all .3s
+
+        .card:first-child
+            margin 0
+        .card
+            margin-top 10px
+            padding 20px
+            border-radius 10px
+            background var(--main-bg)
+            transition all .5s
+        .card-content
+            font-size .9rem
+            
+
+        .headline
+            font-weight bold
+            margin-bottom 1rem
+        
+        .recent-posts
+            .recent-post-item
+                padding 3px 0
+
+                >a
+                    color var(--title-color)
+                    overflow hidden
+                    display -webkit-box
+                    -webkit-line-clamp 2
+                    -webkit-box-orient vertical
+        
+        .site-info
+            .site-info-item
+                padding 4px 0
+                display flex
+                justify-content space-between
+            
+
+
+    // 小于
+    @media screen and (max-width 900px)
+        #sidebar
+            display none
+

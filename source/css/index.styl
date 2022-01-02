@@ -1,16 +1,15 @@
 // Home 首页
 
-#header,#post-list,#post,#page
+#post-list,#post,#page
+    width 70%
+    min-width 60%
     position relative
     padding 10px 30px
     background var(--main-bg)
-    width 70%
-    min-width 60%
-    max-width 90%
 
 #post-list
     margin-bottom 40px
-    border-radius 0 0 10px 10px
+    border-radius 10px
 
 .post-item
     display flex
@@ -54,6 +53,10 @@
         -webkit-line-clamp 2
         word-wrap break-word
         word-break break-all
+
+        .stick
+            color $stickColor
+            margin-right 6px
 
     .post-description
         margin-bottom 20px

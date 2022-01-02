@@ -7,21 +7,29 @@ post:
   min2readUnit: 分钟
   visitors: 阅读量
   toc: 目录
-  
+  stick: 置顶
+
 page:
   tag: 标签云
   categories: 分类
   error: 返回首页
-
-search:
-  title: 本地搜索
-  input: 搜索文章
 
 rightside:
   directComments: 直达评论
   backToTop: 回到顶部
   settings: 设置
   dark: 深色/浅色
+
+sidebar:
+  log: 检测到您开启了sidebar，但是未设置sidebar配置信息
+  recent:
+    headline: 最新文章
+  siteInfo:
+    headline: 网站信息
+    postCounter: 文章数
+    runtime: 已运行
+    runtime_day: 天
+    words: 本站累积字数
 
 copyright:
   author: 文章作者

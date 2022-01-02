@@ -34,22 +34,37 @@
         padding-inline-start 24px
 
 
+
+// 目录
+$tocArea = convert(hexo-config('toc.area')) // 目录显示区域
+$tocStyle = convert(hexo-config('toc.style')) // 目录显示样式
+
+$tocHidden = $tocStyle == 'hidden'
+$tocVisible = $tocStyle == 'visible'
+
+// Hidden 样式
+$tocHiddenLeft = $tocHidden && $tocArea == 'left'
+$tocHiddenRight = $tocHidden && $tocArea == 'right'
+
+// Visible 样式
+$tocVisibleLeft = $tocVisible && $tocArea == 'left'
+$tocVisibleRight = $tocVisible && $tocArea == 'right'
+
+
 // 当目录在左边时调换文章内容和目录位置
 if $tocVisibleLeft
     #post
         order 1
-        
 
-// 目录
 #toc-wrap
 
     if $tocVisible
         width 25%
         max-width 30%
 
-        if $tocVisibleRight
+        if !$tocVisibleLeft
             padding-left 10px
-        if $tocVisibleLeft
+        if !$tocVisibleRight
             padding-right 10px
         
         if $tocVisible
@@ -59,7 +74,7 @@ if $tocVisibleLeft
                 position sticky
                 border-radius 10px
                 background var(--main-bg)
-                transition all .5s
+                transition all .3s
             
     if $tocHidden
         top 0
@@ -242,7 +257,7 @@ if (hexo-config('copyright.enable'))
             z-index 1
             max-height calc(100% - 100px)
             width 300px
-            max-width: inherit;
+            max-width inherit
             transition initial
             -webkit-transition initial
             -moz-transition initial

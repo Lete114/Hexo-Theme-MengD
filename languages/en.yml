@@ -7,6 +7,7 @@ post:
   min2readUnit: min
   visitors: Visitors
   toc: Catalog
+  stick: Stick
 
 page:
   tag: TagCloud
@@ -22,6 +23,17 @@ rightside:
   backToTop: Back To Top
   settings: Settings
   dark: Dark/Light
+
+sidebar:
+  log: It is detected that you have sidebar enabled, but no sidebar configuration information is set
+  recent: 
+    headline: Recent Posts
+  siteInfo: 
+    headline: Website Info
+    postCounter: Article Number
+    runtime: Run Time
+    runtime_day: Day
+    words: Total Count
 
 copyright:
   author: Authorship

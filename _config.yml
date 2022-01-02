@@ -22,13 +22,19 @@ social:
   # fab fa-github: https://github.com/lete114
   # fa fa-envelope: mailto:lete@lete114.top
 
-mainSize: 70 # 文章显示大小(单位：百分比，最低60% 最高90%)
+title:  # 网站标题支持html，可写img标签等
 favicon: /img/favicon.png
 avatar: /img/logo.gif
 pageCount: 5 # 首页展示文章数
 darkmode: true # 深色模式
 pjax: true # pjax
 tags: false # 文章内是否显示标签
+
+
+stick: 
+  # 例如: text: <i class="fas fa-arrow-up"></i>置顶 
+  text:  # 支持html 
+  color: '#ffa51e' # 置顶标签文字颜色
 
 # 自动注册页面
 pages:
@@ -93,6 +99,13 @@ rightside:
     #- harf="javascript:"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
   show:
     #- harf="javascript:"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
+
+# 侧边栏
+# 详细: https://mengd.js.org/article/config.html#自定义侧边栏
+sidebar: 
+  enable: false # 是否开启
+  sticky: true # 固定显示
+  area: left # 左边: left  右边: right
 
 # 文章版权
 copyright:
