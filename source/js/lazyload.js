@@ -4,7 +4,7 @@
  * @param {*} attr 图片的真实url地址
  */
 function ImgLazyLoad(img, attr) {
-  var imgLazyLoad = document.querySelectorAll(img)
+  var imgLazyLoad = $queryAll(img)
   function LazyLoad(target) {
     const io = new IntersectionObserver((entries, Observer) => {
       entries.forEach((entry) => {

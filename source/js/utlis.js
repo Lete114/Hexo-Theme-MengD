@@ -14,6 +14,33 @@ function wrap(selectNode, eleType, id = '', cn = '') {
 }
 
 /**
+ * 根据元素id获取dom
+ * @param {String} id 元素id属性值
+ * @returns {Document}
+ */
+function $id(id) {
+  return document.getElementById(id)
+}
+
+/**
+ * 根据元素属性获取dom
+ * @param {String} flag 元素标识符
+ * @returns {Document}
+ */
+function $query(flag) {
+  return document.querySelector(flag)
+}
+
+/**
+ * 根据元素属性获取dom
+ * @param {String} flag 元素标识符
+ * @returns {Array and Document}
+ */
+function $queryAll(flag) {
+  return document.querySelectorAll(flag)
+}
+
+/**
  * 动态添加JavaScript
  * @param {*} url 资源地址
  * @param {*} callback 回调方法
@@ -38,58 +65,6 @@ function getScript(url, callback) {
   }
   script.src = url
   document.body.appendChild(script)
-}
-
-/**
- *
- * 封装ajax请求
- * @param {Object} obj 请求参数
- * @returns {Promise}
- */
-
-function request(obj) {
-  return new Promise((resolve, reject) => {
-    // 默认为get请求
-    obj.type = obj.type || 'get'
-    //设置是否异步，默认为true
-    obj.async = obj.async || true
-    //设置数据的默认值
-    obj.data = obj.data || {}
-    var xhr
-    if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
-    //非ie
-    else xhr = new ActiveXObject('Microsoft.XMLHTTP') //ie
-
-    //区分get和post
-    if (obj.type == 'post') {
-      xhr.open(obj.type, obj.url, obj.async)
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-      xhr.send(JSON.stringify(obj.data))
-    } else {
-      const condition = Object.keys(obj.data).length
-      if (condition) {
-        let url = ''
-        obj.url += /\?$/.test(obj.url) ? '' : '?'
-        for (const key in obj.data) {
-          url += `&${key}=${obj.data[key]}`
-        }
-        obj.url += url.substring(1, url.length)
-      }
-      xhr.open(obj.type, obj.url, obj.async)
-      xhr.send()
-    }
-
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === 4) {
-        if (xhr.status === 200) resolve(xhr.responseText)
-        else {
-          // 由于 async/await 不能捕获 reject 所以使用 resolve
-          // 如果执意要用 reject 那么就得用try/catch来捕获 reject
-          resolve({ status: xhr.status, msg: '请求错误' })
-        }
-      }
-    }
-  })
 }
 
 /**
@@ -121,13 +96,9 @@ function ajax(obj) {
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4) {
       if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
-        if (obj.success) {
-          obj.success(xhr.responseText)
-        }
+        if (obj.success) obj.success(xhr.responseText)
       } else {
-        if (obj.error) {
-          obj.error(xhr.status)
-        }
+        if (obj.error) obj.error(xhr.status)
       }
     }
   }
