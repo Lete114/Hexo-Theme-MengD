@@ -1,9 +1,9 @@
 try {
-  var localSearch = document.getElementById('local-search')
-  var html = document.querySelector('html')
-  var mask = document.getElementById('mask')
-  var searchBtn = document.querySelector('.search-btn')
-  var searchClose = document.querySelector('.search-close-button')
+  var localSearch = $id('local-search')
+  var html = $query('html')
+  var mask = $id('mask')
+  var searchBtn = $query('.search-btn')
+  var searchClose = $query('.search-close-button')
   var isLoad = false // 资源是否被加载
   var searchId = 'local-search-input'
   var contentId = 'local-search-result'
@@ -34,8 +34,8 @@ try {
       })
     }
 
-    var $input = document.getElementById(searchId)
-    var $resultContent = document.getElementById(contentId)
+    var $input = $id(searchId)
+    var $resultContent = $id(contentId)
     $input.addEventListener('input',function ()  {
       var str = '<ul class="search-result-list">'
       var keywords = this.value
@@ -109,7 +109,7 @@ try {
       html.style.overflow = 'hidden'
       localSearch.classList.remove('search-animation-min')
       localSearch.classList.add('search-animation-max')
-      document.getElementById(searchId).focus()
+      $id(searchId).focus()
     }
   }
 
