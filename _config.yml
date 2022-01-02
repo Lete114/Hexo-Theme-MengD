@@ -29,7 +29,12 @@ pageCount: 5 # 首页展示文章数
 darkmode: true # 深色模式
 pjax: true # pjax
 tags: false # 文章内是否显示标签
-stick: '#ffa51e' # 置顶标签文字颜色
+
+
+stick: 
+  # 例如: text: <i class="fas fa-arrow-up"></i>置顶 
+  text:  # 支持html 
+  color: '#ffa51e' # 置顶标签文字颜色
 
 # 自动注册页面
 pages:
