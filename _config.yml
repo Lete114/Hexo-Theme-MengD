@@ -30,7 +30,6 @@ darkmode: true # 深色模式
 pjax: true # pjax
 tags: false # 文章内是否显示标签
 
-
 stick: 
   # 例如: text: <i class="fas fa-arrow-up"></i>置顶 
   text:  # 支持html 

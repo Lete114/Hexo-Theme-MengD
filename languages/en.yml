@@ -14,6 +14,11 @@ page:
   categories: Categories
   error: BackHome
 
+page:
+  tag: TagCloud
+  categories: Categories
+  error: BackHome
+
 search:
   title: Local Search
   input: Search the article
