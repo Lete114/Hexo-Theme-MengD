@@ -1,104 +1,127 @@
 // Home 首页
+#post-list, #post, #page {
+    width: 70%;
+    min-width: 60%;
+    position: relative;
+    padding: 10px 30px;
+    background: var(--main-bg);
+}
 
-#post-list,#post,#page
-    width 70%
-    min-width 60%
-    position relative
-    padding 10px 30px
-    background var(--main-bg)
+#post-list {
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
 
-#post-list
-    margin-bottom 40px
-    border-radius 10px
+.post-item {
+    display: flex;
+    margin: 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--adorn);
 
-.post-item
-    display flex
-    margin 20px 0
-    padding-bottom 10px
-    border-bottom 1px solid var(--adorn)
+    .post-item-info {
+        width: 100%;
+        padding-right: 10px;
+    }
 
-    .post-item-info
-        width 100%
-        padding-right 10px
+    .post-item-cover {
+        order: 1;
+        width: 100%;
+        max-width: 40%;
+        height: 140px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
 
-    .post-item-cover
-        order 1
-        width 100%
-        max-width 40%
-        height 140px
-        position relative
-        overflow hidden
-        border-radius 10px
+        img {
+            display: block;
+            transition: opacity 0.4s ease-out;
+            position: absolute;
+            left: 0;
+            top: 0;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
 
-        img
-            display block
-            transition opacity 0.4s ease-out
-            position absolute
-            left 0
-            top 0
-            object-fit cover
-            width 100%
-            height 100%
+    .post-title {
+        color: var(--title-color);
+        font-size: 1.2rem;
+        margin-bottom: 4px;
+        font-weight: 700;
+        display: -webkit-box;
+        overflow: hidden;
+        text-decoration: none;
+        line-height: 1.5;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        word-wrap: break-word;
+        word-break: break-all;
 
-    .post-title
-        color var(--title-color)
-        font-size 1.2rem
-        margin-bottom 4px
-        font-weight 700
-        display -webkit-box
-        overflow hidden
-        text-decoration none
-        line-height 1.5
-        -webkit-box-orient vertical
-        -webkit-line-clamp 2
-        word-wrap break-word
-        word-break break-all
+        .stick {
+            color: $stickColor;
+            margin-right: 6px;
+        }
+    }
 
-        .stick
-            color $stickColor
-            margin-right 6px
+    .post-description {
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+        line-height: 24px;
+        overflow: hidden;
+        word-wrap: break-word;
+        word-break: break-all;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: $line;
+    }
 
-    .post-description
-        margin-bottom 20px
-        font-size 0.9rem
-        line-height 24px
-        overflow hidden
-        word-wrap break-word
-        word-break break-all
-        display -webkit-box
-        -webkit-box-orient vertical
-        -webkit-line-clamp $line
+    .post-meta-wrap {
+        color: #999;
+        font-size: 0.6rem;
+        margin: 10px 0 0;
+        overflow: hidden;
+        word-wrap: break-word;
+        word-break: break-all;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
 
-    .post-meta-wrap
-        color #999
-        font-size 0.6rem
-        margin 10px 0 0
+        .post-categorie, .post-tag {
+            margin-left: 6px;
+        }
 
-        .post-categorie, .post-tag
-            margin-left 6px
+        a {
+            text-decoration: none;
+            color: #999;
+        }
+    }
 
-        a
-            text-decoration none
-            color #999
+    .post-item-cover + .post-item-info {
+        position: relative;
 
-    .post-item-cover + .post-item-info
-        position relative
+        .post-meta-wrap {
+            position: absolute;
+            bottom: 0px;
+        }
+    }
+}
 
-        .post-meta-wrap
-            position absolute
-            bottom 0px
+@media (max-width: 768px) {
+    #post-list .post-item {
+        flex-direction: column-reverse;
 
-@media (max-width 768px)
-    #post-list .post-item
-        flex-direction column-reverse
+        .post-meta-wrap {
+            margin-top: 10px;
+            position: unset;
+        }
 
-        .post-meta-wrap
-            margin-top 10px
-            position unset
+        .post-item-cover {
+            height: 230px;
+            max-width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+}
 
-        .post-item-cover
-            height 230px
-            max-width 100%
-            margin-bottom 10px
-
-@import '_partial/header'
+@import '_partial/header';
