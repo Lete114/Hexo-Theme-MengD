@@ -13,14 +13,12 @@ hexo_seo_autopush:
     google_file: google_service_account.json # 谷歌服务账户
 
 server:
-  port: 5000
+  port: 4000
 
 search:
   path: search.json
   field: post
   content: true
-
-
 
 # Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html

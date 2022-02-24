@@ -3,7 +3,7 @@ var mask
 var mobileNav
 
 function RunTime() {
-  const dom = document.querySelector('.runtime')
+  const dom = $query('.runtime')
   if (!dom) return
   let date = dom.getAttribute('publish-date')
   date = (Date.now() - new Date(date).getTime()) / 86400000
@@ -11,7 +11,7 @@ function RunTime() {
 }
 // 代码框
 function addCodeBlock() {
-  var codeBlock = document.querySelectorAll('figure.highlight')
+  var codeBlock = $queryAll('figure.highlight')
   codeBlock.forEach(function (item) {
     var lang = item.classList[1]
     lang = lang == 'plaintext' ? 'code' : lang
@@ -24,7 +24,7 @@ function addCodeBlock() {
 
 // table wrap
 function tableWrap() {
-  var table = document.querySelectorAll('.post-content>table,.content>table')
+  var table = $queryAll('.post-content>table,.content>table')
   table.forEach(function (item) {
     wrap(item, 'div', null, 'table-wrap')
   })
@@ -33,7 +33,7 @@ function tableWrap() {
 // fancybox
 function fancyboxFn() {
   getScript($config.CDN.fancyboxJs, function () {
-    const imgAll = document.querySelectorAll('.post-content img')
+    const imgAll = $queryAll('.post-content img')
     imgAll.forEach((ele) => ele.setAttribute('data-fancybox', ''))
     var link = document.createElement('link')
     link.rel = 'stylesheet'
@@ -46,7 +46,7 @@ function fancyboxFn() {
 // 代码块折叠
 function codeBlockExpand() {
   if (!$config.codeBlockExpand || !$config.codeBlockExpand.enable) return
-  var CodeBlock = document.querySelectorAll('figure.highlight')
+  var CodeBlock = $queryAll('figure.highlight')
   // 定义高度
   var height = $config.codeBlockExpand.height
   // 获取当前页面的所有的代码块 循环判断符合条件的折叠
@@ -64,7 +64,7 @@ function codeBlockExpand() {
     }
   }
   // 展开
-  document.querySelectorAll('.show-btn').forEach(function (item) {
+  $queryAll('.show-btn').forEach(function (item) {
     item.onclick = function () {
       var child = item.childNodes[0] // 获取子节点
       if (child.className == 'fas fa-angle-down') {
@@ -90,7 +90,7 @@ function codeBlockExpand() {
 
 // 打开侧边导航栏
 function openMobile() {
-  var openNav = document.querySelector('.open-nav')
+  var openNav = $query('.open-nav')
   if (!openNav) return
   openNav.onclick = function () {
     var isOpen = mobileNav.classList.contains('open-mobile')
@@ -103,8 +103,8 @@ function openMobile() {
 
 // 打开目录
 function showToc() {
-  var openToc = document.getElementById('open-toc')
-  var toc = document.getElementById('toc-wrap')
+  var openToc = $id('open-toc')
+  var toc = $id('toc-wrap')
   if (!openToc || !toc) return
   openToc.onclick = function () {
     var isOpen = toc.classList.contains('show-toc')
@@ -121,7 +121,7 @@ function showToc() {
 
 // 显示右侧栏隐藏域
 function rightsideShow() {
-  var settings = document.getElementById('settings')
+  var settings = $id('settings')
   if (!settings) return
   settings.onclick = function () {
     var btn = document.getElementsByClassName('rightside-btn')[0]
@@ -135,7 +135,7 @@ function rightsideShow() {
 // 关闭所有正在打开的弹窗(搜索框、侧边栏)
 function closeAll() {
   // 搜索框缩放样式
-  var localSearch = document.getElementById('local-search')
+  var localSearch = $id('local-search')
   if (localSearch) {
     localSearch.classList.remove('search-animation-max')
     localSearch.classList.add('search-animation-min')
@@ -146,7 +146,7 @@ function closeAll() {
   }
   html.style.overflow = 'auto' // 解除滚动条禁止滚动
   // 目录
-  var toc = document.querySelector('.show-toc')
+  var toc = $query('.show-toc')
   if (toc) toc.classList.remove('show-toc')
   // 侧边栏
   mobileNav.classList.remove('open-mobile')
@@ -156,10 +156,10 @@ function closeAll() {
 
 // 深色模式
 function DarkMode() {
-  if (!document.getElementById('darkmode')) return
+  if (!$id('darkmode')) return
   var body = document.getElementsByTagName('body')[0]
-  var darkBtn = document.getElementById('darkmode')
-  var darkIco = document.querySelector('#darkmode i')
+  var darkBtn = $id('darkmode')
+  var darkIco = $query('#darkmode i')
 
   if (localStorage.isDark === 'true') {
     html.setAttribute('theme', 'dark')
@@ -197,9 +197,9 @@ function scroll() {
     var scrollTop = window.scrollY || document.documentElement.scrollTop
 
     // 头部导航栏
-    var navbar = document.querySelector('.navbar')
-    var toc = document.getElementById('toc')
-    var sidebarSticky = document.getElementById('sidebar-sticky')
+    var navbar = $query('.navbar')
+    var toc = $id('toc')
+    var sidebarSticky = $id('sidebar-sticky')
     if (scrollTop > windowTop) {
       if (toc) toc.style.top = ''
       if (sidebarSticky) sidebarSticky.style.top = ''
@@ -212,7 +212,7 @@ function scroll() {
       windowTop = scrollTop
     }
 
-    var rightside = document.querySelector('#rightside')
+    var rightside = $query('#rightside')
     if (scrollTop > 100) rightside.style = 'opacity:1;visibility:visible'
     else {
       rightside.style.opacity = 0
@@ -222,8 +222,8 @@ function scroll() {
     }
 
     // toc目录百分比
-    var article = document.querySelector('.post-content')
-    var num = document.querySelector('.num')
+    var article = $query('.post-content')
+    var num = $query('.num')
     if (article && num) {
       var headerHeight = article.offsetTop
       var docHeight = article.clientHeight
@@ -234,14 +234,14 @@ function scroll() {
       var percentage = scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 0 : scrollPercentRounded
 
       num.innerText = percentage + '%'
-      document.querySelector('.progress').value = percentage
+      $query('.progress').value = percentage
     }
   })
 }
 
 // 代码块复制
 function codeCopy() {
-  document.querySelectorAll('figure.highlight').forEach(function (item) {
+  $queryAll('figure.highlight').forEach(function (item) {
     // 获取所有代码块
     // firstChild: 获取代码块中的第一个子元素
     // childNodes: 返回当前元素的所有子元素(包括:before和:after)
@@ -262,8 +262,8 @@ function codeCopy() {
 // 执行所有函数
 function exeAllFn() {
   html = document.getElementsByTagName('html')[0]
-  mask = document.getElementById('mask')
-  mobileNav = document.getElementById('mobile-nav')
+  mask = $id('mask')
+  mobileNav = $id('mobile-nav')
   RunTime() // 网站运行时间
   addCodeBlock() // 添加代码框
   tableWrap() // 添加table外围
