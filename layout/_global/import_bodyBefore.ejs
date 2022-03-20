@@ -1,0 +1,7 @@
+<% 
+const bodyBefore = theme.import.bodyBefore
+const arr = Array.isArray(bodyBefore) ? bodyBefore : []
+
+arr.forEach(function(source, i){ %>
+<%- source %>
+<% }) %>

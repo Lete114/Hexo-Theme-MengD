@@ -2,8 +2,7 @@
 <p align="center">一个简洁、轻量的Hexo主题</p>
 
 <p align="center">
-    <a href="https://github.com/lete114/hexo-theme-MengD/releases/"><img src="https://img.shields.io/github/package-json/v/lete114/hexo-theme-MengD/master?color=%23e58a8a&label=master" alt="master"></a>
-    <a href="https://github.com/lete114/hexo-theme-MengD/stargazers"><img src="https://img.shields.io/github/package-json/v/lete114/hexo-theme-MengD/dev?color=%231ab1ad&label=dev"  alt="dev"></a>
+    <a href="https://github.com/lete114/hexo-theme-MengD/releases/"><img src="https://img.shields.io/github/package-json/v/lete114/hexo-theme-MengD/main?color=%23e58a8a&label=main" alt="main"></a>
     <a href="https://github.com/lete114/hexo-theme-MengD/blob/master/LICENSE"><img src="https://img.shields.io/github/license/lete114/hexo-theme-MengD?color=FF5531" alt="MIT License"></a>
 </p>
 
@@ -19,16 +18,8 @@
 
 安装
 
-稳定[推荐]
-
 ```powershell
-git clone -b master https://github.com/lete114/hexo-theme-MengD.git themes/MengD
-```
-
-开发
-
-```powershell
-git clone -b dev https://github.com/lete114/hexo-theme-MengD.git themes/MengD
+git clone https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 ```
 
 打开根目录下的`_config.yml`修改`theme: MengD`

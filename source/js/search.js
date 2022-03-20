@@ -15,7 +15,6 @@ try {
    * @param {*} path 文件路径
    */
   async function search(path) {
-    isLoad = true
     const suffix = path.split('.')[1]
     let datas = []
     const response = await fetch(path)
@@ -33,6 +32,8 @@ try {
         }
       })
     }
+
+    if (datas.length) isLoad = true
 
     var $input = $id(searchId)
     var $resultContent = $id(contentId)
