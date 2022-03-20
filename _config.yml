@@ -33,12 +33,11 @@ author: MengD
 language: zh-CN
 timezone: ''
 
-
 # URL
 permalink: article/:abbrlink.html
 abbrlink:
-  alg: crc32  # 算法：crc16(default) and crc32
-  rep: hex    # 进制：dec(default) and hex
+  alg: crc32 # 算法：crc16(default) and crc32
+  rep: hex # 进制：dec(default) and hex
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
@@ -60,7 +59,6 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
 
-  
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
@@ -94,7 +92,7 @@ prismjs:
 #     inline: false
 #     sourceRoot: ''
 #     basePath: .
-#   plugins: 'nib'  
+#   plugins: 'nib'
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')

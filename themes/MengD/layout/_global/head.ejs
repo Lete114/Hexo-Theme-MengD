@@ -1,3 +1,5 @@
+<%-partial('import_headBefore')%>
+
 <% 
 var title = config.title
 if (page.title)title = page.title+' | '+config.title
@@ -34,7 +36,7 @@ image = full_url_for(image)
 // icon
 var icon = full_url_for(theme.favicon || config.favicon)
 
-%> 
+%>
 
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,24 +45,25 @@ var icon = full_url_for(theme.favicon || config.favicon)
 <meta name="author" content="<%= config.author %>">
 <meta name="copyright" content="<%= config.author %>">
 
-<%- favicon_tag(icon) %> 
+<%- favicon_tag(icon) %>
 
 <% if (keywords) { %>
-    <meta name="keywords" content="<%= keywords %>">
+<meta name="keywords" content="<%= keywords %>">
 <% } %>
 
 <% if (theme.open_graph.enable) { %>
-    <%  var options = Object.assign({image}, theme.open_graph.options||{}) %> 
-    <%- open_graph(options) %>
+<%  var options = Object.assign({image}, theme.open_graph.options||{}) %>
+<%- open_graph(options) %>
 <% }else { %>
-    <meta name="image" content="<%= image %>">
-    <meta property="url" content="<%= full_url_for(path) %>">
-    <meta name="description" content="<%= description %>">
-<% } %> 
+<meta name="image" content="<%= image %>">
+<meta property="url" content="<%= full_url_for(path) %>">
+<meta name="description" content="<%= description %>">
+<% } %>
 
-<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 <link href="//cdn.jsdelivr.net" rel="preconnect">
 <link href="<%= config.url %>" rel="prefetch">
 <link href="<%= theme.CDN.fortawesome %> " rel="stylesheet">
 <link href="<%= theme.CDN.mainCss %> " rel="stylesheet">
-<%-partial('import_head')%> 
+<script src="<%= theme.CDN.utlis %>"></script>
+<%-partial('import_headAfter')%>

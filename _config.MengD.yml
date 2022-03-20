@@ -128,11 +128,13 @@ link:
 
 # 自定义引入外部css、js
 import:
-  head: # 引入到</head>之前
-    - <meta name="google-site-verification" content="uPApgr9zH7JO36gqOf48_UpfbFRRJ6zCf4cQd-s80eA" />
-  top: # 引入到<body>之后
+  headBefore: # 引入到<head>之后
     - 
-  bottom: # 引入到</body>之前
+  headAfter: # 引入到</head>之前
+    - <meta name="google-site-verification" content="uPApgr9zH7JO36gqOf48_UpfbFRRJ6zCf4cQd-s80eA" />
+  bodyBefore: # 引入到<body>之后
+    - 
+  bodyAfter: # 引入到</body>之前
     - 
   # 例如： 
   # - <link rel="stylesheet" href="/css/index.css">

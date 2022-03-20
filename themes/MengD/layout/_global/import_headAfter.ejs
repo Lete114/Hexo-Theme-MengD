@@ -1,0 +1,8 @@
+<% 
+
+const headAfter = theme.import.headAfter
+const arr = Array.isArray(headAfter) ? headAfter : [] 
+
+arr.forEach(function(head, i){ %>
+<%- head %>
+<% }) %>

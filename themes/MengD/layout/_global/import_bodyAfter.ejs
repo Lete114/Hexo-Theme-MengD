@@ -1,0 +1,32 @@
+<% if (theme.amusingTitle && theme.amusingTitle.enable) { %>
+<%# 此处并未适配pjax，原因是无意义 %>
+<script>
+  var originTitle = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "<%= theme.amusingTitle.leaveTitle %>" + originTitle;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "<%= theme.amusingTitle.returnTitle %>" + originTitle;
+      titleTime = setTimeout(function() {
+        document.title = originTitle;
+      }, 2000);
+    }
+  });
+</script>
+<% } %>
+
+<%if(theme.lazyload.enable){%>
+<script src="<%= theme.CDN.lazyload %>"></script>
+<%}%>
+
+<%# 引入到</body>之前 %>
+<% 
+
+const bodyAfter = theme.import.bodyAfter
+const arr = Array.isArray(bodyAfter) ? bodyAfter : [] 
+
+arr.forEach(function(bottom, i){ %>
+<%- bottom %>
+<% }) %>
