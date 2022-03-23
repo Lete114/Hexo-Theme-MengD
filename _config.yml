@@ -257,7 +257,7 @@ CDN:
   # lazyload
   lazyload: /js/lazyload.js
   # pjax
-  pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.min.js
+  pjax: https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js
   # fancybox
   fancyboxJs: https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js
   fancyboxCss: https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css
