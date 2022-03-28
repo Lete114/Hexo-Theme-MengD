@@ -1,4 +1,4 @@
-<% var option = theme.twikoo.option ? JSON.stringify(theme.twikoo.option) : false %>
+<% var options = theme.twikoo.options ? JSON.stringify(theme.twikoo.options) : false %>
 <div id="tcomment"></div>
 <script>
 function LoadTwikoo(){
@@ -9,9 +9,9 @@ function LoadTwikoo(){
       region: '<%-theme.twikoo.region%>',
       path: '<%-theme.twikoo.path%>',
   }
-  var option = <%-option%>;
-  if(option){
-      initData = Object.assign(initData, option)
+  var options = <%-options%>;
+  if(options){
+      initData = Object.assign(initData, options)
   }
   twikoo.init(initData);
   })

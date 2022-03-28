@@ -69,24 +69,6 @@
   <% } %>
 <% } %>
 
-<%# 标签  %> 
-<%if(theme.tags){%>
-  <% if(page.tags.length!=0){ %>
-    <div class="post-tag">
-        <span>
-            <i class="fa fa-tag"></i>
-            <% page.tags.forEach(function(tag, i){ %> 
-            <a href="<%= tag.path %>"><span><%= tag.name %></span></a>
-                <%if(page.tags.length-1 > i){%>
-                    <i class="fas fa-angle-right"></i>
-                <%} %>
-            <% }) %>
-        </span>
-    </div>
-  <% } %>
-<%}%>
-
-
 <%# 上下一篇文章 %>
 <div class="pagination-post">
     <% if (page.prev){ %>

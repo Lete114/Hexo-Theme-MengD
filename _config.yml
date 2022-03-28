@@ -28,9 +28,9 @@ avatar: /img/logo.gif
 pageCount: 5 # 首页展示文章数
 darkmode: true # 深色模式
 pjax: true # pjax
-tags: false # 文章内是否显示标签
+search: false # 需安装插件: npm install hexo-generator-search --save
 
-
+# 置顶文章
 stick: 
   # 例如: text: <i class="fas fa-arrow-up"></i>置顶 
   text:  # 支持html 
@@ -48,7 +48,6 @@ pages:
 toc:
   enable: true
   area: left # 左边: left  右边: right
-  style: visible # 可见: visible 隐藏: hidden
   options: # 详细配置: https://hexo.io/zh-cn/docs/helpers#toc
     list_number: false
 
@@ -79,8 +78,6 @@ lazyload:
   enable: true
   loadimg: /img/load.gif
 
-# 需安装插件: npm install hexo-generator-search --save
-search: false
 
 # 代码块高亮主题
 highlightTheme: mac # default / darker / pale night / light / ocean / mac / mac light
@@ -89,32 +86,49 @@ codeBlockExpand: # 是否开启代码块折叠
   height: 400 # 代码块高度超过400折叠 单位px
   scrollTop: 200 # 展开后,再次(手动点击)点击折叠滚动到代码块开始的距离 单位px
 
-## 自定义侧边栏按钮
-## 使用 || 分割
-## setting: 点击设置按钮后显示   show: 直接显示
-## 拥有3个属性：a标签属性|a标签描述|按钮图标
-## #- harf="javascript:"id="darkmode"||深色/浅色||fas fa-moon
-rightside:
-  settings:
-    #- harf="javascript:"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
-  show:
-    #- harf="javascript:"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
 
-# 侧边栏
-# 详细: https://mengd.js.org/article/config.html#自定义侧边栏
-sidebar: 
-  enable: false # 是否开启
-  sticky: true # 固定显示
-  area: left # 左边: left  右边: right
+# 自定义引入外部css、js
+import:
+  headBefore: # 引入到<head>之后
+    - 
+  headAfter: # 引入到</head>之前
+    - 
+  bodyBefore: # 引入到<body>之后
+    - 
+  bodyAfter: # 引入到</body>之前
+    - 
+  # 例如：
+  # - <link rel="stylesheet" href="/css/index.css">
+  # - '<style>body{color: red}</style>' ## 注意由于css的‘{}’是关键符号所以需要(单/双)引号''
+  # - <script>alert(1)</script>
 
 # 文章版权
 copyright:
   enable: true
   author: MengD(萌典)
   mail: me@imlete.cn
-  licenses: CC BY-NC-SA 4.0||https://creativecommons.org/licenses/by-nc-sa/4.0/ ## 文中||为分隔符，左侧为描述，右侧为版权许可
+  licenses: CC BY-NC-SA 4.0||https://creativecommons.org/licenses/by-nc-sa/4.0/ ## 其中||为分隔符，左侧为描述，右侧为版权许可
   description: 本博客所有文章除特别声明外，均采用||许可协议。转载请注明来自
   title: Hexo-Theme-MengD(萌典)
+
+
+# 页脚
+footer:
+  since: 2020
+  customText: 我相信我可以，但我一直在路上，所以我有无限的可能！！
+
+# 统计(分析)
+analytics:
+  baidu:
+  google:
+
+# 设置字体
+font:
+  # 全局字体
+  html: consolas,Menlo,'PingFang SC','Microsoft YaHei',sans-serif
+  # 代码块字体
+  code: consolas,Menlo,'PingFang SC','Microsoft YaHei',sans-serif
+
 
 # 评论
 ## 注意大小写
@@ -126,7 +140,7 @@ discuss:
   source: https://cdn.jsdelivr.net/npm/discuss@latest/dist/Discuss.js
   serverURLs: ## 你的 Discuss 评论系统服务端地址
   path: location.pathname
-  
+  options: # 自定义添加 https://discuss.js.org/Quick-Start.html#%E5%AE%A2%E6%88%B7%E7%AB%AF-client
 
 # valine
 ## https://valine.js.org/
@@ -142,7 +156,7 @@ valine:
   emojiCDN: # emoji CDN
   emojiMaps: # 自定义表情包
   enableQQ: true # enable the Nickname box to automatically get QQ Nickname and QQ Avatar
-  option: # 自定义添加 https://valine.js.org/configuration.html
+  options: # 自定义添加 https://valine.js.org/configuration.html
 
 # waline
 ## https://waline.js.org
@@ -157,7 +171,7 @@ waline:
   requiredFields: ['nick', 'mail', 'link'] # 评论人必填项
   emojiCDN: # emoji CDN
   emojiMaps: # 自定义表情包
-  option: # 自定义添加 https://waline.js.org/client/basic.html
+  options: # 自定义添加 https://waline.js.org/client/basic.html
 
 # twikoo
 ## https://twikoo.js.org/
@@ -166,7 +180,7 @@ twikoo:
   envId: xxxxxxxx # 你的环境id
   region: ap-shanghai # 环境地域，ap-shanghai / ap-guangzhou
   path: window.location.pathname # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-  option:
+  options:
 
 ## 说说
 
@@ -184,69 +198,6 @@ artitalk:
   atEmoji: # 自定义表情包
   option:
 
-# HPPTalk
-## https://hexoplusplus.js.org/
-hppTalk:
-  enable: false # 是否开启
-  sourceCss: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@9bf1085/talk.css
-  sourceJs: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@9bf1085/talk_user.js
-  title: HPPTalk # 标题
-  path: hppTalk/index.html # 路径
-  domain: blog.lete114.workers.dev # 您的HexoPlusPlus域名
-  limit: 10 # 单次获取的最多条数
-  start: 0 # 从第几条开始
-  option:
-
-# 通过issues申请友情链接(目前只支持gitee)
-link:
-  issues:
-    enable: false # 是否开启
-    subtitle: Gitee友链 # 副标题
-    owner: lete114 # 仓库拥有者
-    repo: link # 仓库昵称
-    showPosition: later # 显示的位置  前(before) / 后(later)
-  repoPr:
-    enable: true # 是否开启
-    ymlUrl: https://links.lete114.top/MengD/link.yml # 友链yml文件
-    showPosition: later # 显示的位置  前(before) / 后(later)
-
-# 自定义引入外部css、js
-import:
-  headBefore: # 引入到<head>之后
-    - 
-  headAfter: # 引入到</head>之前
-    - 
-  bodyBefore: # 引入到<body>之后
-    - 
-  bodyAfter: # 引入到</body>之前
-    - 
-  # 例如：
-  # - <link rel="stylesheet" href="/css/index.css">
-  # - '<style>body{color: red}</style>' ## 注意由于css的‘{}’是关键符号所以需要(单/双)引号''
-  # - <script>alert(1)</script>
-
-# 页脚
-footer:
-  since: 2020
-  customText: 我相信我可以，但我一直在路上，所以我有无限的可能！！
-  icp:
-    enable: false
-    text:
-    icon: /img/icp.png
-    url: https://beian.miit.gov.cn/
-
-# 统计(分析)
-analytics:
-  baidu:
-  google:
-
-# 设置字体
-font:
-  # 全局字体
-  html: consolas,Menlo,'PingFang SC','Microsoft YaHei',sans-serif
-  # 代码块字体
-  code: consolas,Menlo,'PingFang SC','Microsoft YaHei',sans-serif
-
 # 主题的css与js引入
 ## 无特殊要求请勿更改
 CDN:
@@ -259,9 +210,7 @@ CDN:
   # pjax
   pjax: https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js
   # fancybox
-  fancyboxJs: https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js
-  fancyboxCss: https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css
+  fancyboxJs: https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.26/dist/fancybox.umd.js
+  fancyboxCss: https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.26/dist/fancybox.css
   # fortawesome
-  fortawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
-  # yml转json
-  jsYaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
+  fortawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css

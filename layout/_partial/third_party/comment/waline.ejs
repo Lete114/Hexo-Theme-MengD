@@ -1,4 +1,4 @@
-<% var option=theme.waline.option ? JSON.stringify(theme.waline.option) : false %>
+<% var options=theme.waline.options ? JSON.stringify(theme.waline.options) : false %>
 <div id="wcomments"></div>
 <script>
 function LoadWaline() {
@@ -17,9 +17,9 @@ function LoadWaline() {
             emojiMaps: <%-JSON.stringify(theme.waline.emojiMaps)%>,
             visitor: true
         }
-        var option = <%-option%>;
-        if (option) {
-            initData = Object.assign(initData, option)
+        var options = <%-options%>;
+        if (options) {
+            initData = Object.assign(initData, options)
         }
         new Waline(initData)
     })

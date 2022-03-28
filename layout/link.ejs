@@ -1,165 +1,38 @@
-<%
-var link = site.data.link
-var issues = theme.link.issues
-var repo = theme.link.repoPr
+<% 
+var link = deep_clone(site.data.link)
+const screenshot = link.screenshot
+delete link.screenshot
 %>
 
 <div class="link" id="link">
-<% for(var i in link){ %>
+  <% for(var i in link){ %>
+  <h2 class="link-title"><%= link[i].class_name %></h2>
+  <div class="link-subtitle"><%= link[i].class_desc %></div>
+  <div class="link-list">
+    <% var link_lists = link[i].link_list %>
+    <%for(var link_list in link_lists){%>
 
-    <h2 class="link-title"><%= link[i].class_name %></h2>
-    <div class="link-subtitle"><%= link[i].class_desc %></div>
-    <div class="link-list">
-    <%for(var link_list in link[i].link_list){%>
-        <div class="link-list-item">
-            <a href="<%= link[i].link_list[link_list].link %>">
-                <img src="<%= link[i].link_list[link_list].avatar %>" alt="<%= link[i].link_list[link_list].descr %>">
-                <span class="link-item-name"><%= link[i].link_list[link_list].name %></span>
-                <span class="link-item-desc"><%= link[i].link_list[link_list].descr %></span>
+      <%# 是否使用屏幕截图 %>
+      <% if (link_lists[link_list].screenshot) { %>
+          <div class="link-list-item-screenshot">
+            <a href="<%= link_lists[link_list].link %>">
+                <img src="<%= screenshot.replace('${url}',link_lists[link_list].link) %>">
+              <div class="link-item-info">
+                <img src="<%= link_lists[link_list].avatar %>">
+                <span><%= link_lists[link_list].name %></span>
+              </div>
             </a>
+          </div>
+      <% } else { %>
+        <div class="link-list-item">
+          <a href="<%= link_lists[link_list].link %>">
+            <img src="<%= link_lists[link_list].avatar %>" alt="<%= link_lists[link_list].descr %>">
+            <span class="link-item-name"><%= link_lists[link_list].name %></span>
+            <span class="link-item-desc"><%= link_lists[link_list].descr %></span>
+          </a>
         </div>
+      <%}%>
     <%}%>
     </div>
-<%}%>
+  <%}%>
 </div>
-<script>
-    <%if(issues.enable){%>
-    // 声明变量
-    var arr = [];
-    /*请求源数据*/
-    ajax({
-        url: "https://gitee.com/api/v5/repos/<%= issues.owner %>/<%= issues.repo %>/issues?state=open&sort=created&direction=desc&page=1&per_page=100",
-        dataType: "json",
-        async:false,
-        success: function(data){
-            data = JSON.parse(data)
-            for (let i in data) {
-                var json = new Object();
-                json.name = filter("name",data[i]["body"])
-                json.link = filter("link",data[i]["body"])
-                json.avatar = filter("avatar",data[i]["body"])
-                json.descr = filter("descr",data[i]["body"])
-                var tag = JSON.parse(JSON.stringify(data[i]["labels"]))
-                for (let j in tag) {
-                    json.tags = tag[j].name
-                }
-                arr.push(json);
-            }
-            
-            // 分组
-            let map = {}
-            for (let i = 0; i < arr.length; i++) {
-                let ai = arr[i]
-                if (!map[ai.tags]) {
-                    map[ai.tags] = [ai]
-                } else {
-                    map[ai.tags].push(ai)
-                }
-            }
-            let res = []
-            Object.keys(map).forEach(key => {
-                res.push({
-                    tags: key,
-                    links: map[key],
-                })
-            })
-            insertLinks(res);
-        }
-    })
-
-    /*过滤数据*/
-    function filter(key,body) {
-        var reg = new RegExp(String.raw`${key}:[^\n]*\n`);
-        var repReg = new RegExp(String.raw`(${key}:[\s]*|[\r\n]*)`, "g");
-        body = body.match(reg);
-        if (body && body.length > 0) {
-            data = body[0].replace(repReg, "");
-        }
-        return data;
-    }
-
-    /*插入数据*/
-    function insertLinks(data){
-        for (let i in data) {
-            <% if(issues.showPosition=="before"){%>
-            // 添加在开头
-            var idLink = document.querySelector("#link")
-            idLink.insertAdjacentHTML('afterbegin','<div class="link-list"></div>')
-            idLink.insertAdjacentHTML('afterbegin','<div class="link-subtitle"><%= issues.subtitle %></div>')
-            idLink.insertAdjacentHTML('afterbegin','<h2>'+data[i].tags+'</h2>')
-            <%}else{%>
-            // 添加在结尾
-            var idLink = document.querySelector("#link")
-            idLink.insertAdjacentHTML('beforeend','<h2>'+data[i].tags+'</h2>')
-            idLink.insertAdjacentHTML('beforeend','<div class="link-subtitle"><%= issues.subtitle %></div>')
-            idLink.insertAdjacentHTML('beforeend','<div class="link-list"></div>')
-            <%}%>
-            var links = data[i].links
-            for (let i in links) {
-                var name = links[i].name,
-                    link = links[i].link,
-                    avatar = links[i].avatar,
-                    descr = links[i].descr;
-                // 只有仓库拥有者添加了标签的才显示友链
-                if(links[i].tags!=null){
-                    var itemLink = '<div class="link-list-item"><a target="_blank" rel="noopener" href="'+link+'"><img src="'+avatar+'" alt="'+descr+'"><span class="link-item-name">'+name+'</span><span class="link-item-desc">'+descr+'</span></a></div>'
-                    <% if(issues.showPosition=="before"){%>
-                        document.querySelector(".link-list").insertAdjacentHTML('afterbegin',itemLink)
-                    <%}else{%>
-                        document.querySelector(".link-list:last-child").insertAdjacentHTML('afterbegin',itemLink)
-                    <%}%>
-                }
-            }
-        }
-        
-        
-    }
-    <%}%>
-
-    <%if(repo.enable){%>
-    /*通过仓库pr修改link.yml方式*/
-    ajax({
-        url: "<%= repo.ymlUrl %>",
-        async:false,
-        success: function(data){
-            getScript("<%= theme.CDN.jsYaml %>",function(){
-                data = JSON.stringify(jsyaml.load(data))
-                data = JSON.parse([data]);
-                <%if(repo.showPosition=="before"){%>
-                document.querySelector("#link").insertAdjacentHTML('afterbegin','<span id="gitee-link-before"></span>')
-                <%}%>
-                for (let i in data) {
-                    var desc = data[i].class_desc == null?'':data[i].class_desc;
-                    var title = data[i].class_name;
-                    <%if(repo.showPosition=="before"){%>
-                        // 添加在开头
-                        var idLink = document.querySelector("#gitee-link-before")
-                        idLink.insertAdjacentHTML('beforeend','<h2>'+title+'</h2>')
-                        idLink.insertAdjacentHTML('beforeend','<div class="link-subtitle">'+desc+'</div>')
-                        idLink.insertAdjacentHTML('beforeend','<div class="link-list link-list-gitee"></div>')
-                    <%}else{%>
-                        // 添加在结尾
-                        var idLink = document.querySelector("#link")
-                        idLink.insertAdjacentHTML('beforeend','<h2>'+title+'</h2>')
-                        idLink.insertAdjacentHTML('beforeend','<div class="link-subtitle">'+desc+'</div>')
-                        idLink.insertAdjacentHTML('beforeend','<div class="link-list"></div>')
-                    <%}%>
-                    for (let j in data[i].link_list) {
-                        var name = data[i].link_list[j].name;
-                        var link = data[i].link_list[j].link;
-                        var avatar = data[i].link_list[j].avatar;
-                        var descr = data[i].link_list[j].descr;
-                        var itemLink = '<div class="link-list-item"><a target="_blank" rel="noopener" href="'+link+'"><img src="'+avatar+'" alt="'+descr+'"><span class="link-item-name">'+name+'</span><span class="link-item-desc">'+descr+'</span></a></div>'
-                        <% if(repo.showPosition=="before"){%>
-                            document.querySelector("#gitee-link-before .link-list:last-child").insertAdjacentHTML('beforeend',itemLink)
-                        <%}else{%>
-                            document.querySelector(".link-list:last-child").insertAdjacentHTML('beforeend',itemLink)
-                        <%}%>
-                    }
-                }
-            }) 
-        }
-    })
-    <%}%>
-</script>
-
