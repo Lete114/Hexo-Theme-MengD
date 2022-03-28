@@ -1,77 +1,95 @@
 /* 头信息 */
-#header
-    display flex
-    padding-bottom 20px
-    justify-content space-between
+#header {
+    display: flex;
+    padding-bottom: 20px;
+    justify-content: space-between;
+}
 
-.avatar:hover
-    -webkit-transform rotate(360deg)
-    -moz-transform rotate(360deg)
-    -o-transform rotate(360deg)
-    -ms-transform rotate(360deg)
-    transform rotate(360deg)
-    -webkit-transition all 0.5s
-    -moz-transition all 0.5s
-    -o-transition all 0.5s
-    -ms-transition all 0.5s
-    transition all 0.5s
+.avatar:hover {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+}
 
-.header-author
-    .author-avatar
-        width 100px
-        height 100px
-        object-fit cover
-        border-radius 6px
+.header-author {
+    display: flex;
+    justify-content: center;
 
-    .author-name
-        color $title
-        font-size 1.3rem
-        font-weight 700
-        padding-top 10px
-        text-align center
+    .author-avatar {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
 
-.header-description
-    margin-top 20px
-    color var(--text-color)
-    text-align right
+    .author-name {
+        color: $title;
+        font-size: 1.3rem;
+        font-weight: 700;
+        padding-top: 10px;
+        text-align: center;
+    }
+}
 
-    p
-        margin unset
+.header-description {
+    margin-top: 20px;
+    color: var(--text-color);
+    text-align: right;
 
-    .header-icon
-        float right
+    p {
+        margin: unset;
+    }
 
-        a i
-            color var(--text-color)
-            font-size 0.9rem
-            margin-right 10px
-            margin-top 10px
+    .header-icon {
+        float: right;
 
-            &:hover
-                -webkit-transform rotate(360deg)
-                -moz-transform rotate(360deg)
-                -o-transform rotate(360deg)
-                -ms-transform rotate(360deg)
-                transform rotate(360deg)
-                -webkit-transition all 0.5s
-                -moz-transition all 0.5s
-                -o-transition all 0.5s
-                -ms-transition all 0.5s
-                transition all 0.5s
+        a i {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin-right: 10px;
+            margin-top: 10px;
 
-@media screen and (max-width 900px)
-    header
-        display flex
-        justify-content center
-        flex-direction column
+            &:hover {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                transform: rotate(360deg);
+                -webkit-transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                -o-transition: all 0.5s;
+                -ms-transition: all 0.5s;
+                transition: all 0.5s;
+            }
+        }
+    }
+}
 
-        .author
-            display block
-            text-align center
+@media screen and (max-width: 900px) {
+    header {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
 
-        .header-description
-            text-align center
+        .author {
+            display: block;
+            text-align: center;
+        }
 
-        .header-description>.header-icon
-            text-align center
-            float none
+        .header-description {
+            text-align: center;
+        }
+
+        .header-description>.header-icon {
+            text-align: center;
+            float: none;
+        }
+    }
+}

@@ -61,9 +61,17 @@ var icon = full_url_for(theme.favicon || config.favicon)
 <% } %>
 
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-<link href="//cdn.jsdelivr.net" rel="preconnect">
+<link href="https://cdn.jsdelivr.net" rel="preconnect">
 <link href="<%= config.url %>" rel="prefetch">
-<link href="<%= theme.CDN.fortawesome %> " rel="stylesheet">
-<link href="<%= theme.CDN.mainCss %> " rel="stylesheet">
+<link href="<%= theme.CDN.fortawesome %>" rel="stylesheet">
+<link href="<%= theme.CDN.mainCss %>" rel="stylesheet">
 <script src="<%= theme.CDN.utlis %>"></script>
+<script>
+  (function() {
+    var html = $query('html')
+    var isDark = localStorage.isDark === 'true'
+    if (isDark) html.setAttribute('theme', 'dark')
+    else html.removeAttribute('theme')
+  })()
+</script>
 <%-partial('import_headAfter')%>

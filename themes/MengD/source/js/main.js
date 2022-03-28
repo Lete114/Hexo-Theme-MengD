@@ -108,27 +108,8 @@ function showToc() {
   if (!openToc || !toc) return
   openToc.onclick = function () {
     var isOpen = toc.classList.contains('show-toc')
-
-    if (!isOpen) {
-      toc.classList.add('show-toc')
-      if ($config.tocStyle == 'visible') {
-        return
-      }
-      mask.className = 'mask'
-    } else toc.classList.remove('show-toc')
-  }
-}
-
-// 显示右侧栏隐藏域
-function rightsideShow() {
-  var settings = $id('settings')
-  if (!settings) return
-  settings.onclick = function () {
-    var btn = document.getElementsByClassName('rightside-btn')[0]
-    var righStr = 'rightside-show'
-    var isShow = btn.classList.contains(righStr)
-    if (!isShow) btn.classList.add(righStr)
-    else btn.classList.remove(righStr)
+    if (!isOpen) toc.classList.add('show-toc')
+    else toc.classList.remove('show-toc')
   }
 }
 
@@ -145,9 +126,6 @@ function closeAll() {
     }, 500)
   }
   html.style.overflow = 'auto' // 解除滚动条禁止滚动
-  // 目录
-  var toc = $query('.show-toc')
-  if (toc) toc.classList.remove('show-toc')
   // 侧边栏
   mobileNav.classList.remove('open-mobile')
   mobileNav.style.opacity = ''
@@ -271,10 +249,9 @@ function exeAllFn() {
   codeBlockExpand() // 代码块折叠
   openMobile() // 打开手机端导航栏
   showToc() // 打开目录
-  rightsideShow() // 显示侧边栏隐藏部分
   closeAll() // 关闭所有弹窗
   DarkMode() // 深色模式
   scroll() // 滚动事件
   codeCopy() // 代码块复杂
 }
-window.onload = exeAllFn()
+window.onload = exeAllFn

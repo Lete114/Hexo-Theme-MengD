@@ -1,45 +1,27 @@
-#rightside
-    transition all 1s
-    opacity 0
-    visibility hidden
-    position fixed
-    right 0
-    bottom 80px
-    z-index 1
-    width 30px
+#rightside {
+    transition: all 1s;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    right: 0;
+    bottom: 80px;
+    z-index: 1;
+    width: 30px;
 
-    .rightside-item
-        text-align center
+    .rightside-item {
+        text-align: center;
 
-.rightside-item, .rightside-btn
-    a
-        display flex
-        align-items center
-        justify-content center
-        width 30px
-        height 30px
-        background-color var(--main)
-        color #fff
-        margin-bottom 3px
-        border-radius 6px
-        cursor pointer
-
-.rightside-btn
-    text-align center
-    -webkit-transition -webkit-transform 0.4s
-    -moz-transition -moz-transform 0.4s
-    -o-transition -o-transform 0.4s
-    -ms-transition -ms-transform 0.4s
-    transition transform 0.4s
-    -webkit-transform translate(35px, 0)
-    -moz-transform translate(35px, 0)
-    -o-transform translate(35px, 0)
-    -ms-transform translate(35px, 0)
-    transform translate(35px, 0)
-
-.rightside-show
-    -webkit-transform translate(0, 0) !important
-    -moz-transform translate(0, 0) !important
-    -o-transform translate(0, 0) !important
-    -ms-transform translate(0, 0) !important
-    transform translate(0, 0) !important
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: var(--main);
+            color: #fff;
+            margin-bottom: 3px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    }
+}

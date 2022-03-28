@@ -11,7 +11,7 @@ comment: false
 <br>
 
 如何添加示例站点？
-你需要fork这个仓库[Links](https://github.com/lete114/links/blob/master/MengD/link.yml)并修改`MengD\link.yml`进行申请
+编辑官方文档的[source/_data/link.yml](https://github.com/Lete114/Hexo-Theme-MengD/edit/docs/source/_data/link.yml)
 
 <style>
 code {

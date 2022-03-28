@@ -1,4 +1,4 @@
-<% var option=theme.discuss.option ? JSON.stringify(theme.discuss.option) : false %>
+<% var options=theme.discuss.options ? JSON.stringify(theme.discuss.options) : false %>
 <div id="Discuss-Comments"></div>
 <script>
   function LoadDiscuss() {
@@ -8,8 +8,8 @@
         serverURLs: '<%- theme.discuss.serverURLs %>',
         path: <%- theme.discuss.path %>,
       }
-      var option = <%- option %>;
-      if (option) initData = Object.assign(initData, option)
+      var options = <%- options %>;
+      if (options) initData = Object.assign(initData, options)
       Discuss.init(initData)
     })
   }

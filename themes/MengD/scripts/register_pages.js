@@ -65,34 +65,3 @@ hexo.extend.generator.register('artitalk', () => {
   }
 })
 
-// HPPTalk页面
-hexo.extend.generator.register('hppTalk', () => {
-  let theme = hexo.theme.config
-  if (!theme.hppTalk.enable) return
-  let title = theme.hppTalk.title // 标题
-  // 判断是否使用了option选项
-  let option = theme.hppTalk.option ? `initData = Object.assign(initData, ${JSON.stringify(theme.hppTalk.option)})` : ''
-  // 内容
-  let content = `
-    <div id="hppTalk"></div>
-    <link rel="stylesheet" href="${theme.hppTalk.sourceCss}" /> 
-    <script>
-        getScript("${theme.hppTalk.sourceJs}",function(){
-            let initData = {
-                id:"hppTalk",
-                domain: "${theme.hppTalk.domain}",
-                limit: ${theme.hppTalk.limit},
-                start: ${theme.hppTalk.start}
-            }
-            ${option}
-            new hpp_talk(initData)
-        })
-    </script>
-    `
-  return {
-    path: theme.hppTalk.path,
-    data: { type: 'hppTalk', content, title },
-    comments: false,
-    layout: ['page']
-  }
-})

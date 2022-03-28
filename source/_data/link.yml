@@ -1,0 +1,17 @@
+
+
+screenshot: https://webstack-screenshot.vercel.app/?url=${url}&viewport=1920x1080&fullPage=false&cache=604800
+
+class:
+  class_name: 友情链接
+  link_list:
+    - name: Lete乐特
+      screenshot: true
+      link: https://www.imlete.cn
+      avatar: https://www.imlete.cn/img/avatar.png
+      descr: 一个收藏回忆与分享技术的地方！
+    - name: 小康博客
+      screenshot: true
+      link: https://www.antmoe.com/
+      avatar: https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/avatar.jpg
+      descr: 一个收藏回忆与分享技术的地方！

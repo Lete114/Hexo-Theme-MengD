@@ -1,187 +1,221 @@
 // 全局
-*
-    margin 0
+* {
+    margin: 0;
+}
 
-html
-    scroll-behavior smooth
+html {
+    scroll-behavior: smooth;
+}
 
-body
-    background-color var(--body-bg)
-    color var(--text-color)
-    font-family $fontHtml
+body {
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    font-family: $fontHtml;
 
-    a
-        text-decoration none
-        color $bodyA
-        transition all 0.5s
+    a {
+        text-decoration: none;
+        color: $bodyA;
+        transition: all 0.5s;
+    }
 
-    p
-        margin revert
+    p {
+        margin: revert;
+    }
 
-    .mask
-        width 100%
-        height 100%
-        position fixed
-        top 0
-        z-index 1
-        background rgba(0, 0, 0, 0.4)
+    .mask {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        background: rgba(0, 0, 0, 0.4);
+    }
 
-    .pjax-progress
-        position fixed
-        top 0
-        left 0
-        width 10%
-        height 2px
-        z-index 103
-        background-color var(--main)
-        transition width 0.4s ease 0s
+    .pjax-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 10%;
+        height: 3px;
+        z-index: 103;
+        background-color: var(--main);
+        transition: width 0.4s ease 0s;
+    }
 
-    .clipboard
-        right 16px
-        top 8px
-        cursor pointer
-        border-radius 3px
-        color #eff
-        position relative
-        float right
-        padding 2px
-    img
-        max-width 100%
+    .clipboard {
+        right: 16px;
+        top: 8px;
+        cursor: pointer;
+        border-radius: 3px;
+        color: #eff;
+        position: relative;
+        float: right;
+        padding: 2px;
+    }
 
-#body-wrap
-    display flex
-    width var(--body-width)
-    margin 0 auto
-    flex-flow column
-        
-    #main
-        display flex
-        margin-top 10px
-        justify-content center
+    img {
+        max-width: 100%;
+    }
+}
 
-        a:hover
-            color var(--main)
+#body-wrap {
+    display: flex;
+    width: var(--body-width);
+    margin: 0 auto;
+    flex-flow: column;
 
-.table-wrap
-    overflow-x scroll
+    #main {
+        display: flex;
+        margin-top: 10px;
+        justify-content: center;
 
-    table
-        display table
-        width 100%
-        border-spacing 0
-        border-collapse collapse
-        empty-cells show
+        a:hover {
+            color: var(--main);
+        }
+    }
+}
 
-        thead
-            background rgba(153, 169, 191, 0.1)
+.table-wrap {
+    overflow-x: scroll;
 
-        th, td
-            padding 0.3rem 0.6rem
-            border 1px solid #eee
-            vertical-align middle
+    table {
+        display: table;
+        width: 100%;
+        border-spacing: 0;
+        border-collapse: collapse;
+        empty-cells: show;
 
-.post-content
-    h1::before, h2::before, h3::before, h4::before, h5::before, h6::before
-        color $fan
-        margin-right 4px
-        display inline-block
-        content '\f863'
-        -webkit-animation IH 1s linear infinite
-        animation IH 1s linear infinite
-        font-family 'Font Awesome 5 Free'
+        thead {
+            background: rgba(153, 169, 191, 0.1);
+        }
 
-kbd
-    padding 2px 4px
-    font-size 0.8rem
-    color #fff
-    background-color #666
-    border-radius 3px
-    -webkit-box-shadow inset 0 -1px 0 #000
-    box-shadow inset 0 -1px 0 #000
+        th, td {
+            padding: 0.3rem 0.6rem;
+            border: 1px solid #eee;
+            vertical-align: middle;
+        }
+    }
+}
 
-code
-    padding 0.1rem 0.2rem
-    background rgba(27, 31, 35, 0.05)
-    color #f47466
-    border-radius 3px
-    word-wrap break-word
-    word-break break-word
-    overflow-wrap break-word
+.post-content {
+    h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+        color: $fan;
+        margin-right: 4px;
+        display: inline-block;
+        content: '\f863';
+        -webkit-animation: IH 1s linear infinite;
+        animation: IH 1s linear infinite;
+        font-family: 'Font Awesome 5 Free';
+    }
+}
 
-blockquote
-    border-radius 4px
-    margin 4px 0
-    padding 0.6rem 0.8rem
-    border-left 0.2rem solid #e58a8a
-    background-color rgba(73, 177, 245, 0.1)
-    color var(--blockquote-color)
+kbd {
+    padding: 2px 4px;
+    font-size: 0.8rem;
+    color: #fff;
+    background-color: #666;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 -1px 0 #000;
+    box-shadow: inset 0 -1px 0 #000;
+}
 
-    p
-        margin 0
+code {
+    padding: 0.1rem 0.2rem;
+    background: rgba(27, 31, 35, 0.05);
+    color: #f47466;
+    border-radius: 3px;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
 
-.pullquote.left
-    max-width 45%
-    float left
-    margin 0.5em 0.5em 0 0
+blockquote {
+    border-radius: 4px;
+    margin: 4px 0;
+    padding: 0.6rem 0.8rem;
+    border-left: 0.2rem solid #e58a8a;
+    background-color: rgba(73, 177, 245, 0.1);
+    color: var(--blockquote-color);
 
-.pullquote.right
-    max-width 45%
-    float right
-    margin 0.5em 0 0 0.5em
-    border-right 0.2rem solid #e58a8a
-    border-left none
+    p {
+        margin: 0;
+    }
+}
 
-.video-container
-    position relative
-    overflow hidden
-    margin-bottom 0.8rem
-    padding-top 56.25%
-    height 0
+.pullquote.left {
+    max-width: 45%;
+    float: left;
+    margin: 0.5em 0.5em 0 0;
+}
 
-    iframe
-        position absolute
-        top 0
-        left 0
-        margin-top 0
-        width 100%
-        height 100%
+.pullquote.right {
+    max-width: 45%;
+    float: right;
+    margin: 0.5em 0 0 0.5em;
+    border-right: 0.2rem solid #e58a8a;
+    border-left: none;
+}
 
-@media (max-width 768px)
-    #body-wrap
-        width 100%
+.video-container {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+    padding-top: 56.25%;
+    height: 0;
 
-@media screen and (max-width 900px)
-    #post-list,#post,#page
-        padding 10px
-        padding-bottom 30px
-        margin 0 10px
-        width calc(100% - 20px)
-        box-sizing border-box
-        min-width auto
-        max-width none
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
 
-@import 'search'
-@import 'nav'
-@import '../_partial/sidebar'
-@import '../_highlight/code_block'
-@import 'comment'
-@import 'footer'
-@import 'dark'
-@import 'animation'
+@media (max-width: 768px) {
+    #body-wrap {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #post-list, #post, #page {
+        padding: 10px;
+        padding-bottom: 30px;
+        margin: 0 10px;
+        width: calc(100% - 20px);
+        box-sizing: border-box;
+        min-width: auto;
+        max-width: none;
+    }
+}
+
+@import 'search';
+@import 'nav';
+@import '../_highlight/code_block';
+@import 'comment';
+@import 'footer';
+@import 'dark';
+@import 'animation';
 
 /* 滚动条 */
-::-webkit-scrollbar
-    width 10px
-    height 10px
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
 
-::-webkit-scrollbar-thumb
-    background-color var(--main)
-    background-image -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent)
-    border-radius 2em
+::-webkit-scrollbar-thumb {
+    background-color: var(--main);
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
+    border-radius: 2em;
+}
 
-::-webkit-scrollbar-corner
-    background-color transparent
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
 
-::-moz-selection
-    color #fff
-    background-color var(--main)
+::-moz-selection {
+    color: #fff;
+    background-color: var(--main);
+}

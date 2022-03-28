@@ -18,32 +18,14 @@
 
 安装
 
-```powershell
+```bash
 git clone https://github.com/lete114/hexo-theme-MengD.git themes/MengD
 ```
 
 打开根目录下的`_config.yml`修改`theme: MengD`
 
-## 功能特性
-
-- [x] Pjax 平滑切换页面
-- [x] 代码高亮: default / darker / pale night / light / ocean / mac / mac light
-- [x] i18n : zh-CN、en
-- [x] 多款评论插件: valine、waline、twikoo
-- [x] 网站统计
-- [x] 深色模式
-- [x] 响应式多设备自适应
-- [x] talk : artitalk、hpp_talk
-- [x] 站内搜索
-- [x] 资源压缩
-- [x] 图片懒加载
-- [x] 3 种友链呈现方式
-- [x] 内置精美的 404 页面
-- [x] 优化网站加载
-- [x] 配置自由度高
-
 ### 贡献者
 
 <a href="https://github.com/lete114/hexo-theme-MengD/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=lete114/hexo-theme-MengD" />
+  <img src="https://contrib.rocks/image?repo=Lete114/hexo-theme-MengD" />
 </a>

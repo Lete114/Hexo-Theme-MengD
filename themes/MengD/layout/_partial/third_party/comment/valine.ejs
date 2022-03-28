@@ -1,4 +1,4 @@
-<% var option=theme.valine.option ? JSON.stringify(theme.valine.option) : false %>
+<% var options=theme.valine.options ? JSON.stringify(theme.valine.options) : false %>
 <div id="vcomments"></div>
 <script>
 function LoadValine() {
@@ -20,9 +20,9 @@ function LoadValine() {
             enableQQ: <%- theme.valine.enableQQ %>,
             visitor: true
         }
-        var option = <%-option %>;
-        if (option) {
-            initData = Object.assign(initData, option)
+        var options = <%-options %>;
+        if (options) {
+            initData = Object.assign(initData, options)
         }
         new Valine(initData)
     });

@@ -1,36 +1,12 @@
 <section id="rightside">
-    <%if(theme.rightside.settings){%>
-    <%# 当设置了settings属性才会显示 %> 
-    <div class="rightside-btn">
-        <%theme.rightside.settings.forEach(items => {%>
-        <%var item = items.split("||")%>
-        <a <%-item[0]%> title="<%-item[1]%>">
-            <i class="<%-item[2]%>"></i>
-        </a>
-        <%});%>
-    </div>
-    <%}%>
     <div class="rightside-item">
-        <%if(theme.rightside.show){%>
-            <%theme.rightside.show.forEach(items => {%>
-            <%var item = items.split("||")%>
-            <a <%-item[0]%> title="<%-item[1]%>">
-                <i class="<%-item[2]%>"></i>
-            </a>
-            <%});%>
-        <%}%>
-        <%if(theme.rightside.settings){%>
-        <%# 当设置了settings属性才会显示 %> 
-        <a href="javascript:" id="settings" title="<%-__('rightside.settings')%>">
-            <i class="fas fa-cog fa-spin"></i>
-        </a>
-        <%}%>
+
         <%# 打开目录按钮 %> 
         <% 
-            var enableToc=theme.toc.enable ; 
-            var isExistToc = page.hasOwnProperty("toc") // page中是否有toc属性
+            var enableToc = theme.toc.enable
             var pageToc = true
-            if(isExistToc) pageToc = page.toc
+            // page中是否有toc属性
+            if(page.hasOwnProperty("toc")) pageToc = page.toc
             var isToc = is_post() && pageToc && toc(page.content) 
         %>
         <%if(enableToc&&isToc){%>
@@ -38,18 +14,23 @@
                 <i class="fas fa-list-ul"></i>
             </a>
         <%}%>
+
+
         <% if(theme.darkmode){ %> 
         <%# 是否开启深色模式 %> 
-        <a href="javascript:(0)" id="darkmode" title="<%- __('rightside.dark') %> ">
+        <a href="javascript:void(0);" id="darkmode" title="<%- __('rightside.dark') %> ">
             <i class="fas fa-moon"></i>
         </a>
         <% } %> 
+
+
         <% if(theme.comments&&page.comments){ %>
-        <%# 是否开启深色模式 %>
             <a href="#<%-__('rightside.directComments')%>" title="<%-__('rightside.directComments')%>">
                 <i class="fas fa-comments"></i>
             </a>
         <% } %>
+
+
         <a href="#" title="<%-__('rightside.backToTop')%>">
             <i class="fas fa-arrow-up"></i>
         </a>
