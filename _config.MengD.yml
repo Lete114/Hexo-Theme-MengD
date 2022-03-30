@@ -100,7 +100,7 @@ comments: discuss # twikoo / waline / valine
 
 discuss:
   source: https://cdn.jsdelivr.net/npm/discuss@latest/dist/Discuss.js
-  serverURLs: https://discuss-mengd.imlete.cn
+  serverURLs: https://mengd.app.cloudendpoint.cn
   
 
 # twikoo
