@@ -12,18 +12,6 @@
     }
 }
 
-@keyframes CW {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-
-    to {
-        -webkit-transform: rotate(1turn);
-        transform: rotate(1turn);
-    }
-}
-
 // IH === Inverted Hour
 @keyframes IH {
     0% {
@@ -37,14 +25,40 @@
     }
 }
 
-@keyframes IH {
+// 打开 toc
+@keyframes toc-open {
     0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
+        -webkit-transform: scale(0.7);
+        -moz-transform: scale(0.7);
+        -o-transform: scale(0.7);
+        -ms-transform: scale(0.7);
+        transform: scale(0.7);
     }
 
-    to {
-        -webkit-transform: rotate(-360deg);
-        transform: rotate(-360deg);
+    100% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+// 关闭 toc
+@keyframes toc-close {
+    0% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+
+    100% {
+        -webkit-transform: scale(0.7);
+        -moz-transform: scale(0.7);
+        -o-transform: scale(0.7);
+        -ms-transform: scale(0.7);
+        transform: scale(0.7);
     }
 }

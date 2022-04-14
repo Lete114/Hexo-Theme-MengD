@@ -1,7 +1,9 @@
 /* 头信息 */
 #header {
     display: flex;
-    padding-bottom: 20px;
+    padding: 30px;
+    background: var(--main-bg);
+    border-radius: 10px 10px 0 0;
     justify-content: space-between;
 }
 
@@ -68,28 +70,6 @@
                 -ms-transition: all 0.5s;
                 transition: all 0.5s;
             }
-        }
-    }
-}
-
-@media screen and (max-width: 900px) {
-    header {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-
-        .author {
-            display: block;
-            text-align: center;
-        }
-
-        .header-description {
-            text-align: center;
-        }
-
-        .header-description>.header-icon {
-            text-align: center;
-            float: none;
         }
     }
 }

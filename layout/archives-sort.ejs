@@ -10,11 +10,6 @@
         <h4 class="archive-year"><%= year %></h4>
     <% } %>
         <div class="article-item">
-            <% if (post.cover) { %>
-                <a class="article-item-cover" title="<%= title %>" href="<%= url_for(post.path) %>">
-                    <img src="<%= post.cover %> ">
-                </a>
-            <% } %>
             <div class="article-item-info">
                 <div class="article-item-date">
                     <time>
@@ -22,7 +17,7 @@
                         <%= date(post.date, config.date_format) %>
                     </time>
                 </div>
-                <a class="article-item-title" href="<%= url_for(post.path) %>"><%= title %></a>
+                <a href="<%= url_for(post.path) %>"><%= title %></a>
             </div>
         </div>
 <% }) %>

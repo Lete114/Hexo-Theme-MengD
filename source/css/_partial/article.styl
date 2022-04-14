@@ -1,18 +1,14 @@
-// 文章
-#post {
-    border-radius: 10px;
-}
 
 // 文章头信息
 .post-info {
-    text-align: center;
-    padding: 0 0 20px;
+    padding: 0 0 60px;
 
     .post-title {
-        padding-bottom: 4px;
+        padding-bottom: 10px;
     }
 
     .post-meta {
+        line-height: 1.6;
         font-size: 0.6rem;
     }
 
@@ -23,7 +19,8 @@
 
 // 文章信息
 .post-content {
-    line-height: 1.8;
+    line-height: 2;
+    letter-spacing: 0.5px;
     padding-bottom: 50px;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -40,30 +37,17 @@
     }
 }
 
-// 目录
-$tocArea = convert(hexo-config('toc.area')); // 目录显示区域
-// Visible 样式
-$tocLeft = $tocArea == 'left';
-$tocRight = $tocArea == 'right';
-
-// 当目录在左边时调换文章内容和目录位置
-if ($tocLeft) {
-    #post {
-        order: 1;
-    }
-}
-
 #toc-wrap {
-    width: 25%;
-    max-width: 30%;
-
-    if ($tocLeft) {
-        padding-right: 10px;
-    }
-
-    if ($tocRight) {
-        padding-left: 10px;
-    }
+    right: -100%;
+    padding-right: 10px;
+    opacity: 0;
+    position: fixed;
+    bottom: 80px;
+    z-index: 1;
+    max-width: 300px;
+    width: calc(100% - 80px);
+    max-height: calc(100% - 100px);
+    transform-origin: right bottom;
 
     #toc {
         top: 10px;
@@ -72,6 +56,7 @@ if ($tocLeft) {
         border-radius: 10px;
         background: var(--main-bg);
         transition: all 0.3s;
+        box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.05);
     }
 
     .toc-title {
@@ -93,7 +78,7 @@ if ($tocLeft) {
 
     .toc-list {
         overflow-y: auto;
-        max-height: calc(100vh - 250px);
+        max-height: calc(100vh - 200px);
 
         li {
             list-style: none;
@@ -110,7 +95,7 @@ if ($tocLeft) {
     }
 }
 
-// 目录滚动条
+// 目录进度条
 #progress {
     width: 60%;
     height: 10px;
@@ -162,7 +147,6 @@ if (hexo-config('copyright.enable')) {
             font-variant: normal;
             font-family: 'Font Awesome 5 Free';
             text-rendering: auto;
-            -webkit-font-smoothing: antialiased;
         }
 
         .post-copyright-meta {
@@ -216,58 +200,10 @@ if (hexo-config('copyright.enable')) {
     }
 }
 
-// 小于
-@media screen and (max-width: 900px) {
-    // 当目录在左边时调换文章内容和目录位置
-    if ($tocLeft) {
-        #post {
-            order: 0;
-        }
-    }
-
-    #toc-wrap.show-toc {
-        opacity: 1;
-        right: 30px;
-    }
-
-    #toc-wrap {
-        opacity: 0;
-        position: fixed;
-        right: -100%;
-        bottom: 80px;
-        z-index: 1;
-        max-height: calc(100% - 100px);
-        width: 300px;
-        max-width: inherit;
-        transition: initial;
-        -webkit-transition: initial;
-        -moz-transition: initial;
-        -o-transition: initial;
-        -ms-transition: initial;
-        transform-origin: right bottom;
-        -webkit-transform-origin: right bottom;
-        -moz-transform-origin: right bottom;
-        -o-transform-origin: right bottom;
-        -ms-transform-origin: right bottom;
-    }
-
-    .toc-list {
-        overflow-y: auto;
-        max-height: calc(100vh - 200px);
-    }
-}
-
 @media screen and (max-width: 760px) {
     .pagination-post {
         flex-direction: column;
         align-items: center;
         margin: 0 10px;
-    }
-}
-
-// 大于 760px
-@media screen and (min-width: 900px) {
-    #rightside #open-toc {
-        display: none;
     }
 }

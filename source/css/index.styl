@@ -1,21 +1,14 @@
-// Home 首页
+/* Home 首页 */
 #post-list, #post, #page {
-    width: 70%;
-    min-width: 60%;
     position: relative;
     padding: 30px;
+    border-radius: 0 0 10px 10px;
     background: var(--main-bg);
-}
-
-#post-list {
-    margin-bottom: 40px;
-    border-radius: 10px;
 }
 
 .post-item {
     display: flex;
-    margin: 20px 0;
-    padding-bottom: 10px;
+    padding: 40px 0;
     border-bottom: 1px solid var(--adorn);
 
     .post-item-info {
@@ -23,38 +16,12 @@
         padding-right: 10px;
     }
 
-    .post-item-cover {
-        order: 1;
-        width: 100%;
-        max-width: 40%;
-        height: 140px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-
-        img {
-            display: block;
-            transition: opacity 0.4s ease-out;
-            position: absolute;
-            left: 0;
-            top: 0;
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
-    }
-
     .post-title {
+        display: block;
         color: var(--title-color);
-        font-size: 1.2rem;
-        margin-bottom: 4px;
-        font-weight: 700;
-        display: -webkit-box;
-        overflow: hidden;
-        text-decoration: none;
-        line-height: 1.5;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
+        font-size: 1.4rem;
+        padding-bottom: 16px;
+        font-weight: 600;
         word-wrap: break-word;
         word-break: break-all;
 
@@ -65,15 +32,12 @@
     }
 
     .post-description {
-        margin-bottom: 20px;
-        font-size: 0.9rem;
-        line-height: 24px;
+        font-weight: 400;
+        line-height: 2em;
+        letter-spacing: 0.2px;
         overflow: hidden;
         word-wrap: break-word;
         word-break: break-all;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: $line;
     }
 
     .post-meta-wrap {
@@ -83,26 +47,14 @@
         overflow: hidden;
         word-wrap: break-word;
         word-break: break-all;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
 
         .post-categorie, .post-tag {
-            margin-left: 6px;
+            margin-left: 10px;
         }
 
         a {
             text-decoration: none;
             color: #999;
-        }
-    }
-
-    .post-item-cover + .post-item-info {
-        position: relative;
-
-        .post-meta-wrap {
-            position: absolute;
-            bottom: 0px;
         }
     }
 }
@@ -114,12 +66,6 @@
         .post-meta-wrap {
             margin-top: 10px;
             position: unset;
-        }
-
-        .post-item-cover {
-            height: 230px;
-            max-width: 100%;
-            margin-bottom: 10px;
         }
     }
 }
