@@ -1,6 +1,7 @@
 // 全局
 * {
     margin: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -54,21 +55,17 @@ body {
     }
 
     img {
-        max-width: 100%;
+        width: 100%;
     }
 }
 
 #body-wrap {
     display: flex;
-    width: var(--body-width);
+    width: 820px;
     margin: 0 auto;
     flex-flow: column;
 
     #main {
-        display: flex;
-        margin-top: 10px;
-        justify-content: center;
-
         a:hover {
             color: var(--main);
         }
@@ -98,14 +95,10 @@ body {
 }
 
 .post-content {
-    h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
-        color: $fan;
-        margin-right: 4px;
-        display: inline-block;
-        content: '\f863';
-        -webkit-animation: IH 1s linear infinite;
-        animation: IH 1s linear infinite;
-        font-family: 'Font Awesome 5 Free';
+    /* 锚点偏移量 */
+    h1, h2, h3, h4, h5, h6 {
+        padding-top: 60px;
+        margin-top: -60px;
     }
 }
 
@@ -115,15 +108,13 @@ kbd {
     color: #fff;
     background-color: #666;
     border-radius: 3px;
-    -webkit-box-shadow: inset 0 -1px 0 #000;
     box-shadow: inset 0 -1px 0 #000;
 }
 
 code {
-    padding: 0.1rem 0.2rem;
+    padding: 4px;
     background: rgba(27, 31, 35, 0.05);
     color: #f47466;
-    border-radius: 3px;
     word-wrap: break-word;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -180,7 +171,7 @@ blockquote {
 }
 
 @media screen and (max-width: 900px) {
-    #post-list, #post, #page {
+    #post-list, #post, #page, #header {
         padding: 10px;
         padding-bottom: 30px;
         margin: 0 10px;
@@ -200,22 +191,31 @@ blockquote {
 @import 'animation';
 
 /* 滚动条 */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--main) transparent;
+}
+
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--main);
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
     border-radius: 2em;
 }
 
-::-webkit-scrollbar-corner {
+::-webkit-scrollbar-track {
     background-color: transparent;
 }
 
-::-moz-selection {
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+::selection {
     color: #fff;
     background-color: var(--main);
 }

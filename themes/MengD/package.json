@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-mengd",
-  "version": "1.7.2",
+  "version": "1.8.0",
   "description": "A simple, lightweight Hexo theme",
   "main": "package.json",
   "scripts": {},
@@ -15,11 +15,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/lete114/Hexo-Theme-MengD"
+    "url": "https://github.com/Lete114/Hexo-Theme-MengD"
   },
   "author": {
     "name": "Lete乐特",
-    "url": "https://www.lete114.top"
+    "url": "https://www.imlete.cn"
   },
   "license": "MIT",
   "dependencies": {

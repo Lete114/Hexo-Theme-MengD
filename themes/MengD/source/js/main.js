@@ -107,9 +107,16 @@ function showToc() {
   var toc = $id('toc-wrap')
   if (!openToc || !toc) return
   openToc.onclick = function () {
-    var isOpen = toc.classList.contains('show-toc')
-    if (!isOpen) toc.classList.add('show-toc')
-    else toc.classList.remove('show-toc')
+    if (parseInt(toc.style.opacity)) {
+      // 关闭
+      toc.style.animation = 'toc-close .3s'
+      setTimeout(function () {
+        toc.style = "opacity:0;animation:'';right: ''"
+      }, 150)
+    } else {
+      // 打开
+      toc.style = 'opacity:1;right:30px;animation: toc-open .3s'
+    }
   }
 }
 
@@ -176,27 +183,12 @@ function scroll() {
 
     // 头部导航栏
     var navbar = $query('.navbar')
-    var toc = $id('toc')
-    var sidebarSticky = $id('sidebar-sticky')
     if (scrollTop > windowTop) {
-      if (toc) toc.style.top = ''
-      if (sidebarSticky) sidebarSticky.style.top = ''
       navbar.style.transform = 'translateY(-60px)'
       windowTop = scrollTop
     } else {
-      if (toc) toc.style.top = '70px'
-      if (sidebarSticky) sidebarSticky.style.top = '70px'
       navbar.style.transform = ''
       windowTop = scrollTop
-    }
-
-    var rightside = $query('#rightside')
-    if (scrollTop > 100) rightside.style = 'opacity:1;visibility:visible'
-    else {
-      rightside.style.opacity = 0
-      setTimeout(function () {
-        rightside.style.visibility = 'hidden'
-      }, 500)
     }
 
     // toc目录百分比
