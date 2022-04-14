@@ -22,8 +22,5 @@
     "url": "https://www.imlete.cn"
   },
   "license": "MIT",
-  "dependencies": {
-    "hexo-generator-search": "^2.4.1",
-    "hexo-minify": "^1.0.1"
-  }
+  "dependencies": {}
 }
