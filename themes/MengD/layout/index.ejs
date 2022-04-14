@@ -32,7 +32,7 @@
       <div class="post-meta-wrap">
         <span class="post-meta-date">
           <i class="far fa-calendar-alt"></i>
-          <span> <%= date(post.date, "YYYY-MM-DD" ).replaceAll('-','.') %></span>
+          <span> <%= date(post.date, "YYYY-MM-DD" ).replace(/-/g,'.') %></span>
         </span>
         <% if(post.categories.length!=0){ %>
         <span class="post-categorie">

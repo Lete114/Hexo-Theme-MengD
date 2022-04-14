@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-mengd",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "A simple, lightweight Hexo theme",
   "main": "package.json",
   "scripts": {},
@@ -22,8 +22,5 @@
     "url": "https://www.imlete.cn"
   },
   "license": "MIT",
-  "dependencies": {
-    "hexo-generator-search": "^2.4.1",
-    "hexo-minify": "^1.0.1"
-  }
+  "dependencies": {}
 }
