@@ -218,15 +218,15 @@ function codeCopy() {
     // 获取所有代码块
     // firstChild: 获取代码块中的第一个子元素
     // childNodes: 返回当前元素的所有子元素(包括:before和:after)
-    var clipboard = item.firstChild.childNodes[1]
-    clipboard.onclick = function () {
+    var copy = item.firstChild.childNodes[1]
+    copy.onclick = function () {
       var selection = window.getSelection()
       selection.selectAllChildren(item.querySelector('.code'))
-      document.execCommand('copy')
+      navigator.clipboard ? navigator.clipboard.writeText(selection.toString()) : document.execCommand('copy')
       selection.removeAllRanges()
-      clipboard.innerHTML = '<i class="fa fa-check" style="color:green"></i>'
+      copy.innerHTML = '<i class="fa fa-check" style="color:green"></i>'
       setTimeout(function () {
-        clipboard.innerHTML = '<i class="fa fa-clipboard"></i>'
+        copy.innerHTML = '<i class="fa fa-clipboard"></i>'
       }, 2000)
     }
   })
