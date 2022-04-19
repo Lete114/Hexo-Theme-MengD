@@ -177,36 +177,39 @@ function DarkMode() {
 function scroll() {
   // 监听 scroll
   var windowTop = 0 // 定义初始位置
-  window.addEventListener('scroll', function () {
-    var winHeight = document.documentElement.clientHeight
-    var scrollTop = window.scrollY || document.documentElement.scrollTop
+  window.addEventListener(
+    'scroll',
+    throttle(function () {
+      var winHeight = document.documentElement.clientHeight
+      var scrollTop = window.scrollY || document.documentElement.scrollTop
 
-    // 头部导航栏
-    var navbar = $query('.navbar')
-    if (scrollTop > windowTop) {
-      navbar.style.transform = 'translateY(-60px)'
-      windowTop = scrollTop
-    } else {
-      navbar.style.transform = ''
-      windowTop = scrollTop
-    }
+      // 头部导航栏
+      var navbar = $query('.navbar')
+      if (scrollTop > windowTop) {
+        navbar.style.transform = 'translateY(-60px)'
+        windowTop = scrollTop
+      } else {
+        navbar.style.transform = ''
+        windowTop = scrollTop
+      }
 
-    // toc目录百分比
-    var article = $query('.post-content')
-    var num = $query('.num')
-    if (article && num) {
-      var headerHeight = article.offsetTop
-      var docHeight = article.clientHeight
+      // toc目录百分比
+      var article = $query('.post-content')
+      var num = $query('.num')
+      if (article && num) {
+        var headerHeight = article.offsetTop
+        var docHeight = article.clientHeight
 
-      var contentMath = docHeight > winHeight ? docHeight - winHeight : document.documentElement.scrollHeight - winHeight
-      var scrollPercent = (scrollTop - headerHeight) / contentMath
-      var scrollPercentRounded = Math.round(scrollPercent * 100)
-      var percentage = scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 0 : scrollPercentRounded
+        var contentMath = docHeight > winHeight ? docHeight - winHeight : document.documentElement.scrollHeight - winHeight
+        var scrollPercent = (scrollTop - headerHeight) / contentMath
+        var scrollPercentRounded = Math.round(scrollPercent * 100)
+        var percentage = scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 0 : scrollPercentRounded
 
-      num.innerText = percentage + '%'
-      $query('.progress').value = percentage
-    }
-  })
+        num.innerText = percentage + '%'
+        $query('.progress').value = percentage
+      }
+    }, 100)
+  )
 }
 
 // 代码块复制
