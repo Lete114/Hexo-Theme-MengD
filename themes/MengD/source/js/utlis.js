@@ -103,3 +103,20 @@ function ajax(obj) {
     }
   }
 }
+
+/**
+ * 防抖节流(闭包)
+ * @param callback 事件触发的操作
+ * @param wait 在多少毫秒内连续触发事件，重新计数
+ * @returns {Function}
+ */
+function throttle(callback, wait) {
+  var pre = 0
+  return function () {
+    var now = new Date()
+    if (now - pre > wait) {
+      callback.apply(this, arguments)
+      pre = now
+    }
+  }
+}
