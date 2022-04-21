@@ -13,8 +13,7 @@ menu:
 
 # 图标
 social:
-  fab fa-github: https://github.com/lete114
-  fa fa-envelope: mailto:lete@lete114.top
+  fab fa-github: https://github.com/lete114/hexo-theme-MengD
 
 favicon: /img/favicon.png
 avatar: /img/logo.gif
