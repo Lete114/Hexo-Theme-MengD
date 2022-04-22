@@ -6,7 +6,9 @@
       let initData = {
         el: '#Discuss-Comments',
         serverURLs: '<%- theme.discuss.serverURLs %>',
+        <% if(theme.discuss.path){ %>
         path: <%- theme.discuss.path %>,
+        <% } %>
       }
       var options = <%- options %>;
       if (options) initData = Object.assign(initData, options)
