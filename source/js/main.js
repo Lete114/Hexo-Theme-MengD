@@ -174,7 +174,7 @@ function DarkMode() {
 }
 
 // 滚动事件
-function scroll() {
+function scrollFn() {
   // 监听 scroll
   var windowTop = 0 // 定义初始位置
   window.addEventListener(
@@ -246,7 +246,7 @@ function exeAllFn() {
   showToc() // 打开目录
   closeAll() // 关闭所有弹窗
   DarkMode() // 深色模式
-  scroll() // 滚动事件
+  scrollFn() // 滚动事件
   codeCopy() // 代码块复杂
 }
 window.onload = exeAllFn
