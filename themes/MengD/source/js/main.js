@@ -2,89 +2,11 @@ var html
 var mask
 var mobileNav
 
-function RunTime() {
-  const dom = $query('.runtime')
-  if (!dom) return
-  let date = dom.getAttribute('publish-date')
-  date = (Date.now() - new Date(date).getTime()) / 86400000
-  dom.innerText = parseInt(date) || 1
-}
-// 代码框
-function addCodeBlock() {
-  var codeBlock = $queryAll('figure.highlight')
-  codeBlock.forEach(function (item) {
-    var lang = item.classList[1]
-    lang = lang == 'plaintext' ? 'code' : lang
-    var ele = `<div class='code-block' lang='${lang}'>
-            <span class='clipboard'><i class='fa fa-clipboard'></i></span>
-        </div>`
-    item.insertAdjacentHTML('afterbegin', ele)
-  })
-}
-
 // table wrap
 function tableWrap() {
   var table = $queryAll('.post-content>table,.content>table')
   table.forEach(function (item) {
     wrap(item, 'div', null, 'table-wrap')
-  })
-}
-
-// fancybox
-function fancyboxFn() {
-  getScript($config.CDN.fancyboxJs, function () {
-    const imgAll = $queryAll('.post-content img')
-    imgAll.forEach((ele) => ele.setAttribute('data-fancybox', ''))
-    var link = document.createElement('link')
-    link.rel = 'stylesheet'
-    link.type = 'text/css'
-    link.href = $config.CDN.fancyboxCss
-    document.head.appendChild(link)
-  })
-}
-
-// 代码块折叠
-function codeBlockExpand() {
-  if (!$config.codeBlockExpand || !$config.codeBlockExpand.enable) return
-  var CodeBlock = $queryAll('figure.highlight')
-  // 定义高度
-  var height = $config.codeBlockExpand.height
-  // 获取当前页面的所有的代码块 循环判断符合条件的折叠
-  for (var i = 0; i < CodeBlock.length; i++) {
-    if (CodeBlock[i].clientHeight > height) {
-      CodeBlock[i].style = 'max-height: ' + height + 'px'
-      /**
-       * 插入html元素
-       * beforeBegin：插入到标签开始前
-       * afterBegin:插入到标签开始标记之后
-       * beforeEnd:插入到标签结束标记前
-       * afterEnd:插入到标签结束标记后
-       */
-      CodeBlock[i].insertAdjacentHTML('beforeend', '<div class="show-btn"><i class="fas fa-angle-down"></i></div>')
-    }
-  }
-  // 展开
-  $queryAll('.show-btn').forEach(function (item) {
-    item.onclick = function () {
-      var child = item.childNodes[0] // 获取子节点
-      if (child.className == 'fas fa-angle-down') {
-        child.classList.remove('fa-angle-down')
-        child.classList.add('fa-angle-up')
-        item.parentNode.style = '' //清除父节点的样式
-      } else {
-        child.classList.remove('fa-angle-up')
-        child.classList.add('fa-angle-down')
-        item.parentNode.style = 'max-height: ' + height + 'px'
-        item.previousElementSibling.style = ''
-        // 获取当前页面滚动条纵坐标的位置
-        scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-        var nodeBottom = item.getBoundingClientRect().bottom // 获取当前元素底部距离可见部分的距离
-        var CodeBlockBottom = nodeBottom + scrollTop, // 当前代码块底部距离顶部距离
-          CodeBlockHeight = $config.codeBlockExpand.height, // 获取代码块超过多少数值折叠代码块
-          CodeBlockScrollTop = $config.codeBlockExpand.scrollTop // 获取代码块关闭折叠后滚动返回代码块顶部的距离
-        window.scrollTo(0, CodeBlockBottom - CodeBlockHeight - CodeBlockScrollTop)
-      }
-    }
   })
 }
 
@@ -97,25 +19,6 @@ function openMobile() {
     if (!isOpen) {
       mobileNav.className = 'open-mobile'
       mask.className = 'mask'
-    }
-  }
-}
-
-// 打开目录
-function showToc() {
-  var openToc = $id('open-toc')
-  var toc = $id('toc-wrap')
-  if (!openToc || !toc) return
-  openToc.onclick = function () {
-    if (parseInt(toc.style.opacity)) {
-      // 关闭
-      toc.style.animation = 'toc-close .3s'
-      setTimeout(function () {
-        toc.style = "opacity:0;animation:'';right: ''"
-      }, 150)
-    } else {
-      // 打开
-      toc.style = 'opacity:1;right:30px;animation: toc-open .3s'
     }
   }
 }
@@ -174,7 +77,7 @@ function DarkMode() {
 }
 
 // 滚动事件
-function scroll() {
+function scrollFn() {
   // 监听 scroll
   var windowTop = 0 // 定义初始位置
   window.addEventListener(
@@ -212,24 +115,114 @@ function scroll() {
   )
 }
 
-// 代码块复制
-function codeCopy() {
-  $queryAll('figure.highlight').forEach(function (item) {
-    // 获取所有代码块
-    // firstChild: 获取代码块中的第一个子元素
-    // childNodes: 返回当前元素的所有子元素(包括:before和:after)
-    var copy = item.firstChild.childNodes[1]
-    copy.onclick = function () {
-      var selection = window.getSelection()
-      selection.selectAllChildren(item.querySelector('.code'))
-      navigator.clipboard ? navigator.clipboard.writeText(selection.toString()) : document.execCommand('copy')
-      selection.removeAllRanges()
-      copy.innerHTML = '<i class="fa fa-check" style="color:green"></i>'
-      setTimeout(function () {
-        copy.innerHTML = '<i class="fa fa-clipboard"></i>'
-      }, 2000)
+// 只有文章页才会执行
+function articlePage() {
+  if (!$id('post')) return
+  ;(function () {
+    // 代码框
+    var codeBlock = $queryAll('figure.highlight')
+    codeBlock.forEach(function (item) {
+      var lang = item.classList[1]
+      lang = lang == 'plaintext' ? 'code' : lang
+      var ele = `<div class='code-block' lang='${lang}'>
+            <span class='clipboard'><i class='fa fa-clipboard'></i></span>
+        </div>`
+      item.insertAdjacentHTML('afterbegin', ele)
+    })
+  })()
+  ;(function () {
+    // fancybox
+    getScript($config.CDN.fancyboxJs, function () {
+      const imgAll = $queryAll('.post-content img')
+      imgAll.forEach((ele) => ele.setAttribute('data-fancybox', ''))
+      var link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.type = 'text/css'
+      link.href = $config.CDN.fancyboxCss
+      document.head.appendChild(link)
+    })
+  })()
+  ;(function () {
+    // 代码块折叠
+    if (!$config.codeBlockExpand || !$config.codeBlockExpand.enable) return
+    var CodeBlock = $queryAll('figure.highlight')
+    // 定义高度
+    var height = $config.codeBlockExpand.height
+    // 获取当前页面的所有的代码块 循环判断符合条件的折叠
+    for (var i = 0; i < CodeBlock.length; i++) {
+      if (CodeBlock[i].clientHeight > height) {
+        CodeBlock[i].style = 'max-height: ' + height + 'px'
+        /**
+         * 插入html元素
+         * beforeBegin：插入到标签开始前
+         * afterBegin:插入到标签开始标记之后
+         * beforeEnd:插入到标签结束标记前
+         * afterEnd:插入到标签结束标记后
+         */
+        CodeBlock[i].insertAdjacentHTML('beforeend', '<div class="show-btn"><i class="fas fa-angle-down"></i></div>')
+      }
     }
-  })
+    // 展开
+    $queryAll('.show-btn').forEach(function (item) {
+      item.onclick = function () {
+        var child = item.childNodes[0] // 获取子节点
+        if (child.className == 'fas fa-angle-down') {
+          child.classList.remove('fa-angle-down')
+          child.classList.add('fa-angle-up')
+          item.parentNode.style = '' //清除父节点的样式
+        } else {
+          child.classList.remove('fa-angle-up')
+          child.classList.add('fa-angle-down')
+          item.parentNode.style = 'max-height: ' + height + 'px'
+          item.previousElementSibling.style = ''
+          // 获取当前页面滚动条纵坐标的位置
+          scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+          var nodeBottom = item.getBoundingClientRect().bottom // 获取当前元素底部距离可见部分的距离
+          var CodeBlockBottom = nodeBottom + scrollTop, // 当前代码块底部距离顶部距离
+            CodeBlockHeight = $config.codeBlockExpand.height, // 获取代码块超过多少数值折叠代码块
+            CodeBlockScrollTop = $config.codeBlockExpand.scrollTop // 获取代码块关闭折叠后滚动返回代码块顶部的距离
+          window.scrollTo(0, CodeBlockBottom - CodeBlockHeight - CodeBlockScrollTop)
+        }
+      }
+    })
+  })()
+  ;(function () {
+    // 打开目录
+    var openToc = $id('open-toc')
+    var toc = $id('toc-wrap')
+    if (!openToc || !toc) return
+    openToc.onclick = function () {
+      if (parseInt(toc.style.opacity)) {
+        // 关闭
+        toc.style.animation = 'toc-close .3s'
+        setTimeout(function () {
+          toc.style = "opacity:0;animation:'';right: ''"
+        }, 150)
+      } else {
+        // 打开
+        toc.style = 'opacity:1;right:30px;animation: toc-open .3s'
+      }
+    }
+  })()
+  ;(function () {
+    // 代码块复制
+    $queryAll('figure.highlight').forEach(function (item) {
+      // 获取所有代码块
+      // firstChild: 获取代码块中的第一个子元素
+      // childNodes: 返回当前元素的所有子元素(包括:before和:after)
+      var copy = item.firstChild.childNodes[1]
+      copy.onclick = function () {
+        var selection = window.getSelection()
+        selection.selectAllChildren(item.querySelector('.code'))
+        navigator.clipboard ? navigator.clipboard.writeText(selection.toString()) : document.execCommand('copy')
+        selection.removeAllRanges()
+        copy.innerHTML = '<i class="fa fa-check" style="color:green"></i>'
+        setTimeout(function () {
+          copy.innerHTML = '<i class="fa fa-clipboard"></i>'
+        }, 2000)
+      }
+    })
+  })()
 }
 
 // 执行所有函数
@@ -237,16 +230,11 @@ function exeAllFn() {
   html = document.getElementsByTagName('html')[0]
   mask = $id('mask')
   mobileNav = $id('mobile-nav')
-  RunTime() // 网站运行时间
-  addCodeBlock() // 添加代码框
+  articlePage() // 只有文章页才会执行
   tableWrap() // 添加table外围
-  fancyboxFn() // 图片灯箱
-  codeBlockExpand() // 代码块折叠
   openMobile() // 打开手机端导航栏
-  showToc() // 打开目录
   closeAll() // 关闭所有弹窗
   DarkMode() // 深色模式
-  scroll() // 滚动事件
-  codeCopy() // 代码块复杂
+  scrollFn() // 滚动事件
 }
 window.onload = exeAllFn
