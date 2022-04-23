@@ -2,13 +2,6 @@ var html
 var mask
 var mobileNav
 
-function RunTime() {
-  const dom = $query('.runtime')
-  if (!dom) return
-  let date = dom.getAttribute('publish-date')
-  date = (Date.now() - new Date(date).getTime()) / 86400000
-  dom.innerText = parseInt(date) || 1
-}
 // 代码框
 function addCodeBlock() {
   var codeBlock = $queryAll('figure.highlight')
@@ -238,7 +231,6 @@ function exeAllFn() {
   html = document.getElementsByTagName('html')[0]
   mask = $id('mask')
   mobileNav = $id('mobile-nav')
-  RunTime() // 网站运行时间
   addCodeBlock() // 添加代码框
   tableWrap() // 添加table外围
   fancyboxFn() // 图片灯箱
