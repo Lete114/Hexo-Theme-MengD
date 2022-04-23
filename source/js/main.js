@@ -32,6 +32,7 @@ function tableWrap() {
 
 // fancybox
 function fancyboxFn() {
+  if(!$id('post')) return
   getScript($config.CDN.fancyboxJs, function () {
     const imgAll = $queryAll('.post-content img')
     imgAll.forEach((ele) => ele.setAttribute('data-fancybox', ''))
