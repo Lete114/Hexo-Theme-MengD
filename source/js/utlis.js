@@ -50,7 +50,6 @@ function getScript(url, callback) {
   script.type = 'text/javascript'
   if (typeof callback != 'undefined') {
     if (script.readyState) {
-      console.log(script.onreadystatechange)
       script.onreadystatechange = function () {
         if (script.readyState == 'loaded' || script.readyState == 'complete') {
           script.onreadystatechange = null
