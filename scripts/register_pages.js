@@ -46,7 +46,7 @@ hexo.extend.generator.register('artitalk', () => {
   let content = `
         <div id="artitalk_main"></div>
         <script>
-            getScript("${theme.artitalk.source}",function(){
+        mengd.getScript("${theme.artitalk.source}",function(){
                 let initData = {
                     appId: '${theme.artitalk.appid}',
                     appKey: '${theme.artitalk.appkey}',

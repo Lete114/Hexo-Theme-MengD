@@ -4,15 +4,15 @@ var mobileNav
 
 // table wrap
 function tableWrap() {
-  var table = $queryAll('.post-content>table,.content>table')
+  var table = mengd.$queryAll('.post-content>table,.content>table')
   table.forEach(function (item) {
-    wrap(item, 'div', null, 'table-wrap')
+    mengd.wrap(item, 'div', null, 'table-wrap')
   })
 }
 
 // 打开侧边导航栏
 function openMobile() {
-  var openNav = $query('.open-nav')
+  var openNav = mengd.$query('.open-nav')
   if (!openNav) return
   openNav.onclick = function () {
     var isOpen = mobileNav.classList.contains('open-mobile')
@@ -26,7 +26,7 @@ function openMobile() {
 // 关闭所有正在打开的弹窗(搜索框、侧边栏)
 function closeAll() {
   // 搜索框缩放样式
-  var localSearch = $id('local-search')
+  var localSearch = mengd.$id('local-search')
   if (localSearch) {
     localSearch.classList.remove('search-animation-max')
     localSearch.classList.add('search-animation-min')
@@ -44,10 +44,10 @@ function closeAll() {
 
 // 深色模式
 function DarkMode() {
-  if (!$id('darkmode')) return
+  if (!mengd.$id('darkmode')) return
   var body = document.getElementsByTagName('body')[0]
-  var darkBtn = $id('darkmode')
-  var darkIco = $query('#darkmode i')
+  var darkBtn = mengd.$id('darkmode')
+  var darkIco = mengd.$query('#darkmode i')
 
   if (localStorage.isDark === 'true') {
     html.setAttribute('theme', 'dark')
@@ -82,12 +82,12 @@ function scrollFn() {
   var windowTop = 0 // 定义初始位置
   window.addEventListener(
     'scroll',
-    throttle(function () {
+    mengd.throttle(function () {
       var winHeight = document.documentElement.clientHeight
       var scrollTop = window.scrollY || document.documentElement.scrollTop
 
       // 头部导航栏
-      var navbar = $query('.navbar')
+      var navbar = mengd.$query('.navbar')
       if (scrollTop > windowTop) {
         navbar.style.transform = 'translateY(-60px)'
         windowTop = scrollTop
@@ -97,8 +97,8 @@ function scrollFn() {
       }
 
       // toc目录百分比
-      var article = $query('.post-content')
-      var num = $query('.num')
+      var article = mengd.$query('.post-content')
+      var num = mengd.$query('.num')
       if (article && num) {
         var headerHeight = article.offsetTop
         var docHeight = article.clientHeight
@@ -109,7 +109,7 @@ function scrollFn() {
         var percentage = scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 0 : scrollPercentRounded
 
         num.innerText = percentage + '%'
-        $query('.progress').value = percentage
+        mengd.$query('.progress').value = percentage
       }
     }, 100)
   )
@@ -117,10 +117,10 @@ function scrollFn() {
 
 // 只有文章页才会执行
 function articlePage() {
-  if (!$id('post')) return
+  if (!mengd.$id('post')) return
   ;(function () {
     // 代码框
-    var codeBlock = $queryAll('figure.highlight')
+    var codeBlock = mengd.$queryAll('figure.highlight')
     codeBlock.forEach(function (item) {
       var lang = item.classList[1]
       lang = lang == 'plaintext' ? 'code' : lang
@@ -132,8 +132,8 @@ function articlePage() {
   })()
   ;(function () {
     // fancybox
-    getScript($config.CDN.fancyboxJs, function () {
-      const imgAll = $queryAll('.post-content img')
+    mengd.getScript($config.CDN.fancyboxJs, function () {
+      const imgAll = mengd.$queryAll('.post-content img')
       imgAll.forEach((ele) => ele.setAttribute('data-fancybox', ''))
       var link = document.createElement('link')
       link.rel = 'stylesheet'
@@ -145,7 +145,7 @@ function articlePage() {
   ;(function () {
     // 代码块折叠
     if (!$config.codeBlockExpand || !$config.codeBlockExpand.enable) return
-    var CodeBlock = $queryAll('figure.highlight')
+    var CodeBlock = mengd.$queryAll('figure.highlight')
     // 定义高度
     var height = $config.codeBlockExpand.height
     // 获取当前页面的所有的代码块 循环判断符合条件的折叠
@@ -163,7 +163,7 @@ function articlePage() {
       }
     }
     // 展开
-    $queryAll('.show-btn').forEach(function (item) {
+    mengd.$queryAll('.show-btn').forEach(function (item) {
       item.onclick = function () {
         var child = item.childNodes[0] // 获取子节点
         if (child.className == 'fas fa-angle-down') {
@@ -188,8 +188,8 @@ function articlePage() {
   })()
   ;(function () {
     // 打开目录
-    var openToc = $id('open-toc')
-    var toc = $id('toc-wrap')
+    var openToc = mengd.$id('open-toc')
+    var toc = mengd.$id('toc-wrap')
     if (!openToc || !toc) return
     openToc.onclick = function () {
       if (parseInt(toc.style.opacity)) {
@@ -206,7 +206,7 @@ function articlePage() {
   })()
   ;(function () {
     // 代码块复制
-    $queryAll('figure.highlight').forEach(function (item) {
+    mengd.$queryAll('figure.highlight').forEach(function (item) {
       // 获取所有代码块
       // firstChild: 获取代码块中的第一个子元素
       // childNodes: 返回当前元素的所有子元素(包括:before和:after)
@@ -228,8 +228,8 @@ function articlePage() {
 // 执行所有函数
 function exeAllFn() {
   html = document.getElementsByTagName('html')[0]
-  mask = $id('mask')
-  mobileNav = $id('mobile-nav')
+  mask = mengd.$id('mask')
+  mobileNav = mengd.$id('mobile-nav')
   articlePage() // 只有文章页才会执行
   tableWrap() // 添加table外围
   openMobile() // 打开手机端导航栏
@@ -237,4 +237,4 @@ function exeAllFn() {
   DarkMode() // 深色模式
   scrollFn() // 滚动事件
 }
-window.onload = exeAllFn
+document.addEventListener('DOMContentLoaded', exeAllFn)

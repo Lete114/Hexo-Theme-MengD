@@ -4,8 +4,7 @@
  * @param {*} attr 图片的真实url地址
  */
 function ImgLazyLoad(img, attr) {
-  var imgLazyLoad = $queryAll(img)
-  function LazyLoad(target) {
+  mengd.$queryAll(img).forEach((target) => {
     const io = new IntersectionObserver((entries, Observer) => {
       entries.forEach((entry) => {
         setTimeout(function () {
@@ -19,7 +18,6 @@ function ImgLazyLoad(img, attr) {
       })
     })
     io.observe(target)
-  }
-  imgLazyLoad.forEach(LazyLoad)
+  })
 }
 ImgLazyLoad('body img[data-img]', 'data-img')
