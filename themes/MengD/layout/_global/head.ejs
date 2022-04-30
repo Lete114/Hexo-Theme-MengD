@@ -68,7 +68,7 @@ var icon = full_url_for(theme.favicon || config.favicon)
 <script src="<%= theme.CDN.utlis %>"></script>
 <script>
   (function() {
-    var html = $query('html')
+    var html = mengd.$query('html')
     var isDark = localStorage.isDark === 'true'
     if (isDark) html.setAttribute('theme', 'dark')
     else html.removeAttribute('theme')

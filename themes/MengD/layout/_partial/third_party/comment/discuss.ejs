@@ -2,7 +2,7 @@
 <div id="Discuss-Comments"></div>
 <script>
   function LoadDiscuss() {
-    getScript('<%- theme.discuss.source %>', function() {
+    mengd.getScript('<%- theme.discuss.source %>', function() {
       let initData = {
         el: '#Discuss-Comments',
         serverURLs: '<%- theme.discuss.serverURLs %>',

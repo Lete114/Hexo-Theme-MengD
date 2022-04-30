@@ -1,9 +1,9 @@
 try {
-  var localSearch = $id('local-search')
-  var html = $query('html')
-  var mask = $id('mask')
-  var searchBtn = $query('.search-btn')
-  var searchClose = $query('.search-close-button')
+  var localSearch = mengd.$id('local-search')
+  var html = mengd.$query('html')
+  var mask = mengd.$id('mask')
+  var searchBtn = mengd.$query('.search-btn')
+  var searchClose = mengd.$query('.search-close-button')
   var isLoad = false // 资源是否被加载
   var searchId = 'local-search-input'
   var contentId = 'local-search-result'
@@ -16,7 +16,7 @@ try {
    */
   async function search(path) {
     try {
-      var $resultContent = $id(contentId)
+      var $resultContent = mengd.$id(contentId)
       $resultContent.insertAdjacentHTML('beforeBegin', '<i class="fas fa-spinner fa-pulse" style="display:flex;justify-content:center"></i>')
 
       const suffix = path.split('.')[1]
@@ -39,11 +39,11 @@ try {
 
       if (datas.length) isLoad = true
       // 删掉加载动画
-      const pulse = $query('i.fa-pulse')
+      const pulse = mengd.$query('i.fa-pulse')
       pulse.parentElement.removeChild(pulse)
 
       // 获取搜索输入框
-      var $input = $id(searchId)
+      var $input = mengd.$id(searchId)
       // 获取到信息后调用一次
       onInput()
       $input.addEventListener('input', onInput)
@@ -124,7 +124,7 @@ try {
       html.style.overflow = 'hidden'
       localSearch.classList.remove('search-animation-min')
       localSearch.classList.add('search-animation-max')
-      $id(searchId).focus()
+      mengd.$id(searchId).focus()
     }
   }
 

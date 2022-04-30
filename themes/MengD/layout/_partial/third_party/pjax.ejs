@@ -1,6 +1,6 @@
 <!-- <%if(theme.pjax){%> -->
 <script>
-    getScript('<%-theme.CDN.pjax%>', LoadPjax)
+    mengd.getScript('<%-theme.CDN.pjax%>', LoadPjax)
 
     function LoadPjax() {
         window.pjax = new Pjax({
@@ -20,7 +20,7 @@
     // 执行进度条
     function ProgressStart() {
         const className = 'pjax-progress';
-        var dom = $query('.' + className);
+        var dom = mengd.$query('.' + className);
         // 设置初始进度
         var progress = 10;
         // 创建进度条 及 css样式
@@ -52,7 +52,7 @@
     function ProgressFinish() {
         clearInterval(timer);
         // 页面加载完毕后进度100% 并在0.7秒后删除
-        var progress = $query('.pjax-progress')
+        var progress = mengd.$query('.pjax-progress')
         progress.style.width = '100%';
         timer = setTimeout(function () {
             progress.parentNode.removeChild(progress)
