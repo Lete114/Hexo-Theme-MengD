@@ -12,6 +12,9 @@
             <%= config.subtitle %>
         </p>
         <div class="header-icon">
+            <% if (!theme.menu.enable && theme.search && config.search) { %>
+                <i class="fas fa-search search-btn"></i>
+            <% } %>
             <% for (social in theme.social) { %>
                 <a href="<%= url_for(theme.social[social]) %>"><i class="<%= social %>"></i></a>
             <% } %>

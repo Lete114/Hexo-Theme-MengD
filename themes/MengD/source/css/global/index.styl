@@ -64,8 +64,17 @@ body {
     width: 820px;
     margin: 0 auto;
     flex-flow: column;
+    box-shadow: 10px 10px 40px 0 #eee;
+
+    if (!hexo-config('menu.enable')) {
+        margin-top: 60px;
+    }
 
     #main {
+        .post-title:hover {
+            color: unset;
+        }
+
         a:hover {
             color: var(--main);
         }
@@ -97,7 +106,7 @@ body {
 .post-content {
     /* 锚点偏移量 */
     h1, h2, h3, h4, h5, h6 {
-        padding-top: 60px;
+        padding-top: 100px;
         margin-top: -60px;
     }
 }
@@ -184,6 +193,7 @@ blockquote {
 
 @import 'search';
 @import 'nav';
+@import 'header';
 @import '../_highlight/code_block';
 @import 'comment';
 @import 'footer';

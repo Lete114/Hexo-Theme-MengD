@@ -2,6 +2,25 @@ var html
 var mask
 var mobileNav
 
+// 头部导航栏滚动事件
+document.addEventListener('DOMContentLoaded', function () {
+  var windowTop = 0 // 定义初始位置
+  var navbar = mengd.$query('.navbar')
+  if (!navbar) return
+  function navScroll() {
+    var scrollTop = window.scrollY || document.documentElement.scrollTop
+
+    if (scrollTop > windowTop) {
+      navbar.style.transform = 'translateY(-60px)'
+      windowTop = scrollTop
+    } else {
+      navbar.style.transform = ''
+      windowTop = scrollTop
+    }
+  }
+  window.addEventListener('scroll', mengd.throttle(navScroll, 100))
+})
+
 // table wrap
 function tableWrap() {
   var table = mengd.$queryAll('.post-content>table,.content>table')
@@ -37,8 +56,10 @@ function closeAll() {
   }
   html.style.overflow = 'auto' // 解除滚动条禁止滚动
   // 侧边栏
-  mobileNav.classList.remove('open-mobile')
-  mobileNav.style.opacity = ''
+  if (mobileNav) {
+    mobileNav.classList.remove('open-mobile')
+    mobileNav.style.opacity = ''
+  }
   mask.className = '' // 关闭遮罩
 }
 
@@ -76,45 +97,6 @@ function DarkMode() {
   }
 }
 
-// 滚动事件
-function scrollFn() {
-  // 监听 scroll
-  var windowTop = 0 // 定义初始位置
-  window.addEventListener(
-    'scroll',
-    mengd.throttle(function () {
-      var winHeight = document.documentElement.clientHeight
-      var scrollTop = window.scrollY || document.documentElement.scrollTop
-
-      // 头部导航栏
-      var navbar = mengd.$query('.navbar')
-      if (scrollTop > windowTop) {
-        navbar.style.transform = 'translateY(-60px)'
-        windowTop = scrollTop
-      } else {
-        navbar.style.transform = ''
-        windowTop = scrollTop
-      }
-
-      // toc目录百分比
-      var article = mengd.$query('.post-content')
-      var num = mengd.$query('.num')
-      if (article && num) {
-        var headerHeight = article.offsetTop
-        var docHeight = article.clientHeight
-
-        var contentMath = docHeight > winHeight ? docHeight - winHeight : document.documentElement.scrollHeight - winHeight
-        var scrollPercent = (scrollTop - headerHeight) / contentMath
-        var scrollPercentRounded = Math.round(scrollPercent * 100)
-        var percentage = scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 0 : scrollPercentRounded
-
-        num.innerText = percentage + '%'
-        mengd.$query('.progress').value = percentage
-      }
-    }, 100)
-  )
-}
-
 // 只有文章页才会执行
 function articlePage() {
   if (!mengd.$id('post')) return
@@ -125,8 +107,8 @@ function articlePage() {
       var lang = item.classList[1]
       lang = lang == 'plaintext' ? 'code' : lang
       var ele = `<div class='code-block' lang='${lang}'>
-            <span class='clipboard'><i class='fa fa-clipboard'></i></span>
-        </div>`
+                  <span class='clipboard'><i class='fa fa-clipboard'></i></span>
+                 </div>`
       item.insertAdjacentHTML('afterbegin', ele)
     })
   })()
@@ -205,6 +187,29 @@ function articlePage() {
     }
   })()
   ;(function () {
+    // toc目录百分比
+    var article = mengd.$query('.post-content')
+    var num = mengd.$query('.num')
+    var progress = mengd.$query('.progress')
+    function tocScroll() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop
+      var winHeight = document.documentElement.clientHeight
+      if (article && num) {
+        var headerHeight = article.offsetTop
+        var docHeight = article.clientHeight
+
+        var contentMath = docHeight > winHeight ? docHeight - winHeight : document.documentElement.scrollHeight - winHeight
+        var scrollPercent = (scrollTop - headerHeight) / contentMath
+        var scrollPercentRounded = Math.round(scrollPercent * 100)
+        var percentage = scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 0 : scrollPercentRounded
+
+        num.innerText = percentage + '%'
+        progress.value = percentage
+      }
+    }
+    window.addEventListener('scroll', mengd.throttle(tocScroll, 10))
+  })()
+  ;(function () {
     // 代码块复制
     mengd.$queryAll('figure.highlight').forEach(function (item) {
       // 获取所有代码块
@@ -235,6 +240,5 @@ function exeAllFn() {
   openMobile() // 打开手机端导航栏
   closeAll() // 关闭所有弹窗
   DarkMode() // 深色模式
-  scrollFn() // 滚动事件
 }
 document.addEventListener('DOMContentLoaded', exeAllFn)
