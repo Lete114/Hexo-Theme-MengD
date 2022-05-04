@@ -6,6 +6,7 @@ var mobileNav
 document.addEventListener('DOMContentLoaded', function () {
   var windowTop = 0 // 定义初始位置
   var navbar = mengd.$query('.navbar')
+  if (!navbar) return
   function navScroll() {
     var scrollTop = window.scrollY || document.documentElement.scrollTop
 
@@ -55,8 +56,10 @@ function closeAll() {
   }
   html.style.overflow = 'auto' // 解除滚动条禁止滚动
   // 侧边栏
-  mobileNav.classList.remove('open-mobile')
-  mobileNav.style.opacity = ''
+  if (mobileNav) {
+    mobileNav.classList.remove('open-mobile')
+    mobileNav.style.opacity = ''
+  }
   mask.className = '' // 关闭遮罩
 }
 
@@ -93,7 +96,6 @@ function DarkMode() {
     }
   }
 }
-
 
 // 只有文章页才会执行
 function articlePage() {

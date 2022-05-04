@@ -11,13 +11,13 @@
     <%- partial('_partial/third_party/analytics') %>
     <div id="body-wrap">
         <%- partial('_global/nav') %>
-        <%- partial('_partial/header') %>
+        <%- partial('_global/header') %>
         <main id="main">
             <%- body %>
         </main>
-        <%- partial('_partial/rightside') %>
-        <%- partial('_global/footer') %>
     </div>
+    <%- partial('_partial/rightside') %>
+    <%- partial('_global/footer') %>
     <div id="mask" onclick="closeAll()"></div>
     <%- partial('_global/search') %>
     <div class="script">
