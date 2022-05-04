@@ -105,8 +105,8 @@ function articlePage() {
       var lang = item.classList[1]
       lang = lang == 'plaintext' ? 'code' : lang
       var ele = `<div class='code-block' lang='${lang}'>
-            <span class='clipboard'><i class='fa fa-clipboard'></i></span>
-        </div>`
+                  <span class='clipboard'><i class='fa fa-clipboard'></i></span>
+                 </div>`
       item.insertAdjacentHTML('afterbegin', ele)
     })
   })()
