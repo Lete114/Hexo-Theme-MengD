@@ -169,13 +169,9 @@ CDN:
   # lazyload
   lazyload: /js/lazyload.js
   # pjax
-  pjax: https://cdn.jsdelivr.net/npm/pjax/pjax.min.js
-  # 分享
-  share_css: https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css
-  share_js: https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js
+  pjax: /third-party/js/pjax.js
+  # fancybox
+  fancyboxJs: /third-party/js/fancybox.js
+  fancyboxCss: /third-party/css/fancybox.css
   # fortawesome
-  fortawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
-  # yml转json
-  js_yaml: https://cdn.jsdelivr.net/npm/js-yaml@latest/dist/js-yaml.min.js
-  # math
-  mathjax: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  fortawesome: /third-party/fontawesome-free/css/all.min.css
