@@ -14,6 +14,9 @@ hexo_seo_autopush:
 
 server:
   port: 4000
+  
+hash:
+  relative: true
 
 search:
   path: search.json
