@@ -8,12 +8,14 @@
 
 # 导航栏菜单
 menu:
+  enable: false
   首页: /
   友情链接: /link
 
 # 图标
 social:
   fab fa-github: https://github.com/lete114/hexo-theme-MengD
+  fa fa-link: /link
 
 favicon: /img/favicon.png
 avatar: /img/logo.gif

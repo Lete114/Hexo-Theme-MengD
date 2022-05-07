@@ -16,11 +16,12 @@ try {
    */
   async function search(path) {
     try {
-      var $resultContent = mengd.$id(contentId)
+      let $resultContent = mengd.$id(contentId)
+      let datas = []
+      const suffix = new URL(path, location.origin).pathname.split('.')[1]
+
       $resultContent.insertAdjacentHTML('beforeBegin', '<i class="fas fa-spinner fa-pulse" style="display:flex;justify-content:center"></i>')
 
-      const suffix = path.split('.')[1]
-      let datas = []
       const response = await fetch(path)
 
       if (suffix == 'json') datas = await response.json()
