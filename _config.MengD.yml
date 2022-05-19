@@ -132,6 +132,7 @@ import:
     - 
   headAfter: # 引入到</head>之前
     - <meta name="google-site-verification" content="uPApgr9zH7JO36gqOf48_UpfbFRRJ6zCf4cQd-s80eA" />
+    - <script src="prefetch.js" delay="1000" customs="search.json"></script>
   bodyBefore: # 引入到<body>之后
     - 
   bodyAfter: # 引入到</body>之前
