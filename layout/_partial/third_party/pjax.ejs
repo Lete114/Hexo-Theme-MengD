@@ -1,95 +1,96 @@
 <!-- <%if(theme.pjax){%> -->
 <script>
-    mengd.getScript('<%-theme.CDN.pjax%>', LoadPjax)
+  mengd.getScript('<%-theme.CDN.pjax%>', LoadPjax)
 
-    function LoadPjax() {
-        window.pjax = new Pjax({
-            selectors: [
-                'head title',
-                'head meta[name="keywords"]',
-                'head meta[name="description"]',
-                'main',
-                '#rightside'
-            ],
-            cacheBust: false
-        });
-    }
+  function LoadPjax() {
+      window.pjax = new Pjax({
+          selectors: [
+              'head title',
+              'head meta[name="keywords"]',
+              'head meta[name="description"]',
+              'main',
+              '#rightside',
+              '.script'
+          ],
+          cacheBust: false
+      });
+  }
 
-    // 清除时间
-    var timer = null;
-    // 执行进度条
-    function ProgressStart() {
-        const className = 'pjax-progress';
-        var dom = mengd.$query('.' + className);
-        // 设置初始进度
-        var progress = 10;
-        // 创建进度条 及 css样式
-        if (!dom) {
-            dom = document.createElement('div');
-            dom.className = className;
-            document.body.prepend(dom);
-        }
-        // 定义随机数最大值最小值
-        var max = 10,
-            mini = 3;
-        var result = max - mini;
-        // 清除
-        clearInterval(timer);
-        // 0.5秒内累加进度
-        timer = setInterval(function () {
-            // 随机数
-            var num = parseInt(Math.random() * result);
-            var randomResult = num + mini;
-            // 累加
-            progress += randomResult
-            // 当进度达到95%时停止
-            if (progress > 95) progress = 95
+  // 清除时间
+  var timer = null;
+  // 执行进度条
+  function ProgressStart() {
+      const className = 'pjax-progress';
+      var dom = mengd.$query('.' + className);
+      // 设置初始进度
+      var progress = 10;
+      // 创建进度条 及 css样式
+      if (!dom) {
+          dom = document.createElement('div');
+          dom.className = className;
+          document.body.prepend(dom);
+      }
+      // 定义随机数最大值最小值
+      var max = 10,
+          mini = 3;
+      var result = max - mini;
+      // 清除
+      clearInterval(timer);
+      // 0.5秒内累加进度
+      timer = setInterval(function () {
+          // 随机数
+          var num = parseInt(Math.random() * result);
+          var randomResult = num + mini;
+          // 累加
+          progress += randomResult
+          // 当进度达到95%时停止
+          if (progress > 95) progress = 95
 
-            dom.style.width = progress + '%';
-        }, 500)
-    }
-    // 加载进度条加载完毕
-    function ProgressFinish() {
-        clearInterval(timer);
-        // 页面加载完毕后进度100% 并在0.7秒后删除
-        var progress = mengd.$query('.pjax-progress')
-        progress.style.width = '100%';
-        timer = setTimeout(function () {
-            progress.parentNode.removeChild(progress)
-        }, 700);
-    }
+          dom.style.width = progress + '%';
+      }, 500)
+  }
+  // 加载进度条加载完毕
+  function ProgressFinish() {
+      clearInterval(timer);
+      // 页面加载完毕后进度100% 并在0.7秒后删除
+      var progress = mengd.$query('.pjax-progress')
+      progress.style.width = '100%';
+      timer = setTimeout(function () {
+          progress.parentNode.removeChild(progress)
+      }, 700);
+  }
 
-    // 开始 PJAX 执行的函数
-    document.addEventListener('pjax:send', function () {
-        // 执行进度条
-        ProgressStart()
-    });
-    // PJAX 完成之后执行的函数，可以和上面的重载放在一起
-    document.addEventListener('pjax:complete', function () {
+  // 开始 PJAX 执行的函数
+  document.addEventListener('pjax:send', function () {
+      // 执行进度条
+      ProgressStart()
+  });
+  // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+  document.addEventListener('pjax:complete', function () {
 
-        // 加载进度条加载完毕
-        ProgressFinish()
-        // 执行所有方法
-        exeAllFn()
+      // 加载进度条加载完毕
+      ProgressFinish()
+      // 执行所有方法
+      exeAllFn()
 
-        <%if (theme.lazyload.enable) {%>
-            // 图片懒加载
-            ImgLazyLoad('body img[data-img]', 'data-img')
-        <%}%>
+      <%if (theme.lazyload.enable) {%>
+          // 图片懒加载
+          ImgLazyLoad('body img[data-img]', 'data-img')
+      <%}%>
 
 
-        document.querySelectorAll('script[data-pjax]').forEach(item => {
-            const newScript = document.createElement('script')
-            const content = item.text || item.textContent || item.innerHTML || ''
-            Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-            newScript.appendChild(document.createTextNode(content))
-            item.parentNode.replaceChild(newScript, item)
-        })
-    });
+      document.querySelectorAll('script[data-pjax]').forEach(item => {
+          const newScript = document.createElement('script')
+          const content = item.text || item.textContent || item.innerHTML || ''
+          Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+          newScript.appendChild(document.createTextNode(content))
+          item.parentNode.replaceChild(newScript, item)
+      })
+  });
 
-    // Pjax请求错误时，跳转到404页面
-    document.addEventListener('pjax:error', (err) => {
-        if (err.request.status === 404) pjax.loadUrl('/404.html')
-    })
+  // Pjax请求错误时，跳转到404页面
+  document.addEventListener('pjax:error', (err) => {
+      if (err.request.status === 404) pjax.loadUrl('/404.html')
+  })
 </script>
 <%}%>
