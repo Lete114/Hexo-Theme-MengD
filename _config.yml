@@ -23,7 +23,7 @@ social:
   # fab fa-github: https://github.com/lete114
   # fa fa-envelope: mailto:lete@lete114.top
 
-title:  # 网站标题支持html，可写img标签等
+title: # 网站标题支持html，可写img标签等
 favicon: /img/favicon.png
 avatar: /img/logo.gif
 pageCount: 5 # 首页展示文章数
@@ -32,9 +32,9 @@ pjax: true # pjax
 search: false # 需安装插件: npm install hexo-generator-search --save
 
 # 置顶文章
-stick: 
-  # 例如: text: <i class="fas fa-arrow-up"></i>置顶 
-  text:  # 支持html 
+stick:
+  # 例如: text: <i class="fas fa-arrow-up"></i>置顶
+  text: # 支持html
   color: '#ffa51e' # 置顶标签文字颜色
 
 # 自动注册页面
@@ -72,11 +72,18 @@ description:
   line: 3 # 显示多少行后出现省略号(...)
   length: 150 # 截取多少字
 
+prefetch:
+  enable: true # 是否启用预加载
+  load: true # 是否在页面所有资源加载完毕后再进行预加载
+  delay: 1000 # 延迟1秒后预加载
+  threshold: 25 # 目标元素在浏览器可视区域25%时触发预加载
+  # 自定义预加载资源，如果你开启了本地搜索功能，可以将下方的注释去掉，当使用搜索时不用等太长的请求时间
+  # customs: [/seatch.json] 
+
 # 图片懒加载
 lazyload:
   enable: true
   loadimg: /img/load.gif
-
 
 # 代码块高亮主题
 highlightTheme: mac # default / darker / pale night / light / ocean / mac / mac light
@@ -84,7 +91,6 @@ codeBlockExpand: # 是否开启代码块折叠
   enable: true
   height: 400 # 代码块高度超过400折叠 单位px
   scrollTop: 200 # 展开后,再次(手动点击)点击折叠滚动到代码块开始的距离 单位px
-
 
 # 自定义引入外部css、js
 import:
@@ -110,7 +116,6 @@ copyright:
   description: 本博客所有文章除特别声明外，均采用||许可协议。转载请注明来自
   title: Hexo-Theme-MengD(萌典)
 
-
 # 页脚
 footer:
   since: 2020
@@ -128,7 +133,6 @@ font:
   # 代码块字体
   code: consolas,Menlo,'PingFang SC','Microsoft YaHei',sans-serif
 
-
 # 评论
 ## 注意大小写
 comments: discuss # twikoo / waline / valine
@@ -144,8 +148,8 @@ discuss:
 ## https://valine.js.org/
 valine:
   source: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js
-  appid:  # 你的 leancloud app id
-  appkey:  # 你的 leancloud app key
+  appid: # 你的 leancloud app id
+  appkey: # 你的 leancloud app key
   options: # 自定义添加 https://valine.js.org/configuration.html
 
 # waline
@@ -184,6 +188,8 @@ CDN:
   search: /js/search.js
   # lazyload
   lazyload: /js/lazyload.js
+  # prefetch
+  prefetch: https://unpkg.com/prefetch-page
   # pjax
   pjax: https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js
   # fancybox
