@@ -95,13 +95,9 @@ codeBlockExpand: # 是否开启代码块折叠
 # 自定义引入外部css、js
 import:
   headBefore: # 引入到<head>之后
-    - 
   headAfter: # 引入到</head>之前
-    - 
   bodyBefore: # 引入到<body>之后
-    - 
   bodyAfter: # 引入到</body>之前
-    - 
   # 例如：
   # - <link rel="stylesheet" href="/css/index.css">
   # - '<style>body{color: red}</style>' ## 注意由于css的‘{}’是关键符号所以需要(单/双)引号''
