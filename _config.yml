@@ -140,14 +140,14 @@ comments: discuss # twikoo / waline / valine
 # Discuss
 ## https://discuss.js.org
 discuss:
-  source: https://cdn.jsdelivr.net/npm/discuss@latest/dist/Discuss.js
+  source: https://unpkg.com/discuss@latest/dist/Discuss.js
   serverURLs: ## 你的 Discuss 评论系统服务端地址
   options: # 自定义添加 https://discuss.js.org/Quick-Start.html#%E5%AE%A2%E6%88%B7%E7%AB%AF-client
 
 # valine
 ## https://valine.js.org/
 valine:
-  source: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js
+  source: https://unpkg.com/valine/dist/Valine.min.js
   appid: # 你的 leancloud app id
   appkey: # 你的 leancloud app key
   options: # 自定义添加 https://valine.js.org/configuration.html
@@ -155,14 +155,14 @@ valine:
 # waline
 ## https://waline.js.org
 waline:
-  source: //cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js
+  source: https://unpkg.com/@waline/client/dist/Waline.min.js
   serverURL: # 服务端地址
   options: # 自定义添加 https://waline.js.org/client/basic.html
 
 # twikoo
 ## https://twikoo.js.org/
 twikoo:
-  source: https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js
+  source: https://unpkg.com/twikoo/dist/twikoo.all.min.js
   envId: # 你的环境id
   options:
 
@@ -172,7 +172,7 @@ twikoo:
 ## https://artitalk.js.org/settings.html
 artitalk:
   enable: false # 是否开启
-  source: https://cdn.jsdelivr.net/npm/artitalk
+  source: https://unpkg.com/artitalk
   title: Artitalk # 标题
   path: artitalk/index.html # 路径
   appid: WhOxxxxxxxxxxxxxMMI #  LeanCloud appId
@@ -191,9 +191,9 @@ CDN:
   # prefetch
   prefetch: https://unpkg.com/prefetch-page
   # pjax
-  pjax: https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js
+  pjax: https://unpkg.com/pjax@0.2.8/pjax.min.js
   # fancybox
-  fancyboxJs: https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.26/dist/fancybox.umd.js
-  fancyboxCss: https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.26/dist/fancybox.css
+  fancyboxJs: https://unpkg.com/npm/@fancyapps/ui@4.0.26/dist/fancybox.umd.js
+  fancyboxCss: https://unpkg.com/npm/@fancyapps/ui@4.0.26/dist/fancybox.css
   # fortawesome
-  fortawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css
+  fortawesome: https://unpkg.com/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css
