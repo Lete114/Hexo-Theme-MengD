@@ -132,11 +132,11 @@ import:
     - 
   headAfter: # 引入到</head>之前
     - <meta name="google-site-verification" content="uPApgr9zH7JO36gqOf48_UpfbFRRJ6zCf4cQd-s80eA" />
-    - <script src="prefetch.js" delay="1000" customs="search.json"></script>
+    - <script src="/prefetch.js"></script>
   bodyBefore: # 引入到<body>之后
     - 
   bodyAfter: # 引入到</body>之前
-    - 
+    - <script data-pjax>prefetch({delay:1000,customs:['/search.json']})</script>
   # 例如： 
   # - <link rel="stylesheet" href="/css/index.css">
   # - '<style>body{color: red}</style>' ## 注意由于css的‘{}’是关键符号所以需要(单/双)引号''
