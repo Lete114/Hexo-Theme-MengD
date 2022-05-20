@@ -42,6 +42,14 @@ index_description:
   line: 3 # 显示多少行后出现省略号(...)
   length: 500 # 截取多少字 
 
+prefetch:
+  enable: true # 是否启用预加载
+  load: true # 是否在页面所有资源加载完毕后再进行预加载
+  delay: 1000 # 延迟1秒后预加载
+  threshold: 25 # 目标元素在浏览器可视区域25%时触发预加载
+  # 自定义预加载资源，如果你开启了本地搜索功能，可以将下方的注释去掉，当使用搜索时不用等太长的请求时间
+  customs: [/seatch.json] 
+
 # 图片懒加载
 lazyload:
   enable: true
@@ -132,11 +140,10 @@ import:
     - 
   headAfter: # 引入到</head>之前
     - <meta name="google-site-verification" content="uPApgr9zH7JO36gqOf48_UpfbFRRJ6zCf4cQd-s80eA" />
-    - <script src="/prefetch.js"></script>
   bodyBefore: # 引入到<body>之后
     - 
   bodyAfter: # 引入到</body>之前
-    - <script data-pjax>prefetch({delay:1000,customs:['/search.json']})</script>
+    - 
   # 例如： 
   # - <link rel="stylesheet" href="/css/index.css">
   # - '<style>body{color: red}</style>' ## 注意由于css的‘{}’是关键符号所以需要(单/双)引号''
@@ -173,6 +180,8 @@ CDN:
   lazyload: /js/lazyload.js
   # pjax
   pjax: /third-party/js/pjax.js
+  # prefetch
+  prefetch: /third-party/js/prefetch-page.js
   # fancybox
   fancyboxJs: /third-party/js/fancybox.js
   fancyboxCss: /third-party/css/fancybox.css

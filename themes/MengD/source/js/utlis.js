@@ -43,8 +43,19 @@ const mengd = {
    * @param {*} callback 回调方法
    */
   getScript(url, callback) {
+    // 防止重复获取
+    if (Array.isArray(this.isGetScript)) {
+      if (this.isGetScript.includes(url)) return
+      this.isGetScript.push(url)
+    } else {
+      this.isGetScript = []
+      this.isGetScript.push(url)
+    }
     var script = document.createElement('script')
-    script.type = 'text/javascript'
+    script.src = url
+
+    // 统一
+    function fn() {}
     if (typeof callback != 'undefined') {
       if (script.readyState) {
         script.onreadystatechange = function () {
@@ -55,11 +66,11 @@ const mengd = {
         }
       } else {
         script.onload = function () {
+          script.onload = null
           callback()
         }
       }
     }
-    script.src = url
     document.body.appendChild(script)
   },
 
