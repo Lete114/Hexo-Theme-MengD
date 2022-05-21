@@ -15,17 +15,14 @@ hexo_seo_autopush:
 server:
   port: 4000
 
-# prefetch:
-#   enable: false
-#   custom:
-#     - /search.json
-
 hash:
   relative: true
 
 # minify:
 #   js:
 #     enable: false
+#   html:
+#     enbale: false
 
 search:
   path: search.json
