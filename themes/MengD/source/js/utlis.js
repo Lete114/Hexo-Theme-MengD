@@ -45,7 +45,7 @@ const mengd = {
   getScript(url, callback) {
     // 防止重复获取
     if (Array.isArray(this.isGetScript)) {
-      if (this.isGetScript.includes(url)) return
+      if (this.isGetScript.includes(url)) return callback()
       this.isGetScript.push(url)
     } else {
       this.isGetScript = []
