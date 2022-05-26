@@ -66,20 +66,20 @@
   });
   // PJAX 完成之后执行的函数，可以和上面的重载放在一起
   document.addEventListener('pjax:complete', function() {
-
     // 加载进度条加载完毕
     ProgressFinish()
+  });
+
+  document.addEventListener('pjax:success', function () {
+    
     // 执行所有方法
     exeAllFn()
-
-
+    
     <%if (theme.lazyload.enable) {%>
     // 图片懒加载
     ImgLazyLoad('body img[data-img]', 'data-img')
     <%}%>
-  });
 
-  document.addEventListener('pjax:success', function () {
     <% if (theme.prefetch.enable) { %>
     <% 
     const pre = deep_clone(theme.prefetch)
