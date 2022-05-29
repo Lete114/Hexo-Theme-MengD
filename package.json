@@ -27,6 +27,6 @@
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-seo-autopush": "^2.0.3",
     "hexo-server": "^2.0.0",
-    "hexo-sw-racing": "^1.0.0-beta.1"
+    "hexo-sw-racing": "^1.0.0-beta.3"
   }
 }
