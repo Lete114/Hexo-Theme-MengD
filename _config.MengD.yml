@@ -1,4 +1,4 @@
-
+---
 #--------------------------------------------------------
 # Hexo-Theme-MengD(萌典)
 # 项目地址：https://github.com/lete114/hexo-theme-MengD
@@ -25,7 +25,7 @@ pjax: true # pjax
 tags: false # 文章内是否显示标签
 
 ## 主题颜色
-theme_color:  
+theme_color:
   main: '#e58a8a' # 主色
   fan: '#00c4b6' # 小风车
   body_a: '#00c4b6' # 全局a标签颜色
@@ -40,7 +40,7 @@ amusing_title:
 # 自动截取
 index_description:
   line: 3 # 显示多少行后出现省略号(...)
-  length: 500 # 截取多少字 
+  length: 500 # 截取多少字
 
 prefetch:
   enable: true # 是否启用预加载
@@ -48,7 +48,7 @@ prefetch:
   delay: 1000 # 延迟1秒后预加载
   threshold: 25 # 目标元素在浏览器可视区域25%时触发预加载
   # 自定义预加载资源，如果你开启了本地搜索功能，可以将下方的注释去掉，当使用搜索时不用等太长的请求时间
-  customs: [/seatch.json] 
+  customs: [/seatch.json]
 
 # 图片懒加载
 lazyload:
@@ -73,7 +73,7 @@ code_block_expand: # 是否开启代码块折叠
 # 需要更全面的压缩请安装插件: npm install hexo-minify --save
 minify:
   js: true
-  css: true 
+  css: true
   html: true
 
 ## 自定义侧边栏按钮
@@ -82,20 +82,20 @@ minify:
 ## 拥有3个属性：a标签属性|a标签描述|按钮图标
 ## #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon
 rightside:
-  settings: 
+  settings:
     #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
-  show: 
+  show:
     #- harf="javascript:(0)"id="darkmode"||深色/浅色||fas fa-moon ###渲染结果： <a harf="javascript:(0)" id="darkmode" title="深色/浅色"> <i class="fas fa-moon"></i> </a>
 
 # 侧边栏
 # 详细: https://mengd.js.org/article/config.html#自定义侧边栏
-sidebar: 
+sidebar:
   enable: true # 是否开启
   sticky: true # 固定显示
   area: left # 左边: left  右边: right
 
 # 文章版权
-copyright: 
+copyright:
   enable: true
   author: MengD(萌典)
   mail: me@imlete.cn
@@ -108,7 +108,7 @@ copyright:
 comments: discuss # twikoo / waline / valine
 
 discuss:
-  source: https://cdn.jsdelivr.net/npm/discuss@0.3.6/dist/Discuss.js
+  source: https://cdn.jsdelivr.net/npm/discuss@0.3.7/dist/Discuss.js
   serverURLs: https://env-jxscvzag.service.tcloudbase.com/discuss/mengd
 
 # twikoo
@@ -116,10 +116,8 @@ discuss:
 twikoo:
   envId: lete114-5g871u472d39809e #env-jxscvzag # 你的环境id
   region: ap-shanghai # 环境地域，ap-shanghai / ap-guangzhou
-  path: window.location.pathname  # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-  option: 
-
-
+  path: window.location.pathname # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
+  option:
 
 # 通过issues申请友情链接(目前只支持gitee)
 link:
@@ -129,7 +127,7 @@ link:
     owner: lete114 # 仓库拥有者
     repo: link # 仓库昵称
     show_position: later # 显示的位置  前(before) / 后(later)
-  repo_pr:  
+  repo_pr:
     enable: true # 是否开启
     yml_url: https://cdn.jsdelivr.net/gh/lete114/links@latest/MengD/link.yml # 友链yml文件
     show_position: later # 显示的位置  前(before) / 后(later)
@@ -137,14 +135,14 @@ link:
 # 自定义引入外部css、js
 import:
   headBefore: # 引入到<head>之后
-    - 
+    -
   headAfter: # 引入到</head>之前
     - <meta name="google-site-verification" content="uPApgr9zH7JO36gqOf48_UpfbFRRJ6zCf4cQd-s80eA" />
   bodyBefore: # 引入到<body>之后
-    - 
+    -
   bodyAfter: # 引入到</body>之前
-    - 
-  # 例如： 
+    -
+  # 例如：
   # - <link rel="stylesheet" href="/css/index.css">
   # - '<style>body{color: red}</style>' ## 注意由于css的‘{}’是关键符号所以需要(单/双)引号''
   # - <script>alert(1)</script>
@@ -152,17 +150,17 @@ import:
 # 页脚
 footer:
   since: 2020
-  custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！  
+  custom_text: 我相信我可以，但我一直在路上，所以我有无限的可能！！
   icp:
     enable: false
-    text: 
+    text:
     icon: /img/icp.png
     url: https://beian.miit.gov.cn/
 
 # 统计(分析)
 analytics:
   baidu: 8e216044fbe6b71b6fefc197c2508ed1
-  google: 
+  google:
 
 font:
   # 全局字体
@@ -171,7 +169,7 @@ font:
   code: consolas,Menlo,'PingFang SC','Microsoft YaHei',sans-serif
 
 # 主题的css与js引入
-## 无特殊要求请勿更改  
+## 无特殊要求请勿更改
 CDN:
   main_js: /js/main.js
   main_css: /css/main.css
