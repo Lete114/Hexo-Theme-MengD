@@ -1,11 +1,12 @@
 var html
 var mask
 var mobileNav
+var navbar
 
 // 头部导航栏滚动事件
 document.addEventListener('DOMContentLoaded', function () {
   var windowTop = 0 // 定义初始位置
-  var navbar = mengd.$query('.navbar')
+  navbar = mengd.$query('.navbar')
   if (!navbar) return
   function navScroll() {
     var scrollTop = window.scrollY || document.documentElement.scrollTop
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
       navbar.style.transform = 'translateY(-60px)'
       windowTop = scrollTop
     } else {
-      navbar.style.transform = ''
+      navbar.style = ''
       windowTop = scrollTop
     }
   }
@@ -235,6 +236,8 @@ function exeAllFn() {
   html = document.getElementsByTagName('html')[0]
   mask = mengd.$id('mask')
   mobileNav = mengd.$id('mobile-nav')
+  navbar = mengd.$query('.navbar')
+  navbar.style = '' // 每次触发exeAllFn函数都将显示导航栏
   articlePage() // 只有文章页才会执行
   tableWrap() // 添加table外围
   openMobile() // 打开手机端导航栏
