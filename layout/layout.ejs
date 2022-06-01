@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,11 +19,9 @@
     <%- partial('_global/footer') %>
     <div id="mask" onclick="closeAll()"></div>
     <%- partial('_global/search') %>
-    <div class="script">
-        <script src="<%= theme.CDN.mainJs %>"></script>
-        <%- partial('_global/import_bodyAfter') %>
-        <%- partial('_partial/third_party/pjax') %>
-    </div>
+    <script src="<%= theme.CDN.mainJs %>"></script>
+    <%- partial('_global/import_bodyAfter') %>
+    <%- partial('_partial/third_party/pjax') %>
 </body>
 
 </html>
