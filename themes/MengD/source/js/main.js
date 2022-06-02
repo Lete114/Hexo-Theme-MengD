@@ -199,7 +199,8 @@ function articlePage() {
         var headerHeight = article.offsetTop
         var docHeight = article.clientHeight
 
-        var contentMath = docHeight > winHeight ? docHeight - winHeight : document.documentElement.scrollHeight - winHeight
+        var contentMath =
+          docHeight > winHeight ? docHeight - winHeight : document.documentElement.scrollHeight - winHeight
         var scrollPercent = (scrollTop - headerHeight) / contentMath
         var scrollPercentRounded = Math.round(scrollPercent * 100)
         var percentage = scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 0 : scrollPercentRounded
@@ -237,7 +238,9 @@ function exeAllFn() {
   mask = mengd.$id('mask')
   mobileNav = mengd.$id('mobile-nav')
   navbar = mengd.$query('.navbar')
-  navbar.style = '' // 每次触发exeAllFn函数都将显示导航栏
+  if (navbar) {
+    navbar.style = '' // 每次触发exeAllFn函数都将显示导航栏
+  }
   articlePage() // 只有文章页才会执行
   tableWrap() // 添加table外围
   openMobile() // 打开手机端导航栏
