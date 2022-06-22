@@ -4,20 +4,20 @@
  * @param {*} attr 图片的真实url地址
  */
 function ImgLazyLoad(img, attr) {
-  mengd.$queryAll(img).forEach((target) => {
-    const io = new IntersectionObserver((entries, Observer) => {
-      entries.forEach((entry) => {
-        setTimeout(function () {
-          if (entry.isIntersecting) {
-            const img = entry.target
-            const src = img.getAttribute(attr)
-            img.setAttribute('src', src)
-            Observer.disconnect()
-          }
-        }, 500)
-      })
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(({ isIntersecting, target }) => {
+      setTimeout(function () {
+        if (isIntersecting) {
+          const src = target.getAttribute(attr)
+          target.setAttribute('src', src)
+          observer.unobserve(target)
+        }
+      }, 500)
     })
-    io.observe(target)
+  })
+
+  mengd.$queryAll(img).forEach((target) => {
+    observer.observe(target)
   })
 }
-ImgLazyLoad('body img[data-img]', 'data-img')
+ImgLazyLoad('body img[data-src]', 'data-src')
