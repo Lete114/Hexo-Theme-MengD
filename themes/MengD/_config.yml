@@ -188,13 +188,13 @@ CDN:
   # lazyload
   lazyload: /js/lazyload.js
   # prefetch
-  prefetch: https://unpkg.com/prefetch-page
+  prefetch: /third-party/js/prefetch-page.js
   # cardlink
   cardlink: /third-party/js/cardlink.js
   # pjax
-  pjax: https://unpkg.com/pjax@0.2.8/pjax.min.js
+  pjax: /third-party/js/pjax.js
   # fancybox
-  fancyboxJs: https://unpkg.com/npm/@fancyapps/ui@4.0.26/dist/fancybox.umd.js
-  fancyboxCss: https://unpkg.com/npm/@fancyapps/ui@4.0.26/dist/fancybox.css
+  fancyboxJs: /third-party/js/fancybox.js
+  fancyboxCss: /third-party/css/fancybox.css
   # fortawesome
-  fortawesome: https://unpkg.com/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css
+  fortawesome: /third-party/fontawesome-free/css/all.min.css
