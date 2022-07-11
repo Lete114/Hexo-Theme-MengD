@@ -78,7 +78,10 @@ prefetch:
   delay: 1000 # 延迟1秒后预加载
   threshold: 25 # 目标元素在浏览器可视区域25%时触发预加载
   # 自定义预加载资源，如果你开启了本地搜索功能，可以将下方的注释去掉，当使用搜索时不用等太长的请求时间
-  # customs: [/seatch.json] 
+  # customs: [/seatch.json]
+
+# 将文章页的所有外链转换为卡片式外链
+cardlink: true
 
 # 图片懒加载
 lazyload:
@@ -186,6 +189,8 @@ CDN:
   lazyload: /js/lazyload.js
   # prefetch
   prefetch: https://unpkg.com/prefetch-page
+  # cardlink
+  cardlink: /third-party/js/cardlink.js
   # pjax
   pjax: https://unpkg.com/pjax@0.2.8/pjax.min.js
   # fancybox
