@@ -139,7 +139,7 @@ comments: discuss # twikoo / waline / valine
 # Discuss
 ## https://discuss.js.org
 discuss:
-  source: https://unpkg.com/discuss@latest/dist/Discuss.js
+  source: https://unpkg.com/discuss@latest/dist/discuss.js
   serverURLs: ## 你的 Discuss 评论系统服务端地址
   options: # 自定义添加 https://discuss.js.org/Quick-Start.html#%E5%AE%A2%E6%88%B7%E7%AB%AF-client
 

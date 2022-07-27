@@ -19,7 +19,7 @@
     <%- partial('_global/footer') %>
     <div id="mask" onclick="closeAll()"></div>
     <%- partial('_global/search') %>
-    <script src="<%= theme.CDN.mainJs %>"></script>
+    <script src="<%= url_for(theme.CDN.mainJs) %>"></script>
     <%- partial('_global/import_bodyAfter') %>
     <%- partial('_partial/third_party/pjax') %>
 </body>

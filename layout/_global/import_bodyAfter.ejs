@@ -18,7 +18,7 @@
 <% } %>
 
 <%if(theme.lazyload.enable){%>
-<script src="<%= theme.CDN.lazyload %>"></script>
+<script src="<%= url_for(theme.CDN.lazyload) %>"></script>
 <%}%>
 
 <%- partial('_partial/third_party/cardlink') %>

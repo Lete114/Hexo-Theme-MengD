@@ -5,7 +5,7 @@
     cardLink.server = 'https://cardlink-server.deta.dev/?url='
     cardLink(mengd.$queryAll('#post>.post-content a[target=_blank]'))
   }
-  mengd.getScript('<%= theme.CDN.cardlink %>', loadCardLink)
+  mengd.getScript('<%= url_for(theme.CDN.cardlink) %>', loadCardLink)
   document.addEventListener('pjax:success', loadCardLink)
 </script>
 <%}%>

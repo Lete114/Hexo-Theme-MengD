@@ -31,10 +31,10 @@ else {
 
 // 图片
 var image = page.cover || theme.avatar
-image = full_url_for(image)
+image = url_for(image)
 
 // icon
-var icon = full_url_for(theme.favicon || config.favicon)
+var icon = url_for(theme.favicon || config.favicon)
 
 %>
 
@@ -56,13 +56,13 @@ var icon = full_url_for(theme.favicon || config.favicon)
 <%- open_graph(options) %>
 <% }else { %>
 <meta name="image" content="<%= image %>">
-<meta property="url" content="<%= full_url_for(path) %>">
+<meta property="url" content="<%= url_for(path) %>">
 <meta name="description" content="<%= description %>">
 <% } %>
 
-<link href="<%= theme.CDN.fortawesome %>" rel="stylesheet">
-<link href="<%= theme.CDN.mainCss %>" rel="stylesheet">
-<script src="<%= theme.CDN.utlis %>"></script>
+<link href="<%= url_for(theme.CDN.fortawesome) %>" rel="stylesheet">
+<link href="<%= url_for(theme.CDN.mainCss) %>" rel="stylesheet">
+<script src="<%= url_for(theme.CDN.utlis) %>"></script>
 <script>
   (function() {
     var html = mengd.$query('html')
@@ -79,7 +79,7 @@ var icon = full_url_for(theme.favicon || config.favicon)
   delete pre.enable
   delete pre.load
 %>
-<script src="<%= theme.CDN.prefetch %>"></script>
+<script src="<%= url_for(theme.CDN.prefetch) %>"></script>
 <script>
   <%if(theme.prefetch.load){%>
   addEventListener('load', function() {
