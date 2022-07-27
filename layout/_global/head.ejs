@@ -33,9 +33,6 @@ else {
 var image = page.cover || theme.avatar
 image = url_for(image)
 
-// icon
-var icon = url_for(theme.favicon || config.favicon)
-
 %>
 
 <meta charset="UTF-8">
@@ -45,7 +42,7 @@ var icon = url_for(theme.favicon || config.favicon)
 <meta name="author" content="<%= config.author %>">
 <meta name="copyright" content="<%= config.author %>">
 
-<%- favicon_tag(icon) %>
+<%- favicon_tag(theme.favicon || config.favicon) %>
 
 <% if (keywords) { %>
 <meta name="keywords" content="<%= keywords %>">
