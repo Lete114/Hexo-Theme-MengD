@@ -15,6 +15,9 @@ hexo_seo_autopush:
 server:
   port: 4000
 
+hash:
+  lazy: data-src
+
 # minify:
 #   js:
 #     enable: false

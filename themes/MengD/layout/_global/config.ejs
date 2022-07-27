@@ -1,14 +1,10 @@
-<% 
-
-var codeBlockExpand = theme.codeBlockExpand
-
-%>
+<% var codeBlockExpand = theme.codeBlockExpand %>
 
 <script>
   var $config = {
       CDN: {
-        fancyboxJs: "<%=theme.CDN.fancyboxJs%>",
-        fancyboxCss: "<%=theme.CDN.fancyboxCss%>"
+        fancyboxJs: "<%=url_for(theme.CDN.fancyboxJs)%>",
+        fancyboxCss: "<%=url_for(theme.CDN.fancyboxCss)%>"
       },
       <%if(theme.search&&config.search){%>
       searchFile: "<%=url_for(config.search.path)%>",
