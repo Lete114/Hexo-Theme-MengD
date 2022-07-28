@@ -138,32 +138,32 @@ comments: discuss # twikoo / waline / valine
 
 # Discuss
 ## https://discuss.js.org
+# 自定义添加 https://discuss.js.org/Quick-Start.html#%E5%AE%A2%E6%88%B7%E7%AB%AF-client
 discuss:
   source: https://unpkg.com/discuss@latest/dist/discuss.js
   serverURLs: ## 你的 Discuss 评论系统服务端地址
-  options: # 自定义添加 https://discuss.js.org/Quick-Start.html#%E5%AE%A2%E6%88%B7%E7%AB%AF-client
 
 # valine
 ## https://valine.js.org/
+# 自定义添加 https://valine.js.org/configuration.html
 valine:
   source: https://unpkg.com/valine/dist/Valine.min.js
   appid: # 你的 leancloud app id
   appkey: # 你的 leancloud app key
-  options: # 自定义添加 https://valine.js.org/configuration.html
 
 # waline
 ## https://waline.js.org
+# 自定义添加 https://waline.js.org/client/basic.html
 waline:
-  source: https://unpkg.com/@waline/client/dist/Waline.min.js
-  serverURL: # 服务端地址
-  options: # 自定义添加 https://waline.js.org/client/basic.html
+  source: https://unpkg.com/@waline/client/dist/waline.js
+  source_css: https://unpkg.com/@waline/client/dist/waline.css
+  serverURL: https://env-jxscvzag.service.tcloudbase.com/discuss/mengd # 服务端地址
 
 # twikoo
 ## https://twikoo.js.org/
 twikoo:
   source: https://unpkg.com/twikoo/dist/twikoo.all.min.js
   envId: # 你的环境id
-  options:
 
 ## 说说
 

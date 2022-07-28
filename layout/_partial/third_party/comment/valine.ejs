@@ -1,30 +1,14 @@
-<% var options=theme.valine.options ? JSON.stringify(theme.valine.options) : false %>
 <div id="vcomments"></div>
 <script>
 function LoadValine() {
     mengd.getScript("<%-theme.valine.source%>", function () {
-        let initData = {
+        new Valine(Object.assign({
             el: '#vcomments',
             path: window.location.pathname,
             appId: '<%- theme.valine.appid %>',
             appKey: '<%- theme.valine.appkey %>',
-            master: '<%- theme.valine.master %>',
-            friends: '<%- theme.valine.friends %>',
-            placeholder: '<%- theme.valine.placeholder %>',
-            avatar: '<%- theme.valine.avatar %>',
-            meta: '<%- theme.valine.meta %>'.split(","),
-            pageSize: <%- theme.valine.pageSize %>,
-            lang: '<%- theme.valine.lang %>',
-            emojiCDN: '<%- theme.valine.emojiCDN %>',
-            emojiMaps: <%- JSON.stringify(theme.valine.emojiMaps) %>,
-            enableQQ: <%- theme.valine.enableQQ %>,
             visitor: true
-        }
-        var options = <%-options %>;
-        if (options) {
-            initData = Object.assign(initData, options)
-        }
-        new Valine(initData)
+        }, <%- JSON.stringify(theme.valine) %>))
     });
 }
 LoadValine()
