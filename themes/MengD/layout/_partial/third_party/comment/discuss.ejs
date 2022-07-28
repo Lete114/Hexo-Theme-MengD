@@ -1,18 +1,11 @@
-<% var options=theme.discuss.options ? JSON.stringify(theme.discuss.options) : false %>
 <div id="Discuss-Comments"></div>
 <script>
   function LoadDiscuss() {
     mengd.getScript('<%- theme.discuss.source %>', function() {
-      let initData = {
+      Discuss.init(Object.assign({
         el: '#Discuss-Comments',
         serverURLs: '<%- theme.discuss.serverURLs %>',
-        <% if(theme.discuss.path){ %>
-        path: <%- theme.discuss.path %>,
-        <% } %>
-      }
-      var options = <%- options %>;
-      if (options) initData = Object.assign(initData, options)
-      Discuss.init(initData)
+      } , <%-JSON.stringify(theme.discuss)%>))
     })
   }
   LoadDiscuss()

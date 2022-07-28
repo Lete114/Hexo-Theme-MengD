@@ -108,7 +108,7 @@ copyright:
 comments: discuss # twikoo / waline / valine
 
 discuss:
-  source: https://cdn.jsdelivr.net/npm/discuss@1.1.1/dist/Discuss.js
+  source: https://cdn.jsdelivr.net/npm/discuss@1.1.1/dist/discuss.js
   serverURLs: https://env-jxscvzag.service.tcloudbase.com/discuss/mengd
 
 # twikoo
@@ -117,7 +117,6 @@ twikoo:
   envId: lete114-5g871u472d39809e #env-jxscvzag # 你的环境id
   region: ap-shanghai # 环境地域，ap-shanghai / ap-guangzhou
   path: window.location.pathname # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-  option:
 
 # 通过issues申请友情链接(目前只支持gitee)
 link:

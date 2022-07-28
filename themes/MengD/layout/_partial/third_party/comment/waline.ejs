@@ -1,27 +1,18 @@
-<% var options=theme.waline.options ? JSON.stringify(theme.waline.options) : false %>
 <div id="wcomments"></div>
 <script>
 function LoadWaline() {
     mengd.getScript("<%-theme.waline.source%>",function(){
-        let initData = {
+        const link = document.createElement('link')
+        link.type='text/css'
+        link.rel='stylesheet'
+        link.href = '<%-theme.waline.source_css%>'
+        document.head.appendChild(link)
+        Waline.init(Object.assign({
             el: '#wcomments',
             path: location.pathname,
             serverURL: '<%- theme.waline.serverURL %>',
-            placeholder: '<%- theme.waline.placeholder %>',
-            avatar: '<%- theme.waline.avatar %>',
-            meta: '<%- theme.waline.meta %>'.split(","),
-            requiredFields: '<%- theme.waline.requiredFields %>'.split(","),
-            pageSize: <%-theme.waline.pageSize %>,
-            lang: '<%- theme.waline.lang %>',
-            emojiCDN: '<%- theme.waline.emojiCDN %>',
-            emojiMaps: <%-JSON.stringify(theme.waline.emojiMaps)%>,
             visitor: true
-        }
-        var options = <%-options%>;
-        if (options) {
-            initData = Object.assign(initData, options)
-        }
-        new Waline(initData)
+        }, <%-JSON.stringify(theme.waline)%>))
     })
 }
 LoadWaline()
