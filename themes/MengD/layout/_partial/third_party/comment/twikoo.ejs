@@ -6,7 +6,7 @@ function LoadTwikoo(){
       el: '#tcomment',
       envId: '<%-theme.twikoo.envId%>',
       region: '<%-theme.twikoo.region%>',
-      path: <%-theme.twikoo.path%>,
+      path: location.pathname,
   }, <%-JSON.stringify(theme.twikoo)%>));
   })
 }
