@@ -16,13 +16,14 @@ server:
   port: 4000
 
 hash:
+  relative: true
   lazy: data-src
 
-# minify:
-#   js:
-#     enable: false
-#   html:
-#     enbale: false
+minify:
+  js:
+    enable: false
+  html:
+    enbale: false
 
 search:
   path: search.json
