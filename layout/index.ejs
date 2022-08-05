@@ -1,4 +1,5 @@
 <div id="post-list">
+  <h1 style="display:none"><%=config.title%></h1>
   <% page.posts.each(function (post) { %>
   <% var title = post.title || __('post.title') %>
   <div class="post-item">
@@ -19,7 +20,7 @@
             if (post.description) description = post.description
             else{
                 // 先移除多余得空格和换行符，以及代码块的行号
-                description = post.content.replace(/<td class=\"gutter\"><pre>(.*?)<\/pre><\/td>/gim,'')
+                description = post.content.replace(/\<td class=\"gutter\">\<pre>(.*?)\<\/pre>\<\/td>/gim,'')
                 description = description.replace(/[\n]|[\r\n]|[\s]/gim,'')
                 // 然后移除html标签
                 description = strip_html(description)
