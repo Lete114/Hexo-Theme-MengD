@@ -6,6 +6,7 @@ var title=page.title;
 %> 
 
 <div id="page">
+    <h1 style="display:none"><%=config.title%></h1>
     <div class="page-title"><%= title %></div>
     <% if(type=="link" ){ %>
         <%- partial('link') %>

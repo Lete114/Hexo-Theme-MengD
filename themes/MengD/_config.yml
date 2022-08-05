@@ -70,7 +70,7 @@ amusingTitle:
 # 自动截取
 description:
   line: 3 # 显示多少行后出现省略号(...)
-  length: 150 # 截取多少字
+  length: 160 # 截取多少字
 
 prefetch:
   enable: true # 是否启用预加载
