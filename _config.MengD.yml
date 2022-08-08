@@ -108,7 +108,7 @@ copyright:
 comments: discuss # twikoo / waline / valine
 
 discuss:
-  source: https://cdn.jsdelivr.net/npm/discuss@1.1.1/dist/discuss.js
+  source: https://lib.baomitu.com/discuss/1.1.4/dist/discuss.js
   serverURLs: https://env-jxscvzag.service.tcloudbase.com/discuss/mengd
 
 # twikoo
