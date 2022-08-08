@@ -73,14 +73,14 @@
 <div class="pagination-post">
     <% if (page.prev){ %>
     <a href="<%= url_for(page.prev.path) %>">
-      <div class="prev-title"><i class="fas fa-chevron-left"></i><%=page.prev.title||__('post.title')%></div>
-      <div class="prev-desc"><%= truncate(strip_html(page.prev.content), {length: 100}) %></div>
+      <div class="prev-title"><i class="fas fa-chevron-left"></i><%= page.prev.title || __('post.title') %></div>
+      <div class="prev-desc"><%= page.prev.description || truncate(strip_html(page.prev.content), {length: theme.description.length}) %></div>
     </a>
     <% } %>
     <% if (page.next){ %>
     <a href="<%= url_for(page.next.path) %>">
-      <div class="next-title"><%=page.next.title||__('post.title')%><i class="fas fa-chevron-right"></i></div>
-      <div class="next-desc"><%= truncate(strip_html(page.next.content), {length: 100}) %></div>
+      <div class="next-title"><%= page.next.title || __('post.title') %><i class="fas fa-chevron-right"></i></div>
+      <div class="next-desc"><%= page.next.description || truncate(strip_html(page.next.content), {length: theme.description.length}) %></div>
     </a>
     <% } %>
 </div>
