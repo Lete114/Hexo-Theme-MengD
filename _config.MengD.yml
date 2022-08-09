@@ -109,7 +109,7 @@ comments: discuss # twikoo / waline / valine
 
 discuss:
   source: https://lib.baomitu.com/discuss/1.1.4/dist/discuss.js
-  serverURLs: https://env-jxscvzag.service.tcloudbase.com/discuss/mengd
+  serverURLs: https://discuss-mengd.imlete.cn
 
 # twikoo
 ## https://twikoo.js.org/
