@@ -157,7 +157,7 @@ valine:
 waline:
   source: https://unpkg.com/@waline/client/dist/waline.js
   source_css: https://unpkg.com/@waline/client/dist/waline.css
-  serverURL: https://env-jxscvzag.service.tcloudbase.com/discuss/mengd # 服务端地址
+  serverURL: # 服务端地址
 
 # twikoo
 ## https://twikoo.js.org/
