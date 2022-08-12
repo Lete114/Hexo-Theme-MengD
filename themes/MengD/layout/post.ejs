@@ -1,22 +1,20 @@
-
-
 <article id="post">
   <div class="post-info">
     <div class="post-title">
-      <h1><%= page.title ||__('post.title')%></h1>
+      <h1><%= page.title || __('post.title') %></h1>
     </div>
     <div class="post-meta">
       <div class="post-date">
         <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
         <span class="post-meta-label">
           <%= __('post.created') %>
-            <%= date(page.date, "YYYY-MM-DD" ) %> |
+          <%= date(page.date, "YYYY-MM-DD" ) %> |
         </span>
         
         <i class="fas fa-history fa-fw post-meta-icon"></i>
         <span class="post-meta-label">
           <%= __('post.updated') %>
-            <%= date(page.update, "YYYY-MM-DD" ) %>
+          <%= date(page.updated, "YYYY-MM-DD" ) %>
         </span>
       </div>
       <div class="post-meta-wordcount">
@@ -35,7 +33,7 @@
   </div>
   <%# 版权 %> 
   <% 
-  var url = `${config.url}/${page.path}` // 文章地址
+  var url = full_url_for(page.path) // 文章地址
   var licenses = theme.copyright.licenses.split("||") // 版权许可
   var title = theme.copyright.title||config.title // 网站标题
   var mail = theme.copyright.mail // 作者邮箱
