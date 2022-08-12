@@ -102,6 +102,18 @@ function DarkMode() {
 function articlePage() {
   if (!mengd.$id('post')) return
   ;(function () {
+    // 过时提醒
+    const obsolete = mengd.$query('.post-obsolete')
+    if (!obsolete) return
+    const limit_day = +obsolete.getAttribute('limit_day')
+    const created = mengd.getDaysDiffBetweenDates(obsolete.getAttribute('created'))
+    const updated = mengd.getDaysDiffBetweenDates(obsolete.getAttribute('updated'))
+    if (updated >= limit_day) {
+      obsolete.innerHTML = obsolete.innerHTML.replace('${created}', created).replace('${updated}', updated)
+      obsolete.classList.remove('display-none')
+    }
+  })()
+  ;(function () {
     // 代码框
     var codeBlock = mengd.$queryAll('figure.highlight')
     codeBlock.forEach(function (item) {
@@ -199,8 +211,7 @@ function articlePage() {
         var headerHeight = article.offsetTop
         var docHeight = article.clientHeight
 
-        var contentMath =
-          docHeight > winHeight ? docHeight - winHeight : document.documentElement.scrollHeight - winHeight
+        var contentMath = docHeight > winHeight ? docHeight - winHeight : document.documentElement.scrollHeight - winHeight
         var scrollPercent = (scrollTop - headerHeight) / contentMath
         var scrollPercentRounded = Math.round(scrollPercent * 100)
         var percentage = scrollPercentRounded > 100 ? 100 : scrollPercentRounded <= 0 ? 0 : scrollPercentRounded

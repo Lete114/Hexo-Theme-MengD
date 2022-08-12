@@ -28,6 +28,19 @@
       </div>
     </div>
   </div>
+  <% if(!page.obsolete) page.obsolete = {} %> 
+  <% if(theme.obsolete.enable && page.obsolete.enable !==false){ %>
+    <div class="post-obsolete display-none"
+      style="
+      color:<%= page.obsolete.color || theme.obsolete.color %>;
+      background:<%= page.obsolete.background || theme.obsolete.background %>;
+      border-left:5px solid <%= page.obsolete['border-left'] || theme.obsolete['border-left'] %>;
+      border-right:5px solid <%= page.obsolete['border-right'] || theme.obsolete['border-right'] %>;"
+      limit_day="<%= page.obsolete.limit_day || theme.obsolete.limit_day %>" created="<%= date(page.date) %>"
+      updated="<%= date(page.updated) %>">
+      <%- page.obsolete.message || theme.obsolete.message %>
+    </div>
+  <% } %>
   <div class="post-content">
     <%- page.content %>
   </div>
