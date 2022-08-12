@@ -45,6 +45,18 @@ pages:
     enable: true
     text: 404 Not Found
 
+# 文章过时提醒
+## 可在指定文章内设置(文章内的设置优先级最高，其次是配置文件)
+obsolete:
+  enable: false # 一旦设置为 false 则所有文章将禁用(包括文章内的)
+  limit_day: 500 # 超过多少天显示提醒
+  color: '#d4b82a'
+  background: '#fcf9e1'
+  border-left: '#ffd818'
+  border-right: '#ffd818'
+  # 自定义标语，支持html
+  message: <strong>过时提醒:&nbsp</strong>本文编辑于 ${created} 天前，最后更新时间于 ${updated} 天前，其中某些内容可能已经过时，请读者注意。
+
 # 目录
 toc:
   enable: true

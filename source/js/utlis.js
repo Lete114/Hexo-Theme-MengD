@@ -87,5 +87,9 @@ const mengd = {
         pre = now
       }
     }
+  },
+
+  getDaysDiffBetweenDates(date) {
+    return parseInt((new Date() - new Date(date)) / (1000 * 3600 * 24))
   }
 }
