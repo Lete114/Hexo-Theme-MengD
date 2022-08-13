@@ -1,0 +1,38 @@
+post:
+  title: 無標題
+  created: 發表于
+  updated: 更新于
+  wordcount: 總字數
+  min2read: 閱讀時長
+  min2readUnit: 分鐘
+  visitors: 閱讀量
+  toc: 目錄
+  stick: 置頂
+
+page:
+  tag: 標籤雲
+  categories: 分類
+  error: 返回首頁
+
+search:
+  title: 本地搜索
+  input: 搜索文章
+
+rightside:
+  directComments: 直達评论
+  backToTop: 回到頂部
+  settings: 設置
+  dark: 深色/淺色
+
+copyright:
+  author: 文章作者
+  articleUrl: 文章鏈接
+  notice: 版權聲明
+
+comments: 評論
+
+footer:
+  framework: 框架
+  theme: 主題
+
+articleCount: 文章總覽
