@@ -10,7 +10,7 @@
           <%= __('post.created') %>
           <%= date(page.date, "YYYY-MM-DD" ) %> |
         </span>
-        
+
         <i class="fas fa-history fa-fw post-meta-icon"></i>
         <span class="post-meta-label">
           <%= __('post.updated') %>
@@ -28,60 +28,51 @@
       </div>
     </div>
   </div>
-  <% if(!page.obsolete) page.obsolete = {} %> 
-  <% if(theme.obsolete.enable && page.obsolete.enable !==false){ %>
-    <div class="post-obsolete display-none"
-      style="
+  <% if(!page.obsolete) page.obsolete = {} %>
+  <% if(theme.obsolete.enable && page.obsolete.enable !== false){ %>
+  <div class="post-obsolete display-none" style="
       color:<%= page.obsolete.color || theme.obsolete.color %>;
       background:<%= page.obsolete.background || theme.obsolete.background %>;
       border-left:5px solid <%= page.obsolete['border-left'] || theme.obsolete['border-left'] %>;
-      border-right:5px solid <%= page.obsolete['border-right'] || theme.obsolete['border-right'] %>;"
-      limit_day="<%= page.obsolete.limit_day || theme.obsolete.limit_day %>" created="<%= date(page.date) %>"
-      updated="<%= date(page.updated) %>">
-      <%- page.obsolete.message || theme.obsolete.message %>
-    </div>
+      border-right:5px solid <%= page.obsolete['border-right'] || theme.obsolete['border-right'] %>;" limit_day="<%= page.obsolete.limit_day || theme.obsolete.limit_day %>" created="<%= date(page.date) %>" updated="<%= date(page.updated) %>">
+    <%- page.obsolete.message || theme.obsolete.message %>
+  </div>
   <% } %>
   <div class="post-content">
     <%- page.content %>
   </div>
-  <%# 版权 %> 
+  <%# 版权 %>
   <% 
-  var url = full_url_for(page.path) // 文章地址
-  var licenses = theme.copyright.licenses.split("||") // 版权许可
-  var title = theme.copyright.title||config.title // 网站标题
-  var mail = theme.copyright.mail // 作者邮箱
-  var description = theme.copyright.description.split("||")
-  var author = theme.copyright.author||config.author // 作者
-  %> 
-<% if (theme.copyright.enable){ %>
-  <% if (page.copyright==null||page.copyright){ %>
+  if(!page.copyright) page.copyright = {}
+  var url = full_url_for(page.path)
+  const notice = (page.copyright.description || theme.copyright.description)
+    .replace('${licenses}',`<a href="${page.copyright.licensesUrl || theme.copyright.licensesUrl}" target="_blank">${page.copyright.licenses || theme.copyright.licenses}</a>`)
+    .replace('${title}',`<a href="${page.copyright.title || theme.copyright.title}" target="_blank">${page.copyright.title || theme.copyright.title}</a>`)
+  %>
+  <% if (theme.copyright.enable && page.copyright.enable !== false){ %>
   <div class="post-copyright">
     <div class="post-copyright-icon"></div>
-      <div class="post-copyright-author">
-          <span class="post-copyright-meta"><%= __('copyright.author') %>: </span>
-            <span class="post-copyright-info">
-              <a href="mailto:<%= mail %>" ><%= author%></a>
-            </span>
-      </div>
-      <div class="post-copyright-type">
-          <span class="post-copyright-meta"><%=__('copyright.articleUrl')%>: </span>
-            <span class="post-copyright-info">
-              <a href="<%= url %>" ><%= url %></a>
-            </span>
-      </div><div class="post-copyright-notice">
-          <span class="post-copyright-meta"><%= __('copyright.notice') %>: </span>
-            <span class="post-copyright-info"><%= description[0] %>
-              <a href="<%= licenses[1] %> " target="_blank" >
-                  <%= licenses[0] %> </a> <%= description[1] %>
-              <a href="<%= url %>" target="_blank" ><%= title %></a>
-              ！</span>
-      </div>
+    <div class="post-copyright-author">
+      <span class="post-copyright-meta"><%= __('copyright.author') %>: </span>
+      <span class="post-copyright-info">
+        <a href="<%= page.copyright.authorUrl || theme.copyright.authorUrl %>"><%= page.copyright.author || theme.copyright.author || config.author %></a>
+      </span>
+    </div>
+    <div class="post-copyright-type">
+      <span class="post-copyright-meta"><%=__('copyright.articleUrl')%>: </span>
+      <span class="post-copyright-info">
+        <a href="<%= url %>"><%= url %></a>
+      </span>
+    </div>
+    <div class="post-copyright-notice">
+      <span class="post-copyright-meta"><%= __('copyright.notice') %>: </span>
+      <span class="post-copyright-info"><%- notice %></span>
+    </div>
   </div>
   <% } %>
-<% } %>
 
-<%# 上下一篇文章 %>
-<div class="pagination-post">
+  <%# 上下一篇文章 %>
+  <div class="pagination-post">
     <% if (page.prev){ %>
     <a href="<%= url_for(page.prev.path) %>">
       <div class="prev-title"><i class="fas fa-chevron-left"></i><%= page.prev.title || __('post.title') %></div>
@@ -94,10 +85,10 @@
       <div class="next-desc"><%= page.next.description || truncate(strip_html(page.next.content), {length: theme.description.length}) %></div>
     </a>
     <% } %>
-</div>
-<%- partial('_partial/third_party/comment/index') %>
+  </div>
+  <%- partial('_partial/third_party/comment/index') %>
 </article>
-<%# 是否是文章 %> 
+<%# 是否是文章 %>
 <% 
   var enableToc=theme.toc.enable ; 
   var isExistToc = page.hasOwnProperty("toc") // page中是否有toc属性
@@ -106,19 +97,19 @@
   var isToc=is_post()&&pageToc&&toc(page.content) 
 %>
 <%if(enableToc&&isToc){%>
-  <div id="toc-wrap">
-    <div id="toc">
-      <div class="toc-title">
-        <div>
-          <%= __("post.toc")%>
-            <span class="num">0%</span>
-        </div>
-        <progress class="progress" value="0" max="100"></progress>
+<div id="toc-wrap">
+  <div id="toc">
+    <div class="toc-title">
+      <div>
+        <%= __("post.toc")%>
+        <span class="num">0%</span>
       </div>
-      <div class="toc-list">
-        <% var options = theme.toc.options||{} %> 
-        <%- toc(page.content,options) %>
-      </div>
+      <progress class="progress" value="0" max="100"></progress>
+    </div>
+    <div class="toc-list">
+      <% var options = theme.toc.options||{} %>
+      <%- toc(page.content,options) %>
     </div>
   </div>
+</div>
 <%}%>
