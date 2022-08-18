@@ -47,7 +47,7 @@
   var url = full_url_for(page.path)
   const notice = (page.copyright.description || theme.copyright.description)
     .replace('${licenses}',`<a href="${page.copyright.licensesUrl || theme.copyright.licensesUrl}" target="_blank">${page.copyright.licenses || theme.copyright.licenses}</a>`)
-    .replace('${title}',`<a href="${page.copyright.title || theme.copyright.title}" target="_blank">${page.copyright.title || theme.copyright.title}</a>`)
+    .replace('${title}',`<a href="${full_url_for()}" target="_blank">${page.copyright.title || theme.copyright.title}</a>`)
   %>
   <% if (theme.copyright.enable && page.copyright.enable !== false){ %>
   <div class="post-copyright">
