@@ -10,8 +10,6 @@
 
 - 主题文档: [https://mengd.js.org](https://mengd.js.org/)
 
-- 更新日志: [https://mengd.js.org/article/ChangeLog.html](https://mengd.js.org/article/ChangeLog.html)
-
 - 交流群(QQ)：[812028613](https://jq.qq.com/?_wv=1027&k=s3PT4WT2)
 
 ## 快速开始

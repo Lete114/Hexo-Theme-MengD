@@ -94,15 +94,6 @@ sidebar:
   sticky: true # 固定显示
   area: left # 左边: left  右边: right
 
-# 文章版权
-copyright:
-  enable: true
-  author: MengD(萌典)
-  mail: me@imlete.cn
-  licenses: CC BY-NC-SA 4.0||https://creativecommons.org/licenses/by-nc-sa/4.0/ ## 文中||为分隔符，左侧为描述，右侧为版权许可
-  description: 本博客所有文章除特别声明外，均采用||许可协议。转载请注明来自
-  title: Hexo-Theme-MengD(萌典)
-
 # 评论
 ## 注意大小写
 comments: discuss # twikoo / waline / valine
