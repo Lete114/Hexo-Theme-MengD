@@ -70,21 +70,3 @@ image = url_for(image)
   })()
 </script>
 <%-partial('import_headAfter')%>
-
-<% if (theme.prefetch.enable) { %>
-<% 
-  const pre = deep_clone(theme.prefetch)
-  delete pre.enable
-  delete pre.load
-%>
-<script src="<%= url_for(theme.CDN.prefetch) %>"></script>
-<script>
-  <%if(theme.prefetch.load){%>
-  addEventListener('load', function() {
-    prefetch(<%- JSON.stringify(pre) %>)
-  })
-  <% } else {%>
-  prefetch(<%- JSON.stringify(pre) %>)
-  <% } %>
-</script>
-<% } %>
