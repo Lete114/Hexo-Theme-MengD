@@ -32,3 +32,25 @@ const arr = Array.isArray(bodyAfter) ? bodyAfter : []
 arr.forEach(function(bottom, i){ %>
 <%- bottom %>
 <% }) %>
+
+<%# prefetch %>
+<% if (theme.prefetch.enable) { %>
+<% 
+  const pre = deep_clone(theme.prefetch)
+  delete pre.enable
+%>
+<script>
+  mengd.getScript('<%= url_for(theme.CDN.prefetch) %>', () => {
+    const requestIdleCa = requestIdleCallback
+    if (requestIdleCa) {
+      requestIdleCa(() => {
+        prefetch(<%- JSON.stringify(pre) %>)
+      })
+    } else {
+      setTimeout(() => {
+        prefetch(<%- JSON.stringify(pre) %>)
+      }, 3000);
+    }
+  })
+</script>
+<% } %>
