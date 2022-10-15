@@ -109,7 +109,6 @@ try {
         })
         str += '</ul>'
         $resultContent.innerHTML = str
-        window.pjax && window.pjax.refresh($resultContent)
       }
     } catch (error) {
       isLoad = false
@@ -137,10 +136,6 @@ try {
     html.style.overflow = 'auto'
     setTimeout(() => (localSearch.style.display = ''), 500)
   }
-
-  window.addEventListener('pjax:complete', () => {
-    localSearch.style.display === 'none' ? (mask.className = '') : ''
-  })
 } catch (e) {
   console.log('search error: ', e)
 }

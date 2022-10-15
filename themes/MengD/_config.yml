@@ -28,7 +28,6 @@ favicon: /img/favicon.png
 avatar: /img/logo.gif
 pageCount: 5 # 首页展示文章数
 darkmode: true # 深色模式
-pjax: true # pjax
 search: false # 需安装插件: npm install hexo-generator-search --save
 
 # 置顶文章
@@ -203,8 +202,6 @@ CDN:
   prefetch: /third-party/js/prefetch-page.js
   # cardlink
   cardlink: /third-party/js/cardlink.js
-  # pjax
-  pjax: /third-party/js/pjax.js
   # fancybox
   fancyboxJs: /third-party/js/fancybox.js
   fancyboxCss: /third-party/css/fancybox.css
