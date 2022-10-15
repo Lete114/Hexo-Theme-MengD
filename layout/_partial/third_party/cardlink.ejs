@@ -6,7 +6,6 @@
     cardLink(mengd.$queryAll('#post>.post-content a[target=_blank]'))
   }
   mengd.getScript('<%= url_for(theme.CDN.cardlink) %>', loadCardLink)
-  document.addEventListener('pjax:success', loadCardLink)
 </script>
 <%}%>
 <%}%>
