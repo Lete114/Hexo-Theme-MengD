@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-mengd",
-  "version": "1.8.20",
+  "version": "1.9.0",
   "description": "A simple, lightweight Hexo theme",
   "main": "package.json",
   "scripts": {},
