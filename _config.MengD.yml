@@ -98,7 +98,7 @@ sidebar:
 comments: discuss # twikoo / waline / valine
 
 discuss:
-  source: https://lib.baomitu.com/discuss/1.1.10/dist/discuss.js
+  source: https://lib.baomitu.com/discuss/1.2.0/dist/discuss.js
   serverURLs: https://discuss-mengd.imlete.cn
 
 # twikoo
