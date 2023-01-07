@@ -10,8 +10,6 @@ post:
   stick: Stick
 
 page:
-  tag: TagCloud
-  categories: Categories
   error: BackHome
 
 search:

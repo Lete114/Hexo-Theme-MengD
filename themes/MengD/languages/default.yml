@@ -10,8 +10,6 @@ post:
   stick: 置顶
 
 page:
-  tag: 标签云
-  categories: 分类
   error: 返回首页
 
 search:

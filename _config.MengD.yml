@@ -21,7 +21,6 @@ favicon: /img/favicon.png
 avatar: /img/logo.gif
 pageCount: 5 # 首页展示文章数
 darkmode: true # 深色模式
-tags: false # 文章内是否显示标签
 
 ## 主题颜色
 theme_color:

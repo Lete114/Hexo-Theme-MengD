@@ -7,7 +7,6 @@ if (page.title)title = page.title+' | '+config.title
 // 关键字
 var keywords
 if(page.keywords)keywords = Array.isArray(page.keywords) ? (page.keywords).join(',') : page.keywords // 文章关键字
-else if(page.tags) keywords = page.tags.data.map((tag)=>{ return tag.name}).join(',') // 文章标签
 else keywords = Array.isArray(config.keywords) ? (config.keywords).join(',') : config.keywords
 keywords = keywords || config.keywords
 

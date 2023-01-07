@@ -35,33 +35,6 @@
           <i class="far fa-calendar-alt"></i>
           <span> <%= date(post.date, "YYYY-MM-DD" ).replace(/-/g,'.') %></span>
         </span>
-        <% if(post.categories.length!=0){ %>
-        <span class="post-categorie">
-          <i class="fas fa-folder-open"></i>
-          <% post.categories.forEach(function(categories, i){ %>
-          <a href="<%= url_for(categories.path) %>">
-            <%= categories.name %>
-          </a>
-          <%if(post.categories.length-1> i){%>
-          <i class="fas fa-angle-right"></i>
-          <%} %>
-          <% }) %>
-        </span>
-        <%} %>
-
-        <% if(post.tags.length!=0){ %>
-        <span class="post-tag">
-          <i class="fa fa-tag"></i>
-          <% post.tags.forEach(function(tag, i){ %>
-          <a href="<%= url_for(tag.path) %>">
-            <%= tag.name %>
-          </a>
-          <%if(post.tags.length-1> i){%>
-          <i class="fas fa-angle-right"></i>
-          <%} %>
-          <% }) %>
-        </span>
-        <%} %>
       </div>
     </div>
 
