@@ -36,13 +36,9 @@ stick:
   text: # 支持html
   color: '#ffa51e' # 置顶标签文字颜色
 
-# 自动注册页面
-pages:
-  tags: true
-  categories: true
-  error: ## 404页面
-    enable: true
-    text: 404 Not Found
+error: ## 404页面
+  enable: true
+  text: 404 Not Found
 
 # 文章过时提醒
 ## 可在指定文章内设置(文章内的设置优先级最高，其次是配置文件)

@@ -5,29 +5,9 @@
  *
  */
 
-const url_for = require('hexo-util').url_for.bind(hexo)
-
-hexo.extend.generator.register('register tags', (locals) => {
-  if(!hexo.theme.config.pages.tags) return
-  return {
-    path: 'tags/index.html',
-    data: locals,
-    layout: ['tags']
-  }
-})
-
-hexo.extend.generator.register('register categories', (locals) => {
-  if(!hexo.theme.config.pages.categories) return
-  return {
-    path: 'categories/index.html',
-    data: locals,
-    layout: ['categories']
-  }
-})
-
 // 404页面
 hexo.extend.generator.register('register 404', (locals) => {
-  if(!hexo.theme.config.pages.error.enable) return
+  if(!hexo.theme.config.error.enable) return
   return {
     path: '404.html',
     data: locals,
