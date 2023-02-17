@@ -201,5 +201,5 @@ CDN:
   # fancybox
   fancyboxJs: /third-party/js/fancybox.js
   fancyboxCss: /third-party/css/fancybox.css
-  # fortawesome
-  fortawesome: /third-party/fontawesome-free/css/all.min.css
+  # fontawesome
+  fontawesome: /third-party/fontawesome-free/css/all.min.css
