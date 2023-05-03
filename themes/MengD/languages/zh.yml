@@ -1,0 +1,19 @@
+header:
+  search:
+    post: 搜索文章
+    history: 搜索历史
+    clear: 清空
+
+post:
+  title: 无标题
+  tags: 标签
+  categories: 分类
+  toc: 目录
+  copyright:
+    author: 作者
+    article_link: 文章链接
+    copyright: 版权声明
+
+footer:
+  framework: 框架
+  theme: 主题

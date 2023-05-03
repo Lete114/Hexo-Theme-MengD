@@ -1,0 +1,35 @@
+<% 
+  if(!page.copyright) page.copyright = {}
+  const enable = theme.post.copyright.enable && page.copyright.enable !== false
+  const post_url = full_url_for(page.path)
+  const url =  page.copyright.url || theme.post.copyright.url || config.url
+  const author = page.copyright.author || theme.post.copyright.author || config.author
+  const title = page.copyright.title || theme.post.copyright.title || config.title
+  const licenses = page.copyright.licenses || theme.post.copyright.licenses
+  const licenses_url = page.copyright.licenses_url || theme.post.copyright.licenses_url
+
+  const notice = (page.copyright.description || theme.post.copyright.description)
+    .replace('${licenses}',`<a href="${licenses_url}" target="_blank">${licenses}</a>`)
+    .replace('${title}',`<a href="${url}" target="_blank">${title}</a>`)
+%>
+<% if (enable){ %>
+<div class="post-copyright">
+  <div class="post-copyright-icon"><%- partial('_assets/svg/copyright', { className: 'copyright-icon' }) %></div>
+  <div class="post-copyright-author">
+    <span class="post-copyright-meta"><%= _p('post.copyright.author') %>: </span>
+    <span class="post-copyright-info">
+      <a href="<%= url %>"><%= author %></a>
+    </span>
+  </div>
+  <div class="post-copyright-type">
+    <span class="post-copyright-meta"><%= _p('post.copyright.article_link') %>: </span>
+    <span class="post-copyright-info">
+      <a href="<%= post_url %>"><%= post_url %></a>
+    </span>
+  </div>
+  <div class="post-copyright-notice">
+    <span class="post-copyright-meta"><%= _p('post.copyright.copyright') %>: </span>
+    <span class="post-copyright-info"><%- notice %></span>
+  </div>
+</div>
+<% } %>

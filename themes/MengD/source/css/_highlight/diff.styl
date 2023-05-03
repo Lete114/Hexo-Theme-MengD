@@ -1,49 +1,59 @@
+figure.highlight {
+  pre {
+    color: $highlight-foreground;
+  }
 
-// For diff highlight
-figure.highlight
-  pre
-    color $highlight-foreground
+  pre .deletion {
+    color: $highlight-deletion;
+  }
 
-  table
-    &::-webkit-scrollbar-thumb
-      background $highlight-scrollbar
+  pre .addition {
+    color: $highlight-addition;
+  }
 
-  pre .deletion
-    color $highlight-deletion
+  pre .meta {
+    color: $highlight-purple;
+  }
 
-  pre .addition
-    color $highlight-addition
+  pre {
+    .comment {
+      color: $highlight-comment;
+    }
 
-  pre .meta
-    color $highlight-purple
+    .variable, .attribute, .regexp, .ruby .constant, .xml .tag .title, .xml .pi, .xml .doctype, .html .doctype, .css .id, .tag .name, .css .class, .css .pseudo {
+      color: $highlight-red;
+    }
 
-  pre
-    .comment
-      color $highlight-comment
+    .tag {
+      color: $highlight-aqua;
+    }
 
-    .variable, .attribute, .regexp, .ruby .constant, .xml .tag .title, .xml .pi, .xml .doctype, .html .doctype, .css .id, .tag .name, .css .class, .css .pseudo
-      color $highlight-red
+    .number, .preprocessor, .literal, .params, .constant, .command {
+      color: $highlight-orange;
+    }
 
-    .tag
-      color $highlight-aqua
+    .built_in {
+      color: $highlight-yellow;
+    }
 
-    .number, .preprocessor, .literal, .params, .constant, .command
-      color $highlight-orange
+    .ruby .class .title, .css .rules .attribute, .string, .value, .inheritance, .header, .ruby .symbol, .xml .cdata, .special, .number, .formula {
+      color: $highlight-green;
+    }
 
-    .built_in
-      color $highlight-yellow
+    .keyword, .title, .css .hexcolor {
+      color: $highlight-aqua;
+    }
 
-    .ruby .class .title, .css .rules .attribute, .string, .value, .inheritance, .header, .ruby .symbol, .xml .cdata, .special, .number, .formula
-      color $highlight-green
+    .function, .python .decorator, .python .title, .ruby .function .title, .ruby .title .keyword, .perl .sub, .javascript .title, .coffeescript .title {
+      color: $highlight-blue;
+    }
 
-    .keyword, .title, .css .hexcolor
-      color $highlight-aqua
+    .tag .attr, .javascript .function {
+      color: $highlight-purple;
+    }
 
-    .function, .python .decorator, .python .title, .ruby .function .title, .ruby .title .keyword, .perl .sub, .javascript .title, .coffeescript .title
-      color $highlight-blue
-
-    .tag .attr, .javascript .function
-      color $highlight-purple
-
-    .line.marked
-      background-color rgba(97, 97, 97, 0.314)
+    .line.marked {
+      background-color: rgba(97, 97, 97, 0.314);
+    }
+  }
+}

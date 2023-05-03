@@ -1,6 +1,7 @@
 ---
 title: Images
-abbrlink: Images
+cover: /assets/wallpaper-2572384.jpg
+abbrlink: 1639
 date: 2013-12-26 22:46:49
 ---
 
@@ -12,4 +13,4 @@ This is a image test post.
 
 ![](/assets/wallpaper-878514.jpg)
 
-![Small Picture](https://placehold.it/350x150.jpg)
+![Small Picture](https://via.placeholder.com/350x150.jpg)

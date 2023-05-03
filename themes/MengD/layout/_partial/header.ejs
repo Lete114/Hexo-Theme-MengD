@@ -1,0 +1,60 @@
+<header class="user-select">
+  <div class="container-wrap">
+    <div class="container">
+      <% if(theme.logo.html){ %>
+      <% if(theme.logo.style){ %>
+      <% const style = Object.entries(theme.logo.style).map(([key, value])=>key+':'+value+';').join('') %>
+      <style>
+        .logo>* {
+          <%=style %>
+        }
+      </style>
+      <% } %>
+      <a href="<%= config.root %>" class="logo">
+        <%- theme.logo.html %>
+      </a>
+      <% } %>
+      <nav>
+        <% if(theme.search && config.search){ %>
+        <div class="search" tabindex="-1">
+          <input class="search-input" placeholder="<%= _p('header.search.post') %>" type="search" maxlength="64">
+          <div class="seach-icon-container">
+            <%- partial('_assets/svg/search', { className: 'search-icon' }) %>
+          </div>
+          <div class="search-history">
+            <div class="search-history-title">
+              <span><%= _p('header.search.history') %></span>
+              <span class="search-history-clear"><%= _p('header.search.clear') %></span>
+            </div>
+            <div class="search-history-list"></div>
+          </div>
+          <div class="search-result"></div>
+          <% 
+            const path = url_for(config.search.path)
+            const extname = path ? path.split('.').pop() : 'xml'
+          %>
+          <%- js({ src: 'js/search.js', extname, path, async: true }) %>
+        </div>
+        <% } %>
+        <ul class="nav-list">
+          <% for(key in theme.nav){ %>
+          <li class="nav-list-item">
+            <a href="<%= url_for(theme.nav[key]) %>"><%= key %></a>
+          </li>
+          <% } %>
+        </ul>
+        <div class="sidebar-nav" tabindex="-1">
+          <%- partial('_assets/svg/menu', { className: 'sidebar-nav-btn' }) %>
+          <div class="mask" tabindex="-1"></div>
+          <ul class="nav-list">
+            <% for(key in theme.nav){ %>
+            <li class="nav-list-item">
+              <a href="<%= url_for(theme.nav[key]) %>"><%= key %></a>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

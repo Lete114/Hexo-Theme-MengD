@@ -1,5 +1,5 @@
 ---
-abbrlink: 'no-title'
+abbrlink: 0
 date: 2013-12-25 22:57:49
 tags:
 ---

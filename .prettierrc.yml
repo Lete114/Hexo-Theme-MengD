@@ -1,9 +1,8 @@
-# .prettierrc or .prettierrc.yaml
-trailingComma: none # 对象或数组最后是否添加逗号 es5|none|all
-tabWidth: 2 # 缩进
-printWidth: 160 # 多少个字符后换行
-semi: false # 结尾处是否添加分号
-singleQuote: true # 是否使用单引号
+trailingComma: none # Whether to add a comma at the end of an object or array es5|none|all
+tabWidth: 2 # indent
+printWidth: 120 # Line feed after 120 characters
+semi: false # Whether to add a semicolon at the end
+singleQuote: true # Whether to use single quotes
 # always：(x) => x
 # avoid：x => x
-arrowParens: always # 箭头函数在只有一个参数时
+arrowParens: always # Arrow functions with only one argument

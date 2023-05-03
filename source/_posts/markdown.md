@@ -3,7 +3,7 @@ title: Markdown Style test
 tags:
   - Foo
   - Bar
-abbrlink: Markdown-Style-test
+abbrlink: 20107
 date: 2018-07-24 23:31:06
 ---
 
@@ -143,7 +143,7 @@ And more text.
 <dl>
     <dt>Definition list</dt>
     <dd>Is something people use sometimes.</dd>
-    
+
     <dt>Markdown in HTML</dt>
     <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
 </dl>

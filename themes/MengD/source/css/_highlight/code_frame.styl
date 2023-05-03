@@ -1,61 +1,88 @@
-@require 'theme'
+@require 'theme';
 
-/* 代码框 */
+figure.highlight pre {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  background-color: $highlight-background;
+  color: $highlight-foreground;
+}
 
-figure.highlight pre
-  padding-right 0.5rem
-  padding-left 0.5rem
-  background-color var(--code-bg)
-  color $highlight-foreground
-  font-family $fontCode
+figure.highlight {
+  overflow-y: hidden;
+  padding: 0;
+  margin: 2rem 1rem;
+  background: $highlight-background;
+  color: #eff;
+  line-height: 1.6;
+  position: relative;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
 
-figure.highlight
-  overflow-y hidden
-  padding 0
-  background var(--code-bg)
-  color #eff
-  line-height 1.6
-  position relative
-  box-shadow 0 0 5px 0 rgba(0, 0, 0, 0.4)
-  border-radius 10px
-  margin-bottom 20px
-  margin-top 10px
+  .gutter {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
-.code-block
-  height 38px
-  position sticky
-  overflow hidden
-  left 0
+  &:hover .copy-code {
+    opacity: 1;
+  }
+}
 
-  &::before
-    content attr(lang)
-    height 38px
-    line-height 38px
-    background var(--code-wrap-bg)
-    color $highlight-foreground
-    font-size 1rem
-    position absolute
-    top 0
-    left 0
-    width 100%
-    font-weight bold
-    padding 0px 16px
+.code-block-header {
+  height: 38px;
+  position: sticky;
+  padding: 0 1rem;
+  font-size: 1rem;
+  overflow: hidden;
+  left: 0;
+  color: $highlight-foreground;
+  background: $codeBlock;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
-    if (hexo-config('highlightTheme') == mac || hexo-config('highlightTheme') == 'mac light')
-      padding 0px 70px
-      text-indent 15px
-      float left
+  .copy-code {
+    position: absolute;
+    right: 1rem;
+    height: 38px;
+    opacity: 0;
+    cursor: pointer;
+    line-height: 38px;
+    transition: 0.3s;
+  }
 
-  if (hexo-config('highlightTheme') == mac || hexo-config('highlightTheme') == 'mac light')
-    &::after
-      content ' '
-      position absolute
-      border-radius 50%
-      background #fc625d
-      width 12px
-      height 12px
-      top 0
-      left 20px
-      margin-top 13px
-      box-shadow 20px 0px #fdbc40, 40px 0px #35cd4b
-      z-index 3
+  &::before {
+    content: attr(lang);
+    position: absolute;
+    top: 50%;
+    font-weight: bold;
+    transform: translateY(-50%);
+
+    if ($highlightTheme == mac || $highlightTheme == 'mac light') {
+      padding: 0px 70px;
+    }
+  }
+
+  if ($highlightTheme == mac || $highlightTheme == 'mac light') {
+    &::after {
+      content: ' ';
+      position: absolute;
+      border-radius: 50%;
+      background: #fc625d;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 20px;
+      margin-top: 13px;
+      box-shadow: 20px 0px #fdbc40, 40px 0px #35cd4b;
+      z-index: 3;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 ---
 title: Hello World
-abbrlink: Hello-World
+abbrlink: 16107
 date: 2013-12-24 17:49:32
 tags:
 ---

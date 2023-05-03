@@ -1,58 +1,30 @@
-# enable: 开启/关闭 推送
-# count: 每次提交最新的10篇文章
-hexo_seo_autopush:
-  baidu:
+minify:
+  js:
     enable: true
-    count: 100
-  bing:
-    enable: false
-    count: 100
-  google:
-    enable: false
-    count: 100
-    google_file: google_service_account.json # 谷歌服务账户
-
-server:
-  port: 4000
-
-hash:
-  lazy: data-src
-
-# minify:
-#   js:
-#     enable: false
-#   html:
-#     enbale: false
+    sourceMap:
+      enable: true
+      sourceMappingURL: true
 
 search:
   path: search.json
-  field: post
-  content: true
 
 # Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: MengD(萌典)
-subtitle: '一个简洁、轻量的Hexo主题'
-description: '一个简洁、轻量的Hexo主题'
-keywords: 一个简洁、轻量的Hexo主题
-author: MengD
-language: zh-CN
+title: MengD
+subtitle:
+description: A clean and lightweight Hexo theme
+keywords:
+author: Lete114
+language:
 timezone: ''
 
 # URL
-permalink: article/:abbrlink.html
-abbrlink:
-  alg: crc32 # 算法：crc16(default) and crc32
-  rep: hex # 进制：dec(default) and hex
-
-# URL
-## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
+## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://mengd.js.org
-root: /
-#permalink: :year/:month/:day/:title/
+permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -93,15 +65,6 @@ prismjs:
   preprocess: true
   line_number: true
   tab_replace: ''
-
-# stylus:
-#   compress: false
-#   sourcemaps:
-#     comment: false
-#     inline: false
-#     sourceRoot: ''
-#     basePath: .
-#   plugins: 'nib'
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -144,11 +107,9 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-# theme: landscape
 theme: MengD
 
 # Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: git
-  repo: https://github.com/lete114/hexo-theme-MengD.git
-  branch: gh-pages
+  type: ''

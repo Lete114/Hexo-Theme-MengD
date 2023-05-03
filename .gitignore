@@ -3,6 +3,6 @@ Thumbs.db
 db.json
 *.log
 node_modules/
+public/
 .deploy*/
-public
-yarn.lock
+_multiconfig.yml

@@ -1,26 +1,22 @@
 <!DOCTYPE html>
+<%- partial('_partial/head') %>
 <html>
-<head>
-    <%- partial('_global/head') %>
-</head>
 
 <body>
-    <%- partial('_global/import_bodyBefore') %> 
-    <%- partial('_global/config') %>
-    <%- partial('_partial/third_party/analytics') %>
-    <div id="body-wrap">
-        <%- partial('_global/nav') %>
-        <%- partial('_global/header') %>
-        <main id="main">
-            <%- body %>
-        </main>
-    </div>
-    <%- partial('_partial/rightside') %>
-    <%- partial('_global/footer') %>
-    <div id="mask" onclick="closeAll()"></div>
-    <%- partial('_global/search') %>
-    <script src="<%= url_for(theme.CDN.mainJs) %>"></script>
-    <%- partial('_global/import_bodyAfter') %>
+  <div class="container">
+    <%- partial('_partial/header') %>
+    <main class="main-block-wrap">
+      <div class="main-block">
+        <% if(!is_home()){ %>
+        <h1 class="page-title"><%= page.title || _p('post.title') %></h1>
+        <% } %>
+        <%- body %>
+      </div>
+      <%- partial('_partial/aside') %>
+    </main>
+    <%- partial('_partial/pagination') %>
+    <%- partial('_partial/footer') %>
+  </div>
 </body>
 
 </html>

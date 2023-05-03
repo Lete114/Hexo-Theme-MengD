@@ -1,28 +1,3 @@
-
 @import 'theme'
 @import 'diff'
 @import 'code_frame'
-
-.show-btn
-    position sticky
-    cursor pointer
-    left 0
-    bottom 0
-    width 100%
-    height 2rem
-    text-align center
-    color #fff
-    background-image linear-gradient(transparent 0, $highlight-background 80%)
-    z-index 1
-
-    i
-        display flex
-        animation UpDown 0.8s infinite alternate
-        justify-content center
-
-@keyframes UpDown
-    from
-        transform translate(0, 0)
-
-    to
-        transform translate(0, 6px)
