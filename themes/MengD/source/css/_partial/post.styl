@@ -24,7 +24,7 @@
             line-height: 2rem;
         }
 
-        .article-metas {
+        .article-meta-list {
             display: flex;
             font-size: 1.167rem;
             color: #8a919f;
@@ -34,6 +34,10 @@
 
         time {
             letter-spacing: 1px;
+        }
+
+        .article-meta-item-wrap {
+            display: flex;
         }
 
         .article-meta-item {
@@ -101,6 +105,16 @@
         fill: #ff5724;
         margin-top: calc(((var(--size) - 1.6rem) / 2));
         margin-left: calc(((var(--size) - 1.6rem) / 2));
+    }
+}
+
+@media (max-width: 500px) {
+    .article-info .article-meta .article-meta-list {
+        flex-direction: column;
+    }
+
+    .article-info .article-meta .article-meta-item:first-child {
+        margin: 0;
     }
 }
 

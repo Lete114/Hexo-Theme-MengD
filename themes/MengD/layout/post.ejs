@@ -5,24 +5,26 @@
     <% } %>
     <div class="article-meta">
       <div class="author-name"><%= config.author %></div>
-      <div class="article-metas">
+      <div class="article-meta-list">
         <% const articleDate = full_date(page.date, `${config.date_format} ${config.time_format}`) %>
         <time datetime="<%= articleDate %>" title="<%= articleDate %>" class="time">
           <%= articleDate %>
         </time>
         <% if(theme.wordcount.enable){ %>
-        <% if(theme.wordcount.wordcount){ %>
-        <div class="article-meta-item">
-          <%- partial('_assets/svg/word', { className: 'word-icon' }) %>
-          <span><%= wordcount(page.content) %></span>
+        <div class="article-meta-item-wrap">
+          <% if(theme.wordcount.wordcount){ %>
+          <div class="article-meta-item">
+            <%- partial('_assets/svg/word', { className: 'word-icon' }) %>
+            <span><%= wordcount(page.content) %></span>
+          </div>
+          <% } %>
+          <% if(theme.wordcount.min2read){ %>
+          <div class="article-meta-item">
+            <%- partial('_assets/svg/time', { className: 'time-icon' }) %>
+            <span><%= min2read(page.content) + 'min' %></span>
+          </div>
+          <% } %>
         </div>
-        <% } %>
-        <% if(theme.wordcount.min2read){ %>
-        <div class="article-meta-item">
-          <%- partial('_assets/svg/time', { className: 'time-icon' }) %>
-          <span><%= min2read(page.content) + 'min' %></span>
-        </div>
-        <% } %>
         <% } %>
       </div>
     </div>
