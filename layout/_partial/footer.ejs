@@ -1,0 +1,25 @@
+<% 
+const now = new Date().getFullYear();
+const since = theme.footer.since === now ? theme.footer.since : `${theme.footer.since} - ${now}`
+
+const custom = theme.footer.custom || config.subtitle
+%>
+
+<footer class="footer main-block-wrap">
+  <div class="main-block">
+    <div class="copyright">
+      &copy; <%= since %>
+      <%= config.author %>
+    </div>
+    <div class="framework-info">
+      <span><%= _p('footer.framework') %></span>
+      <a href="https://hexo.io" target="_blank">Hexo</a>
+      <span class="footer-separator">|</span>
+      <span><%= _p('footer.theme') %></span>
+      <a href="https://github.com/Lete114/hexo-theme-MengD" target="_blank">MengD</a>
+    </div>
+    <% if(custom){ %>
+    <div class="custom"><%- custom %></div>
+    <% } %>
+  </div>
+</footer>

@@ -1,44 +1,41 @@
-<div id="post-list">
-  <h1 class="display-none"><%=config.title%></h1>
-  <% page.posts.each(function (post) { %>
-  <% var title = post.title || __('post.title') %>
-  <div class="post-item">
-    <div class="post-item-info">
-      <a class="post-title" href="<%= url_for(post.path) %>" title="<%= title %>">
-        <% if (post.sticky) { %>
-        <% 
-          const stick =  theme.stick.text || __('post.stick')
-         %>
-        <span class="stick"><%- stick %></span><%= title %>
-        <% }else{ %>
-        <%= title %>
-        <% } %>
-      </a>
-      <div class="post-description">
-        <% 
-            var description
-            if (post.description) description = post.description
-            else{
-                // 先移除多余得空格和换行符，以及代码块的行号
-                description = post.content.replace(/\<td class=\"gutter\">\<pre>(.*?)\<\/pre>\<\/td>/gim,'')
-                description = description.replace(/[\n]|[\r\n]|[\s]/gim,'')
-                // 然后移除html标签
-                description = strip_html(description)
-                // 最后分割，获取指定内容
-                description = truncate(description,{length: theme.description.length })
-            }
-        %>
-        <%= description %>
-      </div>
-      <div class="post-meta-wrap">
-        <span class="post-meta-date">
-          <i class="far fa-calendar-alt"></i>
-          <span> <%= date(post.date, "YYYY-MM-DD" ).replace(/-/g,'.') %></span>
-        </span>
+<ul class="post-list">
+  <% page.posts.forEach(function (post) { %>
+  <li class="post-item">
+    <div class="post-meta">
+      <div class="post-date"><%= date(post.date, "YYYY.MM.DD" ) %></div>
+      <div class="post-tag">
+        <% post.tags.forEach(function(tag, i){ %>
+        <a href="<%= url_for(tag.path) %>" class="post-tag-item"><%= tag.name %></a>
+        <% }) %>
       </div>
     </div>
+    <div class="post-content-wrap">
+      <div class="post-content">
+        <% var title = post.title || _p('post.title') %>
+        <a href="<%= url_for(post.link || post.path) %>" class="post-title" <%= post.link ? 'target="_blank"' : '' %>><%= title %></a>
+        <a href="<%= url_for(post.path) %>" class="post-abstract"><%= getAbstract(post, theme.post.abstract) %></a>
+        <ul class="post-action-list">
+          <% if(theme.wordcount.enable){ %>
+          <% if(theme.wordcount.wordcount){ %>
+          <li class="post-action-item post-word">
+            <%- partial('_assets/svg/word', { className: 'word-icon' }) %>
+            <span><%= wordcount(post.content) %></span>
+          </li>
+          <% } %>
+          <% if(theme.wordcount.min2read){ %>
+          <li class="post-action-item post-time">
+            <%- partial('_assets/svg/time', { className: 'time-icon' }) %>
+            <span><%= min2read(post.content) + 'min' %></span>
+          </li>
+          <% } %>
+          <% } %>
+        </ul>
+      </div>
 
-  </div>
+      <% if(post.cover){ %>
+      <img class="post-cover" src="<%= post.cover %>" />
+      <% } %>
+    </div>
+  </li>
   <% }) %>
-  <%- partial('_partial/pagination') %>
-</div>
+</ul>

@@ -1,0 +1,115 @@
+@import '_partial/color';
+
+@font-face {
+    font-family: Emoji;
+    src: local('Apple Color Emojiji'), local('Segoe UI Emoji'), local('Segoe UI Symbol'), local('Noto Color Emoji');
+    unicode-range: U+1F000-1F644, U+203C-3299;
+}
+
+html, body {
+    font-size: 12px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: unset !important;
+    // font-family: -apple-system, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial !important;
+    font-family: system-ui, -apple-system, Segoe UI, Rototo, Emoji, Helvetica, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    color: var(--main-color-text);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    line-height: normal;
+    word-break: break-word;
+    background: var(--main-color-bg);
+}
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--font-color-3);
+    position: relative;
+}
+
+a, button, input {
+    margin: initial;
+}
+
+img {
+    border-style: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.user-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+.main-block-wrap {
+    margin-top: 1.66rem;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+
+    .main-block {
+        width: 54rem;
+        padding: 2.667rem 1.66rem;
+        overflow: hidden;
+        background: var(--main-color);
+        border-radius: 4px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .main-block-wrap {
+        .main-block {
+            width: 95vw;
+            margin: 0 1rem;
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: none;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color);
+    outline: none;
+    border-radius: 2px;
+}
+
+@import '_partial/header';
+@import '_partial/main';
+@import '_partial/home';
+@import '_partial/post';
+@import '_partial/aside';
+@import '_partial/pagination';
+@import '_partial/footer';

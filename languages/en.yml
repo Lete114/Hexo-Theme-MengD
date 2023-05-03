@@ -1,36 +1,15 @@
+header:
+  search:
+    post: Search for articles
+    history: Search for History
+    clear: Clear
+
 post:
-  title: Not Title
-  created: Created
-  updated: Updated
-  wordcount: Word Count
-  min2read: Reading time
-  min2readUnit: min
-  visitors: Visitors
+  title: No Title
+  tags: Tags
+  categories: Categories
   toc: Catalog
-  stick: Stick
-
-page:
-  error: BackHome
-
-search:
-  title: Local Search
-  input: Search the article
-
-rightside:
-  directComments: Direct comments
-  backToTop: Back To Top
-  settings: Settings
-  dark: Dark/Light
-
-copyright:
-  author: Authorship
-  articleUrl: Article Links
-  notice: Copyright
-
-comments: Comments
 
 footer:
   framework: Framework
   theme: Theme
-
-articleCount: Article Overview

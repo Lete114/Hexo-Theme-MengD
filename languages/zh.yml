@@ -1,0 +1,15 @@
+header:
+  search:
+    post: 搜索文章
+    history: 搜索历史
+    clear: 清空
+
+post:
+  title: 无标题
+  tags: 标签
+  categories: 分类
+  toc: 目录
+
+footer:
+  framework: 框架
+  theme: 主题
