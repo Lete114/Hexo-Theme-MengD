@@ -9,6 +9,10 @@ post:
   tags: 标签
   categories: 分类
   toc: 目录
+  copyright:
+    author: 作者
+    article_link: 文章链接
+    copyright: 版权声明
 
 footer:
   framework: 框架

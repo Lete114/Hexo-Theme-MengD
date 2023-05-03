@@ -1,0 +1,29 @@
+if (hexo-config('post.copyright.enable')) {
+    .post-copyright {
+        --color: #e58a8a;
+        margin: 20px 0;
+        position: relative;
+        padding: 0.5rem 0.8rem;
+        border-radius: 10px;
+        border-left: 3px solid var(--color);
+        border-right: 3px solid var(--color);
+        box-shadow: 0 0px 2px 0px rgba(0, 0, 0, 0.4);
+
+        div {
+            line-height: 28px;
+            word-break: break-all;
+        }
+
+        .copyright-icon {
+            position: absolute;
+            width: 1rem;
+            right: 0.6rem;
+            fill: var(--color);
+        }
+
+        .post-copyright-meta {
+            color: var(--color);
+            font-weight: 700;
+        }
+    }
+}

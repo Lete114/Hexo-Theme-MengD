@@ -9,6 +9,10 @@ post:
   tags: Tags
   categories: Categories
   toc: Catalog
+  copyright:
+    author: Authorship
+    article_link: Article Link
+    copyright: Copyright
 
 footer:
   framework: Framework

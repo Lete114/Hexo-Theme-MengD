@@ -29,6 +29,18 @@ post:
   abstract: 200
   # The default is the `date_format` and `time_format` fields in the hexo configuration file (_config.yml)
   date_format: # YYYY-MM-DD HH:mm:ss
+  copyright:
+    enable: true
+    # The default is the `title` fields in the hexo configuration file (_config.yml)
+    title:
+    # The default is the `author` fields in the hexo configuration file (_config.yml)
+    author:
+    # The default is the `url` fields in the hexo configuration file (_config.yml)
+    # You can also write as email: mailto:xxx@gmail.com
+    url: 
+    licenses: CC BY-NC-SA 4.0
+    licenses_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+    description: All posts on this blog are licensed under the ${licenses} license unless otherwise stated. Please cite ${title} !
 
 open_graph:
   enable: true
