@@ -46,6 +46,15 @@
       ]
     },
     {
+      "source": "search.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, s-maxage=86400, max-age=86400"
+        }
+      ]
+    },
+    {
       "source": "(.*).json",
       "headers": [
         {
