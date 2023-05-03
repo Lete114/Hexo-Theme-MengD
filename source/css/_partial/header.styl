@@ -7,8 +7,6 @@ header {
         top: 0;
         left: 0;
         right: 0;
-        transition: all 0.2s;
-        transform: translate3d(0, -100%, 0);
         background: var(--main-color);
         border-bottom: 1px solid var(--main-color-border);
 
@@ -138,15 +136,11 @@ header {
             display: none;
         }
 
-        &.visible {
-            transform: translateZ(0);
-        }
-
         .container {
-            margin: auto 2rem;
             display: flex;
             align-items: center;
             height: 5rem;
+            padding: 0 2rem;
             max-width: 1440px;
 
             nav {
@@ -169,9 +163,8 @@ header {
                     > * {
                         color: var(--font-color-2);
                         position: relative;
-                        padding: 0 1rem;
+                        padding-left: 1rem;
                         line-height: 5rem;
-                        // height: 5rem;
                     }
 
                     a {
@@ -187,7 +180,7 @@ header {
     header {
         .container-wrap {
             .container {
-                margin: auto 1rem;
+                padding: 0 1rem;
 
                 .nav-list {
                     .nav-list-item {
