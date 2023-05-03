@@ -65,12 +65,12 @@ figure.highlight {
     font-weight: bold;
     transform: translateY(-50%);
 
-    if (hexo-config('highlightTheme') == mac || hexo-config('highlightTheme') == 'mac light') {
+    if ($highlightTheme == mac || $highlightTheme == 'mac light') {
       padding: 0px 70px;
     }
   }
 
-  if (hexo-config('highlightTheme') == mac || hexo-config('highlightTheme') == 'mac light') {
+  if ($highlightTheme == mac || $highlightTheme == 'mac light') {
     &::after {
       content: ' ';
       position: absolute;

@@ -47,7 +47,7 @@ open_graph:
   options: # config: https://hexo.io/docs/helpers#open-graph
 
 # Code blocks theme
-highlightTheme: default # default / darker / pale night / light / ocean / mac / mac light
+highlight_theme: default # default / darker / pale night / light / ocean / mac / mac light
 
 footer:
   since: 2020
