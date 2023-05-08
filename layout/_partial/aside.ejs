@@ -13,6 +13,18 @@
   </div>
   <% } else { %>
 
+  <% 
+    const before = Array.isArray(theme.aside.before) ? theme.aside.before : []
+    const after = Array.isArray(theme.aside.after) ? theme.aside.after : []
+  %>
+
+  <%# custom aside before %>
+  <% for (item of before){ %>
+  <div class="sidebar-block sidebar-custom">
+    <%- item %>
+  </div>
+  <% } %>
+
   <%# categories %>
   <% if(site.categories.data.length){%>
   <div class="sidebar-block categories-wrap">
@@ -44,6 +56,11 @@
   </div>
   <% } %>
 
-  <div class="aside-footer"></div>
+  <%# custom aside after %>
+  <% for (item of after){ %>
+  <div class="sidebar-block sidebar-custom">
+    <%- item %>
+  </div>
+  <% } %>
   <% } %>
 </aside>
