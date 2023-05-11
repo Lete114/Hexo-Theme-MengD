@@ -34,8 +34,8 @@
     const categories = page.categories.data
     const tags = page.tags.data
   %>
-  <% if(categories.length || tags.length){ %>
   <div class="article-end">
+    <% if(categories.length || tags.length){ %>
     <div class="article-meta">
       <% if(categories.length){ %>
       <div class="article-categories">
@@ -58,7 +58,7 @@
       </div>
       <% } %>
     </div>
+    <% } %>
     <%- partial('_partial/copyright') %>
   </div>
-  <% } %>
 </article>
