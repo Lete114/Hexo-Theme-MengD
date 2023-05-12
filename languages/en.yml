@@ -4,6 +4,9 @@ header:
     history: Search for History
     clear: Clear
 
+aside:
+  link: Links
+
 post:
   title: No Title
   tags: Tags
