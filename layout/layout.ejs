@@ -3,6 +3,7 @@
 <html>
 
 <body>
+  <%- partial('_partial/import', { resource: theme.import.body.before }) %>
   <div class="container">
     <%- partial('_partial/header') %>
     <main class="main-block-wrap">
@@ -17,6 +18,7 @@
     <%- partial('_partial/pagination') %>
     <%- partial('_partial/footer') %>
   </div>
+  <%- partial('_partial/import', { resource: theme.import.body.after }) %>
 </body>
 
 </html>
