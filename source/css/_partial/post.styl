@@ -60,6 +60,10 @@
     overflow-x: hidden;
 }
 
+.toc-wrap.sidebar-block .sidebar-body {
+    max-height: unset;
+}
+
 .toc-wrap {
     .toc-list {
         overflow-y: auto;
@@ -119,11 +123,14 @@
         display: block;
     }
 
-    .toc-wrap {
+    .toc-wrap.sidebar-block {
+        display: block;
         z-index: 1;
         width: 0;
         height: 0;
         margin: 0 6rem 0 -6rem;
+        position: fixed;
+        right: -4rem;
 
         .toc-title, .sidebar-body {
             opacity: 0;

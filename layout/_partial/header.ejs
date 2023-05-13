@@ -36,6 +36,9 @@
           <%- js({ src: 'js/search.js', extname, path, async: true }) %>
         </div>
         <% } %>
+        
+        <%# navigation bar links %>
+        <% if(theme.nav){ %>
         <ul class="nav-list">
           <% for(const key in theme.nav){ %>
           <li class="nav-list-item">
@@ -54,6 +57,7 @@
             <% } %>
           </ul>
         </div>
+        <% } %>
       </nav>
     </div>
   </div>
