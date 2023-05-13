@@ -9,6 +9,27 @@ logo:
 nav:
   Home: /
 
+# custom aside
+aside:
+  # support html
+  before:
+    # - 123
+    # - 456
+  after:
+    # - 789
+    # - 0
+
+# custom improt resouces
+import:
+  # reference `custom aside` config
+  # support html
+  head:
+    before:
+    after:
+  body:
+    before:
+    after:
+
 # local search
 # required: npm install hexo-generator-search
 search: true
@@ -37,7 +58,7 @@ post:
     author:
     # The default is the `url` fields in the hexo configuration file (_config.yml)
     # You can also write as email: mailto:xxx@gmail.com
-    url: 
+    url:
     licenses: CC BY-NC-SA 4.0
     licenses_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
     description: All posts on this blog are licensed under the ${licenses} license unless otherwise stated. Please cite ${title} !

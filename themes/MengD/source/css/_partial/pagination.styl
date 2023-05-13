@@ -1,43 +1,44 @@
-.pagination-wrap {
+.pagination {
+    --color: #00c4b6;
+    font-size: 16px;
     margin-top: 1.66rem;
     display: flex;
-    position: relative;
-    flex-direction: row;
+    background: var(--main-color);
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
 
-    .pagination {
-        --color: #00c4b6;
-        font-size: 16px;
-        padding: 1rem 1.66rem;
-        display: flex;
+    .page-number.current {
+        color: #fff;
+        background: var(--color);
+    }
+
+    .page-number {
+        --size: 1.2em;
+        display: inline-block;
+        margin: 0 0.2em;
+        width: var(--size);
+        height: var(--size);
+        color: var(--color);
+        text-align: center;
+        line-height: var(--size);
+    }
+
+    .prev, .next {
+        color: var(--color);
+        display: inline-flex;
         align-items: center;
-        justify-content: center;
+    }
 
-        .page-number.current {
-            color: #fff;
-            background: var(--color);
-        }
+    svg {
+        --size: 1.3em;
+        width: var(--size);
+        height: var(--size);
+    }
+}
 
-        .page-number {
-            --size: 1.2em;
-            display: inline-block;
-            margin: 0 0.2em;
-            width: var(--size);
-            height: var(--size);
-            color: var(--color);
-            text-align: center;
-            line-height: var(--size);
-        }
-
-        .prev, .next {
-            color: var(--color);
-            display: inline-flex;
-            align-items: center;
-        }
-
-        svg {
-            --size: 1.3em;
-            width: var(--size);
-            height: var(--size);
-        }
+@media (max-width: 1000px) {
+    .pagination {
+        width: unset;
     }
 }

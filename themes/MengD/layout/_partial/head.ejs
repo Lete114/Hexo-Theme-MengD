@@ -1,4 +1,5 @@
 <head>
+  <%- partial('_partial/import', { resource: theme.import.head.before }) %>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
   <% const title = page.title ? `${page.title} | ${config.title}` : config.title %>
@@ -11,4 +12,5 @@
   <%- js({ src: 'js/image-preview.js', defer: true }) %>
   <% } %>
   <%- js({ src: 'js/main.js', defer: true }) %>
+  <%- partial('_partial/import', { resource: theme.import.head.after }) %>
 </head>

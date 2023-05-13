@@ -34,13 +34,13 @@
     const categories = page.categories.data
     const tags = page.tags.data
   %>
-  <% if(categories.length || tags.length){ %>
   <div class="article-end">
+    <% if(categories.length || tags.length){ %>
     <div class="article-meta">
       <% if(categories.length){ %>
       <div class="article-categories">
         <div class="article-categories-name"><%= _p('post.categories') %>: </div>
-        <% for (item of categories) {%>
+        <% for (const item of categories) {%>
         <a class="article-categories-item" href="<%= url_for(item.path) %>">
           <%= item.name %>
         </a>
@@ -50,7 +50,7 @@
       <% if(tags.length){ %>
       <div class="article-tags">
         <div class="article-tags-name"><%= _p('post.tags') %>: </div>
-        <% for (item of tags) {%>
+        <% for (const item of tags) {%>
         <a class="article-tags-item" href="<%= url_for(item.path) %>">
           <%= item.name %>
         </a>
@@ -58,7 +58,7 @@
       </div>
       <% } %>
     </div>
+    <% } %>
     <%- partial('_partial/copyright') %>
   </div>
-  <% } %>
 </article>

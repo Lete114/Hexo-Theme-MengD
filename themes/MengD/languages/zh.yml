@@ -4,6 +4,9 @@ header:
     history: 搜索历史
     clear: 清空
 
+aside:
+  link: 友链
+
 post:
   title: 无标题
   tags: 标签

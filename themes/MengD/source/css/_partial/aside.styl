@@ -1,9 +1,10 @@
 aside {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
     width: 21.66rem;
+    margin-left: 1rem;
+
+    .sidebar-custom {
+        padding: 1.333rem;
+    }
 
     .sidebar-block {
         background: var(--main-color);
@@ -28,7 +29,35 @@ aside {
         }
 
         .sidebar-body {
+            position: relative;
             padding: 1.3rem 1.667rem;
+            max-height: 30rem;
+            overflow: auto;
+
+            li {
+                padding: 4px 0;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .categories-link, .link-link {
+                &:hover {
+                    transition: all 0.2s;
+                    padding: 0 4px;
+                    color: var(--main-color-hover);
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        width: 4px;
+                        height: 16px;
+                        background: var(--main-color-hover);
+                        border-radius: 0 4px 4px 0;
+                    }
+                }
+            }
         }
     }
 
@@ -41,29 +70,6 @@ aside {
         .categories-link {
             display: flex;
             justify-content: space-between;
-            padding: 4px 0;
-            transition: all 0.4s;
-
-            &:hover {
-                color: var(--main-color-hover);
-                padding: 4px;
-
-                &::before {
-                    content: '';
-                    position: absolute;
-                    left: -1.667rem;
-                    width: 4px;
-                    height: 16px;
-                    background: var(--main-color-hover);
-                    border-radius: 0 4px 4px 0;
-                }
-            }
-        }
-
-        .categories-name {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
         }
     }
 
@@ -71,13 +77,24 @@ aside {
         a {
             padding: 0 4px;
             display: inline-block;
+
+            &:hover {
+                color: var(--main-color-hover) !important;
+                transition: all 0.6s;
+                transform: scale(1.2);
+            }
         }
+    }
+
+    .link-wrap {
+        position: relative;
     }
 }
 
 @media (max-width: 1000px) {
     aside {
         width: 0;
+        margin: 0;
 
         &:focus-within {
             width: inherit;
