@@ -1,9 +1,6 @@
 aside {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
     width: 21.66rem;
+    margin-left: 1rem;
 
     .sidebar-custom {
         padding: 1.333rem;
@@ -32,21 +29,23 @@ aside {
         }
 
         .sidebar-body {
+            position: relative;
             padding: 1.3rem 1.667rem;
+            max-height: 30rem;
+            overflow: auto;
 
             li {
                 padding: 4px 0;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
-                transition: all 0.2s;
+            }
 
+            .categories-link, .link-link {
                 &:hover {
-                    padding: 4px;
-
-                    & a {
-                        color: var(--main-color-hover);
-                    }
+                    transition: all 0.2s;
+                    padding: 0 4px;
+                    color: var(--main-color-hover);
 
                     &::before {
                         content: '';
@@ -86,11 +85,16 @@ aside {
             }
         }
     }
+
+    .link-wrap {
+        position: relative;
+    }
 }
 
 @media (max-width: 1000px) {
     aside {
         width: 0;
+        margin: 0;
 
         &:focus-within {
             width: inherit;

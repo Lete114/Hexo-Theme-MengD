@@ -19,19 +19,20 @@
   %>
 
   <%# custom aside before %>
-  <% for (item of before){ %>
+  <% for (const item of before){ %>
   <div class="sidebar-block sidebar-custom">
     <%- item %>
   </div>
   <% } %>
 
   <%# categories %>
-  <% if(Array.isArray(site.categories.data)){%>
+  <% const categories = site.categories.data %>
+  <% if(Array.isArray(categories) && categories.length){%>
   <div class="sidebar-block categories-wrap">
     <div class="sidebar-title categories-title"><%= _p('post.categories') %></div>
     <div class="sidebar-body">
       <ul class="categories-list">
-        <% for(const item of site.categories.data) { %>
+        <% for(const item of categories) { %>
         <li class="categories-item">
           <a class="categories-link" href="<%= url_for(item.path) %>">
             <div class="categories-name"><%= item.name %></div>
@@ -45,23 +46,26 @@
   <% } %>
 
   <%# tags %>
-  <% if(Array.isArray(site.tags.data)){%>
+  <% const tags = site.tags.data %>
+  <% if(Array.isArray(tags) && tags.length){ %>
   <div class="sidebar-block tags-wrap">
     <div class="sidebar-title tags-title"><%= _p('post.tags') %></div>
     <div class="sidebar-body">
-      <% for(const item of site.tags.data) { %>
+      <% for(const item of tags) { %>
       <a href="<%= url_for(item.path) %>" style="<%= color_tag_cloud() %>"><%= item.name %></a>
       <% } %>
     </div>
   </div>
   <% } %>
 
-  <% if(Array.isArray(site.data.link)){ %>
+  <%# links %>
+  <% const links = site.data.link %>
+  <% if(Array.isArray(links) && links.length){ %>
   <div class="sidebar-block link-wrap">
     <div class="sidebar-title"><%= _p('aside.link') %></div>
     <div class="sidebar-body">
       <ul class="link-list">
-        <% for(const item of site.data.link) { %>
+        <% for(const item of links) { %>
         <% const [name, link] = Object.entries(item).flat() %>
         <li class="link-item">
           <a class="link-link" href="<%= link %>" target="_blank"><%= name %></a>

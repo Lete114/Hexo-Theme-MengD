@@ -6,15 +6,15 @@
   <%- partial('_partial/import', { resource: theme.import.body.before }) %>
   <div class="container">
     <%- partial('_partial/header') %>
-    <main class="main-block-wrap">
-      <div class="main-block">
-        <% if(!is_home()){ %>
+    <div class="main-wrap">
+      <main class="main-width">
+        <% if(is_page() || is_post()){ %>
         <h1 class="page-title"><%= page.title || _p('post.title') %></h1>
         <% } %>
         <%- body %>
-      </div>
+      </main>
       <%- partial('_partial/aside') %>
-    </main>
+    </div>
     <%- partial('_partial/pagination') %>
     <%- partial('_partial/footer') %>
   </div>

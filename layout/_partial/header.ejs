@@ -1,6 +1,6 @@
 <header class="user-select">
-  <div class="container-wrap">
-    <div class="container">
+  <div class="header-container-wrap">
+    <div class="header-container">
       <% if(theme.logo.html){ %>
       <% if(theme.logo.style){ %>
       <% const style = Object.entries(theme.logo.style).map(([key, value])=>key+':'+value+';').join('') %>
@@ -37,7 +37,7 @@
         </div>
         <% } %>
         <ul class="nav-list">
-          <% for(key in theme.nav){ %>
+          <% for(const key in theme.nav){ %>
           <li class="nav-list-item">
             <a href="<%= url_for(theme.nav[key]) %>"><%= key %></a>
           </li>
@@ -47,7 +47,7 @@
           <%- partial('_assets/svg/menu', { className: 'sidebar-nav-btn' }) %>
           <div class="mask" tabindex="-1"></div>
           <ul class="nav-list">
-            <% for(key in theme.nav){ %>
+            <% for(const key in theme.nav){ %>
             <li class="nav-list-item">
               <a href="<%= url_for(theme.nav[key]) %>"><%= key %></a>
             </li>
