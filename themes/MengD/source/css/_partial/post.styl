@@ -5,10 +5,10 @@
 
     .avatar {
         flex: 0 0 auto;
-        margin-right: 1rem;
+        margin-right: 1rem !important;
         width: 3.333rem;
         height: 3.333rem;
-        border-radius: 50%;
+        border-radius: 50% !important;
     }
 
     .article-meta {
@@ -58,10 +58,10 @@
     font-weight: 400;
     font-size: 16px;
     overflow-x: hidden;
+}
 
-    img {
-        border-radius: 4px;
-    }
+.toc-wrap.sidebar-block .sidebar-body {
+    max-height: unset;
 }
 
 .toc-wrap {
@@ -123,11 +123,16 @@
         display: block;
     }
 
-    .toc-wrap {
+    .toc-wrap.sidebar-block {
+        display: block;
         z-index: 1;
         width: 0;
         height: 0;
         margin: 0 6rem 0 -6rem;
+        position: fixed;
+        top: unset;
+        right: -4rem;
+        bottom: 6rem;
 
         .toc-title, .sidebar-body {
             opacity: 0;
