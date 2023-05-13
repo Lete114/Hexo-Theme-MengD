@@ -1,5 +1,6 @@
 aside {
-    width: 21.66rem;
+    --width: 21.66rem;
+    width: var(--width);
     margin-left: 1rem;
 
     .sidebar-custom {
@@ -7,12 +8,13 @@ aside {
     }
 
     .sidebar-block {
-        background: var(--main-color);
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        max-width: var(--width);
         margin-bottom: 1.66rem;
         font-size: 1.16rem;
         line-height: 1.29;
         border-radius: 4px;
+        background: var(--main-color);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
         &:last-of-type {
             margin-bottom: 0;
