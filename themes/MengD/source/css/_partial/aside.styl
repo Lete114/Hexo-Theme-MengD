@@ -1,14 +1,11 @@
 aside {
-    --width: 21.66rem;
-    width: var(--width);
-    margin-left: 1rem;
+    width: 28%;
 
     .sidebar-custom {
         padding: 1.333rem;
     }
 
     .sidebar-block {
-        max-width: var(--width);
         margin-bottom: 1.66rem;
         font-size: 1.16rem;
         line-height: 1.29;
@@ -97,6 +94,10 @@ aside {
     aside {
         width: 0;
         margin: 0;
+
+        .sidebar-block {
+            max-width: 50%;
+        }
 
         &:focus-within {
             width: inherit;

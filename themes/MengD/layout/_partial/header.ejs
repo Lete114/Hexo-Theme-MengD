@@ -29,14 +29,10 @@
             <div class="search-history-list"></div>
           </div>
           <div class="search-result"></div>
-          <% 
-            const path = url_for(config.search.path)
-            const extname = path ? path.split('.').pop() : 'xml'
-          %>
-          <%- js({ src: 'js/search.js', extname, path, async: true }) %>
+          <%- js({ src: 'js/search.js',  path: url_for(config.search.path), defer: true }) %>
         </div>
         <% } %>
-        
+
         <%# navigation bar links %>
         <% if(theme.nav){ %>
         <ul class="nav-list">

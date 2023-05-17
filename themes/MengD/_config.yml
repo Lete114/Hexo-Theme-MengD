@@ -31,8 +31,9 @@ import:
     after:
 
 # local search
-# required: npm install hexo-generator-search
-search: true
+search: 
+  enable: true
+  path: search.json
 
 # wordcount
 # required: npm install hexo-wordcount
