@@ -15,7 +15,7 @@
       </a>
       <% } %>
       <nav>
-        <% if(theme.search && config.search){ %>
+        <% if(theme.search.enable){ %>
         <div class="search" tabindex="-1">
           <input class="search-input" placeholder="<%= _p('header.search.post') %>" type="search" maxlength="64">
           <div class="seach-icon-container">
@@ -29,7 +29,7 @@
             <div class="search-history-list"></div>
           </div>
           <div class="search-result"></div>
-          <%- js({ src: 'js/search.js',  path: url_for(config.search.path), defer: true }) %>
+          <%- js({ src: 'js/search.js',  path: url_for(theme.search.path), defer: true }) %>
         </div>
         <% } %>
 
