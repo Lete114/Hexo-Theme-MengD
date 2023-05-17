@@ -7,7 +7,6 @@
   const $ = (Selector, el) => (el || document).querySelector(Selector)
 
   const currentScript = document.currentScript
-  const extname = currentScript.getAttribute('extname')
   const path = currentScript.getAttribute('path')
   const input = $('.search-input')
   const history = $('.search-history')
@@ -38,26 +37,11 @@
   })
   history_list.appendChild(history_list_cdf)
 
-  let datas = []
-
   const response = await fetch(path)
-
-  if (extname === 'json') datas = await response.json()
-  if (extname === 'xml') {
-    const result = await response.text()
-    const DOM = new window.DOMParser()
-    const data = DOM.parseFromString(result, 'text/xml')
-    datas = Array.from(data.querySelectorAll('entry')).map((item) => {
-      return {
-        title: item.querySelector('title').textContent,
-        content: item.querySelector('content').textContent,
-        url: item.querySelector('url').textContent
-      }
-    })
-  }
+  let datas = await response.json()
 
   input.addEventListener('input', () => {
-    const value = input.value.trim().toLowerCase()
+    const value = input.value.trim()
     var keywords = value.split(/[\s\-]+/)
 
     // Saving performance
@@ -74,7 +58,7 @@
       var isMatch = true
       if (!data.title) data.title = 'No Title'
 
-      var dataTitle = data.title.trim().toLowerCase()
+      var dataTitle = data.title.trim()
       var dataContent = data.content
         .trim()
         .replace(/<[^>]+>/g, '')
@@ -113,8 +97,8 @@
 
           // highlight all keywords
           keywords.forEach((keyword) => {
-            const reg = new RegExp(keyword, 'gi')
-            const key = '<span class="search-keyword">' + keyword + '</span>'
+            const reg = new RegExp(`(${keyword})`, 'gi')
+            const key ='<span class="search-keyword">$1</span>'
             matchContent = matchContent.replace(reg, key)
             dataTitle = dataTitle.replace(reg, key)
           })
