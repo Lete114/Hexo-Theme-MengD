@@ -31,9 +31,14 @@ import:
     after:
 
 # local search
-search: 
+search:
   enable: true
   path: search.json
+
+# image lazy load
+lazyload:
+  enable: true
+  loding: /img/load.gif # image loading placeholder (defaults to 1px base64)
 
 # wordcount
 # required: npm install hexo-wordcount
