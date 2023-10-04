@@ -18,7 +18,7 @@
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-index": "^3.0.0",
     "hexo-generator-tag": "^2.0.0",
-    "hexo-hash": "^1.0.3",
+    "hexo-hash": "^1.0.4",
     "hexo-minify": "^1.8.0",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-marked": "^6.0.0",

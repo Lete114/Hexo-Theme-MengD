@@ -20,8 +20,8 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0
   hexo-hash:
-    specifier: ^1.0.3
-    version: 1.0.3
+    specifier: ^1.0.4
+    version: 1.0.4
   hexo-minify:
     specifier: ^1.8.0
     version: 1.8.0
@@ -584,8 +584,8 @@ packages:
       - bluebird
     dev: false
 
-  /cache-hash@1.0.0-beta.9:
-    resolution: {integrity: sha512-OSHc7ujFwOXfULeq9YOyBU44tCBte5KonomsgHmkl++CK8doJUj2miTojAKxhRMnCaLLmE1weVtVRl291NGSsQ==}
+  /cache-hash@1.0.0-beta.10:
+    resolution: {integrity: sha512-a2h7t+sfiJtrEKobUxX6GBuE7F+oyTLmB6Uj8p9eqCE3QYO/p6Rh92cvs9ndvYkDTpI01i8NpMe/BpoyiWrPPw==}
     hasBin: true
     dependencies:
       acorn-walk: 8.2.0
@@ -2101,10 +2101,10 @@ packages:
       hexo-pagination: 3.0.0
     dev: false
 
-  /hexo-hash@1.0.3:
-    resolution: {integrity: sha512-ONeFFbuV3rMaVaRGdyc4MBZZOzyMWR4B0J3cLjalNxi+x4NChiug4dnsTQLDAA4H/AyNIiYFdf72CcBcYtwsAA==}
+  /hexo-hash@1.0.4:
+    resolution: {integrity: sha512-PKU6+dBRkjIELs+MXj9ym9mW5HNubVopNK9u520tNhnPjgXJcbNZPVG6weadKEhsZuT7QAMIRvmrgYdQWOievw==}
     dependencies:
-      cache-hash: 1.0.0-beta.9
+      cache-hash: 1.0.0-beta.10
     dev: false
 
   /hexo-i18n@1.0.0:
