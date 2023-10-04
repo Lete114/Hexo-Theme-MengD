@@ -13,7 +13,7 @@
   const history_list = $('.search-history-list')
   const clear = $('.search-history-clear')
   const result = $('.search-result')
-  const storage = JSON.parse(localStorage.getItem('search-history') || '[]')
+  const storage = JSON.parse(localStorage.getItem('search-history') || '[]').reverse()
 
   // clear search history
   clear.addEventListener('click', () => {
